@@ -27,7 +27,7 @@ namespace Salih::Structures::LinkedLists {
 			
 			// LinkedList(const LinkedList&) ; //create new copy where each node is copied and mapped to new copies
 			
-			//LinkedList(std::vector<T>) ; //initialise linked list by creating a node for every element in the vector
+			//LinkedList(std::vector<T>) ; //initialise linked list by creating a node for every element in the vector - use new and delete to throw values onto stack - use destructor to loop through and delete
 				
 			LinkedList(Node<T>&) ; //provide node and assumes head is supplied	
 			
