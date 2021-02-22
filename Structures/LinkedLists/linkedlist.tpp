@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
-#include <vector>
+#include <initializer_list>
 
 /* This file contains the implementations of a linked list
  * This includes the core linked nodes & a convenient wrapper 
@@ -20,6 +20,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 {
 	this->head = &i_head ;
 	this->tail = &i_tail ;
+	this->alloc = false ;
 }
 
 template <typename T>
@@ -28,6 +29,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 	Node<T>* node = &i_node ;
 	this->head = node ;
 	this->tail = Node<T>::getTail(node) ;
+	this->alloc = false ;
 }
 
 template <typename T>
@@ -42,25 +44,45 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 		this->tail = node ;
 		this->head = Node<T>::getHead(node) ;
 	}
+	this->alloc = false ;
 }
 
-//template <typename T>
-//Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(std::vector<T> values)
-//{
-//	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
-//	for(auto it = begin(values) ; it != end(values) ; it = next(it))
-//	{
-//		if(it == begin(values)) 
-//		{
-//			this->head = &Node(*it) ;
-//			p = head ;	
-//		} else if(it == prev(end(values))) {
-//			tail = &(Node(*it, *p, 0)) ;
-//		} else {
-//			p = &(Node(*it, *p, 0)) ;
-//		}	
-//	}
-//}
+template <typename T>
+Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer_list<T>& values)
+{
+	this->size = 0 ;
+	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
+	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
+	{
+		if(it == std::begin(values)) 
+		{
+			this->head = new Node(*it) ;
+			p = head ;	
+		} else if(it == std::prev(std::end(values))) {
+			tail = new Node(*it, *p, 0) ;
+		} else {
+			p = new Node(*it, *p, 0) ;
+		}
+		this->size = size + 1 ;	
+	}
+	this->alloc = true ;
+}
+
+template <typename T>
+Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
+{
+	if(alloc != true) return;
+	
+	if(head == NULL) return;
+	
+	for(Node<T>* node = head ; ;)
+	{
+		Node<T>* mem = node->getNext() ;
+		delete node ;
+		if(mem == NULL) break ;
+		node = mem ;
+	} 
+}
 
 template <typename T>
 T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index)
@@ -79,6 +101,30 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index)
 		count++ ;
 	}
 	return node->getData() ;
+}
+
+template <typename T>
+inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
+{
+	this->size = newSize ;
+}
+
+template <typename T>
+int Salih::Structures::LinkedLists::LinkedList<T>::getSize()
+{
+	if(size == -1) //ie we need to calculate size first
+	{
+		if(this->head == NULL) setSize(0) ;
+		else {
+			Node<T>* node = head ;
+			while(node->getNext() != NULL)
+			{
+				setSize(size + 1) ;
+				node = node->getNext() ;
+			}
+		}
+	}
+	return size ;
 }
 
 template <typename T>

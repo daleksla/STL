@@ -3,7 +3,7 @@
 #pragma once
 
 #include <algorithm>
-#include <vector>
+#include <initializer_list>
 
 /* This file contains the declarations of a linked list 
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
@@ -22,20 +22,30 @@ namespace Salih::Structures::LinkedLists {
 			Node<T>* head ;
 			
 			Node<T>* tail ;
+			
+			int size = -1 ;
+			
+			bool alloc ;
+			
+			inline void setSize(int) ;
 		public:
 			LinkedList() ; //empty linkedlist (ie no nodes)
 			
 			// LinkedList(const LinkedList&) ; //create new copy where each node is copied and mapped to new copies
 			
-			//LinkedList(std::vector<T>) ; //initialise linked list by creating a node for every element in the vector
-				
+			LinkedList(const std::initializer_list<T>&) ; //initialise linked list by creating a node for every element in the vector - use new and delete to throw values onto stack - use destructor to loop through and delete
+					
 			LinkedList(Node<T>&) ; //provide node and assumes head is supplied	
 			
 			LinkedList(Node<T>&, bool) ; //provide node and note whether tail or head is supplied
 			
 			LinkedList(Node<T>&, Node<T>&) ; //provide head and tail node
 			
+			~LinkedList() ; //destructor - will deallocate memory if necessary
+			
 			T& operator[](const int&) ; //method to index linked list, returns data
+						
+			int getSize() ; //get size
 
 	} ;
 	
