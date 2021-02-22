@@ -46,6 +46,8 @@ namespace Salih::Structures::LinkedLists {
 			T& operator[](const int&) ; //method to index linked list, returns data
 						
 			int getSize() ; //get size
+			
+			void append(T) ; //append value to list
 
 	} ;
 	
