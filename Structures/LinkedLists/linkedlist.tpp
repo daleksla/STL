@@ -144,9 +144,9 @@ void Salih::Structures::LinkedLists::LinkedList<T>::del(int index)
 {
 	int count = 0 ;
 	auto node = head ;
-	while(count != index)
+	while(count < index)
 	{
-		if(this->getNext() != NULL)
+		if(node->getNext() != NULL)
 		{
 			node = node->getNext() ;
 		}
