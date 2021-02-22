@@ -23,7 +23,11 @@ namespace Salih::Structures::LinkedLists {
 			
 			Node<T>* tail ;
 			
+			int size = -1 ;
+			
 			bool alloc ;
+			
+			inline void setSize(int) ;
 		public:
 			LinkedList() ; //empty linkedlist (ie no nodes)
 			
@@ -40,6 +44,8 @@ namespace Salih::Structures::LinkedLists {
 			~LinkedList() ; //destructor - will deallocate memory if necessary
 			
 			T& operator[](const int&) ; //method to index linked list, returns data
+						
+			int getSize() ; //get size
 
 	} ;
 	

@@ -50,6 +50,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer_list<T>& values)
 {
+	this->size = 0 ;
 	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
@@ -61,7 +62,8 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer
 			tail = new Node(*it, *p, 0) ;
 		} else {
 			p = new Node(*it, *p, 0) ;
-		}	
+		}
+		this->size = size + 1 ;	
 	}
 	this->alloc = true ;
 }
@@ -99,6 +101,30 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index)
 		count++ ;
 	}
 	return node->getData() ;
+}
+
+template <typename T>
+inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
+{
+	this->size = newSize ;
+}
+
+template <typename T>
+int Salih::Structures::LinkedLists::LinkedList<T>::getSize()
+{
+	if(size == -1) //ie we need to calculate size first
+	{
+		if(this->head == NULL) setSize(0) ;
+		else {
+			Node<T>* node = head ;
+			while(node->getNext() != NULL)
+			{
+				setSize(size + 1) ;
+				node = node->getNext() ;
+			}
+		}
+	}
+	return size ;
 }
 
 template <typename T>
