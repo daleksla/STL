@@ -21,6 +21,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 	this->head = &i_head ;
 	this->tail = &i_tail ;
 	this->alloc = false ;
+	getSize() ;
 }
 
 template <typename T>
@@ -30,6 +31,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 	this->head = node ;
 	this->tail = Node<T>::getTail(node) ;
 	this->alloc = false ;
+	getSize() ;
 }
 
 template <typename T>
@@ -45,6 +47,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 		this->head = Node<T>::getHead(node) ;
 	}
 	this->alloc = false ;
+	getSize() ;
 }
 
 template <typename T>
