@@ -128,6 +128,14 @@ int Salih::Structures::LinkedLists::LinkedList<T>::getSize()
 }
 
 template <typename T>
+void Salih::Structures::LinkedLists::LinkedList<T>::append(T data)
+{
+	Node<T>* node = new Node<T>(data) ;
+	tail->setNext(node) ;
+	this->tail = node ;
+}
+
+template <typename T>
 Salih::Structures::LinkedLists::Node<T>::Node(T i_data, Salih::Structures::LinkedLists::Node<T>& i_prev, Salih::Structures::LinkedLists::Node<T>& i_next) : data(i_data), prev(&i_prev), next(&i_next) 
 {
 	auto temp = this ;
