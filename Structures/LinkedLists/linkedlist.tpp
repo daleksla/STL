@@ -21,6 +21,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 	this->head = &i_head ;
 	this->tail = &i_tail ;
 	this->alloc = false ;
+	getSize() ;
 }
 
 template <typename T>
@@ -30,6 +31,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 	this->head = node ;
 	this->tail = Node<T>::getTail(node) ;
 	this->alloc = false ;
+	getSize() ;
 }
 
 template <typename T>
@@ -45,6 +47,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 		this->head = Node<T>::getHead(node) ;
 	}
 	this->alloc = false ;
+	getSize() ;
 }
 
 template <typename T>
@@ -133,6 +136,37 @@ void Salih::Structures::LinkedLists::LinkedList<T>::append(T data)
 	Node<T>* node = new Node<T>(data) ;
 	tail->setNext(node) ;
 	this->tail = node ;
+	setSize(size + 1) ;
+}
+
+template <typename T>
+void Salih::Structures::LinkedLists::LinkedList<T>::del(int index)
+{
+	int count = 0 ;
+	auto node = head ;
+	while(count != index)
+	{
+		if(this->getNext() != NULL)
+		{
+			node = node->getNext() ;
+		}
+		else {
+			throw std::out_of_range("Element does not exist") ;
+		}
+		count++ ;
+	}
+	del(node) ;
+	setSize(size - 1) ;
+}
+
+template <typename T>
+void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures::LinkedLists::Node<T>*& node)
+{
+	Node<T>*& prev = node->getPrev() ;
+	Node<T>*& next = node->getNext() ;
+	prev->setNext(next) ; 
+	next->setPrev(prev) ; 
+	delete node ;
 }
 
 template <typename T>

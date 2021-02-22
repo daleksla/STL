@@ -28,6 +28,8 @@ namespace Salih::Structures::LinkedLists {
 			bool alloc ;
 			
 			inline void setSize(int) ;
+			
+			inline void del(Node<T>*&) ;
 		public:
 			LinkedList() ; //empty linkedlist (ie no nodes)
 			
@@ -48,6 +50,8 @@ namespace Salih::Structures::LinkedLists {
 			int getSize() ; //get size
 			
 			void append(T) ; //append value to list
+			
+			void del(int) ; //delete element in list based off rank (1st, 2nd, etc.)
 
 	} ;
 	
