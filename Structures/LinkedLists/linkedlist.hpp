@@ -10,9 +10,6 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
 
 namespace Salih::Structures::LinkedLists {
-
-	template<typename T>
-	class Node ;
 	
 	template<typename T>
 	class LinkedList ;
