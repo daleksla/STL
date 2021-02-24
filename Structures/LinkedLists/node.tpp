@@ -78,13 +78,7 @@ void Salih::Structures::LinkedLists::Node<T>::setNext(Node<T>*& input)
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::Node<T>::getData() 
-{
-	return data ;
-}
-
-template <typename T>
-const T& Salih::Structures::LinkedLists::Node<T>::getData() const
+T Salih::Structures::LinkedLists::Node<T>::getData() const
 {
 	return data ;
 }

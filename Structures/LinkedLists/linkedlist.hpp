@@ -44,6 +44,8 @@ namespace Salih::Structures::LinkedLists {
 			~LinkedList() ; //destructor - will deallocate memory if necessary
 			
 			T& operator[](const int&) ; //method to index linked list, returns data
+			
+			const T& operator[](const int&) const ; //method to index linked list, returns data
 						
 			int getSize() ; //get size
 			

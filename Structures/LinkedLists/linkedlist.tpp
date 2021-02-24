@@ -107,6 +107,25 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index)
 }
 
 template <typename T>
+const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index) const
+{
+	int count = 0 ;
+	Node<T>* node = head ;
+	while(count != index)
+	{
+		if(node->getNext() != NULL)
+		{
+			node = node->getNext() ;
+		}
+		else {
+			throw std::out_of_range("Element does not exist") ;
+		}
+		count++ ;
+	}
+	return node->getData() ;
+}
+
+template <typename T>
 inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
 {
 	this->size = newSize ;

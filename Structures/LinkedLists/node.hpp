@@ -59,9 +59,7 @@ namespace Salih::Structures::LinkedLists {
 
 			void setNext(Node*&) ; //sets next node in LL
 			
-			T& getData() ; //returns data of object
-			
-			const T& getData() const ; //returns data of object
+			T getData() const ; //returns data of object
 
 			void setData(T) ; //sets data of object
 
