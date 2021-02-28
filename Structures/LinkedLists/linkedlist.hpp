@@ -4,6 +4,7 @@
 
 #include <lib/Structures/LinkedLists/node.hpp>
 #include <algorithm>
+#include <iostream>
 #include <initializer_list>
 
 /* This file contains the declarations of a linked list 
@@ -45,9 +46,9 @@ namespace Salih::Structures::LinkedLists {
 			
 			T& operator[](const int&) ; //method to index linked list, returns data
 			
-			const T& operator[](const int&) const ; //method to index linked list, returns data
+			bool operator==(LinkedList<T>&) ; //method to index linked list, returns data
 						
-			int getSize() ; //get size
+			const int getSize() ; //get size
 			
 			void append(T) ; //append value to list
 			
@@ -57,5 +58,26 @@ namespace Salih::Structures::LinkedLists {
 }
 
 #include "linkedlist.tpp"
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, Salih::Structures::LinkedLists::LinkedList<T>& dt)
+{
+    //os << dt.mo << '/' << dt.da << '/' << dt.yr;
+    if(dt.getSize() == 0) 
+    {
+    	os << "[]" ;
+    	return os ;
+    }
+    
+    os << "[" ;
+    for(int i = 0 ; i < dt.getSize() ; i++)
+    {
+    	if(i != dt.getSize() - 1) os << dt[i] << "," ;
+    	else os << dt[i] ;
+    }
+    os << "]" ;
+    
+    return os;
+}
 
 #endif

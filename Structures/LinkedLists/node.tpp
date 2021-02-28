@@ -78,7 +78,7 @@ void Salih::Structures::LinkedLists::Node<T>::setNext(Node<T>*& input)
 }
 
 template <typename T>
-T Salih::Structures::LinkedLists::Node<T>::getData() const
+T& Salih::Structures::LinkedLists::Node<T>::getData()
 {
 	return data ;
 }
@@ -172,11 +172,11 @@ Salih::Structures::LinkedLists::Node<T>* Salih::Structures::LinkedLists::Node<T>
 	return Node<T>::getTail(&a) ;
 }
 
-template <typename T>
-std::ostream& operator<<(std::ostream& os, Salih::Structures::LinkedLists::Node<T> data)
-{
-	os << "Data: " << data.data << "; Prev. location: " << data.prev << "; Next location: " << data.next ;
-	return os ;
-}
+//template <typename T>
+//std::ostream& operator<<(std::ostream& os, Salih::Structures::LinkedLists::Node<T> data)
+//{
+//	os << "Data: " << data.data << "; Prev. location: " << data.prev << "; Next location: " << data.next ;
+//	return os ;
+//}
 
 #endif
