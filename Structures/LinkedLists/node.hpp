@@ -59,7 +59,7 @@ namespace Salih::Structures::LinkedLists {
 
 			void setNext(Node*&) ; //sets next node in LL
 			
-			T getData() const ; //returns data of object
+			T& getData() ; //returns data of object
 
 			void setData(T) ; //sets data of object
 
@@ -79,7 +79,7 @@ namespace Salih::Structures::LinkedLists {
 		        	friend class LinkedList<T> ;
 		        #endif
 			
-		        friend std::ostream& operator<<(std::ostream&, Node) ; //custom printing off a node
+		        //friend std::ostream& operator<<(std::ostream&, Node) ; //custom printing off a node
 	} ;	
 }
 

@@ -106,23 +106,41 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index)
 	return node->getData() ;
 }
 
+//template <typename T>
+//const T Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index) const
+//{
+//	int count = 0 ;
+//	Node<T>* node = head ;
+//	while(count != index)
+//	{
+//		if(node->getNext() != NULL)
+//		{
+//			node = node->getNext() ;
+//		}
+//		else {
+//			throw std::out_of_range("Element does not exist") ;
+//		}
+//		count++ ;
+//	}
+//	return node->getData() ;
+//}
+
 template <typename T>
-const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index) const
+bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(Salih::Structures::LinkedLists::LinkedList<T>& list)
 {
-	int count = 0 ;
-	Node<T>* node = head ;
-	while(count != index)
+	if(list.getSize() != this->getSize()) return false ;
+	
+	auto head1 = this->head ;
+	auto head2 = list.head ;
+	
+	for(int i = 0 ; i < list.getSize() ; i++)
 	{
-		if(node->getNext() != NULL)
-		{
-			node = node->getNext() ;
-		}
-		else {
-			throw std::out_of_range("Element does not exist") ;
-		}
-		count++ ;
+		if(head1->getData() != head2->getData()) return false ;
+		head1 = head1->getNext() ;
+		head2 = head2->getNext() ;
 	}
-	return node->getData() ;
+	 
+	return true ;
 }
 
 template <typename T>
@@ -132,7 +150,7 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
 }
 
 template <typename T>
-int Salih::Structures::LinkedLists::LinkedList<T>::getSize()
+const int Salih::Structures::LinkedLists::LinkedList<T>::getSize()
 {
 	if(size == -1) //ie we need to calculate size first
 	{
