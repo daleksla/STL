@@ -87,7 +87,9 @@ const T& Salih::Types::Stack<T>::peek() const
 template <typename T>
 void Salih::Types::Stack<T>::push(T val)
 {
-	Salih::Structures::LinkedLists::Node<T>* p = new Salih::Structures::LinkedLists::Node<T>(val, *tail, 0) ;
+	Salih::Structures::LinkedLists::Node<T>* p ;
+	if(size == 0) p = new Salih::Structures::LinkedLists::Node<T>(val) ;
+	else p = new Salih::Structures::LinkedLists::Node<T>(val, *tail, 0) ;
 	tail = p ;
 	size += 1 ;
 }
