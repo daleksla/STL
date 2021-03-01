@@ -10,13 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Navigate to testing folder
-      - run: cd ./.testing/exes/
+        run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
       - run: find . -maxdepth 1 -perm -111 -type f >> files.log
       - name: Loop through & Run files
-      - run: |
+        run: |
           input=".files.log"
           while IFS= read -r line
           do
             ./"$line"
           done < "$input"
+      - name: Delete temporary file name holder
+        run: rm files.log
