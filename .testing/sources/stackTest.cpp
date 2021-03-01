@@ -1,6 +1,6 @@
 /* Include the unit testing library */
 #define CATCH_CONFIG_MAIN
-#include <testing/catch.hpp>
+#include "catch.hpp"
 
 /* Include the code that we plan to test */
 #include <lib/Types/stack.hpp>
