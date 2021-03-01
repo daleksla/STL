@@ -15,7 +15,7 @@ jobs:
       - run: find . -maxdepth 1 -perm -111 -type f >> files.log
       - name: Loop through & Run files
         run: |
-          input=".files.log"
+          input="./files.log"
           while IFS= read -r line
           do
             ./"$line"
