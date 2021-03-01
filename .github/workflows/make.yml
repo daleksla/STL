@@ -20,4 +20,6 @@ jobs:
         mv catch.hpp /usr/include/c++/9/testing/
     - uses: actions/checkout@v2
     - name: Make tests
-      run: make
+      run: |
+        cd ./.testing/
+        make
