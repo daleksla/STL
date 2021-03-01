@@ -12,9 +12,7 @@ jobs:
       - name: Navigate to testing folder
         run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
-        run: find . -maxdepth 1 -perm -111 -type f >> files.log
-      - name: Get amount of executable files
-        run: wc -l files.log
+      - run: find . -maxdepth 1 -perm -111 -type f >> files.log
       - name: Loop through & Run files
         run: |
           input=".files.log"
@@ -22,3 +20,5 @@ jobs:
           do
             ./"$line"
           done < "$input"
+      - name: Delete temporary file name holder
+        run: rm files.log
