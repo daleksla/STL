@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches-ignore:
+      - master
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install dependancies
+      run: |
+        sudo apt install g++
+        wget --no-check-certificate https://github.com/catchorg/Catch2/releases/download/v2.13.4/catch.hpp 
+    - name: Place files in correct directories
+      run: |
+        ln . /usr/include/c++/9/
+        mv catch.hpp /usr/include/c++/9/testing/
+    - uses: actions/checkout@v2
+    - name: Make tests
+      run: make
