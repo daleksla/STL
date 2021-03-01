@@ -2,7 +2,7 @@
 #define QUEUE_HPP
 #pragma once
 
-#include "./LinkedLists/node.hpp"
+#include "../Structures/LinkedLists/node.hpp"
 #include <algorithm>
 #include <iterator>
 #include <initializer_list>
@@ -10,7 +10,7 @@
 /* This file contains the declarations and implementations of a Queue-based structure
  * The data is stored and maintained using a linked-list structure */
 
-namespace Salih::Structures {
+namespace Salih::Types {
 	template<class T>
 	class Queue {
 		private:
@@ -29,14 +29,15 @@ namespace Salih::Structures {
 }
 
 template <typename T>
-Salih::Structures::Queue<T>::Queue()
+Salih::Types::Queue<T>::Queue()
 {
 	this->size = 0 ;
+	this->head = NULL ;
 	this->tail = NULL ;
 }
 
 template <typename T>
-Salih::Structures::Queue<T>::Queue(const std::initializer_list<T>& values)
+Salih::Types::Queue<T>::Queue(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	this->head = new Salih::Structures::LinkedLists::Node<T>(*std::begin(values)) ;
@@ -54,7 +55,7 @@ Salih::Structures::Queue<T>::Queue(const std::initializer_list<T>& values)
 }
 
 template <typename T>
-Salih::Structures::Queue<T>::~Queue()
+Salih::Types::Queue<T>::~Queue()
 {
 	if(size == 0) return;
 	
@@ -68,7 +69,7 @@ Salih::Structures::Queue<T>::~Queue()
 }
 
 template <typename T>
-T Salih::Structures::Queue<T>::pop()
+T Salih::Types::Queue<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Queue is empty") ;
 	auto newHead = head->getNext() ;
@@ -80,22 +81,30 @@ T Salih::Structures::Queue<T>::pop()
 }
 
 template <typename T>
-const T& Salih::Structures::Queue<T>::peek() const
+const T& Salih::Types::Queue<T>::peek() const
 {
 	if(size != 0) return head->getData() ;
 	else throw std::out_of_range("Queue is empty") ;
 }
 
 template <typename T>
-void Salih::Structures::Queue<T>::push(T val)
+void Salih::Types::Queue<T>::push(T val)
 {
-	Salih::Structures::LinkedLists::Node<T>* p = new Salih::Structures::LinkedLists::Node<T>(val, *tail, 0) ;
+	Salih::Structures::LinkedLists::Node<T>* p ;
+	if(size == 0)
+	{
+		p = new Salih::Structures::LinkedLists::Node<T>(val) ;
+		head = p ;
+	}
+	else {
+		p = new Salih::Structures::LinkedLists::Node<T>(val, *tail, 0) ;	
+	}
 	tail = p ;
 	size += 1 ;
 }
 
 template <typename T>
-void Salih::Structures::Queue<T>::push(const std::initializer_list<T>& values)
+void Salih::Types::Queue<T>::push(const std::initializer_list<T>& values)
 {
 	Salih::Structures::LinkedLists::Node<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
