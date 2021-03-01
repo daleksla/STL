@@ -14,12 +14,9 @@ jobs:
     - name: Install dependancies
       run: |
         sudo apt install g++
-        sudo wget --no-check-certificate https://github.com/catchorg/Catch2/releases/download/v2.13.4/catch.hpp 
     - name: Place files in correct directories
       run: |
-        sudo cp -r . /usr/include/c++/9/
-        sudo mkdir /usr/include/c++/9/testing/
-        sudo mv catch.hpp /usr/include/c++/9/testing/
+        sudo ln -sf . /usr/include/c++/9/lib
     - name: Make tests
       run: |
         cd ./.testing/
