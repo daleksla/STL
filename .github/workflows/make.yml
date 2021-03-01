@@ -16,7 +16,7 @@ jobs:
         wget --no-check-certificate https://github.com/catchorg/Catch2/releases/download/v2.13.4/catch.hpp 
     - name: Place files in correct directories
       run: |
-        cp . /usr/include/c++/9/
+        sudo cp -r . /usr/include/c++/9/
         mv catch.hpp /usr/include/c++/9/testing/
     - uses: actions/checkout@v2
     - name: Make tests
