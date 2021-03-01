@@ -12,7 +12,7 @@ jobs:
       - name: Navigate to testing folder
         run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
-      - run: find . -maxdepth 1 -perm -111 -type f >> files.log
+        run: find . -maxdepth 1 -perm -111 -type f >> files.log
       - name: Loop through & Run files
         run: |
           input="./files.log"
