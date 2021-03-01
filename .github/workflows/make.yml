@@ -10,14 +10,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Install dependancies
       run: |
         sudo apt install g++
-        wget --no-check-certificate https://github.com/catchorg/Catch2/releases/download/v2.13.4/catch.hpp 
+        sudo wget --no-check-certificate https://github.com/catchorg/Catch2/releases/download/v2.13.4/catch.hpp 
     - name: Place files in correct directories
       run: |
-        cp . /usr/include/c++/9/
-        mv catch.hpp /usr/include/c++/9/testing/
-    - uses: actions/checkout@v2
+        sudo cp -r . /usr/include/c++/9/
+        sudo mkdir /usr/include/c++/9/testing/
+        sudo mv catch.hpp /usr/include/c++/9/testing/
     - name: Make tests
-      run: make
+      run: |
+        cd ./.testing/
+        make
