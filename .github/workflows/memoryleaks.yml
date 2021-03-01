@@ -5,20 +5,6 @@ on:
       - master
       - main
 jobs:
-  Make-waiting:
-    runs-on: ubuntu-latest
-    steps:
-     - name: Wait for build to succeed
-       uses: fountainhead/action-wait-for-check@v1.0.0
-       id: wait-for-build
-       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        checkName: build
-        ref: ${{ github.event.pull_request.head.sha || github.sha }}
-     - name: Do something with a passing build
-       if: steps.wait-for-build.outputs.conclusion == 'success'
-     - name: Do something with a failing build
-       if: steps.wait-for-build.outputs.conclusion == 'failure'
   Testing:
     needs: [Make-waiting]
     runs-on: ubuntu-latest
