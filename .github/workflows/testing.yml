@@ -10,13 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Navigate to testing folder
-      - run: cd ./.testing/exes/
+        run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
-      - run: find . -maxdepth 1 -perm -111 -type f >> files.log
+        run: find . -maxdepth 1 -perm -111 -type f >> files.log
       - name: Get amount of executable files
-      - run: wc -l files.log
+        run: wc -l files.log
       - name: Loop through & Run files
-      - run: |
+        run: |
           input=".files.log"
           while IFS= read -r line
           do
