@@ -144,6 +144,24 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(Salih::Structures
 }
 
 template <typename T>
+bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(Salih::Structures::LinkedLists::LinkedList<T>& list)
+{
+	if(list.getSize() != this->getSize()) return true ;
+	
+	auto head1 = this->head ;
+	auto head2 = list.head ;
+	
+	for(int i = 0 ; i < list.getSize() ; i++)
+	{
+		if(head1->getData() != head2->getData()) return true ;
+		head1 = head1->getNext() ;
+		head2 = head2->getNext() ;
+	}
+	 
+	return false ;
+}
+
+template <typename T>
 inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
 {
 	this->size = newSize ;
@@ -180,6 +198,7 @@ template <typename T>
 void Salih::Structures::LinkedLists::LinkedList<T>::del(int index)
 {
 	int count = 0 ;
+	if(index == 0) throw std::out_of_range("Index does not exist") ;
 	auto node = head ;
 	while(count < index)
 	{
@@ -188,7 +207,7 @@ void Salih::Structures::LinkedLists::LinkedList<T>::del(int index)
 			node = node->getNext() ;
 		}
 		else {
-			throw std::out_of_range("Element does not exist") ;
+			throw std::out_of_range("Index does not exist") ;
 		}
 		count++ ;
 	}

@@ -47,6 +47,8 @@ namespace Salih::Structures::LinkedLists {
 			T& operator[](const int&) ; //method to index linked list, returns data
 			
 			bool operator==(LinkedList<T>&) ; //method to index linked list, returns data
+			
+			bool operator!=(LinkedList<T>&) ; //method to index linked list, returns data
 						
 			const int getSize() ; //get size
 			
