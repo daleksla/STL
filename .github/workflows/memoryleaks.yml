@@ -1,0 +1,28 @@
+name: Memory Leaks #give this pipeline an actual name
+on:
+  push:
+    branches-ignore:
+      - master
+      - main
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install valgrind dependancies
+        run: sudo apt-get install g++
+      - name: Install valgrind
+        run: sudo apt install valgrind
+      - name: Navigate to testing folder
+        run: cd ./.testing/exes/
+      - name: Store all testing filenames and store in a file
+        run: find . -maxdepth 1 -perm -111 -type f >> files.log
+      - name: Loop through & run valgrind for each one
+        run: |
+          input="./files.log"
+          while IFS= read -r line
+          do
+            ./"$line"
+          done < "$input"
+      - name: Delete temporary file name holder
+        run: rm files.log
