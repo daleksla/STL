@@ -2,7 +2,7 @@
 #define STACK_HPP
 #pragma once
 
-#include "./LinkedLists/node.hpp"
+#include "../Structures/LinkedLists/node.hpp"
 #include <algorithm>
 #include <iterator>
 #include <initializer_list>
@@ -10,7 +10,7 @@
 /* This file contains the declarations and implementations of a Stack-based structure
  * The data is stored and maintained using a linked-list structure */
 
-namespace Salih::Structures {
+namespace Salih::Types {
 	template<class T>
 	class Stack {
 		private:
@@ -28,14 +28,14 @@ namespace Salih::Structures {
 }
 
 template <typename T>
-Salih::Structures::Stack<T>::Stack()
+Salih::Types::Stack<T>::Stack()
 {
 	this->size = 0 ;
 	this->tail = NULL ;
 }
 
 template <typename T>
-Salih::Structures::Stack<T>::Stack(const std::initializer_list<T>& values)
+Salih::Types::Stack<T>::Stack(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::Node<T>* p = new Salih::Structures::LinkedLists::Node<T>(*std::begin(values)) ;
@@ -52,7 +52,7 @@ Salih::Structures::Stack<T>::Stack(const std::initializer_list<T>& values)
 }
 
 template <typename T>
-Salih::Structures::Stack<T>::~Stack()
+Salih::Types::Stack<T>::~Stack()
 {
 	if(size == 0) return;
 	
@@ -66,7 +66,7 @@ Salih::Structures::Stack<T>::~Stack()
 }
 
 template <typename T>
-T Salih::Structures::Stack<T>::pop()
+T Salih::Types::Stack<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Stack is empty") ;
 	auto newTail = tail->getPrev() ;
@@ -78,22 +78,24 @@ T Salih::Structures::Stack<T>::pop()
 }
 
 template <typename T>
-const T& Salih::Structures::Stack<T>::peek() const
+const T& Salih::Types::Stack<T>::peek() const
 {
 	if(size != 0) return tail->getData() ;
 	else throw std::out_of_range("Stack is empty") ;
 }
 
 template <typename T>
-void Salih::Structures::Stack<T>::push(T val)
+void Salih::Types::Stack<T>::push(T val)
 {
-	Salih::Structures::LinkedLists::Node<T>* p = new Salih::Structures::LinkedLists::Node<T>(val, *tail, 0) ;
+	Salih::Structures::LinkedLists::Node<T>* p ;
+	if(size == 0) p = new Salih::Structures::LinkedLists::Node<T>(val) ;
+	else p = new Salih::Structures::LinkedLists::Node<T>(val, *tail, 0) ;
 	tail = p ;
 	size += 1 ;
 }
 
 template <typename T>
-void Salih::Structures::Stack<T>::push(const std::initializer_list<T>& values)
+void Salih::Types::Stack<T>::push(const std::initializer_list<T>& values)
 {
 	Salih::Structures::LinkedLists::Node<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
