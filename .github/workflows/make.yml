@@ -16,8 +16,7 @@ jobs:
         sudo apt install g++
     - name: Place files in correct directories
       run: |
-        export CPLUS_INCLUDE_PATH="/usr/include"
-        sudo cp -r . /usr/include/c++/9/
+        sudo ln -sf . /usr/include/c++/9/lib
     - name: Make tests
       run: |
         cd ./.testing/
