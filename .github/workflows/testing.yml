@@ -6,7 +6,6 @@ on:
       - main
 jobs:
   Testing:
-    needs: [Make-waiting]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
