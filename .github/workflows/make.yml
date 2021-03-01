@@ -17,7 +17,7 @@ jobs:
     - name: Place files in correct directories
       run: |
         cp . /usr/include/c++/9/
-        mv catch.hpp /usr/include/c++/9/testing/
+        mv catch.hpp /usr/include/c++/9/testing/ 
     - uses: actions/checkout@v2
     - name: Make tests
       run: make
