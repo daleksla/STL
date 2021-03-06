@@ -126,6 +126,42 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Stru
 }
 
 template <typename T>
+void Salih::Structures::LinkedLists::LinkedList<T>::insert(const int pos, T data) 
+{
+	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
+	
+	//loop through LL, find correct 'node'
+	Node<T>* curNode = head ;
+	for(int count = 1 ; count < pos ; count++) 
+	{
+		curNode = curNode->getNext() ;
+	}
+
+	this->insert(curNode, data) ;
+	this->setSize(this->size + 1) ;	
+}
+
+template <typename T>
+inline void Salih::Structures::LinkedLists::LinkedList<T>::insert(Salih::Structures::LinkedLists::Node<T>* node, T data)
+{ //correct function
+	auto newNode = new Node<T>(data) ;
+	Node<T>* prev = node->getPrev() ;
+	
+	if(prev == NULL)
+	{
+		this->head = newNode ;
+		newNode->setNext(node) ;	
+		node->setPrev(newNode) ;
+	} 
+	else {
+		prev->setNext(newNode) ;
+		newNode->setPrev(prev) ;
+		newNode->setNext(node) ;	
+		node->setPrev(newNode) ;
+	}
+}
+
+template <typename T>
 inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
 {
 	this->size = newSize ;
