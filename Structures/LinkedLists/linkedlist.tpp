@@ -129,6 +129,7 @@ template <typename T>
 void Salih::Structures::LinkedLists::LinkedList<T>::insert(const int pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
+	else if(pos == this->size + 1) return this->append(data) ;
 	
 	//loop through LL, find correct 'node'
 	Node<T>* curNode = head ;

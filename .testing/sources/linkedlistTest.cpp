@@ -71,6 +71,41 @@ TEST_CASE("'append()' method - correct value added")
 	REQUIRE(list1[0] == 5) ;
 }
 
+/* Insert method */
+TEST_CASE("'insert()' method - correct value added at beginning of list")
+{
+	intList list1{54,2,3,4,5} ;
+	list1.insert(1,1) ;
+	REQUIRE(list1[0] == 1) ;
+}
+
+TEST_CASE("'insert()' method - correct value added in the middle of list")
+{
+	intList list1{1,2,4,5} ;
+	list1.insert(3,3) ;
+	REQUIRE(list1[2] == 3) ;
+}
+
+TEST_CASE("'insert()' method - correct value added at end of list")
+{
+	intList list1{1,2,3} ;
+	list1.insert(4,4) ;
+	REQUIRE(list1[3] == 4) ;
+}
+
+TEST_CASE("'insert()' method - does 'out_of_range' error get thrown if index is invalid")
+{
+	intList list1 ;
+	bool isError = false ;
+	try {
+		list1.insert(2,1) ;
+	} catch(const std::out_of_range& error) {
+		isError = true ;
+	}
+	
+	REQUIRE(isError == true) ;
+}
+
 /* Delete method */
 TEST_CASE("'del()' method - correct value deleted")
 {
