@@ -70,7 +70,7 @@ T Salih::Types::Stack<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Stack is empty") ;
 	auto newTail = tail->getPrev() ;
-	auto data = tail->getData() ;
+	auto data = tail->data ;
 	delete tail ;
 	tail = newTail ;
 	size -= 1 ;
@@ -80,7 +80,7 @@ T Salih::Types::Stack<T>::pop()
 template <typename T>
 const T& Salih::Types::Stack<T>::peek() const
 {
-	if(size != 0) return tail->getData() ;
+	if(size != 0) return tail->data ;
 	else throw std::out_of_range("Stack is empty") ;
 }
 

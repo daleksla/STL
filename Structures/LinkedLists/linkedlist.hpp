@@ -22,39 +22,32 @@ namespace Salih::Structures::LinkedLists {
 			
 			Node<T>* tail ;
 			
-			int size = -1 ;
-			
-			bool alloc ;
+			int size ;
 			
 			inline void setSize(int) ;
 			
-			inline void del(Node<T>*&) ;
+			inline void del(Node<T>*) ;
+			
 		public:
 			LinkedList() ; //empty linkedlist (ie no nodes)
 			
-			// LinkedList(const LinkedList&) ; //create new copy where each node is copied and mapped to new copies
+			LinkedList(const LinkedList&) ; //create new copy where each node is copied and mapped to new copies
 			
 			LinkedList(const std::initializer_list<T>&) ; //initialise linked list by creating a node for every element in the vector - use new and delete to throw values onto stack - use destructor to loop through and delete
-					
-			LinkedList(Node<T>&) ; //provide node and assumes head is supplied	
-			
-			LinkedList(Node<T>&, bool) ; //provide node and note whether tail or head is supplied
-			
-			LinkedList(Node<T>&, Node<T>&) ; //provide head and tail node
 			
 			~LinkedList() ; //destructor - will deallocate memory if necessary
 			
-			T& operator[](const int&) ; //method to index linked list, returns data
+			T& operator[](const int) ; //method to index linked list, returns data
 			
-			bool operator==(LinkedList<T>&) ; //method to index linked list, returns data
+			bool operator==(const LinkedList<T>&) const ; //method to index linked list, returns data
 			
-			bool operator!=(LinkedList<T>&) ; //method to index linked list, returns data
+			bool operator!=(const LinkedList<T>&) const ; //method to index linked list, returns data
 						
-			const int getSize() ; //get size
+			int getSize() const ; //get size
 			
 			void append(T) ; //append value to list
 			
-			void del(int) ; //delete element in list based off rank (1st, 2nd, etc.)
+			void del(const int) ; //delete element in list based off rank (1st, 2nd, etc.)
 
 	} ;	
 }

@@ -4,6 +4,7 @@
 
 #include <lib/Structures/LinkedLists/node.hpp>
 #include <stdexcept>
+#include <array>
 #include <algorithm>
 #include <iostream>
 #include <iterator>
@@ -13,47 +14,12 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
  
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList() : head(NULL), tail(NULL) {} ;
-
-template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::LinkedLists::Node<T>& i_head, Salih::Structures::LinkedLists::Node<T>& i_tail)
-{
-	this->head = &i_head ;
-	this->tail = &i_tail ;
-	this->alloc = false ;
-	getSize() ;
-}
-
-template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::LinkedLists::Node<T>& i_node)
-{
-	Node<T>* node = &i_node ;
-	this->head = node ;
-	this->tail = Node<T>::getTail(node) ;
-	this->alloc = false ;
-	getSize() ;
-}
-
-template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::LinkedLists::Node<T>& i_node, bool mode)
-{
-	Node<T>* node = &i_node ;
-	if(mode == 0) 
-	{
-		this->head = node ;
-		this->tail = Node<T>::getTail(node) ;
-	} else {
-		this->tail = node ;
-		this->head = Node<T>::getHead(node) ;
-	}
-	this->alloc = false ;
-	getSize() ;
-}
+Salih::Structures::LinkedLists::LinkedList<T>::LinkedList() : head(NULL), tail(NULL), size(0) {} ;
 
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer_list<T>& values)
 {
-	this->size = 0 ;
+	this->setSize(0) ;
 	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
@@ -66,16 +32,38 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer
 		} else {
 			p = new Node<T>(*it, *p, 0) ;
 		}
-		this->size = size + 1 ;	
+		this->setSize(this->size + 1) ;	
 	}
-	this->alloc = true ;
+}
+
+template <typename T>
+Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structures::LinkedLists::LinkedList<T>& list)
+{
+	this->setSize(0) ;
+	Salih::Structures::LinkedLists::Node<T>* h = list.head ;
+	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
+	while(h != NULL)
+	{
+		if(h->getPrev() == NULL) 
+		{	
+			head = new Node<T>(h->data) ;
+			p = head ;
+		}
+		else if(h->getNext() == NULL)
+		{
+			tail = new Node<T>(h->data, *p, 0) ;
+		}
+		else {
+			p = new Node<T>(h->data, *p, 0) ;
+		}
+		h = h->getNext() ;
+		this->setSize(this->size + 1) ;	
+	}
 }
 
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
 {
-	if(alloc != true) return;
-	
 	if(head == NULL) return;
 	
 	for(Node<T>* node = head ; ;)
@@ -88,45 +76,21 @@ Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index)
+T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index)
 {
 	int count = 0 ;
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	Node<T>* node = head ;
 	while(count != index)
 	{
-		if(node->getNext() != NULL)
-		{
-			node = node->getNext() ;
-		}
-		else {
-			throw std::out_of_range("Element does not exist") ;
-		}
+		node = node->getNext() ;
 		count++ ;
 	}
-	return node->getData() ;
+	return node->data ;
 }
 
-//template <typename T>
-//const T Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int& index) const
-//{
-//	int count = 0 ;
-//	Node<T>* node = head ;
-//	while(count != index)
-//	{
-//		if(node->getNext() != NULL)
-//		{
-//			node = node->getNext() ;
-//		}
-//		else {
-//			throw std::out_of_range("Element does not exist") ;
-//		}
-//		count++ ;
-//	}
-//	return node->getData() ;
-//}
-
 template <typename T>
-bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(Salih::Structures::LinkedLists::LinkedList<T>& list)
+bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Structures::LinkedLists::LinkedList<T>& list) const
 {
 	if(list.getSize() != this->getSize()) return false ;
 	
@@ -135,7 +99,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(Salih::Structures
 	
 	for(int i = 0 ; i < list.getSize() ; i++)
 	{
-		if(head1->getData() != head2->getData()) return false ;
+		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
 		head2 = head2->getNext() ;
 	}
@@ -144,7 +108,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(Salih::Structures
 }
 
 template <typename T>
-bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(Salih::Structures::LinkedLists::LinkedList<T>& list)
+bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Structures::LinkedLists::LinkedList<T>& list) const
 {
 	if(list.getSize() != this->getSize()) return true ;
 	
@@ -153,7 +117,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(Salih::Structures
 	
 	for(int i = 0 ; i < list.getSize() ; i++)
 	{
-		if(head1->getData() != head2->getData()) return true ;
+		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
 		head2 = head2->getNext() ;
 	}
@@ -168,61 +132,56 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
 }
 
 template <typename T>
-const int Salih::Structures::LinkedLists::LinkedList<T>::getSize()
+int Salih::Structures::LinkedLists::LinkedList<T>::getSize() const
 {
-	if(size == -1) //ie we need to calculate size first
-	{
-		if(this->head == NULL) setSize(0) ;
-		else {
-			Node<T>* node = head ;
-			while(node->getNext() != NULL)
-			{
-				setSize(size + 1) ;
-				node = node->getNext() ;
-			}
-		}
-	}
-	return size ;
+	return this->size ;
 }
 
 template <typename T>
 void Salih::Structures::LinkedLists::LinkedList<T>::append(T data)
 {
-	Node<T>* node = new Node<T>(data) ;
-	tail->setNext(node) ;
-	this->tail = node ;
-	setSize(size + 1) ;
-}
-
-template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::del(int index)
-{
-	int count = 0 ;
-	if(index == 0) throw std::out_of_range("Index does not exist") ;
-	auto node = head ;
-	while(count < index)
+	Node<T>* node = NULL ;
+	if(this->size == 0) 
 	{
-		if(node->getNext() != NULL)
-		{
-			node = node->getNext() ;
-		}
-		else {
-			throw std::out_of_range("Index does not exist") ;
-		}
-		count++ ;
+		node = new Node<T>(data) ;
+		this->tail = node ;
+		this->head = node ;
 	}
-	del(node) ;
-	setSize(size - 1) ;
+	else {
+		node = new Node<T>(data, *tail, 0) ;
+		this->tail = node ;
+	}
+	
+	this->setSize(this->size + 1) ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures::LinkedLists::Node<T>*& node)
+void Salih::Structures::LinkedLists::LinkedList<T>::del(const int index)
 {
-	Node<T>*& prev = node->getPrev() ;
-	Node<T>*& next = node->getNext() ;
-	prev->setNext(next) ; 
-	next->setPrev(prev) ; 
+	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
+	
+	//loop through LL, find correct 'node'
+	Node<T>* curNode = head ;
+	for(int count = 1 ; count < index ; count++) 
+	{
+		curNode = curNode->getNext() ;
+	}
+		
+	this->del(curNode) ;
+	this->setSize(this->size - 1) ;
+}
+
+template <typename T>
+inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures::LinkedLists::Node<T>* node)
+{ //correct function
+	Node<T>* prev = node->getPrev() ;
+	Node<T>* next = node->getNext() ;
+	if(prev == NULL) this->head = next ;
+	else prev->setNext(next) ; 
+	if(next == NULL) this->tail = prev ;
+	else next->setPrev(prev) ;
 	delete node ;
+	node = NULL ;
 }
 
 #endif

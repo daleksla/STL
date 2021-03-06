@@ -29,8 +29,6 @@ namespace Salih::Structures::LinkedLists {
 			Node* prev ; //pointer to prev element in LL
 
 			Node* next ; //pointer to next element in LL
-
-			T data ; //template variable for data
 					
 			static void appendNode(Node*&, Node*&) ; //static method actually finds slot and appends b to a's LL
 			
@@ -39,6 +37,8 @@ namespace Salih::Structures::LinkedLists {
 		        static Node* getTail(Node*) ; // returns pointer of the tail of the linked list current node is pointed to
 					
 		public:
+			T data ; //template variable for data		
+		
 			Node(T) ; //constructor - takes data
 			
 			Node(const Node&) ; //copy constructor - copies data and removes head and tail
@@ -58,10 +58,6 @@ namespace Salih::Structures::LinkedLists {
 			Node*& getNext() ; //returns next node in LL
 
 			void setNext(Node*&) ; //sets next node in LL
-			
-			T& getData() ; //returns data of object
-
-			void setData(T) ; //sets data of object
 
 			void deleteNode() ; //connects previous and next node to each other, deletes data
 			
