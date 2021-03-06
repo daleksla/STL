@@ -10,3 +10,4 @@ EXES = ./exes
 all: 
 	g++ $(LIB) $(STD) $(SOURCES)/stackTest.cpp -o $(EXES)/stackTest
 	g++ $(LIB) $(STD) $(SOURCES)/queueTest.cpp -o $(EXES)/queueTest
+	g++ $(LIB) $(STD) $(SOURCES)/linkedlistTest.cpp -o $(EXES)/linkedlistTest

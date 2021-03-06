@@ -73,7 +73,7 @@ T Salih::Types::Queue<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Queue is empty") ;
 	auto newHead = head->getNext() ;
-	auto data = head->getData() ;
+	auto data = head->data ;
 	delete head ;
 	head = newHead ;
 	size -= 1 ;
@@ -83,7 +83,7 @@ T Salih::Types::Queue<T>::pop()
 template <typename T>
 const T& Salih::Types::Queue<T>::peek() const
 {
-	if(size != 0) return head->getData() ;
+	if(size != 0) return head->data ;
 	else throw std::out_of_range("Queue is empty") ;
 }
 
