@@ -2,6 +2,10 @@
 #define STRING_HPP
 #pragma once
 
-namespace Salih::Types {}
+namespace Salih::Types {
+	class String {
+		
+	} ;
+}
 
 #endif
