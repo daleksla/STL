@@ -28,6 +28,8 @@ namespace Salih::Structures::LinkedLists {
 			
 			inline void del(Node<T>*) ;
 			
+			inline void insert(Node<T>*, T) ;
+			
 		public:
 			LinkedList() ; //empty linkedlist (ie no nodes)
 			
@@ -42,6 +44,8 @@ namespace Salih::Structures::LinkedLists {
 			bool operator==(const LinkedList<T>&) const ; //method to index linked list, returns data
 			
 			bool operator!=(const LinkedList<T>&) const ; //method to index linked list, returns data
+			
+			void insert(const int, T) ;
 						
 			int getSize() const ; //get size
 			
