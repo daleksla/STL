@@ -1,9 +1,8 @@
 name: Testing #give this pipeline an actual name
 on:
   push:
-    branches-ignore:
+    branches:
       - master
-      - main
 jobs:
   Testing:
     runs-on: ubuntu-latest
