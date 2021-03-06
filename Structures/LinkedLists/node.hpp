@@ -2,10 +2,6 @@
 #define NODE_HPP
 #pragma once
 
-#if defined LINKED_LIST_HPP
-	#include <lib/Structures/LinkedLists/linkedlist.hpp>
-#endif
-
 #include <algorithm>
 #include <iostream>
 #include <initializer_list>
@@ -14,11 +10,6 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
 
 namespace Salih::Structures::LinkedLists {
-
-	#if defined LINKED_LIST_HPP
-		template<typename T>
-		class LinkedList ;
-	#endif
 
 	template<typename T>
 	class Node ;
@@ -70,12 +61,7 @@ namespace Salih::Structures::LinkedLists {
 		        static Node* getHead(Node&) ; // returns pointer of the head of the linked list current node is pointed to
 		        
 		        static Node* getTail(Node&) ; // returns pointer of the tail of the linked list current node is pointed to
-		        
-		        #if defined LINKED_LIST_HPP
-		        	friend class LinkedList<T> ;
-		        #endif
-			
-		        //friend std::ostream& operator<<(std::ostream&, Node) ; //custom printing off a node
+
 	} ;	
 }
 

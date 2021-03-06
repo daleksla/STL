@@ -54,25 +54,4 @@ namespace Salih::Structures::LinkedLists {
 
 #include "linkedlist.tpp"
 
-template<typename T>
-std::ostream& operator<<(std::ostream& os, Salih::Structures::LinkedLists::LinkedList<T>& dt)
-{
-    //os << dt.mo << '/' << dt.da << '/' << dt.yr;
-    if(dt.getSize() == 0) 
-    {
-    	os << "[]" ;
-    	return os ;
-    }
-    
-    os << "[" ;
-    for(int i = 0 ; i < dt.getSize() ; i++)
-    {
-    	if(i != dt.getSize() - 1) os << dt[i] << "," ;
-    	else os << dt[i] ;
-    }
-    os << "]" ;
-    
-    return os;
-}
-
 #endif
