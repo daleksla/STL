@@ -4,6 +4,7 @@
 
 #include <lib/Structures/LinkedLists/node.hpp>
 #include <stdexcept>
+#include <limits>
 #include <array>
 #include <algorithm>
 #include <iostream>
@@ -59,6 +60,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structure
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
 	}
+	std::cout << "########" << std::endl ;
 }
 
 template <typename T>
@@ -89,27 +91,12 @@ Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::Li
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::LinkedLists::LinkedList<T>&& list)
 {
-	this->setSize(0) ;
-	Salih::Structures::LinkedLists::Node<T>* h = list.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
-	while(h != NULL)
-	{
-		if(h->getPrev() == NULL) 
-		{	
-			head = new Node<T>(h->data) ;
-			p = head ;
-		}
-		else if(h->getNext() == NULL)
-		{
-			tail = new Node<T>(h->data, *p, 0) ;
-		}
-		else {
-			p = new Node<T>(h->data, *p, 0) ;
-		}
-		h = h->getNext() ;
-		this->setSize(this->size + 1) ;	
-	}
-	list.~LinkedList() ;
+	this->head = list.head ;
+	this->tail = list.tail ;
+	this->setSize(list.size) ;
+	list.head = NULL ;
+	list.tail = NULL ;
+	list.size = std::numeric_limits<int>::max() ;
 }
 
 template <typename T>
