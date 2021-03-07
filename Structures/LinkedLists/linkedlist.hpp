@@ -35,7 +35,13 @@ namespace Salih::Structures::LinkedLists {
 			
 			LinkedList(const LinkedList&) ; //create new copy where each node is copied and mapped to new copies
 			
+			LinkedList operator=(const LinkedList&) ;
+					
 			LinkedList(const std::initializer_list<T>&) ; //initialise linked list by creating a node for every element in the vector - use new and delete to throw values onto stack - use destructor to loop through and delete
+			
+			LinkedList(LinkedList&&) ;
+			
+			LinkedList operator=(LinkedList&&) ;
 			
 			~LinkedList() ; //destructor - will deallocate memory if necessary
 			
