@@ -60,7 +60,6 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structure
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
 	}
-	std::cout << "########" << std::endl ;
 }
 
 template <typename T>
@@ -90,6 +89,17 @@ Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::Li
 
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::LinkedLists::LinkedList<T>&& list)
+{
+	this->head = list.head ;
+	this->tail = list.tail ;
+	this->setSize(list.size) ;
+	list.head = NULL ;
+	list.tail = NULL ;
+	list.size = std::numeric_limits<int>::max() ;
+}
+
+template <typename T>
+Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures::LinkedLists::LinkedList<T>&& list)
 {
 	this->head = list.head ;
 	this->tail = list.tail ;
