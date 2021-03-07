@@ -1,16 +1,98 @@
 /* Include the unit testing library */
 #define CATCH_CONFIG_MAIN
-#include <testing/catch.hpp>
+#include "catch.hpp"
 
 /* Include the code that we plan to test */
-#include <lib/Structures/LinkedLists/linkedlist.hpp>
 #include <string>
+#include <utility>
 #include <iostream>
 #include <stdexcept>
+
+#define private public
+#include <lib/Structures/LinkedLists/linkedlist.hpp>
 
 typedef Salih::Structures::LinkedLists::LinkedList<int> intList ;
 
 //** Create sub-categories to test with predicted outcomes **//
+
+/* Constructors */
+TEST_CASE("Testing empty constructor - attribute testing")
+{
+	intList list1 ;
+	REQUIRE(list1.head == NULL) ;
+	REQUIRE(list1.tail == NULL) ;
+	REQUIRE(list1.size == 0) ;
+}
+
+TEST_CASE("Testing regular constructor - attribute testing")
+{
+	intList list1{1,2,3,4} ;
+	REQUIRE(list1.size == 4) ;
+	REQUIRE(list1.head->getNext()->getNext()->getNext() == list1.tail) ;
+	REQUIRE(list1.tail->getPrev()->getPrev()->getPrev() == list1.head) ;
+}
+
+TEST_CASE("Testing regular constructor - value testing")
+{
+	intList list1{1,2,3,4} ;
+	REQUIRE(list1.head->data == 1) ;
+	REQUIRE(list1.tail->data == 4) ;
+}
+
+TEST_CASE("Testing copy constructor & copy operator - attribute testing")
+{
+	intList list1{1,2,3,4} ;
+	intList list2 = list1 ;
+	intList list3(list1) ;
+	REQUIRE(list1.head != list2.head) ;
+	REQUIRE(list3.head != list2.head) ;
+	REQUIRE(list1.head != list3.head) ;
+	REQUIRE(list1.tail != list2.tail) ;
+	REQUIRE(list3.tail != list2.tail) ;
+	REQUIRE(list1.tail != list3.tail) ;
+	REQUIRE(list1.size == 4) ;
+	REQUIRE(list2.size == 4) ;
+	REQUIRE(list3.size == 4) ;
+}
+
+TEST_CASE("Testing copy constructor & copy operator - value testing")
+{
+	intList list1{1,2,3,4} ;
+	intList list2 = list1 ;
+	intList list3(list1) ;
+	REQUIRE(list1.head->data == 1) ;
+	REQUIRE(list2.head->data == 1) ;
+	REQUIRE(list3.head->data == 1) ;
+	REQUIRE(list1.tail->data == 4) ;
+	REQUIRE(list2.tail->data == 4) ;
+	REQUIRE(list3.tail->data == 4) ;
+}
+
+TEST_CASE("Testing move constructor & move operator - attribute testing")
+{
+	intList list1 = intList{1,2,3,4} ;
+	intList list2(intList{1,2,3,4}) ;
+	REQUIRE(list1.head != list2.head) ;
+	REQUIRE(list1.tail != list2.tail) ;
+	REQUIRE(list1.size == 4) ;
+	REQUIRE(list2.size == 4) ;
+	
+	auto h = list1.head ;
+	auto t = list1.tail ;
+	intList list3 = std::move(list1) ;
+	REQUIRE(list1.head == NULL) ;
+	REQUIRE(list1.head == NULL) ;
+	REQUIRE(list3.head == h) ;
+	REQUIRE(list3.tail == t) ;	
+}
+
+TEST_CASE("Testing move constructor & move operator - value testing")
+{
+	intList list1 = intList{1,2,3,4} ;
+	intList list2(intList{1,2,3,4}) ;
+	REQUIRE(list1.head->data == list2.head->data) ;
+	REQUIRE(list1.tail->data == list2.tail->data) ;
+}
 
 /* Index / access operator */
 TEST_CASE("Testing [] operator - correct value returned")
