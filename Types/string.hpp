@@ -2,8 +2,6 @@
 #define STRING_HPP
 #pragma once
 
-#include <string>
-#include <cstring>
 #include <iostream>
 
 namespace Salih::Types {
@@ -18,17 +16,19 @@ namespace Salih::Types {
 		
 			String() ;
 			
-			String(char*) ;
+			String(const char*) ;
 			
 			String(const String&) ;
 			
-			String operator=(const String&) ;
-			
 			String(String&&) ;
-			
-			String operator=(String&&) ;
-			
+					
 			~String() ;
+			
+			void operator=(const char*) ;
+			
+			void operator=(const String&) ;
+			
+			void operator=(String&&) ;
 			
 			String operator+(char) ; //to append char
 			
@@ -51,28 +51,20 @@ Salih::Types::String::String()
 	this->size = 0 ;
 }
 
-Salih::Types::String::String(char* input)
+Salih::Types::String::String(const char* input)
 {
-	this->size = 0 ;
-	if(input == nullptr)  
-	{
-		str = new char[1] ;
-		str[0] = '\0' ;
-	}
-	else {
-		//implement
-	}
+	for(this->size = 0 ; input[this->size] != '\0'; this->size++) ;
+	this->str = new char[size + 1] ;
+	for(int i = 0 ; i < size ; i++) str[i] = input[i] ;
+	str[this->size] = '\0' ;
 }
 
 Salih::Types::String::String(const Salih::Types::String& tbc)
 {
 	this->str = new char[tbc.size+1] ;
-	//implement
-}
-
-Salih::Types::String Salih::Types::String::operator=(const Salih::Types::String& tbc)
-{
-	//implement
+	this->size = tbc.size ;
+	for(int i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
+	this->str[this->size] = '\0' ;
 }
 
 Salih::Types::String::String(Salih::Types::String&& tbo)
@@ -83,19 +75,37 @@ Salih::Types::String::String(Salih::Types::String&& tbo)
 	tbo.str = nullptr ;
 }
 
-Salih::Types::String Salih::Types::String::operator=(Salih::Types::String&& tbo)
+Salih::Types::String::~String()
+{
+	if(str == nullptr) return;
+	delete[] str ; //else
+	str = nullptr ;
+}
+
+void Salih::Types::String::operator=(const char* tbc)
+{
+	delete[] this->str ;
+	for(this->size = 0 ; tbc[this->size] != '\0'; this->size++) ;
+	this->str = new char[this->size + 1] ;
+	for(int i = 0 ; i < this->size ; i++) this->str[i] = tbc[i] ;
+	this->str[this->size] = '\0' ;
+}
+
+void Salih::Types::String::operator=(const Salih::Types::String& tbc)
+{
+	delete[] this->str ;
+	this->size = tbc.size ;
+	this->str = new char[this->size+1] ;
+	for(int i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
+	this->str[this->size] = '\0' ;
+}
+
+void Salih::Types::String::operator=(Salih::Types::String&& tbo)
 {
 	this->size = tbo.size ;
 	this->str = tbo.str ;
 	tbo.size = 0 ;
 	tbo.str = nullptr ;
-}
-
-
-Salih::Types::String::~String()
-{
-	delete str ;
-	str = nullptr ;
 }
 
 Salih::Types::String Salih::Types::String::operator+(char c) 
