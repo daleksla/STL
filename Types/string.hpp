@@ -32,11 +32,11 @@ namespace Salih::Types {
 			
 			String operator+(char) ; //to append char
 			
-			String operator+=(char) ; //to append char
+			void operator+=(char) ; //to append char
 			
 			String operator+(const String&) ; //to append another string
 			
-			String operator+=(const String&) ; //to append another string
+			void operator+=(const String&) ; //to append another string
 			
 			char* getStr() const ;
 			
@@ -103,7 +103,7 @@ Salih::Types::String Salih::Types::String::operator+(char c)
 	//implement this
 }
 
-Salih::Types::String Salih::Types::String::operator+=(char c) 
+void Salih::Types::String::operator+=(char c) 
 {
 	//implement this
 }
@@ -113,7 +113,7 @@ Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String&
 	//implement this
 }
 
-Salih::Types::String Salih::Types::String::operator+=(const Salih::Types::String&) 
+void Salih::Types::String::operator+=(const Salih::Types::String&) 
 {
 	//implement this
 }
