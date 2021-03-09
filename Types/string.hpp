@@ -69,6 +69,7 @@ Salih::Types::String::String(const Salih::Types::String& tbc)
 
 Salih::Types::String::String(Salih::Types::String&& tbo)
 {
+	delete[] this->str ;
 	this->size = tbo.size ;
 	this->str = tbo.str ;
 	tbo.size = 0 ;
@@ -102,6 +103,7 @@ void Salih::Types::String::operator=(const Salih::Types::String& tbc)
 
 void Salih::Types::String::operator=(Salih::Types::String&& tbo)
 {
+	delete[] this->str ;
 	this->size = tbo.size ;
 	this->str = tbo.str ;
 	tbo.size = 0 ;
@@ -111,6 +113,7 @@ void Salih::Types::String::operator=(Salih::Types::String&& tbo)
 Salih::Types::String Salih::Types::String::operator+(char c) 
 {
 	//implement this
+	
 }
 
 void Salih::Types::String::operator+=(char c) 
