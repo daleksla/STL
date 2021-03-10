@@ -206,15 +206,32 @@ TEST_CASE("addition and replacement operator ('+=') for a String - testing memor
 {
 	String v("salih"), b("balih") ;
 	String w += b ;
-	REQUIRE(strcmp(w.str, val) == 0) ;
+	REQUIRE(&w == val) ;
 }
 
 /* general functions */
 
 TEST_CASE("'getSize()' method - returns correct size")
-{}
+{
+	String v ;
+	REQUIRE(v.getSize() == 0) ;
+	REQUIRE(v.size == v.getSize()) ;
+	String v2("balih") ;
+	REQUIRE(v2.getSize() == 5) ;
+	REQUIRE(v2.size == v2.getSize()) ;
+}
 
 TEST_CASE("'getStr()' method - returns correct char*")
-{}
+{
+	String v ;
+	char* val = "" ;
+	REQUIRE(strcmp(val,v.getStr()) == 0) ;
+	REQUIRE(v.str == v.getStr()) ;
+	
+	String v2("balih") ;
+	char* val2 = "balih" ;
+	REQUIRE(strcmp(val2,v.getStr()) == 0) ;
+	REQUIRE(v2.str == v2.getStr()) ;
+}
 
 #pragma GCC diagnostic pop
