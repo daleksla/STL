@@ -86,18 +86,36 @@ TEST_CASE("Move Constructor - Value testing")
 	REQUIRE(name2.size == 5) ;	
 }
 
-#pragma GCC diagnostic pop
-
 /* Assignment operators */
 
-TEST_CASE("assignment operator ('=') for a char*")
-{}
+TEST_CASE("(value) assignment operator ('=') for a char*")
+{
+	String v ;
+	v = "salih" ;
+	char* val = "salih" ;
+	REQUIRE(strcmp(v.str,val) == 0) ;
+	String a = "yusuf" ;
+	char* val2 = "yusuf" ;
+	REQUIRE(strcmp(a.str,val2) == 0) ;
+}
 
-TEST_CASE("assignment operator ('=') for a l-value (already created) String")
-{}
+TEST_CASE("(value) assignment operator ('=') for a l-value (already created) String")
+{
+	String v ;
+	String a("salih") ;
+	v = a ;
+	char* val = "salih" ;
+	REQUIRE(strcmp(a.str,val) == 0) ;	
+	REQUIRE(strcmp(a.str,b.str) == 0) ;	
+}
 
-TEST_CASE("assignment operator ('=') for a r-value (memory floating) String")
-{}
+TEST_CASE("(value) assignment operator ('=') for a r-value (memory floating) String")
+{
+	String v ;
+	v = String("salih") ;
+	char* val = "salih" ;
+	REQUIRE(strcmp(v.str,val) == 0) ;		
+}
 
 /* Concat. operators */
 
@@ -145,3 +163,4 @@ TEST_CASE("'getSize()' method - returns correct size")
 TEST_CASE("'getStr()' method - returns correct char*")
 {}
 
+#pragma GCC diagnostic pop
