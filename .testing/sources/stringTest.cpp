@@ -120,22 +120,49 @@ TEST_CASE("(value) assignment operator ('=') for a r-value (memory floating) Str
 /* Concat. operators */
 
 TEST_CASE("addition operator ('+') for a char - testing value")
-{}
+{
+	String v("salih") ;
+	String w = x + 'b' ;
+	char* val = "salihb" ;
+	REQUIRE(strcmp(w.str, val) == 0) ;
+}
 
 TEST_CASE("addition operator ('+') for a char - testing memory")
-{}
+{
+	String v("salih") ;
+	String w = x + 'b' ;
+	REQUIRE((&w != &x) && (&w != &b)) ;
+}
 
 TEST_CASE("addition operator ('+') for a char* - testing value")
-{}
+{
+	String v("salih") ;
+	String w = x + "b" ;
+	char* val = "salihb" ;
+	REQUIRE(strcmp(w.str, val) == 0) ;
+}
 
 TEST_CASE("addition operator ('+') for a char* - testing memory")
-{}
+{
+	String v("salih") ;
+	String w = x + "b" ;
+	REQUIRE((&w != &x) && (&w != &b)) ;
+}
 
 TEST_CASE("addition operator ('+') for a String - testing value")
-{}
+{
+	String v("salih"), b("balih") ;
+	String w = x + b ;
+	char* val = "salihbalih" ;
+	REQUIRE(strcmp(w.str, val) == 0) ;
+}
 
 TEST_CASE("addition operator ('+') for a String - testing memory")
-{}
+{
+	String v("salih"), b("balih") ;
+	String w = x + b ;
+	REQUIRE((&w != &x) && (&w != &b)) ;
+}
 
 TEST_CASE("addition and replacement operator ('+=') for a char - testing value")
 {}
