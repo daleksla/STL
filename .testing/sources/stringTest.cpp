@@ -106,7 +106,7 @@ TEST_CASE("(value) assignment operator ('=') for a l-value (already created) Str
 	v = a ;
 	char* val = "salih" ;
 	REQUIRE(strcmp(a.str,val) == 0) ;	
-	REQUIRE(strcmp(a.str,b.str) == 0) ;	
+	REQUIRE(strcmp(v.str,a.str) == 0) ;	
 }
 
 TEST_CASE("(value) assignment operator ('=') for a r-value (memory floating) String")
@@ -122,7 +122,7 @@ TEST_CASE("(value) assignment operator ('=') for a r-value (memory floating) Str
 TEST_CASE("addition operator ('+') for a char - testing value")
 {
 	String v("salih") ;
-	String w = x + 'b' ;
+	String w = v + 'b' ;
 	char* val = "salihb" ;
 	REQUIRE(strcmp(w.str, val) == 0) ;
 }
@@ -130,14 +130,14 @@ TEST_CASE("addition operator ('+') for a char - testing value")
 TEST_CASE("addition operator ('+') for a char - testing memory")
 {
 	String v("salih") ;
-	String w = x + 'b' ;
-	REQUIRE(&w != &x) ;
+	String w = v + 'b' ;
+	REQUIRE(&w != &v) ;
 }
 
 TEST_CASE("addition operator ('+') for a char* - testing value")
 {
 	String v("salih") ;
-	String w = x + "b" ;
+	String w = v + "b" ;
 	char* val = "salihb" ;
 	REQUIRE(strcmp(w.str, val) == 0) ;
 }
@@ -145,14 +145,14 @@ TEST_CASE("addition operator ('+') for a char* - testing value")
 TEST_CASE("addition operator ('+') for a char* - testing memory")
 {
 	String v("salih") ;
-	String w = x + "b" ;
-	REQUIRE(&w != &x) ;
+	String w = v + "b" ;
+	REQUIRE(&w != &v) ;
 }
 
 TEST_CASE("addition operator ('+') for a String - testing value")
 {
 	String v("salih"), b("balih") ;
-	String w = x + b ;
+	String w = v + b ;
 	char* val = "salihbalih" ;
 	REQUIRE(strcmp(w.str, val) == 0) ;
 }
@@ -160,29 +160,30 @@ TEST_CASE("addition operator ('+') for a String - testing value")
 TEST_CASE("addition operator ('+') for a String - testing memory")
 {
 	String v("salih"), b("balih") ;
-	String w = x + b ;
-	REQUIRE((&w != &x) && (&w != &b)) ;
+	String w = v + b ;
+	REQUIRE(((&w != &v) && (&w != &b))) ;
 }
 
 TEST_CASE("addition and replacement operator ('+=') for a char - testing value")
 {
 	String v("salih") ;
-	String w += 'b' ;
+	v += 'b' ;
 	char* val = "salihb" ;
-	REQUIRE(strcmp(w.str, val) == 0) ;	
+	REQUIRE(strcmp(v.str, val) == 0) ;	
 }
 
 TEST_CASE("addition and replacement operator ('+=') for a char - testing memory")
 {
 	String v("salih") ;
-	String w = x + 'b' ;
-	REQUIRE(&w == &x) ;
+	auto beforeV = &v ;
+	v += 'b' ;
+	REQUIRE(beforeV == &v) ;
 }
 
 TEST_CASE("addition and replacement operator ('+=') for a char* - testing value")
 {
 	String v("salih") ;
-	String w += "b" ;
+	v += "b" ;
 	char* val = "salihb" ;
 	REQUIRE(strcmp(v.str,val) == 0) ;
 }
@@ -190,23 +191,25 @@ TEST_CASE("addition and replacement operator ('+=') for a char* - testing value"
 TEST_CASE("addition and replacement operator ('+=') for a char* - testing memory")
 {
 	String v("salih") ;
-	String w += "b" ;
-	REQUIRE(&w == &x) ;
+	String* beforeV = &v ;
+	v += "b" ;
+	REQUIRE(beforeV == &v) ;
 }
 
 TEST_CASE("addition and replacement operator ('+=') for a String - testing value")
 {	
 	String v("salih"), b("balih") ;
-	String w += b ;
+	v += b ;
 	char* val = "salihbalih" ;
-	REQUIRE(strcmp(w.str, val) == 0) ;
+	REQUIRE(strcmp(v.str, val) == 0) ;
 }
 
 TEST_CASE("addition and replacement operator ('+=') for a String - testing memory")
 {
 	String v("salih"), b("balih") ;
-	String w += b ;
-	REQUIRE(&w == val) ;
+	auto beforeV = &v ;
+	v += b ;
+	REQUIRE(&v == beforeV) ;
 }
 
 /* general functions */
@@ -230,7 +233,7 @@ TEST_CASE("'getStr()' method - returns correct char*")
 	
 	String v2("balih") ;
 	char* val2 = "balih" ;
-	REQUIRE(strcmp(val2,v.getStr()) == 0) ;
+	REQUIRE(strcmp(val2,v2.getStr()) == 0) ;
 	REQUIRE(v2.str == v2.getStr()) ;
 }
 
