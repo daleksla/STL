@@ -12,6 +12,7 @@ namespace Salih::Types {
 			
 			int size ;
 			
+			String(bool) ;
 		public:
 		
 			String() ;
@@ -45,6 +46,14 @@ namespace Salih::Types {
 			char* getStr() const ;
 			
 			int getSize() const ;
+			
+			char& operator[](const int) ;
+			
+			String capitalise() const ;
+			
+			String upper() const ;
+			
+			String lower() const ;
 	} ;
 }
 
@@ -52,6 +61,16 @@ Salih::Types::String::String()
 {
 	this->str = new char[1] ;
 	this->str[0] = '\0' ;
+	this->size = 0 ;
+}
+
+Salih::Types::String::String(bool mode = false)
+{
+	if(mode == false)
+	{
+		this->str = new char[1] ;
+		this->str[0] = '\0' ;
+	}
 	this->size = 0 ;
 }
 
@@ -198,6 +217,60 @@ char* Salih::Types::String::getStr() const
 int Salih::Types::String::getSize() const
 {
 	return this->size ;
+}
+
+char& Salih::Types::String::operator[](const int index)
+{
+	return this->str + index ;
+}
+			
+Salih::Types::String Salih::Types::String::capitalise() const
+{
+	Salih::Types::String tmp(*this) ;
+	
+	if(tmp->str[0] >= 65 && tmp->str[0] < 97)
+	{
+		this->tmp[0] = this->tmp[0] + 32 ;
+	}
+	
+	for(int i = 1 ; i < tmp->size ; i++)
+	{
+		if(tmp[i] >= 97 && tmp[i] < 123)
+		{
+			this->tmp[i] = this->tmp[i] - 32 ;
+		}
+	}
+	return tmp ;
+}
+			
+Salih::Types::String Salih::Types::String::upper() const
+{
+	Salih::Types::String tmp(*this) ;
+		
+	for(int i = 1 ; i < tmp->size ; i++)
+	{
+		if(tmp->str[0] >= 65 && tmp->str[0] < 97)
+		{
+			this->tmp[0] = this->tmp[0] + 32 ;
+		}
+	}
+	
+	return tmp ;
+}
+			
+Salih::Types::String Salih::Types::String::lower() const
+{
+	Salih::Types::String tmp(*this) ;
+		
+	for(int i = 1 ; i < tmp->size ; i++)
+	{
+		if(tmp[i] >= 97 && tmp[i] < 123)
+		{
+			this->tmp[0] = this->tmp[0] - 32 ;
+		}
+	}
+	
+	return tmp ;
 }
 
 // helpful overloads
