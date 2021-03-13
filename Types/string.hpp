@@ -67,6 +67,12 @@ namespace Salih::Types {
 			bool isAlpha() const ;
 			
 			bool isNum() const ;
+			
+			bool isUpper() const ;
+			
+			bool isLower() const ;
+			
+			bool isCapatalised() const ;
 	} ;
 }
 
@@ -332,6 +338,7 @@ Salih::Types::String Salih::Types::String::lower() const
 
 bool Salih::Types::String::isAlphaNum() const
 {
+	if(this->size == 0) return false ;
 	for(int i = 0 ; i < this->size ; i++)
 	{
 		if(	((this->str[i] >= 48 && this->str[i] <= 57) || 
@@ -345,6 +352,7 @@ bool Salih::Types::String::isAlphaNum() const
 			
 bool Salih::Types::String::isAlpha() const
 {
+	if(this->size == 0) return false ;
 	for(int i = 0 ; i < this->size ; i++)
 	{
 		if(	((this->str[i] >= 65 && this->str[i] <= 90) || 
@@ -357,10 +365,47 @@ bool Salih::Types::String::isAlpha() const
 			
 bool Salih::Types::String::isNum() const
 {
+	if(this->size == 0) return false ;
 	for(int i = 0 ; i < this->size ; i++)
 	{
 		if( (this->str[i] >= 48 && this->str[i] <= 57) == 0) return false ;	
 	}
+	return true ;
+}
+
+bool Salih::Types::String::isUpper() const
+{
+	if(this->size == 0) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(!(this->str[i] >= 60 && this->str[i] <= 90)) return false ;
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isLower() const
+{
+	if(this->size == 0) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isCapatalised() const
+{
+	if(this->size == 0) return false ;
+	
+	if(!(this->str[0] >= 60 && this->str[0] <= 90)) return false ;
+	
+	for(int i = 1 ; i < this->size ; i++)
+	{
+		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
+	}
+	
 	return true ;
 }
 
