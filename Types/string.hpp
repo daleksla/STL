@@ -42,6 +42,14 @@ namespace Salih::Types {
 			
 			void operator+=(const char*) ;
 			
+			bool operator==(const char*) const ;
+			
+			bool operator!=(const char*) const ;
+			
+			bool operator==(const String&) const ;
+			
+			bool operator!=(const String&) const ;
+			
 			char* getStr() const ;
 			
 			int getSize() const ;
@@ -53,6 +61,12 @@ namespace Salih::Types {
 			String upper() const ;
 			
 			String lower() const ;
+			
+			bool isAlphaNum() const ;
+			
+			bool isAlpha() const ;
+			
+			bool isNum() const ;
 	} ;
 }
 
@@ -198,6 +212,60 @@ void Salih::Types::String::operator+=(const char* tbm)
 	this->str = tmp ;
 }
 
+bool Salih::Types::String::operator==(const char* str) const
+{
+	int i ;
+	for(i = 0 ; str[i] != '\0' ; i++) ;
+	
+	if(this->size != i) return false ;
+	
+	for(i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str[i]) return false ;
+	}
+	
+	return true ;
+}
+			
+bool Salih::Types::String::operator!=(const char* str) const
+{
+	int i ;
+	for(i = 0 ; str[i] != '\0' ; i++) ;
+	
+	if(this->size != i) return true ;
+	
+	for(i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str[i]) return true ;
+	}
+	
+	return false ;
+}
+			
+bool Salih::Types::String::operator==(const Salih::Types::String& str) const
+{
+	if(this->size != str.size) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str->str[i]) return false ;
+	}
+	
+	return true ;
+}
+			
+bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
+{
+	if(this->size != str.size) return true ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str->str[i]) return true ;
+	}
+	
+	return false ;
+}
+
 char* Salih::Types::String::getStr() const
 {
 	return this->str ;
@@ -260,6 +328,40 @@ Salih::Types::String Salih::Types::String::lower() const
 	}
 	
 	return tmp ;
+}
+
+bool Salih::Types::String::isAlphaNum() const
+{
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(	((this->str[i] >= 48 && this->str[i] <= 57) || 
+			(this->str[i] >= 65 && this->str[i] <= 90) || 
+			(this->str[i] >= 97 && this->str[i] <= 122)) == 0
+		)
+		return false ;	
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isAlpha() const
+{
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(	((this->str[i] >= 65 && this->str[i] <= 90) || 
+			(this->str[i] >= 97 && this->str[i] <= 122)) == 0
+		)
+		return false ;	
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isNum() const
+{
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if( (this->str[i] >= 48 && this->str[i] <= 57) == 0) return false ;	
+	}
+	return true ;
 }
 
 // helpful overloads
