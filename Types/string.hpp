@@ -6,6 +6,8 @@
 
 namespace Salih::Types {
 
+	class String ;
+
 	class String {
 		private:
 			char* str ;
