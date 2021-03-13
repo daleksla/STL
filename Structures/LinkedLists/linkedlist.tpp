@@ -271,7 +271,7 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures
 
 
 template<typename T>
-std::ostream& operator<<(std::ostream& os, Salih::Structures::LinkedLists::LinkedList<T>& dt)
+std::ostream& operator<<(std::ostream& os, const Salih::Structures::LinkedLists::LinkedList<T>& dt)
 {
     //os << dt.mo << '/' << dt.da << '/' << dt.yr;
     if(dt.getSize() == 0) 

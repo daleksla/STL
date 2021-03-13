@@ -6,6 +6,13 @@
 
 namespace Salih::Types {
 
+	class String ;
+}
+
+std::ostream& operator<<(std::ostream&, const Salih::Types::String&) ;
+
+namespace Salih::Types {
+
 	class String {
 		private:
 			char* str ;
@@ -42,9 +49,37 @@ namespace Salih::Types {
 			
 			void operator+=(const char*) ;
 			
+			bool operator==(const char*) const ;
+			
+			bool operator!=(const char*) const ;
+			
+			bool operator==(const String&) const ;
+			
+			bool operator!=(const String&) const ;
+			
 			char* getStr() const ;
 			
 			int getSize() const ;
+			
+			char& operator[](const int) ;
+			
+			String capitalise() const ;
+			
+			String upper() const ;
+			
+			String lower() const ;
+			
+			bool isAlphaNum() const ;
+			
+			bool isAlpha() const ;
+			
+			bool isNum() const ;
+			
+			bool isUpper() const ;
+			
+			bool isLower() const ;
+			
+			bool isCapatalised() const ;
 	} ;
 }
 
@@ -190,6 +225,60 @@ void Salih::Types::String::operator+=(const char* tbm)
 	this->str = tmp ;
 }
 
+bool Salih::Types::String::operator==(const char* str) const
+{
+	int i ;
+	for(i = 0 ; str[i] != '\0' ; i++) ;
+	
+	if(this->size != i) return false ;
+	
+	for(i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str[i]) return false ;
+	}
+	
+	return true ;
+}
+			
+bool Salih::Types::String::operator!=(const char* str) const
+{
+	int i ;
+	for(i = 0 ; str[i] != '\0' ; i++) ;
+	
+	if(this->size != i) return true ;
+	
+	for(i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str[i]) return true ;
+	}
+	
+	return false ;
+}
+			
+bool Salih::Types::String::operator==(const Salih::Types::String& str) const
+{
+	if(this->size != str.size) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str.str[i]) return false ;
+	}
+	
+	return true ;
+}
+			
+bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
+{
+	if(this->size != str.size) return true ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(this->str[i] != str.str[i]) return true ;
+	}
+	
+	return false ;
+}
+
 char* Salih::Types::String::getStr() const
 {
 	return this->str ;
@@ -198,6 +287,133 @@ char* Salih::Types::String::getStr() const
 int Salih::Types::String::getSize() const
 {
 	return this->size ;
+}
+
+char& Salih::Types::String::operator[](const int index)
+{
+	return this->str[index] ;
+}
+			
+Salih::Types::String Salih::Types::String::capitalise() const
+{
+	Salih::Types::String tmp(*this) ;
+	
+	if(tmp[0] >= 97 && tmp[0] <= 122)
+	{
+		tmp[0] = tmp[0] - 32 ;
+	}
+	
+	for(int i = 1 ; i < tmp.size ; i++)
+	{
+		if(tmp[i] >= 65 && tmp[i] <= 90)
+		{
+			tmp[i] = tmp[i] + 32 ;
+		}
+	}
+	return tmp ;
+}
+			
+Salih::Types::String Salih::Types::String::upper() const
+{
+	Salih::Types::String tmp(*this) ;
+		
+	for(int i = 0 ; i < tmp.size ; i++)
+	{
+		if(tmp[i] >= 97 && tmp[i] <= 122)
+		{
+			tmp[i] = tmp[i] - 32 ;
+		}
+	}
+	
+	return tmp ;
+}
+			
+Salih::Types::String Salih::Types::String::lower() const
+{
+	Salih::Types::String tmp(*this) ;
+		
+	for(int i = 0 ; i < tmp.size ; i++)
+	{
+		if(tmp[i] >= 65 && tmp[i] <= 90)
+		{
+			tmp[i] = tmp[i] + 32 ;
+		}
+	}
+	
+	return tmp ;
+}
+
+bool Salih::Types::String::isAlphaNum() const
+{
+	if(this->size == 0) return false ;
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(	((this->str[i] >= 48 && this->str[i] <= 57) || 
+			(this->str[i] >= 65 && this->str[i] <= 90) || 
+			(this->str[i] >= 97 && this->str[i] <= 122)) == 0
+		)
+		return false ;	
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isAlpha() const
+{
+	if(this->size == 0) return false ;
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(	((this->str[i] >= 65 && this->str[i] <= 90) || 
+			(this->str[i] >= 97 && this->str[i] <= 122)) == 0
+		)
+		return false ;	
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isNum() const
+{
+	if(this->size == 0) return false ;
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if( (this->str[i] >= 48 && this->str[i] <= 57) == 0) return false ;	
+	}
+	return true ;
+}
+
+bool Salih::Types::String::isUpper() const
+{
+	if(this->size == 0) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(!(this->str[i] >= 60 && this->str[i] <= 90)) return false ;
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isLower() const
+{
+	if(this->size == 0) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
+	}
+	return true ;
+}
+			
+bool Salih::Types::String::isCapatalised() const
+{
+	if(this->size == 0) return false ;
+	
+	if(!(this->str[0] >= 60 && this->str[0] <= 90)) return false ;
+	
+	for(int i = 1 ; i < this->size ; i++)
+	{
+		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
+	}
+	
+	return true ;
 }
 
 // helpful overloads
