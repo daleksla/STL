@@ -28,7 +28,7 @@ namespace Salih::Types {
 		public:
 			Pointer() ;	
 	
-			Pointer(T) ;
+			explicit Pointer(T) ;
 			
 			T* operator->() ;
 			
@@ -46,7 +46,7 @@ namespace Salih::Types {
 		public:
 			SharedPointer() ;
 		
-			SharedPointer(T) ;
+			explicit SharedPointer(T) ;
 		
 			SharedPointer(const SharedPointer&) ;
 			
@@ -56,6 +56,8 @@ namespace Salih::Types {
 			
 			void operator=(SharedPointer&&) ;
 			
+			void reset() ;
+			
 			~SharedPointer() ;
 	} ;
 	
@@ -64,7 +66,7 @@ namespace Salih::Types {
 		public:
 			UniquePointer() ;
 			
-			UniquePointer(T) ;
+			explicit UniquePointer(T) ;
 		
 			UniquePointer(const UniquePointer&) = delete ;
 			
@@ -73,6 +75,8 @@ namespace Salih::Types {
 			UniquePointer(UniquePointer&&) ;
 			
 			void operator=(UniquePointer&&) ;
+			
+			void reset() ;
 			
 			~UniquePointer() ;
 	} ;
@@ -129,7 +133,7 @@ Salih::Types::SharedPointer<T>::SharedPointer(T data) : Salih::Types::Pointer<T>
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<T>& ptr)
 {
-	if(this->pointer != NULL) delete this->pointer ;
+	if(this->pointer != nullptr) delete this->pointer ;
 	
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
@@ -139,7 +143,7 @@ Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<
 template<typename T>
 void Salih::Types::SharedPointer<T>::operator=(const Salih::Types::SharedPointer<T>& ptr)
 {
-	if(this->pointer != NULL) delete this->pointer ;
+	if(this->pointer != nullptr) delete this->pointer ;
 	
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
@@ -151,8 +155,8 @@ Salih::Types::SharedPointer<T>::SharedPointer(Salih::Types::SharedPointer<T>&& p
 {
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
-	ptr.pointer = NULL ;
-	ptr.count = NULL ;
+	ptr.pointer = nullptr ;
+	ptr.count = nullptr ;
 }
 
 template<typename T>
@@ -160,8 +164,22 @@ void Salih::Types::SharedPointer<T>::operator=(Salih::Types::SharedPointer<T>&& 
 {
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
-	ptr.pointer = NULL ;
-	ptr.count = NULL ;
+	ptr.pointer = nullptr ;
+	ptr.count = nullptr ;
+}
+
+template<typename T>
+void Salih::Types::SharedPointer<T>::reset() 
+{	
+	if(*(this->count) <= 1)
+	{
+		delete (this->pointer) ;
+		*count = *(this->count) - 1 ;
+	}
+	else {
+		this->count = nullptr ;
+	}
+	this->pointer = nullptr ;
 }
 
 template<typename T>
@@ -169,8 +187,8 @@ Salih::Types::SharedPointer<T>::~SharedPointer()
 {
 	if(*(this->count) <= 1) 
 	{
-		delete this->pointer ; this->pointer = NULL ;
-		delete this->count ; this->count = NULL ;
+		delete this->pointer ; this->pointer = nullptr ;
+		delete this->count ; this->count = nullptr ;
 	}
 	else {
 		*count = *(this->count) - 1 ;
@@ -187,23 +205,29 @@ template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(Salih::Types::UniquePointer<T>&& ptr)
 {
 	this->pointer = ptr.pointer ;
-	ptr.pointer = NULL ;
+	ptr.pointer = nullptr ;
 }
 
 template<typename T>
 void Salih::Types::UniquePointer<T>::operator=(Salih::Types::UniquePointer<T>&& ptr)
 {
 	this->pointer = ptr.pointer ;
-	ptr.pointer = NULL ;
+	ptr.pointer = nullptr ;
+}
+
+template<typename T>
+void Salih::Types::UniquePointer<T>::reset() 
+{
+	this->~UniquePointer() ;
 }
 
 template<typename T>
 Salih::Types::UniquePointer<T>::~UniquePointer()
 {
-	if(this->pointer != NULL) 
+	if(this->pointer != nullptr) 
 	{
 		delete this->pointer ; 
-		this->pointer = NULL ;
+		this->pointer = nullptr ;
 	}
 }
 
