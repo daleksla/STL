@@ -7,6 +7,11 @@
 namespace Salih::Types {
 
 	class String ;
+}
+
+std::ostream& operator<<(std::ostream&, const Salih::Types::String&) ;
+
+namespace Salih::Types {
 
 	class String {
 		private:
