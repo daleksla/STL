@@ -63,17 +63,12 @@ namespace Salih::Types {
 	} ;
 }
 
-template<typename T>
-std::ostream& operator<<(std::ostream& os, Salih::Types::SharedPointer<T>& ptr)
-{
-	os << ptr->pointer ;
-	return os ;
-}
+//helpful overloads
 
 template<typename T>
-std::ostream& operator<<(std::ostream& os, Salih::Types::UniquePointer<T>& ptr)
+std::ostream& operator<<(std::ostream& os, Salih::Types::Pointer<T>& ptr)
 {
-	os << ptr->pointer ;
+	os << ptr.pointer ;
 	return os ;
 }
 
