@@ -3,7 +3,6 @@
 #pragma once
 
 #include <iostream>
-#include <cstdlib>
 
 namespace Salih::Types {
 
@@ -90,7 +89,7 @@ T* Salih::Types::Pointer<T>::operator->()
 template<typename T>
 T& Salih::Types::Pointer<T>::operator*()
 {
-	return this->*pointer ;
+	return *(this->pointer) ;
 }
 
 template<typename T>
