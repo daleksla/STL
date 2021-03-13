@@ -11,6 +11,10 @@
  * The data is stored and maintained using a linked-list structure */
 
 namespace Salih::Types {
+
+	template<typename T>
+	class Stack ;
+	
 	template<class T>
 	class Stack {
 		private:
