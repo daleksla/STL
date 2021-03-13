@@ -18,7 +18,7 @@ namespace Salih::Structures::LinkedLists {
 }
 
 template<typename T>
-std::ostream& operator<<(std::ostream&, Salih::Structures::LinkedLists::LinkedList<T>&)
+std::ostream& operator<<(std::ostream&, const Salih::Structures::LinkedLists::LinkedList<T>&) ;
 
 namespace Salih::Structures::LinkedLists {
 
