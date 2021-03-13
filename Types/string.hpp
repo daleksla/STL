@@ -254,7 +254,7 @@ bool Salih::Types::String::operator==(const Salih::Types::String& str) const
 	
 	for(int i = 0 ; i < this->size ; i++)
 	{
-		if(this->str[i] != str->str[i]) return false ;
+		if(this->str[i] != str.str[i]) return false ;
 	}
 	
 	return true ;
@@ -266,7 +266,7 @@ bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
 	
 	for(int i = 0 ; i < this->size ; i++)
 	{
-		if(this->str[i] != str->str[i]) return true ;
+		if(this->str[i] != str.str[i]) return true ;
 	}
 	
 	return false ;
