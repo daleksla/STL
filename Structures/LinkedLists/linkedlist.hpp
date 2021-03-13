@@ -9,11 +9,18 @@
 
 /* This file contains the declarations of a linked list 
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
-
+ 
 namespace Salih::Structures::LinkedLists {
 	
 	template<typename T>
 	class LinkedList ;
+	
+}
+
+template<typename T>
+std::ostream& operator<<(std::ostream&, Salih::Structures::LinkedLists::LinkedList<T>&)
+
+namespace Salih::Structures::LinkedLists {
 
 	template<class T>
 	class LinkedList {
