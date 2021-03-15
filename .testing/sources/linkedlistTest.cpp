@@ -16,7 +16,7 @@ typedef Salih::Structures::LinkedLists::LinkedList<int> intList ;
 //** Create sub-categories to test with predicted outcomes **//
 
 /* Constructors */
-TEST_CASE("Testing empty constructor - attribute testing")
+TEST_CASE("empty constructor - attribute testing")
 {
 	intList list1 ;
 	REQUIRE(list1.head == NULL) ;
@@ -24,7 +24,7 @@ TEST_CASE("Testing empty constructor - attribute testing")
 	REQUIRE(list1.size == 0) ;
 }
 
-TEST_CASE("Testing regular constructor - attribute testing")
+TEST_CASE("regular constructor - attribute testing")
 {
 	intList list1{1,2,3,4} ;
 	REQUIRE(list1.size == 4) ;
@@ -32,77 +32,121 @@ TEST_CASE("Testing regular constructor - attribute testing")
 	REQUIRE(list1.tail->getPrev()->getPrev()->getPrev() == list1.head) ;
 }
 
-TEST_CASE("Testing regular constructor - value testing")
+TEST_CASE("regular constructor - value testing")
 {
 	intList list1{1,2,3,4} ;
 	REQUIRE(list1.head->data == 1) ;
 	REQUIRE(list1.tail->data == 4) ;
 }
 
-TEST_CASE("Testing copy constructor & copy operator - attribute testing")
+TEST_CASE("copy constructor - attribute testing")
 {
 	intList list1{1,2,3,4} ;
-	intList list2 = list1 ;
 	intList list3(list1) ;
-	REQUIRE(list1.head != list2.head) ;
-	REQUIRE(list3.head != list2.head) ;
 	REQUIRE(list1.head != list3.head) ;
-	REQUIRE(list1.tail != list2.tail) ;
-	REQUIRE(list3.tail != list2.tail) ;
 	REQUIRE(list1.tail != list3.tail) ;
 	REQUIRE(list1.size == 4) ;
-	REQUIRE(list2.size == 4) ;
 	REQUIRE(list3.size == 4) ;
 }
 
-TEST_CASE("Testing copy constructor & copy operator - value testing")
+TEST_CASE("copy constructor - value testing")
 {
 	intList list1{1,2,3,4} ;
-	intList list2 = list1 ;
 	intList list3(list1) ;
 	REQUIRE(list1.head->data == 1) ;
-	REQUIRE(list2.head->data == 1) ;
 	REQUIRE(list3.head->data == 1) ;
 	REQUIRE(list1.tail->data == 4) ;
-	REQUIRE(list2.tail->data == 4) ;
 	REQUIRE(list3.tail->data == 4) ;
 }
 
-TEST_CASE("Testing move constructor & move operator - attribute testing")
+TEST_CASE("move constructor - attribute testing")
 {
-	intList list1 = intList{1,2,3,4} ;
 	intList list2(intList{1,2,3,4}) ;
-	REQUIRE(list1.head != list2.head) ;
-	REQUIRE(list1.tail != list2.tail) ;
-	REQUIRE(list1.size == 4) ;
+	REQUIRE(list2.head != NULL) ;
+	REQUIRE(list2.tail != NULL) ;
 	REQUIRE(list2.size == 4) ;
 	
-	auto h = list1.head ;
-	auto t = list1.tail ;
-	intList list3 = std::move(list1) ;
-	REQUIRE(list1.head == NULL) ;
-	REQUIRE(list1.head == NULL) ;
+	auto h = list2.head ;
+	auto t = list2.tail ;
+	intList list3 = std::move(list2) ;
 	REQUIRE(list3.head == h) ;
 	REQUIRE(list3.tail == t) ;	
 }
 
-TEST_CASE("Testing move constructor & move operator - value testing")
+TEST_CASE("move constructor - value testing")
 {
-	intList list1 = intList{1,2,3,4} ;
 	intList list2(intList{1,2,3,4}) ;
-	REQUIRE(list1.head->data == list2.head->data) ;
-	REQUIRE(list1.tail->data == list2.tail->data) ;
+	REQUIRE(list2.head->data == 1) ;
+	REQUIRE(list2.tail->data == 4) ;
+}
+
+/* Assignment Operators */
+TEST_CASE("assigning values using operator to list - attribute testing")
+{
+	intList list1{1,2,3,4} ;
+	list1 = {1,2,3,43} ;
+	REQUIRE(list1.size == 4) ;
+	REQUIRE(list1.head->getNext()->getNext()->getNext() == list1.tail) ;
+	REQUIRE(list1.tail->getPrev()->getPrev()->getPrev() == list1.head) ;
+}
+
+TEST_CASE("assigning values using operator to list - value testing")
+{
+	intList list1 = {1,2,3,4} ;
+	REQUIRE(list1.head->data == 1) ;
+	REQUIRE(list1.tail->data == 4) ;
+}
+
+TEST_CASE("assigning created list using operator to list - attribute testing")
+{
+	intList list1{1,2,3,4} ;
+	intList list3 = list1 ;
+	REQUIRE(list1.head != list3.head) ;
+	REQUIRE(list1.tail != list3.tail) ;
+	REQUIRE(list1.size == 4) ;
+	REQUIRE(list3.size == 4) ;
+}
+
+TEST_CASE("assigning created list using operator to list - value testing")
+{
+	intList list1{1,2,3,4} ;
+	intList list3 = list1 ;
+	REQUIRE(list1.head->data == 1) ;
+	REQUIRE(list3.head->data == 1) ;
+	REQUIRE(list1.tail->data == 4) ;
+	REQUIRE(list3.tail->data == 4) ;
+}
+
+TEST_CASE("assigning r-value / temporary list using operator to list - attribute testing")
+{
+	intList list2 = intList{1,2,3,4} ;
+	REQUIRE(list2.head != NULL) ;
+	REQUIRE(list2.tail != NULL) ;
+	REQUIRE(list2.size == 4) ;
+	
+	auto h = list2.head ;
+	auto t = list2.tail ;
+	intList list3 = std::move(list2) ;
+	REQUIRE(list3.head == h) ;
+	REQUIRE(list3.tail == t) ;	
+}
+
+TEST_CASE("assigning r-value / temporary list using operator to list - value testing")
+{
+	intList list2 = intList{1,2,3,4} ;
+	REQUIRE(list2.head->data == 1) ;
+	REQUIRE(list2.tail->data == 4) ;
 }
 
 /* Index / access operator */
-TEST_CASE("Testing [] operator - correct value returned")
+TEST_CASE("[] operator - correct value returned")
 {
 	intList list1 = {1,2,3,4,5,6} ;
 	REQUIRE(list1[0] == 1) ;
 	REQUIRE(list1[3] != 2) ;
 }
 
-TEST_CASE("Testing [] operator - modifying values")
+TEST_CASE("[] operator - modifying values")
 {
 	intList list1 = {1,2,3,4,5,6} ;
 	list1[3] = 1 ;
@@ -110,7 +154,7 @@ TEST_CASE("Testing [] operator - modifying values")
 	REQUIRE(list1[3] != 4) ;
 }
 
-TEST_CASE("Testing [] operator - does 'out_of_range' error get thrown if list is empty")
+TEST_CASE("[] operator - does 'out_of_range' error get thrown if list is empty")
 {
 	intList list1 ;
 	bool isError = false ;
@@ -124,14 +168,14 @@ TEST_CASE("Testing [] operator - does 'out_of_range' error get thrown if list is
 }
 
 /* Boolean operators */
-TEST_CASE("Testing == operator - comparing values")
+TEST_CASE("== operator - comparing values")
 {
 	intList list1 = {1,2,3,4,5,6} ;
 	intList list2{1,2,3,4,5,6} ;
 	REQUIRE(list1 == list2) ;
 }
 
-TEST_CASE("Testing != operator - comparing values")
+TEST_CASE("!= operator - comparing values")
 {
 	intList list1 = {1,2,3,4,5,6} ;
 	intList list2{1,2,3,4,5} ;
