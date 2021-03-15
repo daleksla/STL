@@ -39,7 +39,15 @@ template <typename T>
 Salih::Structures::LinkedLists::Node<T>::Node(T i_data) : data(i_data), prev(NULL), next(NULL) {} ;
 
 template <typename T>
-Salih::Structures::LinkedLists::Node<T>::Node(const Node<T>& node) : data(data), prev(NULL), next(NULL) {} ;
+Salih::Structures::LinkedLists::Node<T>::Node(const Node<T>& node) : data(node.data), prev(NULL), next(NULL) {} ;
+
+template <typename T>
+void Salih::Structures::LinkedLists::Node<T>::operator=(const Node<T>& node)
+{
+	this->data(node.data) ; 
+	this->prev = NULL ;
+	this->next = NULL ;
+} 
 
 template <typename T>
 const Salih::Structures::LinkedLists::Node<T>*& Salih::Structures::LinkedLists::Node<T>::getPrev() const
