@@ -3,6 +3,7 @@
 #pragma once
 
 #include <iostream>
+#include <stdexcept>
 
 namespace Salih::Types {
 
@@ -30,6 +31,8 @@ namespace Salih::Types {
 	
 			explicit Pointer(T) ;
 			
+			explicit Pointer(T*) ;
+			
 			T* operator->() ;
 			
 			T& operator*() ;
@@ -47,6 +50,8 @@ namespace Salih::Types {
 			SharedPointer() ;
 		
 			explicit SharedPointer(T) ;
+			
+			explicit SharedPointer(T*&&) ;
 		
 			SharedPointer(const SharedPointer&) ;
 			
@@ -67,6 +72,8 @@ namespace Salih::Types {
 			UniquePointer() ;
 			
 			explicit UniquePointer(T) ;
+			
+			explicit UniquePointer(T*&&) ;
 		
 			UniquePointer(const UniquePointer&) = delete ;
 			
@@ -93,6 +100,26 @@ Salih::Types::Pointer<T>::Pointer(T data)
 {
 	this->pointer = new T ;
 	*pointer = data ;	
+}
+
+template<typename T>
+Salih::Types::Pointer<T>::Pointer(T* data)
+{
+	int x ;
+        asm("movq %1, %%rax;"
+            "cmpq %%rsp, %%rax;"
+            "jbe Heap;"
+            "movl $1,%0;"
+            "jmp Done;"
+            "Heap:"
+            "movl $0,%0;"
+            "Done:"
+            : "=r" (x)
+            : "r" (data)
+            ) ;
+	const char* errorMsg = "Cannot allocate stack pointer to heap" ;
+	if(x) throw std::runtime_error(errorMsg) ;
+	this->pointer = data ;
 }
 
 template<typename T>
@@ -129,6 +156,9 @@ Salih::Types::SharedPointer<T>::SharedPointer(T data) : Salih::Types::Pointer<T>
 	this->count = new int ;
 	*(this->count) = 1 ;
 }
+
+template<typename T>
+Salih::Types::SharedPointer<T>::SharedPointer(T*&& data) : Salih::Types::Pointer<T>(data) {} ;
 
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<T>& ptr)
@@ -200,6 +230,9 @@ Salih::Types::UniquePointer<T>::UniquePointer() : Salih::Types::Pointer<T>() {} 
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(T data) : Salih::Types::Pointer<T>(data) {} ;
+
+template<typename T>
+Salih::Types::UniquePointer<T>::UniquePointer(T*&& data) : Salih::Types::Pointer<T>(data) {} ;
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(Salih::Types::UniquePointer<T>&& ptr)
