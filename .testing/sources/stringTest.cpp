@@ -237,4 +237,81 @@ TEST_CASE("'getStr()' method - returns correct char*")
 	REQUIRE(v2.str == v2.getStr()) ;
 }
 
+/* String value checking functions */
+
+TEST_CASE("'isUpper()' method - returns correct value")
+{
+	String v ;
+	REQUIRE(v.isUpper() == false) ;
+	String a("balih") ;
+	REQUIRE(a.isUpper() == false) ;
+	String b("Talih") ;
+	REQUIRE(b.isUpper() == false) ;
+	String c("SALIH") ;
+	REQUIRE(c.isUpper() == true) ;
+}
+
+TEST_CASE("'isLower()' method - returns correct value")
+{
+	String v ;
+	REQUIRE(v.isLower() == false) ;
+	String a("balih") ;
+	REQUIRE(a.isLower() == true) ;
+	String b("Talih") ;
+	REQUIRE(b.isLower() == false) ;
+	String c("SALIH") ;
+	REQUIRE(c.isLower() == false) ;
+}
+
+TEST_CASE("'isCapitalised()' method - returns correct value")
+{
+	String v ;
+	REQUIRE(v.isCapitalised() == false) ;
+	String a("balih") ;
+	REQUIRE(a.isCapitalised() == false) ;
+	String b("Talih") ;
+	REQUIRE(b.isCapitalised() == true) ;
+	String c("SALIH") ;
+	REQUIRE(c.isCapitalised() == false) ;
+}
+
+/* String value manipulation functions */
+
+TEST_CASE("'upper()' method - returns correct value")
+{
+	String v ;
+	REQUIRE(strcmp(v.upper().str, "") == 0) ;
+	String a("balih") ;
+	REQUIRE(strcmp(a.upper().str, "BALIH") == 0) ;
+	String b("Talih") ;
+	REQUIRE(strcmp(b.upper().str, "TALIH") == 0) ;
+	String c("SALIH") ;
+	REQUIRE(strcmp(c.upper().str, "SALIH") == 0) ;
+}
+
+TEST_CASE("'lower()' method - returns correct value")
+{
+	String v ;
+	REQUIRE(strcmp(v.lower().str, "") == 0) ;
+	String a("balih") ;
+	REQUIRE(strcmp(a.lower().str, "balih") == 0) ;
+	String b("Talih") ;
+	REQUIRE(strcmp(b.lower().str, "talih") == 0) ;
+	String c("SALIH") ;
+	REQUIRE(strcmp(c.lower().str, "salih") == 0) ;
+}
+
+TEST_CASE("'capitalise()' method - returns correct value")
+{
+	String v ;
+	REQUIRE(strcmp(v.capitalise().str, "") == 0) ;
+	String a("balih") ;
+	REQUIRE(strcmp(a.capitalise().str, "Balih") == 0) ;
+	String b("Talih") ;
+	REQUIRE(strcmp(b.capitalise().str, "Talih") == 0) ;
+	String c("SALIH") ;
+	REQUIRE(strcmp(c.capitalise().str, "Salih") == 0) ;
+}
+
+
 #pragma GCC diagnostic pop
