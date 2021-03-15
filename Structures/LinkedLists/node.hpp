@@ -34,6 +34,8 @@ namespace Salih::Structures::LinkedLists {
 			
 			Node(const Node&) ; //copy constructor - copies data and removes head and tail
 			
+			void operator=(const Node&) ; //copy constructor - copies data and removes head and tail
+			
 			Node(T, Node&, bool) ; //constructor - takes data, node to connect to, specify direction (prev or next)
 		
 			Node(T, Node&, Node&) ; //constructor - takes data, prev node to connect to, next node to connect to

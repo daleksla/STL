@@ -38,6 +38,36 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer
 }
 
 template <typename T>
+void Salih::Structures::LinkedLists::LinkedList<T>::operator=(const std::initializer_list<T>& values)
+{
+	if(head != NULL)
+	{
+		for(Node<T>* node = head ; ;)
+		{
+			Node<T>* mem = node->getNext() ;
+			delete node ;
+			if(mem == NULL) break ;
+			node = mem ;
+		}
+	} 
+	this->setSize(0) ;
+	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
+	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
+	{
+		if(it == std::begin(values)) 
+		{
+			this->head = new Node<T>(*it) ;
+			p = head ;	
+		} else if(it == std::prev(std::end(values))) {
+			tail = new Node<T>(*it, *p, 0) ;
+		} else {
+			p = new Node<T>(*it, *p, 0) ;
+		}
+		this->setSize(this->size + 1) ;	
+	}
+}
+
+template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structures::LinkedLists::LinkedList<T>& list)
 {
 	this->setSize(0) ;
@@ -63,8 +93,19 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structure
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::LinkedList<T>::operator=(const Salih::Structures::LinkedLists::LinkedList<T>& list)
+void Salih::Structures::LinkedLists::LinkedList<T>::operator=(const Salih::Structures::LinkedLists::LinkedList<T>& list)
 {
+	if(head != NULL)
+	{
+		for(Node<T>* node = head ; ;)
+		{
+			Node<T>* mem = node->getNext() ;
+			delete node ;
+			if(mem == NULL) break ;
+			node = mem ;
+		}
+	} 
+	
 	this->setSize(0) ;
 	Salih::Structures::LinkedLists::Node<T>* h = list.head ;
 	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
@@ -99,8 +140,18 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures::LinkedLists::LinkedList<T>&& list)
+void Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures::LinkedLists::LinkedList<T>&& list)
 {
+	if(head != NULL)
+	{
+		for(Node<T>* node = head ; ;)
+		{
+			Node<T>* mem = node->getNext() ;
+			delete node ;
+			if(mem == NULL) break ;
+			node = mem ;
+		}
+	} 	
 	this->head = list.head ;
 	this->tail = list.tail ;
 	this->setSize(list.size) ;
