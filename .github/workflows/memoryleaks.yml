@@ -16,12 +16,14 @@ jobs:
         run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
         run: find . -maxdepth 1 -perm -111 -type f >> files.log
+      - name: Create valgrind alias with specific testing and return type
+        run: alias vg='valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes'
       - name: Loop through & run valgrind for each one
         run: |
           input="./files.log"
           while IFS= read -r line
           do
-            ./"$line"
+            vg ./"$line"
           done < "$input"
       - name: Delete temporary file name holder
         run: rm files.log
