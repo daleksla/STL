@@ -79,7 +79,7 @@ namespace Salih::Types {
 			
 			bool isLower() const ;
 			
-			bool isCapatalised() const ;
+			bool isCapitalised() const ;
 	} ;
 }
 
@@ -402,7 +402,7 @@ bool Salih::Types::String::isLower() const
 	return true ;
 }
 			
-bool Salih::Types::String::isCapatalised() const
+bool Salih::Types::String::isCapitalised() const
 {
 	if(this->size == 0) return false ;
 	
