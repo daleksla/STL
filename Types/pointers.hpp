@@ -189,6 +189,7 @@ Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(const 
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
 	if(this->count != nullptr) *count = *(this->count) + 1 ;
+	return *this ;
 }
 
 template<typename T>
@@ -207,6 +208,7 @@ Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(Salih:
 	this->count = ptr.count ;
 	ptr.pointer = nullptr ;
 	ptr.count = nullptr ;
+	return *this ;
 }
 
 template<typename T>
