@@ -52,6 +52,8 @@ namespace Salih::Types {
 		public:
 			SharedPointer() ;
 			
+			SharedPointer(T*) ;
+			
 			SharedPointer& operator=(std::nullptr_t) ;
 			
 			SharedPointer& operator=(T*) ;
@@ -73,6 +75,8 @@ namespace Salih::Types {
 	class UniquePointer : public Pointer<T> {
 		public:
 			UniquePointer() ;
+			
+			UniquePointer(T*) ;
 			
 			UniquePointer& operator=(std::nullptr_t) ;
 			
@@ -149,6 +153,13 @@ template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer() : Salih::Types::Pointer<T>() 
 {
 	this->count = nullptr ;
+}
+
+template<typename T>
+Salih::Types::SharedPointer<T>::SharedPointer(T* data) : Salih::Types::Pointer<T>(data)
+{
+	this->count = new int ;
+	*(this->count) = 1 ;
 }
 
 template<typename T>
@@ -240,6 +251,9 @@ Salih::Types::SharedPointer<T>::~SharedPointer()
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer() : Salih::Types::Pointer<T>() {} ;
+
+template<typename T>
+Salih::Types::UniquePointer<T>::UniquePointer(T* data) : Salih::Types::Pointer<T>(data) {} ;
 
 template<typename T>
 Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(T* data)
