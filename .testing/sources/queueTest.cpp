@@ -2,6 +2,8 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
+#define private public
+#define protected public
 /* Include the code that we plan to test */
 #include <lib/Types/queue.hpp>
 #include <string>
@@ -56,7 +58,7 @@ TEST_CASE("copy constructor - value testing")
 
 TEST_CASE("move constructor - attribute testing")
 {
-	intQueue list2(intList{1,2,3,4}) ;
+	intQueue list2(intQueue{1,2,3,4}) ;
 	REQUIRE(list2.head != NULL) ;
 	REQUIRE(list2.tail != NULL) ;
 	REQUIRE(list2.size == 4) ;
@@ -121,7 +123,7 @@ TEST_CASE("assigning r-value / temporary list using operator to list - attribute
 	
 	auto h = list2.head ;
 	auto t = list2.tail ;
-	intList list3 = std::move(list2) ;
+	intQueue list3 = std::move(list2) ;
 	REQUIRE(list3.head == h) ;
 	REQUIRE(list3.tail == t) ;	
 }
