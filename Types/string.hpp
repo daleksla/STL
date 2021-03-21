@@ -31,7 +31,7 @@ namespace Salih::Types {
 					
 			~String() ;
 			
-			void operator=(const char*) ;
+			String& operator=(const char*) ;
 			
 			String& operator=(const String&) ;
 			
@@ -122,7 +122,7 @@ Salih::Types::String::~String()
 	str = nullptr ;
 }
 
-void Salih::Types::String::operator=(const char* tbc)
+Salih::Types::String& Salih::Types::String::operator=(const char* tbc)
 {
 	delete[] this->str ;
 	for(this->size = 0 ; tbc[this->size] != '\0'; this->size++) ;
