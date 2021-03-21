@@ -38,7 +38,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::operator=(const std::initializer_list<T>& values)
+Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(head != NULL)
 	{
@@ -65,6 +65,7 @@ void Salih::Structures::LinkedLists::LinkedList<T>::operator=(const std::initial
 		}
 		this->setSize(this->size + 1) ;	
 	}
+	return *this ;
 }
 
 template <typename T>
@@ -93,7 +94,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structure
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::operator=(const Salih::Structures::LinkedLists::LinkedList<T>& list)
+Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(const Salih::Structures::LinkedLists::LinkedList<T>& list)
 {
 	if(head != NULL)
 	{
@@ -126,6 +127,8 @@ void Salih::Structures::LinkedLists::LinkedList<T>::operator=(const Salih::Struc
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
 	}
+	
+	return *this ;
 }
 
 template <typename T>
@@ -140,7 +143,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures::LinkedLists::LinkedList<T>&& list)
+Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures::LinkedLists::LinkedList<T>&& list)
 {
 	if(head != NULL)
 	{
@@ -158,6 +161,7 @@ void Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures:
 	list.head = NULL ;
 	list.tail = NULL ;
 	list.size = std::numeric_limits<int>::max() ;
+	return *this ;
 }
 
 template <typename T>
@@ -322,7 +326,7 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures
 
 
 template<typename T>
-std::ostream& operator<<(std::ostream& os, const Salih::Structures::LinkedLists::LinkedList<T>& dt)
+std::ostream& operator<<(std::ostream& os, Salih::Structures::LinkedLists::LinkedList<T>& dt)
 {
     //os << dt.mo << '/' << dt.da << '/' << dt.yr;
     if(dt.getSize() == 0) 
