@@ -3,6 +3,7 @@
 #pragma once
 
 #include <iostream>
+#include <stdexcept>
 
 namespace Salih::Types {
 
@@ -27,14 +28,16 @@ namespace Salih::Types {
 			T* pointer ;			
 		public:
 			Pointer() ;	
-	
-			explicit Pointer(T) ;
+			
+			Pointer(T*) ;
 			
 			T* operator->() ;
 			
 			T& operator*() ;
 			
 			T* get() const ;
+			
+			virtual void reset() = 0 ;
 			
 			virtual ~Pointer() = 0 ;
 	} ;
@@ -43,18 +46,21 @@ namespace Salih::Types {
 	class SharedPointer : public Pointer<T> {
 		private:
 			int* count ;
+			
 		public:
 			SharedPointer() ;
-		
-			explicit SharedPointer(T) ;
+			
+			SharedPointer& operator=(std::nullptr_t) ;
+			
+			SharedPointer& operator=(T*) ;
 		
 			SharedPointer(const SharedPointer&) ;
 			
-			void operator=(const SharedPointer&) ;
+			SharedPointer& operator=(const SharedPointer&) ;
 			
 			SharedPointer(SharedPointer&&) ;
 			
-			void operator=(SharedPointer&&) ;
+			SharedPointer& operator=(SharedPointer&&) ;
 			
 			void reset() ;
 			
@@ -66,15 +72,17 @@ namespace Salih::Types {
 		public:
 			UniquePointer() ;
 			
-			explicit UniquePointer(T) ;
+			UniquePointer& operator=(std::nullptr_t) ;
+			
+			UniquePointer& operator=(T*) ;
 		
 			UniquePointer(const UniquePointer&) = delete ;
 			
-			void operator=(const UniquePointer&) = delete ;
+			UniquePointer& operator=(const UniquePointer&) = delete ;
 			
 			UniquePointer(UniquePointer&&) ;
 			
-			void operator=(UniquePointer&&) ;
+			UniquePointer& operator=(UniquePointer&&) ;
 			
 			void reset() ;
 			
@@ -85,14 +93,27 @@ namespace Salih::Types {
 template<typename T>
 Salih::Types::Pointer<T>::Pointer() 
 {
-	this->pointer = new T ;
+	this->pointer = nullptr ;	
 }
 
 template<typename T>
-Salih::Types::Pointer<T>::Pointer(T data)
+Salih::Types::Pointer<T>::Pointer(T* data)
 {
-	this->pointer = new T ;
-	*pointer = data ;	
+	int x ;
+        asm("movq %1, %%rax;"
+            "cmpq %%rsp, %%rax;"
+            "jbe Heap;"
+            "movl $1,%0;"
+            "jmp Done;"
+            "Heap:"
+            "movl $0,%0;"
+            "Done:"
+            : "=r" (x)
+            : "r" (data)
+            ) ;
+	const char* errorMsg = "Cannot allocate pointer to stack value to smart pointer" ;
+	if(x) throw std::runtime_error(errorMsg) ;
+	this->pointer = data ;
 }
 
 template<typename T>
@@ -117,37 +138,58 @@ template<typename T>
 Salih::Types::Pointer<T>::~Pointer() {} ;
 
 template<typename T>
-Salih::Types::SharedPointer<T>::SharedPointer() : Salih::Types::Pointer<T>()
+Salih::Types::SharedPointer<T>::SharedPointer() : Salih::Types::Pointer<T>() 
 {
-	this->count = new int ;
-	*(this->count) = 1 ;
+	this->count = nullptr ;
 }
 
 template<typename T>
-Salih::Types::SharedPointer<T>::SharedPointer(T data) : Salih::Types::Pointer<T>(data)
+Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(T* data)
 {
+	//this->reset() ;
+
+	int x ;
+        asm("movq %1, %%rax;"
+            "cmpq %%rsp, %%rax;"
+            "jbe Heap;"
+            "movl $1,%0;"
+            "jmp Done;"
+            "Heap:"
+            "movl $0,%0;"
+            "Done:"
+            : "=r" (x)
+            : "r" (data)
+            ) ;
+	const char* errorMsg = "Cannot allocate pointer to stack value to smart pointer" ;
+	if(x) throw std::runtime_error(errorMsg) ;
+	
+	this->pointer = data ;
 	this->count = new int ;
 	*(this->count) = 1 ;
+	return *this ;
+}
+
+template<typename T>
+Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(std::nullptr_t data) 
+{
+	return *this ;
 }
 
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<T>& ptr)
 {
-	if(this->pointer != nullptr) delete this->pointer ;
-	
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
-	*count = *(this->count) + 1 ;
+	if(this->count != nullptr) *count = *(this->count) + 1 ;
 }
 
 template<typename T>
-void Salih::Types::SharedPointer<T>::operator=(const Salih::Types::SharedPointer<T>& ptr)
+Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(const Salih::Types::SharedPointer<T>& ptr)
 {
-	if(this->pointer != nullptr) delete this->pointer ;
-	
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
-	*count = *(this->count) + 1 ;
+	if(this->count != nullptr) *count = *(this->count) + 1 ;
+	return *this ;
 }
 
 template<typename T>
@@ -160,46 +202,76 @@ Salih::Types::SharedPointer<T>::SharedPointer(Salih::Types::SharedPointer<T>&& p
 }
 
 template<typename T>
-void Salih::Types::SharedPointer<T>::operator=(Salih::Types::SharedPointer<T>&& ptr)
+Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(Salih::Types::SharedPointer<T>&& ptr)
 {
 	this->pointer = ptr.pointer ;
 	this->count = ptr.count ;
 	ptr.pointer = nullptr ;
 	ptr.count = nullptr ;
+	return *this ;
 }
 
 template<typename T>
 void Salih::Types::SharedPointer<T>::reset() 
 {	
-	if(*(this->count) <= 1)
+	if(this->count != nullptr) 
 	{
-		delete (this->pointer) ;
-		*count = *(this->count) - 1 ;
-	}
-	else {
-		this->count = nullptr ;
+		*(this->count) = *(this->count) - 1 ; 
+		if( *(this->count) == 0) 
+		{
+			delete this->pointer ; 
+			delete this->count ;
+		}
 	}
 	this->pointer = nullptr ;
+	this->count = nullptr ;
 }
 
 template<typename T>
 Salih::Types::SharedPointer<T>::~SharedPointer()
 {
-	if(*(this->count) <= 1) 
+	if(this->count != nullptr) 
 	{
-		delete this->pointer ; this->pointer = nullptr ;
-		delete this->count ; this->count = nullptr ;
+		*(this->count) = *(this->count) - 1 ; 
+		if( *(this->count) == 0) 
+		{
+			delete this->pointer ; 
+			delete this->count ;
+		}
 	}
-	else {
-		*count = *(this->count) - 1 ;
-	}
+	this->pointer = nullptr ;
+	this->count = nullptr ;
 }
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer() : Salih::Types::Pointer<T>() {} ;
 
 template<typename T>
-Salih::Types::UniquePointer<T>::UniquePointer(T data) : Salih::Types::Pointer<T>(data) {} ;
+Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(T* data)
+{
+	//this->reset() ;
+	int x ;
+        asm("movq %1, %%rax;"
+            "cmpq %%rsp, %%rax;"
+            "jbe Heap;"
+            "movl $1,%0;"
+            "jmp Done;"
+            "Heap:"
+            "movl $0,%0;"
+            "Done:"
+            : "=r" (x)
+            : "r" (data)
+            ) ;
+            
+        this->reset() ;    
+            
+	const char* errorMsg = "Cannot allocate pointer to stack value to smart pointer" ;
+	if(x) throw std::runtime_error(errorMsg) ;
+	this->pointer = data ;
+}
+
+template<typename T>
+Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(std::nullptr_t data) {} ;
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(Salih::Types::UniquePointer<T>&& ptr)
@@ -209,7 +281,7 @@ Salih::Types::UniquePointer<T>::UniquePointer(Salih::Types::UniquePointer<T>&& p
 }
 
 template<typename T>
-void Salih::Types::UniquePointer<T>::operator=(Salih::Types::UniquePointer<T>&& ptr)
+Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(Salih::Types::UniquePointer<T>&& ptr)
 {
 	this->pointer = ptr.pointer ;
 	ptr.pointer = nullptr ;
@@ -218,7 +290,11 @@ void Salih::Types::UniquePointer<T>::operator=(Salih::Types::UniquePointer<T>&& 
 template<typename T>
 void Salih::Types::UniquePointer<T>::reset() 
 {
-	this->~UniquePointer() ;
+	if(this->pointer != nullptr) 
+	{
+		delete this->pointer ; 
+		this->pointer = nullptr ;
+	}
 }
 
 template<typename T>

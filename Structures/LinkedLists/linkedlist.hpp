@@ -18,7 +18,7 @@ namespace Salih::Structures::LinkedLists {
 }
 
 template<typename T>
-std::ostream& operator<<(std::ostream&, const Salih::Structures::LinkedLists::LinkedList<T>&) ;
+std::ostream& operator<<(std::ostream&, Salih::Structures::LinkedLists::LinkedList<T>&) ;
 
 namespace Salih::Structures::LinkedLists {
 
@@ -42,13 +42,13 @@ namespace Salih::Structures::LinkedLists {
 			
 			LinkedList(const LinkedList&) ; //create new copy where each node is copied and mapped to new copies
 			
-			void operator=(const LinkedList&) ;
+			LinkedList& operator=(const LinkedList&) ;
 					
 			LinkedList(const std::initializer_list<T>&) ; //initialise linked list by creating a node for every element in the vector - use new and delete to throw values onto stack - use destructor to loop through and delete
 			
-			void operator=(const std::initializer_list<T>&) ;
+			LinkedList& operator=(const std::initializer_list<T>&) ;
 			
-			void operator=(LinkedList&&) ;
+			LinkedList& operator=(LinkedList&&) ;
 			
 			LinkedList(LinkedList&&) ;
 			

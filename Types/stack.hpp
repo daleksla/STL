@@ -19,14 +19,29 @@ namespace Salih::Types {
 	class Stack {
 		private:
 			Salih::Structures::LinkedLists::Node<T>* tail ;
+			
 			int size ;
 		public:
 			Stack() ;
+			
 			Stack(const std::initializer_list<T>&) ;
+			
+			Stack(const Stack&) ;
+			
+			Stack& operator=(const Stack&) ;
+			
+			Stack(Stack&&) ;
+			
+			Stack& operator=(Stack&&) ;
+			
 			~Stack() ;
+			
 			T pop() ;
+			
 			const T& peek() const ;
+			
 			void push(T) ;
+			
 			void push(const std::initializer_list<T>&) ;
 	} ;
 }
@@ -53,6 +68,62 @@ Salih::Types::Stack<T>::Stack(const std::initializer_list<T>& values)
 		}
 		this->size = size + 1 ;	
 	}
+}
+
+template <typename T>
+Salih::Types::Stack<T>::Stack(const Salih::Types::Stack<T>& stck)
+{
+	this->size = 0 ;
+	Salih::Structures::LinkedLists::Node<T>* node = stck.tail ;
+	for(; ;)
+	{
+		Salih::Structures::LinkedLists::Node<T>* mem = node->getPrev() ;
+		if(mem == NULL) break ;
+		node = mem ;
+	} 
+	while(node != NULL) 
+	{
+		this->push(node->data) ;	
+		node = node->getNext() ;
+	}
+}
+			
+template <typename T>
+Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const Salih::Types::Stack<T>& stck) 
+{
+	this->size = 0 ;
+	Salih::Structures::LinkedLists::Node<T>* node = stck.tail ;
+	for(; ;)
+	{
+		Salih::Structures::LinkedLists::Node<T>* mem = node->getPrev() ;
+		if(mem == NULL) break ;
+		node = mem ;
+	} 
+	while(node != NULL) 
+	{
+		this->push(node->data) ;	
+		node = node->getNext() ;
+	}
+	return *this ;
+}
+			
+template <typename T>
+Salih::Types::Stack<T>::Stack(Salih::Types::Stack<T>&& stck)
+{
+	this->size = stck.size ;
+	this->tail = stck.tail ;
+	stck.size = 0 ;
+	stck.tail = NULL ;
+}
+			
+template <typename T>
+Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(Salih::Types::Stack<T>&& stck)
+{
+	this->size = stck.size ;
+	this->tail = stck.tail ;
+	stck.size = 0 ;
+	stck.tail = NULL ;
+	return *this ;
 }
 
 template <typename T>

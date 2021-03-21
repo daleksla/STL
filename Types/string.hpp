@@ -31,11 +31,11 @@ namespace Salih::Types {
 					
 			~String() ;
 			
-			void operator=(const char*) ;
+			String& operator=(const char*) ;
 			
-			void operator=(const String&) ;
+			String& operator=(const String&) ;
 			
-			void operator=(String&&) ;
+			String& operator=(String&&) ;
 			
 			String operator+(char) const ; //to append char
 			
@@ -122,7 +122,7 @@ Salih::Types::String::~String()
 	str = nullptr ;
 }
 
-void Salih::Types::String::operator=(const char* tbc)
+Salih::Types::String& Salih::Types::String::operator=(const char* tbc)
 {
 	delete[] this->str ;
 	for(this->size = 0 ; tbc[this->size] != '\0'; this->size++) ;
@@ -131,7 +131,7 @@ void Salih::Types::String::operator=(const char* tbc)
 	this->str[this->size] = '\0' ;
 }
 
-void Salih::Types::String::operator=(const Salih::Types::String& tbc)
+Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
 {
 	delete[] this->str ;
 	this->size = tbc.size ;
@@ -140,7 +140,7 @@ void Salih::Types::String::operator=(const Salih::Types::String& tbc)
 	this->str[this->size] = '\0' ;
 }
 
-void Salih::Types::String::operator=(Salih::Types::String&& tbo)
+Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
 {
 	delete[] this->str ;
 	this->size = tbo.size ;

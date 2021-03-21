@@ -5,6 +5,7 @@
 #include "../Structures/LinkedLists/node.hpp"
 #include <algorithm>
 #include <iterator>
+#include <limits>
 #include <initializer_list>
 
 /* This file contains the declarations and implementations of a Queue-based structure
@@ -15,15 +16,31 @@ namespace Salih::Types {
 	class Queue {
 		private:
 			Salih::Structures::LinkedLists::Node<T>* head ;
+			
 			Salih::Structures::LinkedLists::Node<T>* tail ;
+			
 			int size ;
 		public:
 			Queue() ;
+			
 			Queue(const std::initializer_list<T>&) ;
+			
+			Queue(const Queue&) ;
+			
+			Queue& operator=(const Queue&) ;
+			
+			Queue(Queue&&) ;
+			
+			Queue& operator=(Queue&&) ;
+			
 			~Queue() ;
+			
 			T pop() ;
+			
 			const T& peek() const ;
+			
 			void push(T) ;
+			
 			void push(const std::initializer_list<T>&) ;
 	} ;
 }
@@ -55,9 +72,93 @@ Salih::Types::Queue<T>::Queue(const std::initializer_list<T>& values)
 }
 
 template <typename T>
+Salih::Types::Queue<T>::Queue(const Queue& q)
+{
+	this->size = 0 ;
+	Salih::Structures::LinkedLists::Node<T>* h = q.head ;
+	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
+	while(h != NULL)
+	{
+		if(h->getPrev() == NULL) 
+		{	
+			this->head = new Salih::Structures::LinkedLists::Node<T>(h->data) ;
+			p = head ;
+		}
+		else if(h->getNext() == NULL)
+		{
+			this->tail = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+		}
+		else {
+			p = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+		}
+		h = h->getNext() ;
+		this->size = this->size + 1 ;	
+	}
+}
+
+template <typename T>
+Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const Queue& q)
+{
+	//if(this->head != NULL)
+	//{
+	//	for(Salih::Structures::LinkedLists::Node<T>* node = this->head ; ;)
+	//	{
+	//		Salih::Structures::LinkedLists::Node<T>* mem = node->getNext() ;
+	//		delete node ;
+	//		if(mem == NULL) break ;
+	//		node = mem ;
+	//	}
+	//}
+	this->size = 0 ;
+	Salih::Structures::LinkedLists::Node<T>* h = q.head ;
+	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
+	while(h != NULL)
+	{
+		if(h->getPrev() == NULL) 
+		{	
+			this->head = new Salih::Structures::LinkedLists::Node<T>(h->data) ;
+			p = head ;
+		}
+		else if(h->getNext() == NULL)
+		{
+			this->tail = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+		}
+		else {
+			p = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+		}
+		h = h->getNext() ;
+		this->size = this->size + 1 ;	
+	}
+	return *this ;
+}
+
+template <typename T>
+Salih::Types::Queue<T>::Queue(Queue&& q)
+{
+	this->head = q.head ;
+	this->tail = q.tail ;
+	this->size = q.size ;
+	q.head = NULL ;
+	q.tail = NULL ;
+	q.size = 0 ;
+}
+
+template <typename T>
+Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=( Queue&& q ) 
+{
+	this->head = q.head ;
+	this->tail = q.tail ;
+	this->size = q.size ;
+	q.head = NULL ;
+	q.tail = NULL ;
+	q.size = 0 ;
+	return *this ;
+}
+
+template <typename T>
 Salih::Types::Queue<T>::~Queue()
 {
-	if(size == 0) return;
+	if(head == NULL) return;
 	
 	for(Salih::Structures::LinkedLists::Node<T>* node = head ; ;)
 	{
