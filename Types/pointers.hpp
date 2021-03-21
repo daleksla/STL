@@ -50,9 +50,9 @@ namespace Salih::Types {
 		public:
 			SharedPointer() ;
 			
-			void operator=(std::nullptr_t) ;
+			SharedPointer& operator=(std::nullptr_t) ;
 			
-			void operator=(T*) ;
+			SharedPointer& operator=(T*) ;
 		
 			SharedPointer(const SharedPointer&) ;
 			
@@ -72,9 +72,9 @@ namespace Salih::Types {
 		public:
 			UniquePointer() ;
 			
-			void operator=(std::nullptr_t) ;
+			UniquePointer& operator=(std::nullptr_t) ;
 			
-			void operator=(T*) ;
+			UniquePointer& operator=(T*) ;
 		
 			UniquePointer(const UniquePointer&) = delete ;
 			
@@ -144,9 +144,9 @@ Salih::Types::SharedPointer<T>::SharedPointer() : Salih::Types::Pointer<T>()
 }
 
 template<typename T>
-void Salih::Types::SharedPointer<T>::operator=(T* data)
+Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(T* data)
 {
-	this->reset() ;
+	//this->reset() ;
 
 	int x ;
         asm("movq %1, %%rax;"
@@ -169,10 +169,7 @@ void Salih::Types::SharedPointer<T>::operator=(T* data)
 }
 
 template<typename T>
-void Salih::Types::SharedPointer<T>::operator=(std::nullptr_t data)
-{
-	this->reset() ;
-}
+Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(std::nullptr_t data) {} ;
 
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<T>& ptr)
@@ -244,7 +241,7 @@ template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer() : Salih::Types::Pointer<T>() {} ;
 
 template<typename T>
-void Salih::Types::UniquePointer<T>::operator=(T* data)
+Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(T* data)
 {
 	//this->reset() ;
 	int x ;
@@ -268,10 +265,7 @@ void Salih::Types::UniquePointer<T>::operator=(T* data)
 }
 
 template<typename T>
-void Salih::Types::UniquePointer<T>::operator=(std::nullptr_t data)
-{
-	this->reset() ;
-}
+Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(std::nullptr_t data) {} ;
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(Salih::Types::UniquePointer<T>&& ptr)
