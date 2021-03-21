@@ -33,9 +33,9 @@ namespace Salih::Types {
 			
 			void operator=(const char*) ;
 			
-			void operator=(const String&) ;
+			String& operator=(const String&) ;
 			
-			void operator=(String&&) ;
+			String& operator=(String&&) ;
 			
 			String operator+(char) const ; //to append char
 			
@@ -131,7 +131,7 @@ void Salih::Types::String::operator=(const char* tbc)
 	this->str[this->size] = '\0' ;
 }
 
-void Salih::Types::String::operator=(const Salih::Types::String& tbc)
+Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
 {
 	delete[] this->str ;
 	this->size = tbc.size ;
@@ -140,7 +140,7 @@ void Salih::Types::String::operator=(const Salih::Types::String& tbc)
 	this->str[this->size] = '\0' ;
 }
 
-void Salih::Types::String::operator=(Salih::Types::String&& tbo)
+Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
 {
 	delete[] this->str ;
 	this->size = tbo.size ;
