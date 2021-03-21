@@ -25,7 +25,9 @@ namespace Salih::Types {
 	template<class T>
 	class Pointer {
 		protected:
-			T* pointer ;			
+			T* pointer ;
+			
+			static void checkValidity(T*) ;			
 		public:
 			Pointer() ;	
 			
@@ -91,6 +93,25 @@ namespace Salih::Types {
 }
 
 template<typename T>
+void Salih::Types::Pointer<T>::checkValidity(T* data)
+{
+	int x ;
+        asm("movq %1, %%rax;"
+            "cmpq %%rsp, %%rax;"
+            "jbe Heap%=;"
+            "movl $1,%0;"
+            "jmp Done%=;"
+            "Heap%=:"
+            "movl $0,%0;"
+            "Done%=:"
+            : "=r" (x)
+            : "r" (data)
+            ) ;
+	const char* errorMsg = "Cannot allocate pointer to stack value to smart pointer" ;
+	if(x) throw std::runtime_error(errorMsg) ;
+}
+
+template<typename T>
 Salih::Types::Pointer<T>::Pointer() 
 {
 	this->pointer = nullptr ;	
@@ -99,20 +120,7 @@ Salih::Types::Pointer<T>::Pointer()
 template<typename T>
 Salih::Types::Pointer<T>::Pointer(T* data)
 {
-	int x ;
-        asm("movq %1, %%rax;"
-            "cmpq %%rsp, %%rax;"
-            "jbe Heap;"
-            "movl $1,%0;"
-            "jmp Done;"
-            "Heap:"
-            "movl $0,%0;"
-            "Done:"
-            : "=r" (x)
-            : "r" (data)
-            ) ;
-	const char* errorMsg = "Cannot allocate pointer to stack value to smart pointer" ;
-	if(x) throw std::runtime_error(errorMsg) ;
+	this->checkValidity(data) ;
 	this->pointer = data ;
 }
 
@@ -148,20 +156,7 @@ Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(T* dat
 {
 	//this->reset() ;
 
-	int x ;
-        asm("movq %1, %%rax;"
-            "cmpq %%rsp, %%rax;"
-            "jbe Heap;"
-            "movl $1,%0;"
-            "jmp Done;"
-            "Heap:"
-            "movl $0,%0;"
-            "Done:"
-            : "=r" (x)
-            : "r" (data)
-            ) ;
-	const char* errorMsg = "Cannot allocate pointer to stack value to smart pointer" ;
-	if(x) throw std::runtime_error(errorMsg) ;
+	this->checkValidity(data) ;
 	
 	this->pointer = data ;
 	this->count = new int ;
@@ -250,23 +245,10 @@ template<typename T>
 Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(T* data)
 {
 	//this->reset() ;
-	int x ;
-        asm("movq %1, %%rax;"
-            "cmpq %%rsp, %%rax;"
-            "jbe Heap;"
-            "movl $1,%0;"
-            "jmp Done;"
-            "Heap:"
-            "movl $0,%0;"
-            "Done:"
-            : "=r" (x)
-            : "r" (data)
-            ) ;
+	this->checkValidity(data) ;
             
         this->reset() ;    
-            
-	const char* errorMsg = "Cannot allocate pointer to stack value to smart pointer" ;
-	if(x) throw std::runtime_error(errorMsg) ;
+
 	this->pointer = data ;
 }
 

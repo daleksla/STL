@@ -12,3 +12,4 @@ all:
 	g++ $(LIB) $(STD) $(SOURCES)/queueTest.cpp -o $(EXES)/queueTest
 	g++ $(LIB) $(STD) $(SOURCES)/linkedlistTest.cpp -o $(EXES)/linkedlistTest
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
+	g++ $(LIB) $(STD) $(SOURCES)/basepointerTest.cpp -o $(EXES)/basepointerTest
