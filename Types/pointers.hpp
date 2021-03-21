@@ -166,10 +166,14 @@ Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(T* dat
 	this->pointer = data ;
 	this->count = new int ;
 	*(this->count) = 1 ;
+	return *this ;
 }
 
 template<typename T>
-Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(std::nullptr_t data) {} ;
+Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(std::nullptr_t data) 
+{
+	return *this ;
+}
 
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<T>& ptr)
