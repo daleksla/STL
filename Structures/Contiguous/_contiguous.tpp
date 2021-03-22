@@ -91,7 +91,10 @@ void Salih::Structures::Contiguous::Contiguous<T>::del(const int index)
 }
 			
 template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>::~Contiguous() {} ;
+Salih::Structures::Contiguous::Contiguous<T>::~Contiguous() 
+{
+	delete[] pointer ;
+}
 
 //helpful overloads
 
