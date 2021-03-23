@@ -25,6 +25,8 @@ namespace Salih::Types {
 			
 			Queue(const std::initializer_list<T>&) ;
 			
+			Queue& operator=(const std::initializer_list<T>&) ;
+			
 			Queue(const Queue&) ;
 			
 			Queue& operator=(const Queue&) ;
@@ -69,6 +71,36 @@ Salih::Types::Queue<T>::Queue(const std::initializer_list<T>& values)
 		}
 		this->size = size + 1 ;	
 	}
+}
+
+template <typename T>
+Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const std::initializer_list<T>& values)
+{
+	if(head != NULL)
+	{
+		for(Salih::Structures::LinkedLists::Node<T>* node = head ; ;)
+		{
+			Salih::Structures::LinkedLists::Node<T>* mem = node->getNext() ;
+			delete node ;
+			if(mem == NULL) break ;
+			node = mem ;
+		}
+	}
+	
+	this->size = 0 ;
+	this->head = new Salih::Structures::LinkedLists::Node<T>(*std::begin(values)) ;
+	Salih::Structures::LinkedLists::Node<T>* p = head ;
+	size += 1 ;
+	for(auto it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))
+	{
+		if(it == std::prev(std::end(values))) {
+			tail = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+		} else {
+			p = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+		}
+		this->size = size + 1 ;	
+	}
+	return *this ;
 }
 
 template <typename T>
