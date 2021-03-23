@@ -14,10 +14,17 @@
  * It is located in the nested Salih, Structures, Contiguous namespace */
 
 template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>::Contiguous(const std::initializer_list& values)
+Salih::Structures::Contiguous::Contiguous<T>::Contiguous(std::size_t size) : size(size)
+{
+	this->pointer = new T[this->size] ;
+}
+
+
+template<typename T>
+Salih::Structures::Contiguous::Contiguous<T>::Contiguous(std::size_t size, const std::initializer_list<T>& values) : size(size)
 {
 	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
-	this->pointer = new values[this->size] ;
+	this->pointer = new T[this->size] ;
 	int i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
@@ -43,13 +50,6 @@ template<typename T>
 const T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x) const
 {
 	if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
-	return this->pointer[x] ;	
-}
-
-template<typename T>		
-Salih::Structures::Contiguous::Contiguous<T> Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x, const int y) const
-{
-	if(x < 0 || x > this->size - 1 || y < x || y > this->size - 1) throw std::out_of_range("Element range does not exist") ;
 	return this->pointer[x] ;	
 }
 
@@ -99,7 +99,7 @@ Salih::Structures::Contiguous::Contiguous<T>::~Contiguous()
 //helpful overloads
 
 template<typename T>
-std::ostream& operator<<(std::ostream&, const Salih::Structures::Contiguous::Contiguous<T>& list)
+std::ostream& operator<<(std::ostream& os, const Salih::Structures::Contiguous::Contiguous<T>& list)
 {
 	int size = list.getSize() ;
 	for(int i = 0 ; i < size ; i++)
@@ -108,7 +108,5 @@ std::ostream& operator<<(std::ostream&, const Salih::Structures::Contiguous::Con
 		if(i + 1 >= size) os << "," ;
 	}
 }	
-
-#include "_contiguous.tpp"
 
 #endif

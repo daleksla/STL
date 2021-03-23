@@ -32,23 +32,23 @@ namespace Salih::Structures::Contiguous {
 		public:	
 			Contiguous() = delete ;
 			
-			Contiguous(const std::initializer_list&) ;
+			Contiguous(std::size_t) ;
+			
+			Contiguous(std::size_t, const std::initializer_list<T>&) ;
 			
 			std::size_t getSize() const ;
 			
-			T& operator[](const int, bool) ; 
+			T& operator[](const int) ; 
 			
 			const T& operator[](const int) const ; 
-			
-			T& operator()(const int, const int) const ; 
 			
 			bool operator==(const Contiguous&) const ;
 			
 			bool operator!=(const Contiguous&) const ;
 			
-			void clear() ;
-			
 			void del(const int) ;
+
+			//virtual Contiguous operator()(const int, const int) const ; //slicing
 			
 			//virtual Contiguous operator+(const Contiguous&) const = 0 ;
 			
@@ -56,9 +56,9 @@ namespace Salih::Structures::Contiguous {
 			
 			//virtual Contiguous operator()(const int, const int) = 0 ;
 			
-			virtual void insert(const int, T) = 0 ;
+			//virtual void insert(const int, T) = 0 ;
 			
-			virtual void append() = 0 ;
+			//virtual void append(T) = 0 ;
 			
 			virtual ~Contiguous() = 0 ;
 	} ;
