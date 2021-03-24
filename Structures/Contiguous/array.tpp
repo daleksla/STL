@@ -22,6 +22,33 @@ Salih::Structures::Contiguous::Array<T,size>::Array(T* dumbArray, std::size_t si
 template<typename T, std::size_t size> 
 Salih::Structures::Contiguous::Array<T,size>::Array(const std::initializer_list<T>& list) : Salih::Structures::Contiguous::Contiguous<T>(size, list) {} ;
 
+template<typename T, std::size_t size> 
+Salih::Structures::Contiguous::Array<T,size>& Salih::Structures::Contiguous::Array<T, size>::operator=(const std::initializer_list<T>& values)
+{
+	Contiguous<T>::operator=(values) ;
+	return *this ;
+}
+
+template<typename T, std::size_t size> 
+Salih::Structures::Contiguous::Array<T, size>::Array(const Array<T,size>& list) : Salih::Structures::Contiguous::Contiguous<T>(list) {} ;
+
+template<typename T, std::size_t size> 
+Salih::Structures::Contiguous::Array<T, size>& Salih::Structures::Contiguous::Array<T, size>::operator=(const Array<T,size>& list)
+{
+	Contiguous<T>::operator=(list) ;
+	return *this ;	
+}
+
+template<typename T, std::size_t size> 
+Salih::Structures::Contiguous::Array<T, size>::Array(Array<T,size>&& list) : Salih::Structures::Contiguous::Contiguous<T>(list) {} ;
+
+template<typename T, std::size_t size> 
+Salih::Structures::Contiguous::Array<T, size>& Salih::Structures::Contiguous::Array<T, size>::operator=(Array<T,size>&& list)
+{
+	Contiguous<T>::operator=(list) ;
+	return *this ;	
+}
+
 template<typename T, std::size_t size>		
 Salih::Structures::Contiguous::Array<T,size> Salih::Structures::Contiguous::Array<T,size>::operator()(const int x, const int y) const
 {

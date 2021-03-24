@@ -22,6 +22,16 @@ namespace Salih::Structures::Contiguous {
 		
 			Array(const std::initializer_list<T>&) ;
 			
+			Array& operator=(const std::initializer_list<T>&) ;
+			
+			Array(const Array&) ;
+			
+			Array& operator=(const Array&) ;
+			
+			Array(Array&&) ;
+			
+			Array& operator=(Array&&) ;			
+			
 			Array operator()(const int x, const int y) const ;
 			
 			~Array() ;
