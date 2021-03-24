@@ -19,6 +19,8 @@ Salih::Structures::Contiguous::Contiguous<T>::Contiguous(std::size_t size) : siz
 	this->pointer = new T[this->size] ;
 }
 
+template<typename T>
+Salih::Structures::Contiguous::Contiguous<T>::Contiguous(T* ptr, std::size_t size2) : pointer(ptr), size(size) {} ;
 
 template<typename T>
 Salih::Structures::Contiguous::Contiguous<T>::Contiguous(std::size_t size, const std::initializer_list<T>& values) : size(size)

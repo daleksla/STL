@@ -28,6 +28,8 @@ namespace Salih::Structures::Contiguous {
 			std::size_t size ;
 			
 			T* pointer ;
+			
+			Contiguous(T*, std::size_t) ;
 	
 		public:	
 			Contiguous() = delete ;
