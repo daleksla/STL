@@ -17,25 +17,23 @@ template<typename T, std::size_t size>
 Salih::Structures::Contiguous::Array<T,size>::Array() : Salih::Structures::Contiguous::Contiguous<T>(size) {} ;
 
 template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T,size>::Array(const std::initializer_list<T>& list) : Salih::Structures::Contiguous::Contiguous<T>(size, list) {} ;
+Salih::Structures::Contiguous::Array<T,size>::Array(T* dumbArray, std::size_t sizing) : Salih::Structures::Contiguous::Contiguous<T>(dumbArray, sizing) {} ;
 
-template<typename T, std::size_t size>		
-constexpr std::size_t Salih::Structures::Contiguous::Array<T,size>::deduct(const int y, const int x)
-{
-	return y-x ;	
-}
+template<typename T, std::size_t size> 
+Salih::Structures::Contiguous::Array<T,size>::Array(const std::initializer_list<T>& list) : Salih::Structures::Contiguous::Contiguous<T>(size, list) {} ;
 
 template<typename T, std::size_t size>		
 Salih::Structures::Contiguous::Array<T,size> Salih::Structures::Contiguous::Array<T,size>::operator()(const int x, const int y) const
 {
 	if(x < 0 || x > this->size - 1 || y < x || y > this->size - 1) throw std::out_of_range("Element range does not exist") ;
-	//constexpr std::size_t calculatedSize = deduct(y,x) ;
-	Array<T, deduct(y,x)> tmp ;
+	const int SIZE_TMP = y - x ;
+	// std::cout << SIZE_TMP << std::endl ;
+	T* ARRAY = new T[SIZE_TMP] ;
 	for(int i = x ; i < y ; i++)
 	{
-		tmp.pointer[i-x] = this->pointer[i] ;
+		ARRAY[i-x] = this->pointer[i] ;
 	}
-	return tmp ;
+	return Array(ARRAY, SIZE_TMP) ;
 }
 
 template<typename T, std::size_t size> 			

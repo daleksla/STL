@@ -15,8 +15,8 @@ namespace Salih::Structures::Contiguous {
 
 	template<class T, std::size_t size>
 	class Array : public Contiguous<T> {
-		private:
-			static constexpr std::size_t deduct(const int, const int) ;
+		private:			
+			Array(T*, std::size_t) ;
 		public:
 			Array() ;
 		
