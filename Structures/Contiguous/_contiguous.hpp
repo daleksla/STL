@@ -29,14 +29,24 @@ namespace Salih::Structures::Contiguous {
 			
 			T* pointer ;
 			
-			Contiguous(T*, std::size_t) ;
+			Contiguous(T*, const std::size_t) ;
 	
 		public:	
 			Contiguous() = delete ;
 			
-			Contiguous(std::size_t) ;
+			Contiguous(const std::size_t) ;
 			
-			Contiguous(std::size_t, const std::initializer_list<T>&) ;
+			Contiguous(const std::size_t, const std::initializer_list<T>&) ;
+			
+			Contiguous& operator=(const std::initializer_list<T>&) ;
+			
+			Contiguous(const Contiguous&) ;
+			
+			Contiguous& operator=(const Contiguous&) ;
+			
+			Contiguous(Contiguous&&) ;
+			
+			Contiguous& operator=(Contiguous&&) ;
 			
 			std::size_t getSize() const ;
 			
