@@ -153,7 +153,7 @@ void Salih::Structures::Contiguous::Contiguous<T>::del(const int index)
 template<typename T>
 Salih::Structures::Contiguous::Contiguous<T>::~Contiguous() 
 {
-	if(this->pointer == nullptr) delete[] this->pointer ;
+	if(this->pointer != nullptr) delete[] this->pointer ;
 }
 
 //helpful overloads
