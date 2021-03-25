@@ -13,18 +13,19 @@
 /* This file contains the implementation of the base class for contiguous memory structures 
  * It is located in the nested Salih, Structures, Contiguous namespace */
 
-template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>::Contiguous(std::size_t size) : size(size)
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous() : size(SIZE)
 {
 	this->pointer = new T[this->size] ;
 }
 
-template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>::Contiguous(T* ptr, const std::size_t size2) : pointer(ptr), size(size2) {} ;
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(T* ptr, const std::size_t sizeP) : pointer(ptr), size(sizeP) {} ;
 
-template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>::Contiguous(const std::size_t size, const std::initializer_list<T>& values) : size(size)
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(const std::initializer_list<T>& values) : size(SIZE)
 {
+	std::cout << SIZE << std::endl ;
 	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = new T[this->size] ;
 	int i = 0 ;
@@ -35,9 +36,10 @@ Salih::Structures::Contiguous::Contiguous<T>::Contiguous(const std::size_t size,
 	}
 }
 
-template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>& Salih::Structures::Contiguous::Contiguous<T>::operator=(const std::initializer_list<T>& values)
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>& Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator=(const std::initializer_list<T>& values)
 {
+	this->size = SIZE ;
 	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	int i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
@@ -48,23 +50,23 @@ Salih::Structures::Contiguous::Contiguous<T>& Salih::Structures::Contiguous::Con
 	return *this ;
 }
 
-template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>::Contiguous(const Contiguous& list)
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(const Contiguous& list) : size(SIZE)
 {
 	if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = new T[list.size] ;
-	this->size = list.size ;
 	for(int i = 0 ; i < list.size ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
 	}
 }
 
-template<typename T>			
-Salih::Structures::Contiguous::Contiguous<T>& Salih::Structures::Contiguous::Contiguous<T>::operator=(const Contiguous& list)
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>& Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator=(const Contiguous& list)
 {
+	this->size = SIZE ;
 	if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
-	this->size = list.size ;
+	//this->size = list.size ;
 	for(int i = 0 ; i < list.size ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
@@ -72,8 +74,8 @@ Salih::Structures::Contiguous::Contiguous<T>& Salih::Structures::Contiguous::Con
 	return *this ;
 }
 
-template<typename T>			
-Salih::Structures::Contiguous::Contiguous<T>::Contiguous(Contiguous&& list)
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(Contiguous&& list) : size(SIZE) 
 {
 	if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = list.pointer ;
@@ -82,39 +84,40 @@ Salih::Structures::Contiguous::Contiguous<T>::Contiguous(Contiguous&& list)
 	list.size = 0 ;
 }
 
-template<typename T>			
-Salih::Structures::Contiguous::Contiguous<T>& Salih::Structures::Contiguous::Contiguous<T>::operator=(Contiguous&& list)
+template<typename T, std::size_t SIZE>
+Salih::Structures::Contiguous::Contiguous<T,SIZE>& Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator=(Contiguous&& list)
 {
+	this->size = SIZE ;
 	if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = list.pointer ;
-	this->size = list.size ;
+	//this->size = list.size ;
 	list.pointer = nullptr ;
 	list.size = 0 ;	
 	return *this ;
 }
 
-template<typename T>			
-std::size_t Salih::Structures::Contiguous::Contiguous<T>::getSize() const
+template<typename T, std::size_t SIZE>		
+std::size_t Salih::Structures::Contiguous::Contiguous<T,SIZE>::getSize() const
 {
 	return this->size ;
 }
 
-template<typename T>			
-T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x)
+template<typename T, std::size_t SIZE>		
+T& Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator[](const int x)
 {
 	if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
-template<typename T>		
-const T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x) const
+template<typename T, std::size_t SIZE>		
+const T& Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator[](const int x) const
 {
 	if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
 }
 
-template<typename T>		
-bool Salih::Structures::Contiguous::Contiguous<T>::operator==(const Salih::Structures::Contiguous::Contiguous<T>& b) const
+template<typename T, std::size_t SIZE>		
+bool Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator==(const Salih::Structures::Contiguous::Contiguous<T,SIZE>& b) const
 {
 	if(this->size != b.size) return false ;
 	
@@ -126,8 +129,8 @@ bool Salih::Structures::Contiguous::Contiguous<T>::operator==(const Salih::Struc
 	return true ;	
 }
 
-template<typename T>		
-bool Salih::Structures::Contiguous::Contiguous<T>::operator!=(const Salih::Structures::Contiguous::Contiguous<T>& b) const
+template<typename T, std::size_t SIZE>		
+bool Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Contiguous<T,SIZE>& b) const
 {
 	if(this->size == b.size) return false ;
 	
@@ -139,8 +142,8 @@ bool Salih::Structures::Contiguous::Contiguous<T>::operator!=(const Salih::Struc
 	return false ;	
 }
 
-template<typename T>
-void Salih::Structures::Contiguous::Contiguous<T>::del(const int index)
+template<typename T, std::size_t SIZE>		
+void Salih::Structures::Contiguous::Contiguous<T,SIZE>::del(const int index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;
 	for(int i = index - 1 ; i < this->size ; i++)
@@ -150,23 +153,25 @@ void Salih::Structures::Contiguous::Contiguous<T>::del(const int index)
 	this->size -= 1 ;
 }
 			
-template<typename T>
-Salih::Structures::Contiguous::Contiguous<T>::~Contiguous() 
+template<typename T, std::size_t SIZE>		
+Salih::Structures::Contiguous::Contiguous<T,SIZE>::~Contiguous() 
 {
 	if(this->pointer != nullptr) delete[] this->pointer ;
 }
 
 //helpful overloads
 
-template<typename T>
-std::ostream& operator<<(std::ostream& os, const Salih::Structures::Contiguous::Contiguous<T>& list)
+template<typename T, std::size_t SIZE>		
+std::ostream& operator<<(std::ostream& os, const Salih::Structures::Contiguous::Contiguous<T,SIZE>& list)
 {
-	int size = list.getSize() ;
-	for(int i = 0 ; i < size ; i++)
+	os << "[" ;
+	for(int i = 0 ; i < SIZE ; i++)
 	{
 		os << list[i] ;
-		if(i + 1 >= size) os << "," ;
+		if( (i + 1) < SIZE) os << "," ;
 	}
+	os << "]" ;
+	return os ;
 }	
 
 #endif

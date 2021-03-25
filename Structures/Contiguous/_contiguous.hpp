@@ -12,17 +12,17 @@
  
 namespace Salih::Structures::Contiguous {
 	
-	template<typename T>
+	template<typename T,std::size_t SIZE>
 	class Contiguous ;
 	
 }
 
-template<typename T>
-std::ostream& operator<<(std::ostream&, const Salih::Structures::Contiguous::Contiguous<T>&) ;
+template<typename T,std::size_t SIZE>
+std::ostream& operator<<(std::ostream&, const Salih::Structures::Contiguous::Contiguous<T,SIZE>&) ;
 
 namespace Salih::Structures::Contiguous {
 
-	template<class T>
+	template<class T, std::size_t SIZE>
 	class Contiguous {
 		protected:
 			std::size_t size ;
@@ -32,11 +32,10 @@ namespace Salih::Structures::Contiguous {
 			Contiguous(T*, const std::size_t) ;
 	
 		public:	
-			Contiguous() = delete ;
 			
-			Contiguous(const std::size_t) ;
+			Contiguous() ;
 			
-			Contiguous(const std::size_t, const std::initializer_list<T>&) ;
+			Contiguous(const std::initializer_list<T>&) ;
 			
 			Contiguous& operator=(const std::initializer_list<T>&) ;
 			
