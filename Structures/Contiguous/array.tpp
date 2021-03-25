@@ -13,44 +13,47 @@
 /* This file contains the declarations and implementations of a array-based (child) contiguous structure 
  * It is located in the Salih, Structures, Contiguous namespaces */
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T,size>::Array() : Salih::Structures::Contiguous::Contiguous<T>(size) {} ;
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::Array() : Salih::Structures::Contiguous::Contiguous<T,SIZE>() {} ;
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T,size>::Array(T* dumbArray, std::size_t sizing) : Salih::Structures::Contiguous::Contiguous<T>(dumbArray, sizing) {} ;
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::Array(T* dumbArray, const std::size_t sizing) : Salih::Structures::Contiguous::Contiguous<T,SIZE>(dumbArray, sizing) {} ;
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T,size>::Array(const std::initializer_list<T>& list) : Salih::Structures::Contiguous::Contiguous<T>(size, list) {} ;
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::Array(const std::initializer_list<T>& list) : Salih::Structures::Contiguous::Contiguous<T,SIZE>(list) {} ;
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T,size>& Salih::Structures::Contiguous::Array<T, size>::operator=(const std::initializer_list<T>& values)
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const std::initializer_list<T>& values)
 {
-	Contiguous<T>::operator=(values) ;
+	this->size = SIZE ;
+	Contiguous<T,SIZE>::operator=(values) ;
 	return *this ;
 }
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T, size>::Array(const Array<T,size>& list) : Salih::Structures::Contiguous::Contiguous<T>(list) {} ;
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,SIZE>& list) : Salih::Structures::Contiguous::Contiguous<T,SIZE>(list) {} ;
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T, size>& Salih::Structures::Contiguous::Array<T, size>::operator=(const Array<T,size>& list)
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const Array<T,SIZE>& list)
 {
-	Contiguous<T>::operator=(list) ;
+	this->size = SIZE ;
+	Contiguous<T,SIZE>::operator=(list) ;
 	return *this ;	
 }
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T, size>::Array(Array<T,size>&& list) : Salih::Structures::Contiguous::Contiguous<T>(list) {} ;
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T, SIZE>::Array(Array<T,SIZE>&& list) : Salih::Structures::Contiguous::Contiguous<T,SIZE>(list) {} ;
 
-template<typename T, std::size_t size> 
-Salih::Structures::Contiguous::Array<T, size>& Salih::Structures::Contiguous::Array<T, size>::operator=(Array<T,size>&& list)
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(Array<T,SIZE>&& list)
 {
-	Contiguous<T>::operator=(list) ;
+	this->size = SIZE ;
+	Contiguous<T,SIZE>::operator=(list) ;
 	return *this ;	
 }
 
-template<typename T, std::size_t size>		
-Salih::Structures::Contiguous::Array<T,size> Salih::Structures::Contiguous::Array<T,size>::operator()(const int x, const int y) const
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE> Salih::Structures::Contiguous::Array<T,SIZE>::operator()(const int x, const int y) const
 {
 	if(x < 0 || x > this->size - 1 || y < x || y > this->size - 1) throw std::out_of_range("Element range does not exist") ;
 	const int SIZE_TMP = y - x ;
@@ -63,7 +66,7 @@ Salih::Structures::Contiguous::Array<T,size> Salih::Structures::Contiguous::Arra
 	return Array(ARRAY, SIZE_TMP) ;
 }
 
-template<typename T, std::size_t size> 			
-Salih::Structures::Contiguous::Array<T,size>::~Array() {} ;	
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::~Array() {} ;	
 
 #endif

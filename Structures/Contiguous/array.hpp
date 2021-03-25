@@ -13,10 +13,10 @@
 
 namespace Salih::Structures::Contiguous {
 
-	template<class T, std::size_t size>
-	class Array : public Contiguous<T> {
+	template<class T, std::size_t SIZE>
+	class Array : public Contiguous<T,SIZE> {
 		private:			
-			Array(T*, std::size_t) ;
+			Array(T*, const std::size_t) ;
 		public:
 			Array() ;
 		
