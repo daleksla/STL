@@ -25,7 +25,7 @@ Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(T* ptr, const std:
 template<typename T, std::size_t SIZE>
 Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(const std::initializer_list<T>& values) : size(SIZE)
 {
-	std::cout << SIZE << std::endl ;
+	//std::cout << SIZE << std::endl ;
 	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = new T[this->size] ;
 	int i = 0 ;
