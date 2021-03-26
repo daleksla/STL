@@ -53,7 +53,13 @@ namespace Salih::Structures::Contiguous {
 			
 			const T& operator[](const int) const ; 
 			
+			template<typename OTHER>
+			bool operator==(const Contiguous<OTHER, SIZE>&) const ;
+			
 			bool operator==(const Contiguous&) const ;
+			
+			template<typename OTHER>
+			bool operator!=(const Contiguous<OTHER, SIZE>&) const ;
 			
 			bool operator!=(const Contiguous&) const ;
 			

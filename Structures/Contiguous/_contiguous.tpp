@@ -25,7 +25,7 @@ Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(T* ptr, const std:
 template<typename T, std::size_t SIZE>
 Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(const std::initializer_list<T>& values) : size(SIZE)
 {
-	//std::cout << SIZE << std::endl ;
+	std::cout << SIZE << std::endl ;
 	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = new T[this->size] ;
 	int i = 0 ;
@@ -39,6 +39,7 @@ Salih::Structures::Contiguous::Contiguous<T,SIZE>::Contiguous(const std::initial
 template<typename T, std::size_t SIZE>
 Salih::Structures::Contiguous::Contiguous<T,SIZE>& Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator=(const std::initializer_list<T>& values)
 {
+	std::cout << SIZE << std::endl ;
 	this->size = SIZE ;
 	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	int i = 0 ;
@@ -129,8 +130,36 @@ bool Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator==(const Salih::
 	return true ;	
 }
 
+template<typename T, std::size_t SIZE>
+template<typename OTHER>		
+bool Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator==(const Salih::Structures::Contiguous::Contiguous<OTHER,SIZE>& b) const
+{
+	if(this->size != b.size) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return false ;
+	}
+	
+	return true ;	
+}
+
 template<typename T, std::size_t SIZE>		
 bool Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Contiguous<T,SIZE>& b) const
+{
+	if(this->size == b.size) return false ;
+	
+	for(int i = 0 ; i < this->size ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return true ;
+	}
+	
+	return false ;	
+}
+
+template<typename T, std::size_t SIZE>
+template<typename OTHER>				
+bool Salih::Structures::Contiguous::Contiguous<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Contiguous<OTHER,SIZE>& b) const
 {
 	if(this->size == b.size) return false ;
 	
