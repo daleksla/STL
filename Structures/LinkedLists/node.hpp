@@ -40,13 +40,13 @@ namespace Salih::Structures::LinkedLists {
 		
 			Node(T, Node&, Node&) ; //constructor - takes data, prev node to connect to, next node to connect to
 	
-			const Node*& getPrev() const ; //gets prev node in LL
+			//const Node*& getPrev() const ; //gets prev node in LL
 
 			Node*& getPrev() ; //gets prev node in LL
 		
 			void setPrev(Node*&) ; //sets prev node in LL
 			
-			const Node*& getNext() const ; //returns next node in LL
+			//const Node*& getNext() const ; //returns next node in LL
 
 			Node*& getNext() ; //returns next node in LL
 

@@ -49,11 +49,11 @@ Salih::Structures::LinkedLists::Node<T>& Salih::Structures::LinkedLists::Node<T>
 	this->next = NULL ;
 } 
 
-template <typename T>
-const Salih::Structures::LinkedLists::Node<T>*& Salih::Structures::LinkedLists::Node<T>::getPrev() const
-{
-	return prev ;
-}
+//template <typename T>
+//const Salih::Structures::LinkedLists::Node<T>*& Salih::Structures::LinkedLists::Node<T>::getPrev() const
+//{
+//	return prev ;
+//}
 
 template <typename T>
 Salih::Structures::LinkedLists::Node<T>*& Salih::Structures::LinkedLists::Node<T>::getPrev()
@@ -67,11 +67,11 @@ void Salih::Structures::LinkedLists::Node<T>::setPrev(Node<T>*& input)
 	this->prev = input ;
 }
 
-template <typename T>
-const Salih::Structures::LinkedLists::Node<T>*& Salih::Structures::LinkedLists::Node<T>::getNext() const
-{
-	return next ;
-}
+//template <typename T>
+//const Salih::Structures::LinkedLists::Node<T>*& Salih::Structures::LinkedLists::Node<T>::getNext() const
+//{
+//	return next ;
+//}
 
 template <typename T>
 Salih::Structures::LinkedLists::Node<T>*& Salih::Structures::LinkedLists::Node<T>::getNext()
