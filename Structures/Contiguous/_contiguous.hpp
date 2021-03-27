@@ -12,17 +12,17 @@
  
 namespace Salih::Structures::Contiguous {
 	
-	template<typename T,std::size_t SIZE>
+	template<typename T>
 	class Contiguous ;
 	
 }
 
-template<typename T,std::size_t SIZE>
-std::ostream& operator<<(std::ostream&, const Salih::Structures::Contiguous::Contiguous<T,SIZE>&) ;
+template<typename T>
+std::ostream& operator<<(std::ostream&, const Salih::Structures::Contiguous::Contiguous<T>&) ;
 
 namespace Salih::Structures::Contiguous {
 
-	template<class T, std::size_t SIZE>
+	template<class T>
 	class Contiguous {
 		protected:
 			std::size_t size ;
@@ -31,21 +31,22 @@ namespace Salih::Structures::Contiguous {
 			
 			Contiguous(T*, const std::size_t) ;
 	
-		public:	
+		public:
+			//Contiguous() = delete ;
 			
-			Contiguous() ;
+			Contiguous(const std::size_t) ;
 			
-			Contiguous(const std::initializer_list<T>&) ;
+			Contiguous(const std::initializer_list<T>&, const std::size_t) ;
 			
-			Contiguous& operator=(const std::initializer_list<T>&) ;
+			//Contiguous& operator=(const std::initializer_list<T>&) ;
 			
-			Contiguous(const Contiguous&) ;
+			Contiguous(const Contiguous&, const std::size_t) ;
 			
-			Contiguous& operator=(const Contiguous&) ;
+			//Contiguous& operator=(const Contiguous&) ;
 			
-			Contiguous(Contiguous&&) ;
+			Contiguous(Contiguous&&, const std::size_t) ;
 			
-			Contiguous& operator=(Contiguous&&) ;
+			//Contiguous& operator=(Contiguous&&) ;
 			
 			std::size_t getSize() const ;
 			
@@ -54,12 +55,12 @@ namespace Salih::Structures::Contiguous {
 			const T& operator[](const int) const ; 
 			
 			template<typename OTHER>
-			bool operator==(const Contiguous<OTHER, SIZE>&) const ;
+			bool operator==(const Contiguous<OTHER>&) const ;
 			
 			bool operator==(const Contiguous&) const ;
 			
 			template<typename OTHER>
-			bool operator!=(const Contiguous<OTHER, SIZE>&) const ;
+			bool operator!=(const Contiguous<OTHER>&) const ;
 			
 			bool operator!=(const Contiguous&) const ;
 			
