@@ -36,6 +36,16 @@ namespace Salih::Types {
 			
 			Stack& operator=(Stack&&) ;
 			
+			bool operator==(const Stack<T>&) const ;
+			
+			bool operator!=(const Stack<T>&) const ;
+			
+			template<typename OTHER>
+			bool operator==(const Stack<OTHER>&) const ;
+			
+			template<typename OTHER>
+			bool operator!=(const Stack<OTHER>&) const ;
+			
 			~Stack() ;
 			
 			T pop() ;
@@ -45,6 +55,9 @@ namespace Salih::Types {
 			void push(T) ;
 			
 			void push(const std::initializer_list<T>&) ;
+			
+			template<typename OTHER>
+			friend class Stack ;
 	} ;
 }
 
@@ -154,6 +167,76 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(Salih::Types::Stack<T>
 	stck.size = 0 ;
 	stck.tail = NULL ;
 	return *this ;
+}
+
+template <typename T>
+bool Salih::Types::Stack<T>::operator==(const Salih::Types::Stack<T>& qq) const
+{
+	if(this->size != qq.size) return false ;
+	
+	auto node1 = this->tail ;
+	auto node2 = qq.tail ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return false ;
+		node1 = node1->getPrev() ;
+		node2 = node2->getPrev() ;
+	}
+	
+	return true ;
+}
+
+template <typename T>			
+bool Salih::Types::Stack<T>::operator!=(const Salih::Types::Stack<T>& qq) const
+{
+	if(this->size != qq.size) return true ;
+	
+	auto node1 = this->tail ;
+	auto node2 = qq.tail ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return true ;
+		node1 = node1->getPrev() ;
+		node2 = node2->getPrev() ;
+	}
+	
+	return false ;
+}
+
+template <typename T>	
+template<typename OTHER>
+bool Salih::Types::Stack<T>::operator==(const Salih::Types::Stack<OTHER>& qq) const
+{
+	if(this->size != qq.size) return false ;
+	
+	auto node1 = this->tail ;
+	auto node2 = qq.tail ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return false ;
+		node1 = node1->getPrev() ;
+		node2 = node2->getPrev() ;
+	}
+	
+	return true ;
+}
+		
+template <typename T>	
+template <typename OTHER>
+bool Salih::Types::Stack<T>::operator!=(const Salih::Types::Stack<OTHER>& qq) const
+{
+	if(this->size != qq.size) return true ;
+	
+	auto node1 = this->tail ;
+	auto node2 = qq.tail ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return true ;
+		node1 = node1->getPrev() ;
+		node2 = node2->getPrev() ;
+	}
+	
+	return false ;
 }
 
 template <typename T>

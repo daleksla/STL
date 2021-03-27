@@ -62,6 +62,12 @@ namespace Salih::Structures::LinkedLists {
 			
 			bool operator!=(const LinkedList<T>&) const ; //method to index linked list, returns data
 			
+			template<typename OTHER>
+			bool operator==(const LinkedList<OTHER>&) const ; //method to index linked list, returns data
+			
+			template<typename OTHER>
+			bool operator!=(const LinkedList<OTHER>&) const ; //method to index linked list, returns data
+			
 			void insert(const int, T) ;
 						
 			int getSize() const ; //get size
@@ -69,6 +75,9 @@ namespace Salih::Structures::LinkedLists {
 			void append(T) ; //append value to list
 			
 			void del(const int) ; //delete element in list based off rank (1st, 2nd, etc.)
+			
+			template<typename OTHER>
+			friend class LinkedList ;
 
 	} ;	
 }

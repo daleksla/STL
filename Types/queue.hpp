@@ -27,13 +27,23 @@ namespace Salih::Types {
 			
 			Queue& operator=(const std::initializer_list<T>&) ;
 			
-			Queue(const Queue&) ;
+			Queue(const Queue<T>&) ;
 			
-			Queue& operator=(const Queue&) ;
+			Queue& operator=(const Queue<T>&) ;
 			
-			Queue(Queue&&) ;
+			Queue(Queue<T>&&) ;
 			
-			Queue& operator=(Queue&&) ;
+			Queue& operator=(Queue<T>&&) ;
+			
+			bool operator==(const Queue<T>&) const ;
+			
+			bool operator!=(const Queue<T>&) const ;
+			
+			template<typename OTHER>
+			bool operator==(const Queue<OTHER>&) const ;
+			
+			template<typename OTHER>
+			bool operator!=(const Queue<OTHER>&) const ;
 			
 			~Queue() ;
 			
@@ -44,6 +54,9 @@ namespace Salih::Types {
 			void push(T) ;
 			
 			void push(const std::initializer_list<T>&) ;
+			
+			template<typename OTHER>
+    			friend class Queue ;
 	} ;
 }
 
@@ -185,6 +198,76 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=( Queue&& q )
 	q.tail = NULL ;
 	q.size = 0 ;
 	return *this ;
+}
+
+template <typename T>
+bool Salih::Types::Queue<T>::operator==(const Salih::Types::Queue<T>& qq) const
+{
+	if(this->size != qq.size) return false ;
+	
+	auto node1 = this->head ;
+	auto node2 = qq.head ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return false ;
+		node1 = node1->getNext() ;
+		node2 = node2->getNext() ;
+	}
+	
+	return true ;
+}
+
+template <typename T>			
+bool Salih::Types::Queue<T>::operator!=(const Salih::Types::Queue<T>& qq) const
+{
+	if(this->size != qq.size) return true ;
+	
+	auto node1 = this->head ;
+	auto node2 = qq.head ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return true ;
+		node1 = node1->getNext() ;
+		node2 = node2->getNext() ;
+	}
+	
+	return false ;
+}
+
+template <typename T>			
+template<typename OTHER>
+bool Salih::Types::Queue<T>::operator==(const Salih::Types::Queue<OTHER>& qq) const
+{
+	if(this->size != qq.size) return false ;
+	
+	auto node1 = this->head ;
+	auto node2 = qq.head ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return false ;
+		node1 = node1->getNext() ;
+		node2 = node2->getNext() ;
+	}
+	
+	return true ;
+}
+		
+template <typename T>	
+template<typename OTHER>
+bool Salih::Types::Queue<T>::operator!=(const Salih::Types::Queue<OTHER>& qq) const
+{
+	if(this->size != qq.size) return true ;
+	
+	auto node1 = this->head ;
+	auto node2 = qq.head ;
+	while(node1 && node2)
+	{
+		if(node1->data != node2->data) return true ;
+		node1 = node1->getNext() ;
+		node2 = node2->getNext() ;
+	}
+	
+	return false ;
 }
 
 template <typename T>

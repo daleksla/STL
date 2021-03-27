@@ -243,6 +243,44 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Stru
 }
 
 template <typename T>
+template <typename OTHER>
+bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Structures::LinkedLists::LinkedList<OTHER>& list) const
+{
+	if(list.getSize() != this->getSize()) return false ;
+	
+	auto head1 = this->head ;
+	auto head2 = list.head ;
+	
+	for(int i = 0 ; i < list.getSize() ; i++)
+	{
+		if(head1->data != head2->data) return false ;
+		head1 = head1->getNext() ;
+		head2 = head2->getNext() ;
+	}
+	 
+	return true ;
+}
+
+template <typename T>
+template <typename OTHER>
+bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Structures::LinkedLists::LinkedList<OTHER>& list) const
+{
+	if(list.getSize() != this->getSize()) return true ;
+	
+	auto head1 = this->head ;
+	auto head2 = list.head ;
+	
+	for(int i = 0 ; i < list.getSize() ; i++)
+	{
+		if(head1->data != head2->data) return true ;
+		head1 = head1->getNext() ;
+		head2 = head2->getNext() ;
+	}
+	 
+	return false ;
+}
+
+template <typename T>
 void Salih::Structures::LinkedLists::LinkedList<T>::insert(const int pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
