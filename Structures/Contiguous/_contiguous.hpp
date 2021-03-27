@@ -54,9 +54,9 @@ namespace Salih::Structures::Contiguous {
 			
 			const T& operator[](const int) const ; 
 			
-			T& at(const int, const bool) ; 
+			T& at(const int, const bool check = true) ; 
 			
-			const T& at(const int, const bool) const ; 
+			const T& at(const int, const bool check = true) const ; 
 			
 			template<typename OTHER>
 			bool operator==(const Contiguous<OTHER>&) const ;
@@ -83,6 +83,8 @@ namespace Salih::Structures::Contiguous {
 			//virtual void append(T) = 0 ;
 			
 			virtual ~Contiguous() = 0 ;
+			
+			friend class Contiguous ;
 	} ;
 }
 

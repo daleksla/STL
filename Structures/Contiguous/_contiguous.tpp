@@ -118,14 +118,14 @@ const T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x) c
 }
 
 template<typename T>		
-T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x,const bool check = true)
+T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x,const bool check)
 {
 	if(check) if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-const T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x, const bool check = true) const
+const T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x, const bool check) const
 {
 	if(check) if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
