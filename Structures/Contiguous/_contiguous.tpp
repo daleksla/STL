@@ -106,12 +106,26 @@ std::size_t Salih::Structures::Contiguous::Contiguous<T>::getSize() const
 template<typename T>		
 T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x)
 {
-	if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	//if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
 const T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x) const
+{
+	//if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	return this->pointer[x] ;	
+}
+
+template<typename T>		
+T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x)
+{
+	if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	return this->pointer[x] ;
+} 
+
+template<typename T>		
+const T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x) const
 {
 	if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
