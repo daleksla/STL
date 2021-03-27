@@ -64,8 +64,8 @@ template <typename T>
 Salih::Types::Queue<T>::Queue()
 {
 	this->size = 0 ;
-	this->head = NULL ;
-	this->tail = NULL ;
+	this->head = nullptr ;
+	this->tail = nullptr ;
 }
 
 template <typename T>
@@ -89,13 +89,13 @@ Salih::Types::Queue<T>::Queue(const std::initializer_list<T>& values)
 template <typename T>
 Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const std::initializer_list<T>& values)
 {
-	if(head != NULL)
+	if(head != nullptr)
 	{
 		for(Salih::Structures::LinkedLists::Node<T>* node = head ; ;)
 		{
 			Salih::Structures::LinkedLists::Node<T>* mem = node->getNext() ;
 			delete node ;
-			if(mem == NULL) break ;
+			if(mem == nullptr) break ;
 			node = mem ;
 		}
 	}
@@ -121,15 +121,15 @@ Salih::Types::Queue<T>::Queue(const Queue& q)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::Node<T>* h = q.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
-	while(h != NULL)
+	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	while(h != nullptr)
 	{
-		if(h->getPrev() == NULL) 
+		if(h->getPrev() == nullptr) 
 		{	
 			this->head = new Salih::Structures::LinkedLists::Node<T>(h->data) ;
 			p = head ;
 		}
-		else if(h->getNext() == NULL)
+		else if(h->getNext() == nullptr)
 		{
 			this->tail = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
 		}
@@ -144,27 +144,27 @@ Salih::Types::Queue<T>::Queue(const Queue& q)
 template <typename T>
 Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const Queue& q)
 {
-	//if(this->head != NULL)
+	//if(this->head != nullptr)
 	//{
 	//	for(Salih::Structures::LinkedLists::Node<T>* node = this->head ; ;)
 	//	{
 	//		Salih::Structures::LinkedLists::Node<T>* mem = node->getNext() ;
 	//		delete node ;
-	//		if(mem == NULL) break ;
+	//		if(mem == nullptr) break ;
 	//		node = mem ;
 	//	}
 	//}
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::Node<T>* h = q.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
-	while(h != NULL)
+	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	while(h != nullptr)
 	{
-		if(h->getPrev() == NULL) 
+		if(h->getPrev() == nullptr) 
 		{	
 			this->head = new Salih::Structures::LinkedLists::Node<T>(h->data) ;
 			p = head ;
 		}
-		else if(h->getNext() == NULL)
+		else if(h->getNext() == nullptr)
 		{
 			this->tail = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
 		}
@@ -183,8 +183,8 @@ Salih::Types::Queue<T>::Queue(Queue&& q)
 	this->head = q.head ;
 	this->tail = q.tail ;
 	this->size = q.size ;
-	q.head = NULL ;
-	q.tail = NULL ;
+	q.head = nullptr ;
+	q.tail = nullptr ;
 	q.size = 0 ;
 }
 
@@ -194,8 +194,8 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=( Queue&& q )
 	this->head = q.head ;
 	this->tail = q.tail ;
 	this->size = q.size ;
-	q.head = NULL ;
-	q.tail = NULL ;
+	q.head = nullptr ;
+	q.tail = nullptr ;
 	q.size = 0 ;
 	return *this ;
 }
@@ -273,13 +273,13 @@ bool Salih::Types::Queue<T>::operator!=(const Salih::Types::Queue<OTHER>& qq) co
 template <typename T>
 Salih::Types::Queue<T>::~Queue()
 {
-	if(head == NULL) return;
+	if(head == nullptr) return;
 	
 	for(Salih::Structures::LinkedLists::Node<T>* node = head ; ;)
 	{
 		Salih::Structures::LinkedLists::Node<T>* mem = node->getNext() ;
 		delete node ;
-		if(mem == NULL) break ;
+		if(mem == nullptr) break ;
 		node = mem ;
 	} 
 }
