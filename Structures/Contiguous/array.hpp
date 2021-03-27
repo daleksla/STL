@@ -14,7 +14,7 @@
 namespace Salih::Structures::Contiguous {
 
 	template<class T, std::size_t SIZE>
-	class Array : public Contiguous<T,SIZE> {
+	class Array : public Contiguous<T> {
 		private:			
 			Array(T*, const std::size_t) ;
 		public:
@@ -32,7 +32,8 @@ namespace Salih::Structures::Contiguous {
 			
 			Array& operator=(Array&&) ;			
 			
-			Array operator()(const int x, const int y) const ;
+			//template<std::size_t NEW_SIZE>
+			//Array<T,NEW_SIZE> operator()(const int x, const int y) const ;
 			
 			~Array() ;
 	} ;
