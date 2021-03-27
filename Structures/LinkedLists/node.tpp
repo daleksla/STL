@@ -27,26 +27,26 @@ Salih::Structures::LinkedLists::Node<T>::Node(T i_data, Salih::Structures::Linke
 	{
 		this->prev = &node ;
 		prev->setNext(temp) ;
-		this->next = NULL ;
+		this->next = nullptr ;
 	} else {
 		this->next = &node ;
 		next->setPrev(temp) ;
-		this->prev = NULL ;
+		this->prev = nullptr ;
 	}
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::Node<T>::Node(T i_data) : data(i_data), prev(NULL), next(NULL) {} ;
+Salih::Structures::LinkedLists::Node<T>::Node(T i_data) : data(i_data), prev(nullptr), next(nullptr) {} ;
 
 template <typename T>
-Salih::Structures::LinkedLists::Node<T>::Node(const Node<T>& node) : data(node.data), prev(NULL), next(NULL) {} ;
+Salih::Structures::LinkedLists::Node<T>::Node(const Node<T>& node) : data(node.data), prev(nullptr), next(nullptr) {} ;
 
 template <typename T>
 Salih::Structures::LinkedLists::Node<T>& Salih::Structures::LinkedLists::Node<T>::operator=(const Node<T>& node)
 {
 	this->data(node.data) ; 
-	this->prev = NULL ;
-	this->next = NULL ;
+	this->prev = nullptr ;
+	this->next = nullptr ;
 } 
 
 //template <typename T>
@@ -95,7 +95,7 @@ void Salih::Structures::LinkedLists::Node<T>::deleteNode()
 template <typename T>
 void Salih::Structures::LinkedLists::Node<T>::appendNode(Salih::Structures::LinkedLists::Node<T>*& base, Salih::Structures::LinkedLists::Node<T>*& itemToAdd) 
 {	
-	if(base->getNext() != NULL)
+	if(base->getNext() != nullptr)
 	{
 		Node::appendNode(base->getNext(), itemToAdd) ;
 	}
@@ -126,8 +126,8 @@ int Salih::Structures::LinkedLists::Node<T>::size(Salih::Structures::LinkedLists
 {
 	int count = 0 ;
 	Node* x = &node ;
-	while(x->getPrev() != NULL) x = x->getPrev() ;
-	while(x->getNext() != NULL)
+	while(x->getPrev() != nullptr) x = x->getPrev() ;
+	while(x->getNext() != nullptr)
 	{
 		count++ ;
 	}	
@@ -138,7 +138,7 @@ template <typename T>
 Salih::Structures::LinkedLists::Node<T>* Salih::Structures::LinkedLists::Node<T>::getHead(Salih::Structures::LinkedLists::Node<T>* a)
 {
 	Node* x = a ;
-	while(x->getPrev() != NULL)
+	while(x->getPrev() != nullptr)
 	{
 		x = x->getPrev() ;
 	}
@@ -149,7 +149,7 @@ template <typename T>
 Salih::Structures::LinkedLists::Node<T>* Salih::Structures::LinkedLists::Node<T>::getTail(Salih::Structures::LinkedLists::Node<T>* a)
 {
 	Node* x = a ;
-	while(x->getNext() != NULL)
+	while(x->getNext() != nullptr)
 	{
 		x = x->getNext() ;
 	}
