@@ -18,7 +18,7 @@ namespace Salih::Structures::LinkedLists {
 }
 
 template<typename T>
-std::ostream& operator<<(std::ostream&, Salih::Structures::LinkedLists::LinkedList<T>&) ;
+std::ostream& operator<<(std::ostream&, const Salih::Structures::LinkedLists::LinkedList<T>&) ;
 
 namespace Salih::Structures::LinkedLists {
 
@@ -55,6 +55,8 @@ namespace Salih::Structures::LinkedLists {
 			~LinkedList() ; //destructor - will deallocate memory if necessary
 			
 			T& operator[](const int) ; //method to index linked list, returns data
+			
+			const T& operator[](const int) const ; //method to index linked list, returns data
 			
 			bool operator==(const LinkedList<T>&) const ; //method to index linked list, returns data
 			

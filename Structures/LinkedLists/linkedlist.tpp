@@ -193,6 +193,20 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index)
 }
 
 template <typename T>
+const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index) const
+{
+	int count = 0 ;
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
+	Node<T>* node = head ;
+	while(count != index)
+	{
+		node = node->getNext() ;
+		count++ ;
+	}
+	return node->data ;
+}
+
+template <typename T>
 bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Structures::LinkedLists::LinkedList<T>& list) const
 {
 	if(list.getSize() != this->getSize()) return false ;
@@ -326,7 +340,7 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures
 
 
 template<typename T>
-std::ostream& operator<<(std::ostream& os, Salih::Structures::LinkedLists::LinkedList<T>& dt)
+std::ostream& operator<<(std::ostream& os, const Salih::Structures::LinkedLists::LinkedList<T>& dt)
 {
     //os << dt.mo << '/' << dt.da << '/' << dt.yr;
     if(dt.getSize() == 0) 
