@@ -15,13 +15,13 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
  
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList() : head(NULL), tail(NULL), size(0) {} ;
+Salih::Structures::LinkedLists::LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr), size(0) {} ;
 
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer_list<T>& values)
 {
 	this->setSize(0) ;
-	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
+	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::begin(values)) 
@@ -40,18 +40,18 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(const std::initializer_list<T>& values)
 {
-	if(head != NULL)
+	if(head != nullptr)
 	{
 		for(Node<T>* node = head ; ;)
 		{
 			Node<T>* mem = node->getNext() ;
 			delete node ;
-			if(mem == NULL) break ;
+			if(mem == nullptr) break ;
 			node = mem ;
 		}
 	} 
 	this->setSize(0) ;
-	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
+	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::begin(values)) 
@@ -73,15 +73,15 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structure
 {
 	this->setSize(0) ;
 	Salih::Structures::LinkedLists::Node<T>* h = list.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
-	while(h != NULL)
+	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	while(h != nullptr)
 	{
-		if(h->getPrev() == NULL) 
+		if(h->getPrev() == nullptr) 
 		{	
 			head = new Node<T>(h->data) ;
 			p = head ;
 		}
-		else if(h->getNext() == NULL)
+		else if(h->getNext() == nullptr)
 		{
 			tail = new Node<T>(h->data, *p, 0) ;
 		}
@@ -96,28 +96,28 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structure
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(const Salih::Structures::LinkedLists::LinkedList<T>& list)
 {
-	if(head != NULL)
+	if(head != nullptr)
 	{
 		for(Node<T>* node = head ; ;)
 		{
 			Node<T>* mem = node->getNext() ;
 			delete node ;
-			if(mem == NULL) break ;
+			if(mem == nullptr) break ;
 			node = mem ;
 		}
 	} 
 	
 	this->setSize(0) ;
 	Salih::Structures::LinkedLists::Node<T>* h = list.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = NULL ;
-	while(h != NULL)
+	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	while(h != nullptr)
 	{
-		if(h->getPrev() == NULL) 
+		if(h->getPrev() == nullptr) 
 		{	
 			head = new Node<T>(h->data) ;
 			p = head ;
 		}
-		else if(h->getNext() == NULL)
+		else if(h->getNext() == nullptr)
 		{
 			tail = new Node<T>(h->data, *p, 0) ;
 		}
@@ -137,29 +137,29 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 	this->head = list.head ;
 	this->tail = list.tail ;
 	this->setSize(list.size) ;
-	list.head = NULL ;
-	list.tail = NULL ;
+	list.head = nullptr ;
+	list.tail = nullptr ;
 	list.size = std::numeric_limits<int>::max() ;
 }
 
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures::LinkedLists::LinkedList<T>&& list)
 {
-	if(head != NULL)
+	if(head != nullptr)
 	{
 		for(Node<T>* node = head ; ;)
 		{
 			Node<T>* mem = node->getNext() ;
 			delete node ;
-			if(mem == NULL) break ;
+			if(mem == nullptr) break ;
 			node = mem ;
 		}
 	} 	
 	this->head = list.head ;
 	this->tail = list.tail ;
 	this->setSize(list.size) ;
-	list.head = NULL ;
-	list.tail = NULL ;
+	list.head = nullptr ;
+	list.tail = nullptr ;
 	list.size = std::numeric_limits<int>::max() ;
 	return *this ;
 }
@@ -167,13 +167,13 @@ Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::L
 template <typename T>
 Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
 {
-	if(head == NULL) return;
+	if(head == nullptr) return;
 	
 	for(Node<T>* node = head ; ;)
 	{
 		Node<T>* mem = node->getNext() ;
 		delete node ;
-		if(mem == NULL) break ;
+		if(mem == nullptr) break ;
 		node = mem ;
 	} 
 }
@@ -303,7 +303,7 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::insert(Salih::Structu
 	auto newNode = new Node<T>(data) ;
 	Node<T>* prev = node->getPrev() ;
 	
-	if(prev == NULL)
+	if(prev == nullptr)
 	{
 		this->head = newNode ;
 		newNode->setNext(node) ;	
@@ -332,7 +332,7 @@ int Salih::Structures::LinkedLists::LinkedList<T>::getSize() const
 template <typename T>
 void Salih::Structures::LinkedLists::LinkedList<T>::append(T data)
 {
-	Node<T>* node = NULL ;
+	Node<T>* node = nullptr ;
 	if(this->size == 0) 
 	{
 		node = new Node<T>(data) ;
@@ -368,12 +368,12 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures
 { //correct function
 	Node<T>* prev = node->getPrev() ;
 	Node<T>* next = node->getNext() ;
-	if(prev == NULL) this->head = next ;
+	if(prev == nullptr) this->head = next ;
 	else prev->setNext(next) ; 
-	if(next == NULL) this->tail = prev ;
+	if(next == nullptr) this->tail = prev ;
 	else next->setPrev(prev) ;
 	delete node ;
-	node = NULL ;
+	node = nullptr ;
 }
 
 
