@@ -62,6 +62,12 @@ namespace Salih::Structures::LinkedLists {
 			
 			bool operator!=(const LinkedList<T>&) const ; //method to index linked list, returns data
 			
+			template<typename OTHER>
+			bool operator==(const LinkedList<OTHER>&) const ; //method to index linked list, returns data
+			
+			template<typename OTHER>
+			bool operator!=(const LinkedList<OTHER>&) const ; //method to index linked list, returns data
+			
 			void insert(const int, T) ;
 						
 			int getSize() const ; //get size
