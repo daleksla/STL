@@ -75,6 +75,9 @@ namespace Salih::Structures::LinkedLists {
 			void append(T) ; //append value to list
 			
 			void del(const int) ; //delete element in list based off rank (1st, 2nd, etc.)
+			
+			template<typename OTHER>
+			friend class LinkedList ;
 
 	} ;	
 }
