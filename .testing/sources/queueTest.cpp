@@ -11,6 +11,7 @@
 #include <stdexcept>
 
 typedef Salih::Types::Queue<int> intQueue ;
+typedef Salih::Types::Queue<float> floatQueue ;
 
 /* Create sub-categories to test with predicted outcomes */
 TEST_CASE("empty constructor - attribute testing")
@@ -210,4 +211,33 @@ TEST_CASE("Testing push() method - do values get added correctly when queue has 
 	intQueue queue1{1,2} ;
 	queue1.push(2) ;
 	REQUIRE(queue1.peek() == 1) ;
+}
+
+/* Comparison operators */
+TEST_CASE("Comparing for equality between two stacks of the same type")
+{
+	intQueue queue1{1,2} ;
+	intQueue queue2{1,2} ;
+	REQUIRE((queue1 == queue2) == 1) ;
+}
+
+TEST_CASE("Comparing for equality between two stacks of different types")
+{
+	intQueue queue1{1,2} ;
+	floatQueue queue2{1,2} ;
+	REQUIRE((queue1 == queue2) == 1) ;
+}
+
+TEST_CASE("Comparing for inequality between two stacks of the same type")
+{
+	intQueue queue1{1,2} ;
+	intQueue queue2{1,2,3} ;
+	REQUIRE((queue1 != queue2) == 1) ;
+}
+
+TEST_CASE("Comparing for inequality between two stacks of different types")
+{
+	intQueue queue1{1,2} ;
+	floatQueue queue2{1,2,3} ;
+	REQUIRE((queue1 != queue2) == 1) ;
 }
