@@ -57,7 +57,7 @@ Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Ar
 }
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>::Array(Array<T,SIZE>&& list) : Salih::Structures::Contiguous::Contiguous<T>(list, SIZE) {} ;
+Salih::Structures::Contiguous::Array<T, SIZE>::Array(Array<T,SIZE>&& list) : Salih::Structures::Contiguous::Contiguous<T>(std::move(list), SIZE) {} ;
 
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(Array<T,SIZE>&& list)

@@ -65,7 +65,7 @@ template <typename T>
 Salih::Types::Stack<T>::Stack()
 {
 	this->size = 0 ;
-	this->tail = NULL ;
+	this->tail = nullptr ;
 }
 
 template <typename T>
@@ -94,7 +94,7 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const std::initializer
 		{
 			Salih::Structures::LinkedLists::Node<T>* mem = node->getPrev() ;
 			delete node ;
-			if(mem == NULL) break ;
+			if(mem == nullptr) break ;
 			node = mem ;
 		} 
 	}
@@ -121,10 +121,10 @@ Salih::Types::Stack<T>::Stack(const Salih::Types::Stack<T>& stck)
 	for(; ;)
 	{
 		Salih::Structures::LinkedLists::Node<T>* mem = node->getPrev() ;
-		if(mem == NULL) break ;
+		if(mem == nullptr) break ;
 		node = mem ;
 	} 
-	while(node != NULL) 
+	while(node != nullptr) 
 	{
 		this->push(node->data) ;	
 		node = node->getNext() ;
@@ -139,10 +139,10 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const Salih::Types::St
 	for(; ;)
 	{
 		Salih::Structures::LinkedLists::Node<T>* mem = node->getPrev() ;
-		if(mem == NULL) break ;
+		if(mem == nullptr) break ;
 		node = mem ;
 	} 
-	while(node != NULL) 
+	while(node != nullptr) 
 	{
 		this->push(node->data) ;	
 		node = node->getNext() ;
@@ -156,7 +156,7 @@ Salih::Types::Stack<T>::Stack(Salih::Types::Stack<T>&& stck)
 	this->size = stck.size ;
 	this->tail = stck.tail ;
 	stck.size = 0 ;
-	stck.tail = NULL ;
+	stck.tail = nullptr ;
 }
 			
 template <typename T>
@@ -165,7 +165,7 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(Salih::Types::Stack<T>
 	this->size = stck.size ;
 	this->tail = stck.tail ;
 	stck.size = 0 ;
-	stck.tail = NULL ;
+	stck.tail = nullptr ;
 	return *this ;
 }
 
@@ -248,7 +248,7 @@ Salih::Types::Stack<T>::~Stack()
 	{
 		Salih::Structures::LinkedLists::Node<T>* mem = node->getPrev() ;
 		delete node ;
-		if(mem == NULL) break ;
+		if(mem == nullptr) break ;
 		node = mem ;
 	} 
 }

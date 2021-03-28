@@ -12,6 +12,7 @@
 #include <lib/Structures/LinkedLists/linkedlist.hpp>
 
 typedef Salih::Structures::LinkedLists::LinkedList<int> intList ;
+typedef Salih::Structures::LinkedLists::LinkedList<float> floatList ;
 
 //** Create sub-categories to test with predicted outcomes **//
 
@@ -168,17 +169,31 @@ TEST_CASE("[] operator - does 'out_of_range' error get thrown if list is empty")
 }
 
 /* Boolean operators */
-TEST_CASE("== operator - comparing values")
+TEST_CASE("== operator - comparing values of same type")
 {
 	intList list1 = {1,2,3,4,5,6} ;
 	intList list2{1,2,3,4,5,6} ;
 	REQUIRE(list1 == list2) ;
 }
 
-TEST_CASE("!= operator - comparing values")
+TEST_CASE("== operator - comparing values of different type")
+{
+	intList list1 = {1,2,3,4,5,6} ;
+	floatList list2{1,2,3,4,5,6} ;
+	REQUIRE(list1 == list2) ;
+}
+
+TEST_CASE("!= operator - comparing values of same type")
 {
 	intList list1 = {1,2,3,4,5,6} ;
 	intList list2{1,2,3,4,5} ;
+	REQUIRE(list1 != list2) ;
+}
+
+TEST_CASE("!= operator - comparing values of different type")
+{
+	intList list1 = {1,2,3,4,5,6} ;
+	floatList list2{1,2,3,4,5} ;
 	REQUIRE(list1 != list2) ;
 }
 

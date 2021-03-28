@@ -68,7 +68,7 @@ namespace Salih::Structures::Contiguous {
 			
 			bool operator!=(const Contiguous&) const ;
 			
-			void del(const int) ;
+			//void del(const int) ;
 
 			//virtual Contiguous operator()(const int, const int) const ; //slicing
 			

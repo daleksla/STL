@@ -21,6 +21,8 @@ all:
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
 	
 	#testing pointers
-	g++ $(LIB) $(STD) $(SOURCES)/basepointerTest.cpp -o $(EXES)/basepointerTest
-	g++ $(LIB) $(STD) $(SOURCES)/sharedpointerTest.cpp -o $(EXES)/sharedpointerTest
-	g++ $(LIB) $(STD) $(SOURCES)/uniquepointerTest.cpp -o $(EXES)/uniquepointerTest
+	g++ $(LIB) $(STD) ./sources/pointerTest.cpp -o $(EXES)/pointerTest
+	
+	#testing contiguous structures
+	g++ $(LIB) $(STD) ./sources/contiguous.cpp -o $(EXES)/contiguousTest
+
