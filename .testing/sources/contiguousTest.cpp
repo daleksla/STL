@@ -9,6 +9,7 @@
 #include <stdexcept>
 
 #define private public
+#define protected public
 #include <lib/Structures/Contiguous/vector.hpp>
 #include <lib/Structures/Contiguous/array.hpp>
 using namespace Salih::Structures::Contiguous ;
@@ -54,7 +55,7 @@ TEST_CASE("Indexing structures (using 'at' method) - exception thrown")
 	}
 	
 	try {
-		ARRAY<int,3> arr{1,2,3} ;
+		Array<int,3> arr{1,2,3} ;
 		arr.at(4) ;
 	} catch(std::out_of_range)
 	{
@@ -84,7 +85,7 @@ TEST_CASE("Equality comparison operators between two containers with different t
 	REQUIRE(Vector<float>{1} == Array<int,1>{1}) ;
 }
 
-TEST_CASE("Inequality comparison operators between two containers with same types within")
+TEST_CASE("Inequality comparison operators between two containers with different types within")
 {
 	REQUIRE((Vector<float>{1} != Vector<int>{1}) == 0) ;
 	REQUIRE((Array<float,1>{1} != Array<int,1>{1}) == 0) ;
