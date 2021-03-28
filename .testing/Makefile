@@ -24,5 +24,5 @@ all:
 	g++ $(LIB) $(STD) ./sources/pointerTest.cpp -o $(EXES)/pointerTest
 	
 	#testing contiguous structures
-	g++ $(LIB) $(STD) ./sources/contiguous.cpp -o $(EXES)/contiguousTest
+	g++ $(LIB) $(STD) ./sources/contiguousTest.cpp -o $(EXES)/contiguousTest
 
