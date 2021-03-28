@@ -184,17 +184,6 @@ bool Salih::Structures::Contiguous::Contiguous<T>::operator!=(const Salih::Struc
 	
 	return false ;	
 }
-
-template<typename T>		
-void Salih::Structures::Contiguous::Contiguous<T>::del(const int index)
-{
-	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;
-	for(int i = index - 1 ; i < this->size ; i++)
-	{
-		this->pointer[i] = this->pointer[i+1] ;
-	}
-	this->size -= 1 ;
-}
 			
 template<typename T>		
 Salih::Structures::Contiguous::Contiguous<T>::~Contiguous() 

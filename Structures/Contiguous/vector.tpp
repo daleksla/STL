@@ -59,7 +59,7 @@ Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<
 }
 
 template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::Vector(Vector<T>&& list) : Salih::Structures::Contiguous::Contiguous<T>(list, list.size) {} ;
+Salih::Structures::Contiguous::Vector<T>::Vector(Vector<T>&& list) : Salih::Structures::Contiguous::Contiguous<T>(std::move(list), list.size) {} ;
 
 template<typename T> 
 Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<T>::operator=(Vector<T>&& list)
