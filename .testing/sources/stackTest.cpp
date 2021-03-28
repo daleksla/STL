@@ -11,6 +11,7 @@
 #include <stdexcept>
 
 typedef Salih::Types::Stack<int> intStack ;
+typedef Salih::Types::Stack<float> floatStacl ;
 
 /* Create sub-categories to test with predicted outcomes */
 TEST_CASE("empty constructor - attribute testing")
@@ -189,4 +190,33 @@ TEST_CASE("Testing push() method - do values get added correctly when stack has 
 	intStack stack1{1,2} ;
 	stack1.push(3) ;
 	REQUIRE(stack1.peek() == 3) ;
+}
+
+/* Comparison operators */
+TEST_CASE("Comparing for equality between two stacks of the same type")
+{
+	intStack stack1{1,2} ;
+	intStack stack2{1,2} ;
+	REQUIRE((stack1 == stack2) == 1) ;
+}
+
+TEST_CASE("Comparing for equality between two stacks of different types")
+{
+	intStack stack1{1,2} ;
+	floatStack stack2{1,2} ;
+	REQUIRE((stack1 == stack2) == 1) ;
+}
+
+TEST_CASE("Comparing for inequality between two stacks of the same type")
+{
+	intStack stack1{1,2} ;
+	intStack stack2{1,2,3} ;
+	REQUIRE((stack1 != stack2) == 1) ;
+}
+
+TEST_CASE("Comparing for inequality between two stacks of different types")
+{
+	intStack stack1{1,2} ;
+	floatStack stack2{1,2,3} ;
+	REQUIRE((stack1 != stack2) == 1) ;
 }
