@@ -93,5 +93,160 @@ TEST_CASE("Inequality comparison operators between two containers with different
 }
 
 ///* Array class methods *///
+TEST_CASE("Empty constructor - array")
+{
+	Array<int,3> ss ;
+	REQUIRE(ss.size == 3) ;
+}
+
+TEST_CASE("Regular constructor - array")
+{
+	Array<int,3> ss{1,2,3} ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ss[0] == 1) ;
+	REQUIRE(ss[1] == 2) ;
+	REQUIRE(ss[2] == 3) ;
+	REQUIRE(ss.pointer != nullptr) ;
+}
+
+TEST_CASE("Copy constructor - array")
+{
+	Array<int,3> ss{1,2,3} ;
+	Array<int,3> ff(ss) ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ff.size == 3) ;
+	REQUIRE(ff.pointer != ss.pointer) ;
+}
+
+TEST_CASE("Move constructor - array")
+{
+	Array<int,3> ss{1,2,3} ;
+	auto ptr = ss.pointer ;
+	auto sz = ss.size ;
+	Array<int,3> ff(std::move(ss)) ;
+	REQUIRE(ff.size == sz) ;
+	REQUIRE(ff.pointer == ptr) ;
+	REQUIRE(ss.size == 0) ;
+	REQUIRE(ss.pointer == nullptr) ;
+}
+
+TEST_CASE("value assignment - array")
+{
+	Array<int,3> ss ;
+	ss = {1,2,3} ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ss[0] == 1) ;
+	REQUIRE(ss[1] == 2) ;
+	REQUIRE(ss[2] == 3) ;
+}
+
+TEST_CASE("l-value array assignment - array")
+{
+	Array<int,3> ss{1,2,3} ;
+	Array<int,3> ff = ss ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ff.size == 3) ;
+	REQUIRE(ff.pointer != ss.pointer) ;
+}
+
+TEST_CASE("r-value array assignment - array")
+{
+	Array<int,3> ss{1,2,3} ;
+	auto ptr = ss.pointer ;
+	auto sz = ss.size ;
+	Array<int,3> f = std::move(ss) ;
+	REQUIRE(f.size == sz) ;
+	REQUIRE(f.pointer == ptr) ;
+	REQUIRE(ss.size == 0) ;
+	REQUIRE(ss.pointer == nullptr) ;
+}
 
 ///* Vector class methods *///
+TEST_CASE("Empty constructor - vector")
+{
+	Vector<int> ss ;
+	REQUIRE(ss.size == 0) ;
+}
+
+TEST_CASE("size-providing constructor - vector")
+{
+	Vector<int> ss(3) ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ss.pointer != nullptr) ;
+}
+
+TEST_CASE("value-providing constructor - vector")
+{
+	Vector<int> ss{1,2,3} ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ss.pointer != nullptr) ;
+}
+
+TEST_CASE("Copy constructor - vector")
+{
+	Vector<int> ss{1,2,3} ;
+	Vector<int> ff(ss) ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ff.size == 3) ;
+	REQUIRE(ff.pointer != ss.pointer) ;
+}
+
+TEST_CASE("Move constructor - vector")
+{
+	Vector<int> ss{1,2,3} ;
+	auto ptr = ss.pointer ;
+	auto sz = ss.size ;
+	Vector<int> ff(std::move(ss)) ;
+	REQUIRE(ff.size == sz) ;
+	REQUIRE(ff.pointer == ptr) ;
+	REQUIRE(ss.size == 0) ;
+	REQUIRE(ss.pointer == nullptr) ;
+}
+
+TEST_CASE("value assignment - vector")
+{
+	Vector<int> ss ;
+	ss = {1,2,3} ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ss[0] == 1) ;
+	REQUIRE(ss[1] == 2) ;
+	REQUIRE(ss[2] == 3) ;
+}
+
+TEST_CASE("l-value vector assignment - vector")
+{
+	Vector<int> ss{1,2,3} ;
+	Vector<int> ff = ss ;
+	REQUIRE(ss.size == 3) ;
+	REQUIRE(ff.size == 3) ;
+	REQUIRE(ff.pointer != ss.pointer) ;
+}
+
+TEST_CASE("r-value vector assignment - vector")
+{
+	Vector<int> ss{1,2,3} ;
+	auto ptr = ss.pointer ;
+	auto sz = ss.size ;
+	Vector<int> f = std::move(ss) ;
+	REQUIRE(f.size == sz) ;
+	REQUIRE(f.pointer == ptr) ;
+	REQUIRE(ss.size == 0) ;
+	REQUIRE(ss.pointer == nullptr) ;
+}
+
+TEST_CASE("append method - vector")
+{
+	Vector<int> ss{1,2,3} ;
+	REQUIRE(ss.size == 3) ;
+	ss.append(4) ;
+	REQUIRE(ss.size == 4) ;
+	REQUIRE(ss[3] == 4) ;
+}
+
+TEST_CASE("clear method - vector")
+{
+	Vector<int> ss{1,2,3} ;
+	REQUIRE(ss.size == 3) ;
+	ss.clear() ;
+	REQUIRE(ss.size == 0) ;
+}
