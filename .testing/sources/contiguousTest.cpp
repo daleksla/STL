@@ -279,5 +279,5 @@ TEST_CASE("clear method - vector")
 	REQUIRE(ss.size == 3) ;
 	ss.clear() ;
 	REQUIRE(ss.size == 0) ;
-	REQUIRE(ss.size != nullptr) ;
+	REQUIRE(ss.pointer != nullptr) ;
 }
