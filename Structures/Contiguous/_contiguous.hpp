@@ -84,6 +84,7 @@ namespace Salih::Structures::Contiguous {
 			
 			virtual ~Contiguous() = 0 ;
 			
+			template<typename OTHER>
 			friend class Contiguous ;
 	} ;
 }
