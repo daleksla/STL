@@ -43,7 +43,7 @@ TEST_CASE("Indexing structures (using 'at' method) - correct value returned")
 	REQUIRE(arr.at(2) == 3) ;
 }
 
-TEST_CASE("Indexing structures (using 'at' method) - exception thrown only if index too large")
+TEST_CASE("Indexing structures (using 'at' method) - exception thrown if index is invalid when flag not specified")
 {
 	int exceptionCount = 0 ;
 	try {
@@ -73,7 +73,37 @@ TEST_CASE("Indexing structures (using 'at' method) - exception thrown only if in
 	REQUIRE(exceptionCount == 2) ;
 }
 
-TEST_CASE("Indexing structures (using 'at' method) - exception not thrown if bool checking flag set to false")
+TEST_CASE("Indexing structures (using 'at' method) - exception thrown if index is invalid when flag set to true")
+{
+	int exceptionCount = 0 ;
+	try {
+		Vector<int> vec2{1,2,3} ;
+		vec2.at(4, true) ;
+	} catch(std::out_of_range)
+	{
+		exceptionCount += 1 ;
+	}
+	
+	try {
+		Array<int,3> arr{1,2,3} ;
+		arr.at(4, true) ;
+	} catch(std::out_of_range)
+	{
+		exceptionCount += 1 ;
+	}
+	
+	try {
+		Array<int,3> arr{1,2,3} ;
+		arr.at(2, true) ;
+	} catch(std::out_of_range)
+	{
+		exceptionCount += 1 ;
+	}
+	
+	REQUIRE(exceptionCount == 2) ;
+}
+
+TEST_CASE("Indexing structures (using 'at' method) - exception not thrown when bool checking flag set to false")
 {
 	int exceptionCount = 0 ;
 	try {
