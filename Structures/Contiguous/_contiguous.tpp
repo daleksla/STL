@@ -194,13 +194,13 @@ Salih::Structures::Contiguous::Contiguous<T>::~Contiguous()
 //helpful overloads
 
 template<typename T>		
-std::ostream& operator<<(std::ostream& os, const Salih::Structures::Contiguous::Contiguous<T>& list)
+std::ostream& std::operator<<(std::ostream& os, const Salih::Structures::Contiguous::Contiguous<T>& list)
 {
 	os << "[" ;
-	for(int i = 0 ; i < list.getSize() ; i++)
+	for(int i = 0 ; i < list.size ; i++)
 	{
 		os << list[i] ;
-		if( (i + 1) < list.getSize()) os << "," ;
+		if( (i + 1) < list.size) os << "," ;
 	}
 	os << "]" ;
 	return os ;
