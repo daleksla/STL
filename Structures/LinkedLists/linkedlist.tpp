@@ -182,7 +182,6 @@ template <typename T>
 T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index)
 {
 	int count = 0 ;
-	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	Node<T>* node = head ;
 	while(count != index)
 	{
@@ -196,7 +195,34 @@ template <typename T>
 const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index) const
 {
 	int count = 0 ;
-	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
+	Node<T>* node = head ;
+	while(count != index)
+	{
+		node = node->getNext() ;
+		count++ ;
+	}
+	return node->data ;
+}
+
+template <typename T>
+T& Salih::Structures::LinkedLists::LinkedList<T>::at(const int index, const bool check)
+{
+	int count = 0 ;
+	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
+	Node<T>* node = head ;
+	while(count != index)
+	{
+		node = node->getNext() ;
+		count++ ;
+	}
+	return node->data ;
+}
+
+template <typename T>
+const T& Salih::Structures::LinkedLists::LinkedList<T>::at(const int index, const bool check) const
+{
+	int count = 0 ;
+	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	Node<T>* node = head ;
 	while(count != index)
 	{

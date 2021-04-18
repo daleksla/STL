@@ -61,6 +61,10 @@ namespace Salih::Structures::LinkedLists {
 			
 			const T& operator[](const int) const ; //method to index linked list, returns data
 			
+			T& at(const int, const bool check = true) ; //method to index linked list, returns data
+			
+			const T& at(const int, const bool check = true) const ; //method to index linked list, returns data
+			
 			bool operator==(const LinkedList<T>&) const ; //method to index linked list, returns data
 			
 			bool operator!=(const LinkedList<T>&) const ; //method to index linked list, returns data
