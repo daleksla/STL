@@ -12,9 +12,9 @@ namespace Salih::Types {
 
 namespace std _GLIBCXX_VISIBILITY(default)
 {
-	std::ostream& operator<<(std::ostream&, const Salih::Types::String&) ;
+	ostream& operator<<(:ostream&, const ::Salih::Types::String&) ;
 	
-	std::istream& operator>>(std::istream&, Salih::Types::String&) ;
+	istream& operator>>(istream&, ::Salih::Types::String&) ;
 }
 
 namespace Salih::Types {
