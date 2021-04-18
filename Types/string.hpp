@@ -458,13 +458,11 @@ std::ostream& std::operator<<(std::ostream& os, const Salih::Types::String& str)
 std::istream& std::operator>>(std::istream& in, Salih::Types::String& str)
 {
 	std::size_t size = 1024 ;
-	char* temp = new char[size+1] ;
+	char temp[size+1] ;
+	for(int i = 0 ; i < size ; i++) temp[i] = '\0' ;
 	in >> temp ;
 	temp[size] = '\0' ;
-	delete[] str.str ;
-	str.str = nullptr ;
-	str.str = temp ;
-	str.size = size ;
+	str = Salih::Types::String(temp) ;
 	
 	return in ;
 }
