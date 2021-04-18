@@ -378,19 +378,19 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures
 
 
 template<typename T>
-std::ostream& operator<<(std::ostream& os, const Salih::Structures::LinkedLists::LinkedList<T>& dt)
+std::ostream& std::operator<<(std::ostream& os, const Salih::Structures::LinkedLists::LinkedList<T>& dt)
 {
     //os << dt.mo << '/' << dt.da << '/' << dt.yr;
-    if(dt.getSize() == 0) 
+    if(dt.size == 0) 
     {
     	os << "[]" ;
     	return os ;
     }
     
     os << "[" ;
-    for(int i = 0 ; i < dt.getSize() ; i++)
+    for(int i = 0 ; i < dt.size ; i++)
     {
-    	if(i != dt.getSize() - 1) os << dt[i] << "," ;
+    	if(i != dt.size - 1) os << dt[i] << "," ;
     	else os << dt[i] ;
     }
     os << "]" ;
