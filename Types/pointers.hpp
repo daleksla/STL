@@ -19,7 +19,8 @@ namespace Salih::Types {
 
 namespace std _GLIBCXX_VISIBILITY(default)
 {
-	std::ostream& operator<<(std::ostream&, const ::Salih::Types::Pointer&) ;
+	template<typename T>
+	std::ostream& operator<<(std::ostream&, const ::Salih::Types::Pointer<T>&) ;
 }
 
 namespace Salih::Types {
@@ -45,7 +46,7 @@ namespace Salih::Types {
 			
 			virtual ~Pointer() = 0 ;
 			
-			friend ::std::ostream& ::std::operator<<(::std::ostream&, const Pointer&)
+			friend ::std::ostream& ::std::operator<<(::std::ostream&, const Pointer&) ;
 	} ;
 	
 	template<class T>
