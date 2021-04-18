@@ -17,8 +17,10 @@ namespace Salih::Types {
 	class UniquePointer ;
 }
 
-template<typename T>
-std::ostream& operator<<(std::ostream&, const Salih::Types::Pointer<T>&) ;
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+	std::ostream& operator<<(std::ostream&, const ::Salih::Types::Pointer&) ;
+}
 
 namespace Salih::Types {
 	
@@ -42,6 +44,8 @@ namespace Salih::Types {
 			virtual void reset() = 0 ;
 			
 			virtual ~Pointer() = 0 ;
+			
+			friend ::std::ostream& ::std::operator<<(::std::ostream&, const Pointer&)
 	} ;
 	
 	template<class T>
@@ -306,9 +310,9 @@ Salih::Types::UniquePointer<T>::~UniquePointer()
 //helpful overloads
 
 template<typename T>
-std::ostream& operator<<(std::ostream& os, const Salih::Types::Pointer<T>& ptr)
+std::ostream& ::std::operator<<(std::ostream& os, const Salih::Types::Pointer<T>& ptr)
 {
-	os << ptr.get() ;
+	os << ptr.pointer ;
 	return os ;
 }
 
