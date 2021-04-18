@@ -460,6 +460,7 @@ std::istream& std::operator>>(std::istream& in, Salih::Types::String& str)
 	std::size_t size = 1024 ;
 	char temp[size+1] ;
 	for(int i = 0 ; i < size ; i++) temp[i] = '\0' ;
+	in.width(size) ;
 	in >> temp ;
 	temp[size] = '\0' ;
 	str = Salih::Types::String(temp) ;
