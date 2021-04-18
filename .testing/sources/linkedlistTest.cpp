@@ -193,7 +193,7 @@ TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty
 		isError = true ;
 	}
 	
-	REQUIRE(isError = true) ;
+	REQUIRE(isError == true) ;
 }
 
 TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty but flag is set to false")
