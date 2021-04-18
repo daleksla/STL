@@ -37,7 +37,7 @@ namespace Salih::Types {
 			
 			T& operator*() ;
 			
-			T* get() const ;
+			const T* get() const ;
 			
 			virtual void reset() = 0 ;
 			
@@ -141,7 +141,7 @@ T& Salih::Types::Pointer<T>::operator*()
 }
 
 template<typename T>
-T* Salih::Types::Pointer<T>::get() const
+const T* Salih::Types::Pointer<T>::get() const
 {
 	return this->pointer ;
 }
