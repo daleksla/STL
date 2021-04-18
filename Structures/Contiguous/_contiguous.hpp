@@ -20,7 +20,7 @@ namespace Salih::Structures::Contiguous {
 namespace std _GLIBCXX_VISIBILITY(default)
 {
 	template<typename T>
-	ostream& operator<<(ostream&, const ::Salih::Structures::Contiguous::Contiguous&) ;
+	ostream& operator<<(ostream&, const ::Salih::Structures::Contiguous::Contiguous<T>&) ;
 }
 
 namespace Salih::Structures::Contiguous {
