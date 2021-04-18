@@ -17,8 +17,10 @@ namespace Salih::Structures::Contiguous {
 	
 }
 
-template<typename T>
-std::ostream& operator<<(std::ostream&, const Salih::Structures::Contiguous::Contiguous<T>&) ;
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+	ostream& operator<<(ostream&, const ::Salih::Structures::Contiguous::Contiguous&) ;
+}
 
 namespace Salih::Structures::Contiguous {
 
@@ -86,6 +88,8 @@ namespace Salih::Structures::Contiguous {
 			
 			template<typename OTHER>
 			friend class Contiguous ;
+			
+			friend ::std::ostream& ::std::operator<<(::std::ostream& os, const Contiguous&) ;
 	} ;
 }
 
