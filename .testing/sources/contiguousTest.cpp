@@ -43,7 +43,7 @@ TEST_CASE("Indexing structures (using 'at' method) - correct value returned")
 	REQUIRE(arr.at(2) == 3) ;
 }
 
-TEST_CASE("Indexing structures (using 'at' method) - exception thrown")
+TEST_CASE("Indexing structures (using 'at' method) - exception thrown only if index too large")
 {
 	int exceptionCount = 0 ;
 	try {
@@ -61,7 +61,37 @@ TEST_CASE("Indexing structures (using 'at' method) - exception thrown")
 	{
 		exceptionCount += 1 ;
 	}
+	
+	try {
+		Array<int,3> arr{1,2,3} ;
+		arr.at(2) ;
+	} catch(std::out_of_range)
+	{
+		exceptionCount += 1 ;
+	}
+	
 	REQUIRE(exceptionCount == 2) ;
+}
+
+TEST_CASE("Indexing structures (using 'at' method) - exception not thrown if bool checking flag set to false")
+{
+	int exceptionCount = 0 ;
+	try {
+		Vector<int> vec2{1,2,3} ;
+		vec2.at(4, false) ;
+	} catch(std::out_of_range)
+	{
+		exceptionCount += 1 ;
+	}
+	
+	try {
+		Array<int,3> arr{1,2,3} ;
+		arr.at(4, false) ;
+	} catch(std::out_of_range)
+	{
+		exceptionCount += 1 ;
+	}
+	REQUIRE(exceptionCount == 0) ;
 }
 
 TEST_CASE("Equality comparison operators between two containers with same types within")
@@ -97,6 +127,7 @@ TEST_CASE("Empty constructor - array")
 {
 	Array<int,3> ss ;
 	REQUIRE(ss.size == 3) ;
+	REQUIRE(ss.pointer != nullptr) ;
 }
 
 TEST_CASE("Regular constructor - array")
@@ -113,8 +144,8 @@ TEST_CASE("Copy constructor - array")
 {
 	Array<int,3> ss{1,2,3} ;
 	Array<int,3> ff(ss) ;
-	REQUIRE(ss.size == 3) ;
-	REQUIRE(ff.size == 3) ;
+	REQUIRE(ss.size == ff.size) ;
+	REQUIRE(ff.pointer != nullptr) ;
 	REQUIRE(ff.pointer != ss.pointer) ;
 }
 
@@ -166,6 +197,7 @@ TEST_CASE("Empty constructor - vector")
 {
 	Vector<int> ss ;
 	REQUIRE(ss.size == 0) ;
+	REQUIRE(ss.pointer != nullptr) ;
 }
 
 TEST_CASE("size-providing constructor - vector")
@@ -186,8 +218,7 @@ TEST_CASE("Copy constructor - vector")
 {
 	Vector<int> ss{1,2,3} ;
 	Vector<int> ff(ss) ;
-	REQUIRE(ss.size == 3) ;
-	REQUIRE(ff.size == 3) ;
+	REQUIRE(ss.size == ff.size) ;
 	REQUIRE(ff.pointer != ss.pointer) ;
 }
 
@@ -217,8 +248,7 @@ TEST_CASE("l-value vector assignment - vector")
 {
 	Vector<int> ss{1,2,3} ;
 	Vector<int> ff = ss ;
-	REQUIRE(ss.size == 3) ;
-	REQUIRE(ff.size == 3) ;
+	REQUIRE(ss.size == ff.size) ;
 	REQUIRE(ff.pointer != ss.pointer) ;
 }
 
@@ -249,4 +279,5 @@ TEST_CASE("clear method - vector")
 	REQUIRE(ss.size == 3) ;
 	ss.clear() ;
 	REQUIRE(ss.size == 0) ;
+	REQUIRE(ss.pointer != nullptr) ;
 }

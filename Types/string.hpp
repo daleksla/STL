@@ -7,9 +7,15 @@
 namespace Salih::Types {
 
 	class String ;
+	
 }
 
-std::ostream& operator<<(std::ostream&, const Salih::Types::String&) ;
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+	ostream& operator<<(ostream&, const ::Salih::Types::String&) ;
+	
+	istream& operator>>(istream&, ::Salih::Types::String&) ;
+}
 
 namespace Salih::Types {
 
@@ -18,7 +24,8 @@ namespace Salih::Types {
 			char* str ;
 			
 			int size ;
-			
+					
+			String(char*, const int) ;	
 		public:
 		
 			String() ;
@@ -39,15 +46,15 @@ namespace Salih::Types {
 			
 			String operator+(char) const ; //to append char
 			
-			void operator+=(char) ; //to append char
+			String& operator+=(char) ; //to append char
 			
 			String operator+(const String&) const ; //to append another string
 			
-			void operator+=(const String&) ; //to append another string
+			String& operator+=(const String&) ; //to append another string
 			
 			String operator+(const char*) const ;
 			
-			void operator+=(const char*) ;
+			String& operator+=(const char*) ;
 			
 			bool operator==(const char*) const ;
 			
@@ -57,11 +64,13 @@ namespace Salih::Types {
 			
 			bool operator!=(const String&) const ;
 			
-			char* getStr() const ;
+			const char* get() const ;
 			
 			int getSize() const ;
 			
 			char& operator[](const int) ;
+			
+			const char& operator[](const int) const ;
 			
 			String capitalise() const ;
 			
@@ -80,7 +89,18 @@ namespace Salih::Types {
 			bool isLower() const ;
 			
 			bool isCapitalised() const ;
+			
+			friend ::std::istream& ::std::operator>>(::std::istream&, String&) ;
+			
+			friend ::std::ostream& ::std::operator<<(::std::ostream&, const String&) ;
+			
 	} ;
+}
+
+Salih::Types::String::String(char* temp, const int SIZE)
+{
+	this->str = temp ;
+	this->size = SIZE ;
 }
 
 Salih::Types::String::String()
@@ -161,7 +181,7 @@ Salih::Types::String Salih::Types::String::operator+(char c) const
 	return tmp ;
 }
 
-void Salih::Types::String::operator+=(char c) 
+Salih::Types::String& Salih::Types::String::operator+=(char c) 
 {
 	this->size = this->size + 1 ;
 	char* tmp = new char[this->size+1] ;
@@ -170,6 +190,8 @@ void Salih::Types::String::operator+=(char c)
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
 	this->str = tmp ;
+	
+	return *this ;
 }
 
 Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String& tbm) const
@@ -184,7 +206,7 @@ Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String&
 	return tmp ;
 }
 
-void Salih::Types::String::operator+=(const Salih::Types::String& tbm)
+Salih::Types::String& Salih::Types::String::operator+=(const Salih::Types::String& tbm)
 {
 	char* tmp = new char[this->size + tbm.size + 1] ;
 	for(int i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
@@ -193,6 +215,8 @@ void Salih::Types::String::operator+=(const Salih::Types::String& tbm)
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
 	this->str = tmp ;
+	
+	return *this ;
 }
 
 Salih::Types::String Salih::Types::String::operator+(const char* tbm) const
@@ -211,7 +235,7 @@ Salih::Types::String Salih::Types::String::operator+(const char* tbm) const
 	return tmp ;
 }
 
-void Salih::Types::String::operator+=(const char* tbm)
+Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
 {
 	int tmpSize ;
 	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
@@ -223,6 +247,8 @@ void Salih::Types::String::operator+=(const char* tbm)
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
 	this->str = tmp ;
+	
+	return *this ;
 }
 
 bool Salih::Types::String::operator==(const char* str) const
@@ -279,7 +305,7 @@ bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
 	return false ;
 }
 
-char* Salih::Types::String::getStr() const
+const char* Salih::Types::String::get() const
 {
 	return this->str ;
 }
@@ -290,6 +316,11 @@ int Salih::Types::String::getSize() const
 }
 
 char& Salih::Types::String::operator[](const int index)
+{
+	return this->str[index] ;
+}
+
+const char& Salih::Types::String::operator[](const int index) const
 {
 	return this->str[index] ;
 }
@@ -418,10 +449,24 @@ bool Salih::Types::String::isCapitalised() const
 
 // helpful overloads
 
-std::ostream& operator<<(std::ostream& os, const Salih::Types::String& str)
+std::ostream& std::operator<<(std::ostream& os, const Salih::Types::String& str)
 {
-	os << str.getStr() ;
+	os << str.str ;
 	return os ;
+}
+
+std::istream& std::operator>>(std::istream& in, Salih::Types::String& str)
+{
+	std::size_t size = 1024 ;
+	char* temp = new char[size+1] ;
+	in >> temp ;
+	temp[size] = '\0' ;
+	delete[] str.str ;
+	str.str = nullptr ;
+	str.str = temp ;
+	str.size = size ;
+	
+	return in ;
 }
 
 #endif

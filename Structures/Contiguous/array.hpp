@@ -36,6 +36,9 @@ namespace Salih::Structures::Contiguous {
 			//Array<T,NEW_SIZE> operator()(const int x, const int y) const ;
 			
 			~Array() ;
+			
+			template<typename OTHER, std::size_t _SIZE>
+			friend class Array ;
 	} ;
 	
 }

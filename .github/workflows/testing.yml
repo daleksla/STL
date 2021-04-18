@@ -11,13 +11,13 @@ jobs:
       - name: Navigate to testing folder
         run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
-        run: find . -maxdepth 1 -perm -111 -type f >> files.log
+        run: find . -maxdepth 1 -perm -111 -type f >> filestest.log
       - name: Loop through & Run files
         run: |
-          input="./files.log"
-          while IFS= read -r line
+          input="./filestest.log"
+          while read line
           do
             ./"$line"
           done < "$input"
       - name: Delete temporary file name holder
-        run: rm files.log
+        run: rm filestest.log

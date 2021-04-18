@@ -36,7 +36,7 @@ TEST_CASE("Testing dereferncing (*) operator")
 	REQUIRE(*sp == 2) ;
 }
 
-TEST_CASE("Testing get method")
+TEST_CASE("Testing 'get()' method")
 {
 	int* p = new int ;
 	UniquePointer<int> up ;

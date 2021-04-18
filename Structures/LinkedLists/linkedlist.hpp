@@ -17,8 +17,11 @@ namespace Salih::Structures::LinkedLists {
 	
 }
 
-template<typename T>
-std::ostream& operator<<(std::ostream&, const Salih::Structures::LinkedLists::LinkedList<T>&) ;
+namespace std _GLIBCXX_VISIBILITY(default)
+{
+	template<typename T>
+	ostream& operator<<(ostream&, const ::Salih::Structures::LinkedLists::LinkedList<T>&) ;
+}
 
 namespace Salih::Structures::LinkedLists {
 
@@ -58,6 +61,10 @@ namespace Salih::Structures::LinkedLists {
 			
 			const T& operator[](const int) const ; //method to index linked list, returns data
 			
+			T& at(const int, const bool check = true) ; //method to index linked list, returns data
+			
+			const T& at(const int, const bool check = true) const ; //method to index linked list, returns data
+			
 			bool operator==(const LinkedList<T>&) const ; //method to index linked list, returns data
 			
 			bool operator!=(const LinkedList<T>&) const ; //method to index linked list, returns data
@@ -78,6 +85,8 @@ namespace Salih::Structures::LinkedLists {
 			
 			template<typename OTHER>
 			friend class LinkedList ;
+			
+			friend ::std::ostream& ::std::operator<<(::std::ostream&, const LinkedList&) ;
 
 	} ;	
 }

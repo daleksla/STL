@@ -42,6 +42,9 @@ namespace Salih::Structures::Contiguous {
 			void clear() ;
 			
 			~Vector() ;
+			
+			template<typename OTHER>
+			friend class Vector ;
 	} ;
 	
 }

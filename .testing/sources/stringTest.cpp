@@ -224,17 +224,17 @@ TEST_CASE("'getSize()' method - returns correct size")
 	REQUIRE(v2.size == v2.getSize()) ;
 }
 
-TEST_CASE("'getStr()' method - returns correct char*")
+TEST_CASE("'get()' method - returns correct char*")
 {
 	String v ;
 	char* val = "" ;
-	REQUIRE(strcmp(val,v.getStr()) == 0) ;
-	REQUIRE(v.str == v.getStr()) ;
+	REQUIRE(strcmp(val,v.get()) == 0) ;
+	REQUIRE(v.str == v.get()) ;
 	
 	String v2("balih") ;
 	char* val2 = "balih" ;
-	REQUIRE(strcmp(val2,v2.getStr()) == 0) ;
-	REQUIRE(v2.str == v2.getStr()) ;
+	REQUIRE(strcmp(val2,v2.get()) == 0) ;
+	REQUIRE(v2.str == v2.get()) ;
 }
 
 /* String value checking functions */
