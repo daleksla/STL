@@ -12,9 +12,9 @@ namespace Salih
 	
 	}
 
-	ostream& operator<<(ostream&, const ::Salih::Types::String&) ;
+	::std::ostream& operator<<(::std::ostream&, const Types::String&) ;
 	
-	istream& operator>>(istream&, ::Salih::Types::String&) ;
+	::std::istream& operator>>(::std::istream&, Types::String&) ;
 	
 }
 
