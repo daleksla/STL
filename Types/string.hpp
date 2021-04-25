@@ -4,17 +4,18 @@
 
 #include <iostream>
 
-namespace Salih::Types {
-
-	class String ;
-	
-}
-
-namespace std _GLIBCXX_VISIBILITY(default)
+namespace Salih
 {
+	namespace Types {
+	
+		class String ;
+	
+	}
+
 	ostream& operator<<(ostream&, const ::Salih::Types::String&) ;
 	
 	istream& operator>>(istream&, ::Salih::Types::String&) ;
+	
 }
 
 namespace Salih::Types {
@@ -90,9 +91,9 @@ namespace Salih::Types {
 			
 			bool isCapitalised() const ;
 			
-			friend ::std::istream& ::std::operator>>(::std::istream&, String&) ;
+			friend ::std::istream& ::Salih::operator>>(::std::istream&, String&) ;
 			
-			friend ::std::ostream& ::std::operator<<(::std::ostream&, const String&) ;
+			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const String&) ;
 			
 	} ;
 }
@@ -449,13 +450,13 @@ bool Salih::Types::String::isCapitalised() const
 
 // helpful overloads
 
-std::ostream& std::operator<<(std::ostream& os, const Salih::Types::String& str)
+std::ostream& Salih::operator<<(std::ostream& os, const Salih::Types::String& str)
 {
 	os << str.str ;
 	return os ;
 }
 
-std::istream& std::operator>>(std::istream& in, Salih::Types::String& str)
+std::istream& Salih::operator>>(std::istream& in, Salih::Types::String& str)
 {
 	std::size_t size = 1024 ;
 	char temp[size+1] ;
