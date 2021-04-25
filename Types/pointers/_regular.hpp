@@ -30,6 +30,8 @@ namespace Salih::Types {
 			virtual ~Pointer() = 0 ;
 			
 			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const Pointer&) ;
+		
+			friend class Pointer<void> ;
 	} ;
 	
 	template<class T>
@@ -59,6 +61,8 @@ namespace Salih::Types {
 			void reset() ;
 			
 			~SharedPointer() ;
+			
+			friend class SharedPointer<void> ;
 	} ;
 	
 	template<class T>
@@ -85,6 +89,8 @@ namespace Salih::Types {
 			void reset() ;
 			
 			~UniquePointer() ;
+			
+			friend class UniquePointer<void> ;
 	} ;
 	
 }
