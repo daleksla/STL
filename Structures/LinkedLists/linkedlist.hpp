@@ -10,17 +10,18 @@
 /* This file contains the declarations of a linked list 
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
  
-namespace Salih::Structures::LinkedLists {
+namespace Salih {
 	
-	template<typename T>
-	class LinkedList ;
+	namespace Structures::LinkedLists {
 	
-}
+		template<typename T>
+		class LinkedList ;
 
-namespace std _GLIBCXX_VISIBILITY(default)
-{
+	}
+
 	template<typename T>
-	ostream& operator<<(ostream&, const ::Salih::Structures::LinkedLists::LinkedList<T>&) ;
+	::std::ostream& operator<<(::std::ostream&, const Structures::LinkedLists::LinkedList<T>&) ;
+	
 }
 
 namespace Salih::Structures::LinkedLists {
@@ -86,7 +87,7 @@ namespace Salih::Structures::LinkedLists {
 			template<typename OTHER>
 			friend class LinkedList ;
 			
-			friend ::std::ostream& ::std::operator<<(::std::ostream&, const LinkedList&) ;
+			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const LinkedList&) ;
 
 	} ;	
 }

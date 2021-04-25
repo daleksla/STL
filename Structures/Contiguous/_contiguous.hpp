@@ -92,7 +92,7 @@ namespace Salih::Structures::Contiguous {
 			template<typename OTHER>
 			friend class Contiguous ;
 			
-			friend ::std::ostream& ::std::operator<<(::std::ostream&, const Contiguous&) ;
+			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const Contiguous&) ;
 	} ;
 }
 
