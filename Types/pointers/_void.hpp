@@ -12,12 +12,34 @@ namespace Salih::Types {
 		protected:
 			void* pointer ;
 			
+			std::size_t bytes ;
+			
 		public:
 			Pointer() ;	
 			
 			Pointer(std::nullptr_t) ;			
 			
-			Pointer(void*) ;
+			Pointer(void*, std::size_t) ;	
+			
+			template<typename T>
+			Pointer(T*) ;
+			
+			Pointer& operator=(std::nullptr_t) ;		
+			
+			Pointer& operator()(void*, std::size_t) ;				
+			
+			template<typename T>
+			Pointer& operator=(T*) ;
+			
+			Pointer(const Pointer&) ;
+			
+			template<typename T>
+			Pointer(const Pointer<T>&) ;	
+			
+			Pointer& operator=(const Pointer&) ;
+			
+			template<typename T>
+			Pointer& operator=(const Pointer<T>&) ;			
 			
 			void* get() const ;
 			
@@ -27,6 +49,9 @@ namespace Salih::Types {
 			
 			template<typename T>
 			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const Pointer<T>&) ;
+			
+			template<typename T>
+			friend class Pointer ;
 	} ;
 	
 	template<>
@@ -37,52 +62,34 @@ namespace Salih::Types {
 		public:
 			SharedPointer() ;
 			
-			SharedPointer(std::nullptr_t) ;			
+			SharedPointer(std::nullptr_t) ;
+
+			SharedPointer(void*, std::size_t) ;
 			
-			SharedPointer(void*) ;
+			template<typename T>
+			SharedPointer(T*) ;	
 			
 			SharedPointer& operator=(std::nullptr_t) ;
+
+			SharedPointer& operator()(void*, std::size_t) ;
 			
-			SharedPointer& operator=(void*) ;
-		
+			template<typename T>
+			SharedPointer& operator=(T*) ;
+			
 			SharedPointer(const SharedPointer&) ;
+			
+			template<typename T>
+			SharedPointer(const SharedPointer<T>&) ;	
 			
 			SharedPointer& operator=(const SharedPointer&) ;
 			
-			SharedPointer(SharedPointer&&) ;
+			template<typename T>
+			SharedPointer& operator=(const SharedPointer<T>&) ;	
 			
-			SharedPointer& operator=(SharedPointer&&) ;
+			~SharedPointer() ;		
 			
-			void reset() ;
-			
-			~SharedPointer() ;
-	} ;
-	
-	template<>
-	class UniquePointer<void> : public Pointer<void> {
-		public:
-			UniquePointer() ;
-			
-			UniquePointer(std::nullptr_t) ;		
-			
-			UniquePointer(void*) ;
-			
-			UniquePointer& operator=(std::nullptr_t) ;
-			
-			UniquePointer& operator=(void*) ;
-		
-			UniquePointer(const UniquePointer&) = delete ;
-			
-			UniquePointer& operator=(const UniquePointer&) = delete ;
-			
-			UniquePointer(UniquePointer&&) ;
-			
-			UniquePointer& operator=(UniquePointer&&) ;
-			
-			void reset() ;
-			
-			~UniquePointer() ;
-	} ;
+			template<typename T>
+			friend class SharedPointer ;
 	
 }
 
