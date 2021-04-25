@@ -46,31 +46,17 @@ TEST_CASE("Testing 'get()' method")
 
 TEST_CASE("Testing differentiation between stack and heap pointers")
 {
-	/* As part of an effort to prevent mistakes regarding allocation, freeing etc., the user is blocked from assigning a pointer to the stack, lest an error message be thrown - this code is embedded as inline assembly code within relevant constructors / assignment operators */
+	/* As part of an effort to prevent mistakes regarding allocation, freeing etc., the pointer is checked regarding where it points */
 	bool status = false ;
 	bool* data = &status ;
-	//code 
-	try {
-		Pointer<bool>::checkValidity(data) ;
-	} catch(std::runtime_error)
-	{
-		status = true ;
-	}
 	
-	REQUIRE(status == true) ;
+	REQUIRE(isHeap(data) == false) ;
 	
 	status = true ;
 	data = new bool ;
 	//code 
-	try {
-		Pointer<bool>::checkValidity(data) ;
-	} catch(std::runtime_error)
-	{
-		status = false ;
-		delete data ;
-	}
-	
-	REQUIRE(status == true) ;
+	REQUIRE(isHeap(data) == true) ;
+
 	delete data ;
 }
 
