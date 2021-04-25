@@ -10,18 +10,20 @@
 /* This file contains the declarations of the base class for contiguous memory structures 
  * It is located in the nested Salih, Structures, Contiguous namespace */
  
-namespace Salih::Structures::Contiguous {
+namespace Salih {
+	
+	namespace Structures::Contiguous {
+	
+		template<typename T>
+		class Contiguous ;
+		
+	}
 	
 	template<typename T>
-	class Contiguous ;
+	::std::ostream& operator<<(::std::ostream&, const Structures::Contiguous::Contiguous<T>&) ;	
 	
 }
 
-namespace std _GLIBCXX_VISIBILITY(default)
-{
-	template<typename T>
-	ostream& operator<<(ostream&, const ::Salih::Structures::Contiguous::Contiguous<T>&) ;
-}
 
 namespace Salih::Structures::Contiguous {
 
