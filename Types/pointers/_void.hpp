@@ -86,11 +86,14 @@ namespace Salih::Types {
 			template<typename T>
 			SharedPointer& operator=(const SharedPointer<T>&) ;	
 			
+			void reset() ;
+			
 			~SharedPointer() ;		
 			
 			template<typename T>
 			friend class SharedPointer ;
 	
+	} ;
 }
 
 #include "./_void.tpp"
