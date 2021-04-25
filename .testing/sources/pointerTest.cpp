@@ -23,8 +23,7 @@ struct Test
 
 TEST_CASE("Testing arrow (->) operator value")
 {
-	UniquePointer<Test> up ;
-	up = new Test ;
+	UniquePointer<Test> up  = new Test ;
 	REQUIRE(up->val == 2) ;
 }
 
