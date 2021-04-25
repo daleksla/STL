@@ -152,7 +152,7 @@ template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer() : Salih::Types::Pointer<T>() {} ;
 
 template<typename T>
-Salih::Types::UniquePointer<T>::UniquePointer(std::nullptr_t x) : Salih::Types::Pointer<T>(x) {} ;
+Salih::Types::UniquePointer<T>::UniquePointer(std::nullptr_t x) : Salih::Types::Pointer<T>() {} ;
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(T* data) : Salih::Types::Pointer<T>(data) {} ;

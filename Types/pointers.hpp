@@ -28,13 +28,14 @@ namespace Salih::Types {
 	bool isHeap(void*) ;
 }
 
-namespace std _GLIBCXX_VISIBILITY(default)
-{
+namespace Salih {
+
 	template<typename T>
-	std::ostream& operator<<(std::ostream&, const ::Salih::Types::Pointer<T>&) ;
+	::std::ostream& operator<<(::std::ostream&, const Types::Pointer<T>&) ;
 	
 	template<>
-	std::ostream& operator<<(std::ostream&, const ::Salih::Types::Pointer<void>&) ;
+	::std::ostream& operator<<(::std::ostream&, const Types::Pointer<void>&) ;
+	
 }
 
 #include "./pointers/_regular.hpp"
@@ -64,14 +65,7 @@ bool Salih::Types::isHeap(void* data)
 }
 
 template<typename T>
-std::ostream& ::std::operator<<(std::ostream& os, const Salih::Types::Pointer<T>& ptr)
-{
-	os << ptr.pointer ;
-	return os ;
-}
-
-template<>
-std::ostream& ::std::operator<<(std::ostream& os, const Salih::Types::Pointer<void>& ptr)
+std::ostream& Salih::operator<<(std::ostream& os, const ::Salih::Types::Pointer<T>& ptr)
 {
 	os << ptr.pointer ;
 	return os ;

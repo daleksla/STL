@@ -29,7 +29,7 @@ namespace Salih::Types {
 			
 			virtual ~Pointer() = 0 ;
 			
-			friend ::std::ostream& ::std::operator<<(::std::ostream&, const Pointer&) ;
+			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const Pointer&) ;
 	} ;
 	
 	template<class T>
