@@ -128,26 +128,30 @@ Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(
 //dddddddddddddddddddddddddddddddddddddddddddddddddddd
 Salih::Types::SharedPointer<void>::SharedPointer(const Salih::Types::SharedPointer<void>& ptr) : Salih::Types::Pointer<void>(ptr) 
 {
-	*(this->count) = *(this->count) + 1 ;
+	this->count = ptr.count ;
+	*(this->count) = *(ptr.count) + 1 ;	
 }
 			
 template<typename T>
 Salih::Types::SharedPointer<void>::SharedPointer(const Salih::Types::SharedPointer<T>& ptr) : Salih::Types::Pointer<void>(ptr)
 {
-	*(this->count) = *(this->count) + 1 ;	
+	this->count = ptr.count ;
+	*(this->count) = *(ptr.count) + 1 ;	
 }
 			
 Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(const Salih::Types::SharedPointer<void>& ptr)
 {
 	Salih::Types::Pointer<void>::operator=(ptr) ;
-	*(this->count) = *(this->count) + 1 ;
+	this->count = ptr.count ;
+	*(this->count) = *(ptr.count) + 1 ;	
 }
 			
 template<typename T>
 Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(const Salih::Types::SharedPointer<T>& ptr)
 {
 	Salih::Types::Pointer<void>::operator=(ptr) ;
-	*(this->count) = *(this->count) + 1 ;
+	this->count = ptr.count ;
+	*(this->count) = *(ptr.count) + 1 ;	
 }
 
 void Salih::Types::SharedPointer<void>::reset()
