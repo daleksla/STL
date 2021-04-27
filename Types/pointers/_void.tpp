@@ -248,4 +248,63 @@ Salih::Types::SharedPointer<void>::~SharedPointer()
 	}
 }
 
+Salih::Types::UniquePointer<void>::UniquePointer() : Salih::Types::Pointer<void>() {} ;
+
+Salih::Types::UniquePointer<void>::UniquePointer(std::nullptr_t x) : Salih::Types::Pointer<void>(x) {} ;
+
+Salih::Types::UniquePointer<void>::UniquePointer(void* ptr, std::size_t ct) : Salih::Types::Pointer<void>(ptr,ct) {} ;
+
+template<typename T>
+Salih::Types::UniquePointer<void>::UniquePointer(T* ptr) : Salih::Types::Pointer<void>(ptr) {} ;
+
+Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(std::nullptr_t x)
+{
+	Salih::Types::Pointer<void>::operator=(x) ;
+}
+
+Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator()(void* ptr, std::size_t ct)
+{
+	Salih::Types::Pointer<void>::operator()(ptr,ct) ;
+}
+
+template<typename T>
+Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(T* ptr)
+{
+	Salih::Types::Pointer<void>::operator=(ptr) ;
+}
+
+//dddddddddddddddddddddddddddddddddddddddddddddddddddd
+Salih::Types::UniquePointer<void>::UniquePointer(Salih::Types::UniquePointer<void>&& ptr) : Salih::Types::Pointer<void>( std::move(ptr) ) {} ; 
+			
+template<typename T>
+Salih::Types::UniquePointer<void>::UniquePointer(Salih::Types::UniquePointer<T>&& ptr) : Salih::Types::Pointer<void>( std::move(ptr) ) {} ;
+			
+Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(Salih::Types::UniquePointer<void>&& ptr)
+{
+	Salih::Types::Pointer<void>::operator=( std::move(ptr) ) ;
+}
+			
+template<typename T>
+Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(Salih::Types::UniquePointer<T>&& ptr)
+{
+	Salih::Types::Pointer<void>::operator=( std::move(ptr) ) ;
+}
+
+void Salih::Types::UniquePointer<void>::reset()
+{
+	if(this->pointer)
+	{
+		operator delete(this->pointer, this->bytes) ; 
+		this->pointer = nullptr ;	
+	}
+}
+
+Salih::Types::UniquePointer<void>::~UniquePointer()
+{
+	if(this->pointer)
+	{
+		operator delete(this->pointer, this->bytes) ; 
+	}
+}
+
 #endif

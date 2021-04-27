@@ -118,7 +118,42 @@ namespace Salih::Types {
 	template<>
 	class UniquePointer<void> : Pointer<void> {
 		public:
+			UniquePointer() ;
 			
+			UniquePointer(std::nullptr_t) ;
+
+			UniquePointer(void*, std::size_t) ;
+			
+			template<typename T>
+			UniquePointer(T*) ;	
+			
+			UniquePointer& operator=(std::nullptr_t) ;
+
+			UniquePointer& operator()(void*, std::size_t) ;
+			
+			template<typename T>
+			UniquePointer& operator=(T*) ;
+			
+			UniquePointer(const UniquePointer&) = delete ;
+			
+			UniquePointer& operator=(const UniquePointer&) = delete ;
+			
+			UniquePointer(UniquePointer&&) ;
+			
+			template<typename T>
+			UniquePointer(UniquePointer<T>&&) ;	
+			
+			UniquePointer& operator=(UniquePointer&&) ;
+			
+			template<typename T>
+			UniquePointer& operator=(UniquePointer<T>&&) ;	
+			
+			void reset() ;
+			
+			~UniquePointer() ;		
+			
+			template<typename T>
+			friend class UniquePointer ;			
 	} ;
 }
 
