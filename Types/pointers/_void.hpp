@@ -39,7 +39,17 @@ namespace Salih::Types {
 			Pointer& operator=(const Pointer&) ;
 			
 			template<typename T>
-			Pointer& operator=(const Pointer<T>&) ;			
+			Pointer& operator=(const Pointer<T>&) ;	
+			
+			Pointer(Pointer&&) ;
+			
+			template<typename T>
+			Pointer(Pointer<T>&&) ;	
+			
+			Pointer& operator=(Pointer&&) ;
+			
+			template<typename T>
+			Pointer& operator=(Pointer<T>&&) ;		
 			
 			void* get() const ;
 			
@@ -86,6 +96,16 @@ namespace Salih::Types {
 			template<typename T>
 			SharedPointer& operator=(const SharedPointer<T>&) ;	
 			
+			SharedPointer(SharedPointer&&) ;
+			
+			template<typename T>
+			SharedPointer(SharedPointer<T>&&) ;	
+			
+			SharedPointer& operator=(SharedPointer&&) ;
+			
+			template<typename T>
+			SharedPointer& operator=(SharedPointer<T>&&) ;	
+			
 			void reset() ;
 			
 			~SharedPointer() ;		
@@ -93,6 +113,12 @@ namespace Salih::Types {
 			template<typename T>
 			friend class SharedPointer ;
 	
+	} ;
+	
+	template<>
+	class UniquePointer<void> : Pointer<void> {
+		public:
+			
 	} ;
 }
 
