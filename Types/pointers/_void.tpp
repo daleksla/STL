@@ -19,6 +19,7 @@ Salih::Types::Pointer<void>::Pointer(std::nullptr_t)
 
 Salih::Types::Pointer<void>::Pointer(void* ptr, std::size_t ct) 
 {
+	if(! ::Salih::Types::isHeap(ptr) ) throw std::runtime_error("Cannot allocate stack pointer to smart pointer")  ;
 	this->pointer = ptr ;	
 	this->bytes = ct ;	
 }
@@ -26,6 +27,7 @@ Salih::Types::Pointer<void>::Pointer(void* ptr, std::size_t ct)
 template<typename T>
 Salih::Types::Pointer<void>::Pointer(T* ptr) 
 {
+	if(! ::Salih::Types::isHeap(ptr) ) throw std::runtime_error("Cannot allocate stack pointer to smart pointer")  ;
 	this->pointer = ptr ;	
 	this->bytes = sizeof(T) ;	
 }
@@ -34,12 +36,15 @@ Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(std::nullptr
 {
 	this->pointer = nullptr ;	
 	this->bytes = 0 ;	
+	return *this ;
 }
 
 Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator()(void* ptr, std::size_t sz) 
 {
+	if(! ::Salih::Types::isHeap(ptr) ) throw std::runtime_error("Cannot allocate stack pointer to smart pointer")  ;
 	this->pointer = ptr ;	
-	this->bytes = sz ;	
+	this->bytes = sz ;
+	return *this ;	
 }
 
 template<typename T>
@@ -47,6 +52,7 @@ Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(T* ptr)
 {
 	this->pointer = ptr ;	
 	this->bytes = sizeof(T) ;	
+	return *this ;
 }
 
 Salih::Types::Pointer<void>::Pointer(const Salih::Types::Pointer<void>& ptr)
@@ -59,13 +65,14 @@ template<typename T>
 Salih::Types::Pointer<void>::Pointer(const Salih::Types::Pointer<T>& ptr)
 {
 	this->pointer = ptr.pointer ;
-	this->bytes = sizeof(T) ;	
+	this->bytes = sizeof(T) ;
 }
 			
 Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(const Salih::Types::Pointer<void>& ptr)
 {
 	this->pointer = ptr.pointer ;
 	this->bytes = ptr.bytes ;	
+	return *this ;
 }
 			
 template<typename T>
@@ -73,6 +80,7 @@ Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(const Salih:
 {
 	this->pointer = ptr.pointer ;
 	this->bytes = sizeof(T) ;
+	return *this ;
 }
 
 ///ddd
@@ -99,6 +107,7 @@ Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(Salih::Types
 	this->bytes = ptr.bytes ;	
 	ptr.pointer = nullptr ;
 	ptr.bytes = 0 ;
+	return *this ;
 }
 			
 template<typename T>
@@ -108,6 +117,7 @@ Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(Salih::Types
 	this->bytes = sizeof(T) ;
 	ptr.pointer = nullptr ;
 	ptr.bytes = 0 ;
+	return *this ;
 }
 
 void* Salih::Types::Pointer<void>::get() const 
@@ -142,23 +152,27 @@ Salih::Types::SharedPointer<void>::SharedPointer(T* ptr) : Salih::Types::Pointer
 
 Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(std::nullptr_t x)
 {
+	this->reset() ;
 	Salih::Types::Pointer<void>::operator=(x) ;
-	this->count = nullptr ;
+	this->count = new int ; *(this->count) = 1 ;
+	return *this ;	
 }
 
 Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator()(void* ptr, std::size_t ct)
 {
+	this->reset() ;
 	Salih::Types::Pointer<void>::operator()(ptr,ct) ;
-	this->count = new int ;
-	*(this->count) = 1 ;
+	this->count = new int ; *(this->count) = 1 ;
+	return *this ;	
 }
 
 template<typename T>
 Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(T* ptr)
 {
+	this->reset() ;
 	Salih::Types::Pointer<void>::operator=(ptr) ;
-	this->count = new int ;
-	*(this->count) = 1 ;
+	this->count = new int ; *(this->count) = 1 ;
+	return *this ;	
 }
 //dddddddddddddddddddddddddddddddddddddddddddddddddddd
 Salih::Types::SharedPointer<void>::SharedPointer(const Salih::Types::SharedPointer<void>& ptr) : Salih::Types::Pointer<void>(ptr) 
@@ -178,7 +192,8 @@ Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(
 {
 	Salih::Types::Pointer<void>::operator=(ptr) ;
 	this->count = ptr.count ;
-	*(this->count) = *(ptr.count) + 1 ;	
+	*(this->count) = *(ptr.count) + 1 ;
+	return *this ;	
 }
 			
 template<typename T>
@@ -186,7 +201,8 @@ Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(
 {
 	Salih::Types::Pointer<void>::operator=(ptr) ;
 	this->count = ptr.count ;
-	*(this->count) = *(ptr.count) + 1 ;	
+	*(this->count) = *(ptr.count) + 1 ;
+	return *this ;	
 }
 
 //fffffffffffffffffffffff
@@ -206,6 +222,7 @@ Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(
 	this->count = ptr.count ;
 	ptr.count = nullptr ;
 	Salih::Types::Pointer<void>::operator=( std::move(ptr) ) ;
+	return *this ;
 }
 			
 template<typename T>
@@ -214,6 +231,7 @@ Salih::Types::SharedPointer<void>& Salih::Types::SharedPointer<void>::operator=(
 	this->count = ptr.count ;
 	ptr.count = nullptr ;
 	Salih::Types::Pointer<void>::operator=( std::move(ptr) ) ;
+	return *this ;
 }
 
 void Salih::Types::SharedPointer<void>::reset()
@@ -259,18 +277,24 @@ Salih::Types::UniquePointer<void>::UniquePointer(T* ptr) : Salih::Types::Pointer
 
 Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(std::nullptr_t x)
 {
+	this->reset() ;
 	Salih::Types::Pointer<void>::operator=(x) ;
+	return *this ;	
 }
 
 Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator()(void* ptr, std::size_t ct)
 {
-	Salih::Types::Pointer<void>::operator()(ptr,ct) ;
+	this->reset() ;
+	Salih::Types::Pointer<void>::operator()(ptr, ct) ;
+	return *this ;	
 }
 
 template<typename T>
 Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(T* ptr)
 {
+	this->reset() ;
 	Salih::Types::Pointer<void>::operator=(ptr) ;
+	return *this ;	
 }
 
 //dddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -282,12 +306,14 @@ Salih::Types::UniquePointer<void>::UniquePointer(Salih::Types::UniquePointer<T>&
 Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(Salih::Types::UniquePointer<void>&& ptr)
 {
 	Salih::Types::Pointer<void>::operator=( std::move(ptr) ) ;
+	return *this ;
 }
 			
 template<typename T>
 Salih::Types::UniquePointer<void>& Salih::Types::UniquePointer<void>::operator=(Salih::Types::UniquePointer<T>&& ptr)
 {
 	Salih::Types::Pointer<void>::operator=( std::move(ptr) ) ;
+	return *this ;
 }
 
 void Salih::Types::UniquePointer<void>::reset()
