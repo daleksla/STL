@@ -19,6 +19,14 @@ namespace Salih::Types {
 			
 			Pointer(T*) ;
 			
+			Pointer(const Pointer&) ;
+			
+			Pointer& operator=(const Pointer&) ;
+			
+			Pointer(Pointer&&) ;
+			
+			Pointer& operator=(Pointer&&) ;
+			
 			T* operator->() ;
 			
 			T& operator*() ;

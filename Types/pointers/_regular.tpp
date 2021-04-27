@@ -25,6 +25,24 @@ Salih::Types::Pointer<T>::Pointer(T* data)
 }
 
 template<typename T>
+Salih::Types::Pointer<T>::Pointer(const Salih::Types::Pointer<T>& ptr) : pointer(ptr.pointer) {} ;
+
+template<typename T>			
+Salih::Types::Pointer<T>& Salih::Types::Pointer<T>::operator=(const Salih::Types::Pointer<T>& ptr)
+{
+	this->pointer = ptr.pointer ;
+}
+
+template<typename T>			
+Salih::Types::Pointer<T>::Pointer(Salih::Types::Pointer<T>&& ptr) : pointer(ptr.pointer) {} ;
+
+template<typename T>			
+Salih::Types::Pointer<T>& Salih::Types::Pointer<T>::operator=(Salih::Types::Pointer<T>&& ptr)
+{
+	this->pointer = ptr.pointer ;
+}
+
+template<typename T>
 T* Salih::Types::Pointer<T>::operator->()
 {
 	return this->pointer ;
