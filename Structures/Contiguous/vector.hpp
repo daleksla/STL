@@ -41,7 +41,7 @@ namespace Salih::Structures::Contiguous {
 			@return reference to current object **/
 			Vector& operator=(const std::initializer_list<T>&) ;
 			
-			/** Copy assignment operator, creates copy of a given vector
+			/** Copy constructor, creates copy of a given vector
 			@param a (l-value) vector object
 			@return <initialised-object> **/
 			Vector(const Vector&) ;
