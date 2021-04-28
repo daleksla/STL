@@ -62,7 +62,7 @@ namespace Salih::Structures::Contiguous {
 			
 			//Contiguous& operator=(const Contiguous&) ;
 
-			/** Mock copy constructor, copys base-class reference into specifically-sized structure
+			/** Mock move constructor, copys base-class reference into specifically-sized structure
 			@param r-value reference to base-class object, size (of structure)
 			@return <initialised-object> **/						
 			Contiguous(Contiguous&&, const std::size_t) ;
