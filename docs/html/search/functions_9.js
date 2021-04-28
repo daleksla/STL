@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['stack_95',['Stack',['../classSalih_1_1Types_1_1Stack.html#a7692234c550b3be398cd0d131503f7be',1,'Salih::Types::Stack::Stack()'],['../classSalih_1_1Types_1_1Stack.html#a0f043b41cc20b58703eb3177724603bf',1,'Salih::Types::Stack::Stack(const std::initializer_list&lt; T &gt; &amp;)'],['../classSalih_1_1Types_1_1Stack.html#a59d513cf5a689305e0a393fc746d1eb7',1,'Salih::Types::Stack::Stack(const Stack &amp;)'],['../classSalih_1_1Types_1_1Stack.html#a3c68eddc2758a44eca4a20c34ed04d7c',1,'Salih::Types::Stack::Stack(Stack &amp;&amp;)']]],
+  ['string_96',['String',['../classSalih_1_1Types_1_1String.html#ab10677004029699e040826509464ebe8',1,'Salih::Types::String::String()'],['../classSalih_1_1Types_1_1String.html#a01d83d2801402398f0eab02b0432d728',1,'Salih::Types::String::String(const char *)'],['../classSalih_1_1Types_1_1String.html#a756c99a28634ff792c63a0688ff0c7ab',1,'Salih::Types::String::String(const String &amp;)'],['../classSalih_1_1Types_1_1String.html#a6e1404db14c471023aa25daf9e1f18e6',1,'Salih::Types::String::String(String &amp;&amp;)']]]
+];
