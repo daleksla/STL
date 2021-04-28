@@ -2,7 +2,7 @@
 #define STACK_HPP
 #pragma once
 
-#include "../Structures/LinkedLists/node.hpp"
+#include "../Structures/LinkedLists/_node.hpp"
 #include <algorithm>
 #include <iterator>
 #include <initializer_list>
