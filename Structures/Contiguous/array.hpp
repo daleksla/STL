@@ -36,7 +36,7 @@ namespace Salih::Structures::Contiguous {
 			@return reference to current object **/
 			Array& operator=(const std::initializer_list<T>&) ;
 			
-			/** Copy assignment operator, creates copy of a given array
+			/** Copy constructor, creates copy of a given array
 			@param a (l-value) array object
 			@return <initialised-object> **/	
 			Array(const Array&) ;
