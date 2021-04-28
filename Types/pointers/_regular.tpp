@@ -76,7 +76,7 @@ T& Salih::Types::Pointer<T>::operator*()
 }
 
 template<typename T>
-bool Salih::Types::Pointer<T>::operator() const
+Salih::Types::Pointer<T>::operator bool() const
 {
 	return (this->pointer != nullptr) ;
 }

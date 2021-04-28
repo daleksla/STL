@@ -35,7 +35,7 @@ namespace Salih::Types {
 			
 			T& operator*() ;
 			
-			bool operator() const ;
+			operator bool() const ;
 			
 			bool operator!() const ;
 			
