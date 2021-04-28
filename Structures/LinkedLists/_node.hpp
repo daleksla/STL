@@ -1,5 +1,5 @@
-#ifndef NODE_HPP
-#define NODE_HPP
+#ifndef _NODE_HPP
+#define _NODE_HPP
 #pragma once
 
 #include <algorithm>
@@ -80,6 +80,6 @@ namespace Salih::Structures::LinkedLists {
 	} ;	
 }
 
-#include "node.tpp"
+#include "_node.tpp"
 
 #endif

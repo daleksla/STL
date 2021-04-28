@@ -1,5 +1,5 @@
-#ifndef NODE_TPP
-#define NODE_TPP
+#ifndef _NODE_TPP
+#define _NODE_TPP
 #pragma once
 
 #include <stdexcept>
