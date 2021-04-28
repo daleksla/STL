@@ -35,6 +35,10 @@ namespace Salih::Types {
 			
 			T& operator*() ;
 			
+			bool operator() const ;
+			
+			bool operator!() const ;
+			
 			T* get() const ;
 			
 			virtual void reset() = 0 ;

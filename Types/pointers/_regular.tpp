@@ -76,6 +76,18 @@ T& Salih::Types::Pointer<T>::operator*()
 }
 
 template<typename T>
+bool Salih::Types::Pointer<T>::operator() const
+{
+	return (this->pointer != nullptr) ;
+}
+
+template<typename T>
+bool Salih::Types::Pointer<T>::operator!() const
+{
+	return (this->pointer == nullptr) ;
+}
+
+template<typename T>
 T* Salih::Types::Pointer<T>::get() const
 {
 	return this->pointer ;
