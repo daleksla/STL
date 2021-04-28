@@ -49,7 +49,11 @@ namespace Salih::Types {
 			Pointer& operator=(Pointer&&) ;
 			
 			template<typename T>
-			Pointer& operator=(Pointer<T>&&) ;		
+			Pointer& operator=(Pointer<T>&&) ;	
+			
+			bool operator() const ;
+			
+			bool operator!() const ;	
 			
 			void* get() const ;
 			

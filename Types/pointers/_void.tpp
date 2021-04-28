@@ -120,6 +120,16 @@ Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(Salih::Types
 	return *this ;
 }
 
+bool Salih::Types::Pointer<void>::operator() const
+{
+	return (this->pointer != nullptr) ;
+}
+
+bool Salih::Types::Pointer<void>::operator!() const
+{
+	return (this->pointer == nullptr) ;
+}
+
 void* Salih::Types::Pointer<void>::get() const 
 {
 	return this->pointer ;
