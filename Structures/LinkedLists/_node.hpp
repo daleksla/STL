@@ -6,12 +6,6 @@
 #include <iostream>
 #include <initializer_list>
 
-/** @brief Linkedlist node-class declaration file
-    @author Salih Mahmoud Sayed Ahmed
-    @email ahmed233@uni.coventry.ac.uk
-    @date April 2021
-**/
-
 namespace Salih::Structures::LinkedLists {
 
 	template<typename T>
@@ -19,7 +13,6 @@ namespace Salih::Structures::LinkedLists {
 	
 	template<class T>
 	class Node {
-		/** This class is the Linkedlist-node implementation **/
 		private:
 			Node* prev ; //pointer to prev element in LL
 
@@ -34,19 +27,10 @@ namespace Salih::Structures::LinkedLists {
 		public:
 			T data ; //template variable for data		
 		
-			/** Regular constructor, intialises node with a given value
-			@param value (to set for node) 
-			@return <initialised-object> **/
 			Node(T) ; //constructor - takes data
 			
-			/** Copy constructor, creates independant copy of a given node
-			@param a (l-value) node object
-			@return <initialised-object> **/	
 			Node(const Node&) ; //copy constructor - copies data and removes head and tail
 			
-			/** Copy assignment operator, creates independant copy of a given node
-			@param a (l-value) node object
-			@return reference to current node object **/	
 			Node& operator=(const Node&) ; //copy constructor - copies data and removes head and tail
 			
 			Node(T, Node&, bool) ; //constructor - takes data, node to connect to, specify direction (prev or next)
