@@ -8,6 +8,12 @@
 #include <limits>
 #include <initializer_list>
 
+/** @brief Queue-class implementation file, representing the FIFO abstract data type
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 /* This file contains the declarations and implementations of a Queue-based structure
  * The data is stored and maintained using a linked-list structure */
 
@@ -21,38 +27,79 @@ namespace Salih::Types {
 			
 			int size ;
 		public:
+			/** Empty constructor, intialises empty queue 
+			@return <initialised-object> **/
 			Queue() ;
-			
+
+			/** Regular constructor, intialises multiple values
+			@param initialisation list (of values for queue)
+			@return <initialised-object> **/			
 			Queue(const std::initializer_list<T>&) ;
 			
+			/** Regular assignment operator, re-assigns values to queue (1st element provided becomes head, etc.)
+			@param initialisation list (of values for queue)
+			@return reference to current object **/
 			Queue& operator=(const std::initializer_list<T>&) ;
-			
+		
+			/** Copy assignment operator, creates copy of a given queue
+			@param a (l-value) queue object
+			@return <initialised-object> **/				
 			Queue(const Queue<T>&) ;
 			
+			/** Copy assignment operator, creates copy of a given queue
+			@param a (l-value) queue object
+			@return reference to current object **/	
 			Queue& operator=(const Queue<T>&) ;
 			
+			/** Move constructor, takes ownership of an otherwise temporary queue object
+			@param an r-value queue object
+			@return <initialised-object> **/
 			Queue(Queue<T>&&) ;
 			
+			/** Move assignment operator, takes ownership of an otherwise temporary queue object
+			@param an (r-value) queue object
+			@return reference to current object **/
 			Queue& operator=(Queue<T>&&) ;
 			
+			/** Comparison operator, determines calling queue object content matches with a given queue object
+			@param queue object
+			@return a boolean representing whether equality is met **/ 	
 			bool operator==(const Queue<T>&) const ;
-			
+
+			/** Inequality operator, determines calling queue object content does not match with a given queue object
+			@param queue object
+			@return a boolean representing whether equality is not met **/ 				
 			bool operator!=(const Queue<T>&) const ;
-			
+
+			/** Comparison operator, determines calling queue object content matches with a given queue object
+			@param queue object (which contains different type values)
+			@return a boolean representing whether equality is met **/ 			
 			template<typename OTHER>
 			bool operator==(const Queue<OTHER>&) const ;
-			
+
+			/** Inequality operator, determines calling queue object content does not match with a given queue object
+			@param queue object (which contains different type values)
+			@return a boolean representing whether equality is not met **/ 				
 			template<typename OTHER>
 			bool operator!=(const Queue<OTHER>&) const ;
 			
+			/** Destructor, frees memory and deletes queue **/					
 			~Queue() ;
 			
+			/** pop method, removes oldest / earliest added value from the queue
+			@return value (of removed data object) **/					
 			T pop() ;
-			
+
+			/** peek method, shows oldest / earliest added value to the queue
+			@return constant reference to value (of earliest added / oldest data object) **/				
 			const T& peek() const ;
-			
+
+			/** push method, adds a value to the end of the queue type
+			@param value (to add) **/							
 			void push(T) ;
-			
+
+			/** push method, adds a value to the end of the queue type
+			@param initialisation list (of values to add) **/			
 			void push(const std::initializer_list<T>&) ;
 			
 			template<typename OTHER>
