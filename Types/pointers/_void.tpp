@@ -120,7 +120,7 @@ Salih::Types::Pointer<void>& Salih::Types::Pointer<void>::operator=(Salih::Types
 	return *this ;
 }
 
-bool Salih::Types::Pointer<void>::operator() const
+Salih::Types::Pointer<void>::operator bool() const
 {
 	return (this->pointer != nullptr) ;
 }

@@ -51,7 +51,7 @@ namespace Salih::Types {
 			template<typename T>
 			Pointer& operator=(Pointer<T>&&) ;	
 			
-			bool operator() const ;
+			operator bool() const ;
 			
 			bool operator!() const ;	
 			
