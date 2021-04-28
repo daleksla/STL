@@ -2,7 +2,7 @@
 #define LINKED_LIST_TPP
 #pragma once
 
-#include <lib/Structures/LinkedLists/node.hpp>
+#include <lib/Structures/LinkedLists/_node.hpp>
 #include <stdexcept>
 #include <limits>
 #include <array>
