@@ -13,9 +13,6 @@
     @date April 2021
 **/
 
-/* This file contains the declarations and implementations of a Stack-based structure
- * The data is stored and maintained using a linked-list structure */
-
 namespace Salih::Types {
 
 	template<typename T>
