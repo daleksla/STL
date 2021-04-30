@@ -22,7 +22,7 @@ namespace Salih::Types {
 			
 			Salih::Structures::LinkedLists::Node<T>* tail ;
 			
-			int size ;
+			std::size_t size ;
 		public:
 			/** Empty constructor, intialises empty queue 
 			@return <initialised-object> **/
