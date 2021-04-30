@@ -51,7 +51,7 @@ namespace Salih::Types {
 	template<class T>
 	class SharedPointer : public Pointer<T> {
 		private:
-			int* count ;
+			std::size_t* count ;
 			
 		public:
 			SharedPointer() ;

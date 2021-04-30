@@ -105,7 +105,7 @@ Salih::Types::SharedPointer<T>::SharedPointer(std::nullptr_t x) : Salih::Types::
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(T* data) : Salih::Types::Pointer<T>(data)
 {
-	this->count = new int ;
+	this->count = new std::size_t ;
 	*(this->count) = 1 ;
 }
 
@@ -114,7 +114,7 @@ Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(T* dat
 {
 	this->reset() ;
 	Salih::Types::Pointer<T>::operator=(data) ;
-	this->count = new int ; *(this->count) = 1 ;
+	this->count = new std::size_t ; *(this->count) = 1 ;
 	return *this ;	
 }
 
