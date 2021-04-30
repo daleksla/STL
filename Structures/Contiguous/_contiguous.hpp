@@ -69,22 +69,22 @@ namespace Salih::Structures::Contiguous {
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return reference to a given element in the structure **/ 
-			T& operator[](const int) ; 
+			T& operator[](const std::size_t) ; 
 	
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return constant reference to a given element in the structure **/ 		
-			const T& operator[](const int) const ; 
+			const T& operator[](const std::size_t) const ; 
 			
 			/** at method, another method to modify the structure
 			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
 			@return reference to a given element in the structure **/ 				
-			T& at(const int, const bool check = true) ; 
+			T& at(const std::size_t, const bool check = true) ; 
 			
 			/** at method, another method to modify the structure
 			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
 			@return constant reference to a given element in the structure **/ 	
-			const T& at(const int, const bool check = true) const ; 
+			const T& at(const std::size_t, const bool check = true) const ; 
 			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param contiguous structure to compare with (with different data-type values within)
