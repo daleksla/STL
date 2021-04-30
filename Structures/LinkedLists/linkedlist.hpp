@@ -30,7 +30,7 @@ namespace Salih::Structures::LinkedLists {
 			
 			Node<T>* tail ;
 			
-			int size ;
+			std::size_t size ;
 			
 			inline void setSize(int) ;
 			
@@ -78,22 +78,22 @@ namespace Salih::Structures::LinkedLists {
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return reference to a given element in the list **/ 
-			T& operator[](const int) ; //method to index linked list, returns data
+			T& operator[](const std::size_t) ; //method to index linked list, returns data
 			
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return constant reference to a given element in the structure **/
-			const T& operator[](const int) const ; //method to index linked list, returns data
+			const T& operator[](const std::size_t) const ; //method to index linked list, returns data
 			
 			/** at method, another method to modify the structure
 			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
 			@return reference to a given element in the structure **/ 			
-			T& at(const int, const bool check = true) ; //method to index linked list, returns data
+			T& at(const std::size_t, const bool check = true) ; //method to index linked list, returns data
 			
 			/** at method, another method to modify the structure
 			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
 			@return constant reference to a given element in the structure **/ 
-			const T& at(const int, const bool check = true) const ; //method to index linked list, returns data
+			const T& at(const std::size_t, const bool check = true) const ; //method to index linked list, returns data
 			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param list structure to compare with
@@ -119,11 +119,11 @@ namespace Salih::Structures::LinkedLists {
 			
 			/** insert method, inserts a value into a given position in a list sequence 
 			@param integer (representing position to insert into), value (to insert into said position) **/ 
-			void insert(const int, T) ;
+			void insert(const std::size_t, T) ;
 				
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/	
-			int getSize() const ; //get size
+			std::size_t getSize() const ; //get size
 			
 			/** append method, adds a value to the end of the linkedlist
 			@param value (to add) **/
@@ -131,7 +131,7 @@ namespace Salih::Structures::LinkedLists {
 			
 			/** del method, deletes a value at a given position
 			@param position (from list to remove) **/			
-			void del(const int) ; //delete element in list based off rank (1st, 2nd, etc.)
+			void del(const std::size_t) ; //delete element in list based off rank (1st, 2nd, etc.)
 			
 			template<typename OTHER>
 			friend class LinkedList ;
