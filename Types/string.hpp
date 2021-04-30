@@ -24,9 +24,9 @@ namespace Salih::Types {
 		private:
 			char* str ;
 			
-			int size ;
+			std::size_t size ;
 					
-			String(char*, const int) ;	
+			String(char*, const std::size_t) ;	
 		public:
 			/** Empty constructor, intialises empty string 
 			@return <initialised-object> **/
@@ -121,7 +121,7 @@ namespace Salih::Types {
 
 			/** getSize method, returns size of a string object
 			@return integer representing size **/ 				
-			int getSize() const ;
+			std::size_t getSize() const ;
 
 			/** Index operator, modifying string directly
 			@param integer to index string with		
@@ -171,7 +171,7 @@ namespace Salih::Types {
 	} ;
 }
 
-Salih::Types::String::String(char* temp, const int SIZE)
+Salih::Types::String::String(char* temp, const std::size_t SIZE)
 {
 	this->str = temp ;
 	this->size = SIZE ;
