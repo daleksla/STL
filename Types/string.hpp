@@ -167,12 +167,7 @@ namespace Salih::Types {
 
 			/** isCapitalised method, determines if all values within string object are in a capitalised format
 			@return boolean indicatting if all values are in a capitalised format **/ 				
-			bool isCapitalised() const ;
-			
-			friend ::std::istream& ::Salih::operator>>(::std::istream&, String&) ;
-			
-			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const String&) ;
-			
+			bool isCapitalised() const ;			
 	} ;
 }
 
