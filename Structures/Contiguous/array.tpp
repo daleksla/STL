@@ -30,7 +30,8 @@ Salih::Structures::Contiguous::Array<T,SIZE>& Salih::Structures::Contiguous::Arr
 	this->size = SIZE ;
 	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = new T[this->size] ;
-	int i = 0 ;
+
+	std::size_t i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		this->pointer[i] = *it ;
@@ -49,7 +50,7 @@ Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Ar
 	this->size = SIZE ;
 	if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = new T[list.size] ;
-	for(int i = 0 ; i < list.size ; i++)
+	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
 	}
