@@ -23,7 +23,7 @@ namespace Salih::Types {
 		private:
 			Salih::Structures::LinkedLists::Node<T>* tail ;
 			
-			int size ;
+			std::size_t size ;
 		public:
 			/** Empty constructor, intialises empty stack 
 			@return <initialised-object> **/
