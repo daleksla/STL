@@ -10,17 +10,9 @@
     @date April 2021
 **/
 
-namespace Salih
-{
-	namespace Types {
+namespace Salih::Types {
 	
 		class String ;
-	
-	}
-
-	::std::ostream& operator<<(::std::ostream&, const Types::String&) ;
-	
-	::std::istream& operator>>(::std::istream&, Types::String&) ;
 	
 }
 
@@ -536,23 +528,5 @@ bool Salih::Types::String::isCapitalised() const
 
 // helpful overloads
 
-std::ostream& Salih::operator<<(std::ostream& os, const Salih::Types::String& str)
-{
-	os << str.str ;
-	return os ;
-}
-
-std::istream& Salih::operator>>(std::istream& in, Salih::Types::String& str)
-{
-	std::size_t size = 1024 ;
-	char temp[size+1] ;
-	for(int i = 0 ; i < size ; i++) temp[i] = '\0' ;
-	in.width(size) ;
-	in >> temp ;
-	temp[size] = '\0' ;
-	str = Salih::Types::String(temp) ;
-	
-	return in ;
-}
 
 #endif

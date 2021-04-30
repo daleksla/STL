@@ -44,8 +44,6 @@ namespace Salih::Types {
 			virtual void reset() = 0 ;
 			
 			virtual ~Pointer() = 0 ;
-			
-			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const Pointer&) ;
 		
 			friend class Pointer<void> ;
 	} ;

@@ -13,17 +13,10 @@
     @date April 2021
 **/
  
-namespace Salih {
-	
-	namespace Structures::Contiguous {
-	
-		template<typename T>
-		class Contiguous ;
-		
-	}
+namespace Salih::Structures::Contiguous {
 	
 	template<typename T>
-	::std::ostream& operator<<(::std::ostream&, const Structures::Contiguous::Contiguous<T>&) ;	
+	class Contiguous ;
 	
 }
 
@@ -114,28 +107,12 @@ namespace Salih::Structures::Contiguous {
 			@param contiguous structure to compare with
 			@return a boolean representing whether equality is not met **/ 
 			bool operator!=(const Contiguous&) const ;
-			
-			//void del(const int) ;
-
-			//virtual Contiguous operator()(const int, const int) const ; //slicing
-			
-			//virtual Contiguous operator+(const Contiguous&) const = 0 ;
-			
-			//virtual void operator+=(const Contiguous&) const = 0 ;
-			
-			//virtual Contiguous operator()(const int, const int) = 0 ;
-			
-			//virtual void insert(const int, T) = 0 ;
-			
-			//virtual void append(T) = 0 ;
 
 			/** Virtual base-class destructor **/					
 			virtual ~Contiguous() = 0 ;
 			
 			template<typename OTHER>
 			friend class Contiguous ;
-			
-			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const Contiguous&) ;
 	} ;
 }
 

@@ -13,18 +13,11 @@
     @date April 2021
 **/
  
-namespace Salih {
+namespace Salih::Structures::LinkedLists {
 	
-	namespace Structures::LinkedLists {
-	
-		template<typename T>
-		class LinkedList ;
-
-	}
-
 	template<typename T>
-	::std::ostream& operator<<(::std::ostream&, const Structures::LinkedLists::LinkedList<T>&) ;
-	
+	class LinkedList ;
+
 }
 
 namespace Salih::Structures::LinkedLists {
@@ -142,9 +135,6 @@ namespace Salih::Structures::LinkedLists {
 			
 			template<typename OTHER>
 			friend class LinkedList ;
-			
-			friend ::std::ostream& ::Salih::operator<<(::std::ostream&, const LinkedList&) ;
-
 	} ;	
 }
 

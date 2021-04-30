@@ -28,16 +28,6 @@ namespace Salih::Types {
 	bool isHeap(void*) ;
 }
 
-namespace Salih {
-
-	template<typename T>
-	::std::ostream& operator<<(::std::ostream&, const Types::Pointer<T>&) ;
-	
-	template<>
-	::std::ostream& operator<<(::std::ostream&, const Types::Pointer<void>&) ;
-	
-}
-
 #include "./pointers/_regular.hpp"
 
 #include "./pointers/_void.hpp"
@@ -64,11 +54,11 @@ bool Salih::Types::isHeap(void* data)
 	//if(x) throw std::runtime_error(errorMsg) ;
 }
 
-template<typename T>
-std::ostream& Salih::operator<<(std::ostream& os, const ::Salih::Types::Pointer<T>& ptr)
-{
-	os << ptr.pointer ;
-	return os ;
-}
+//template<typename T>
+//std::ostream& Salih::operator<<(std::ostream& os, const ::Salih::Types::Pointer<T>& ptr)
+//{
+//	os << ptr.pointer ;
+//	return os ;
+//}
 
 #endif

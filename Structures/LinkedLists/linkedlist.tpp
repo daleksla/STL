@@ -402,26 +402,4 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures
 	node = nullptr ;
 }
 
-
-template<typename T>
-std::ostream& std::operator<<(std::ostream& os, const Salih::Structures::LinkedLists::LinkedList<T>& dt)
-{
-    //os << dt.mo << '/' << dt.da << '/' << dt.yr;
-    if(dt.size == 0) 
-    {
-    	os << "[]" ;
-    	return os ;
-    }
-    
-    os << "[" ;
-    for(int i = 0 ; i < dt.size ; i++)
-    {
-    	if(i != dt.size - 1) os << dt[i] << "," ;
-    	else os << dt[i] ;
-    }
-    os << "]" ;
-    
-    return os;
-}
-
 #endif
