@@ -5,6 +5,12 @@
 #include <iostream>
 #include <stdexcept>
 
+/** @brief Pointer-related files, including smart pointers and related functions
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 namespace Salih::Types {
 
 	template<typename T>
@@ -25,6 +31,9 @@ namespace Salih::Types {
 	template<>
 	class UniquePointer<void> ;
 	
+	/** isHeap function - determines if pointer is on heap
+	@param void pointer (void*)
+	@return boolean (indicating if pointer given is a heap pointer (outside stack range therefore allocated) or not) **/
 	bool isHeap(void*) ;
 }
 
@@ -32,8 +41,7 @@ namespace Salih::Types {
 
 #include "./pointers/_void.hpp"
 
-//other functions / overloads
-
+//other functions / overloads	
 bool Salih::Types::isHeap(void* data)
 {
 	int x ;
