@@ -17,6 +17,7 @@
 namespace Salih::Types {
 	template<class T>
 	class Queue {
+		/** This class is the FIFo (Queue) implementation **/
 		private:
 			Salih::Structures::LinkedLists::Node<T>* head ;
 			
@@ -38,7 +39,7 @@ namespace Salih::Types {
 			@return reference to current object **/
 			Queue& operator=(const std::initializer_list<T>&) ;
 		
-			/** Copy assignment operator, creates copy of a given queue
+			/** Copy constructor, creates copy of a given queue
 			@param a (l-value) queue object
 			@return <initialised-object> **/				
 			Queue(const Queue<T>&) ;
