@@ -77,76 +77,65 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih_1_1Types.html">Salih::Types</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">class </span>Pointer ;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">class </span>SharedPointer ;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih_1_1Types.html">Salih::Types</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">class </span>UniquePointer ;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">class </span>Pointer ;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">class </span>Pointer&lt;void&gt; ;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">class </span>SharedPointer ;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">class </span>SharedPointer&lt;void&gt; ;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">class </span>UniquePointer ;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">class </span>UniquePointer&lt;void&gt; ;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">class </span>Pointer&lt;void&gt; ;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> isHeap(<span class="keywordtype">void</span>*) ;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih.html">Salih</a> {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ::std::ostream&amp; operator&lt;&lt;(::std::ostream&amp;, <span class="keyword">const</span> Types::Pointer&lt;T&gt;&amp;) ;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ::std::ostream&amp; operator&lt;&lt;(::std::ostream&amp;, <span class="keyword">const</span> Types::Pointer&lt;void&gt;&amp;) ;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;./pointers/_regular.hpp&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;./pointers/_void.hpp&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//other functions / overloads</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">bool</span> Salih::Types::isHeap(<span class="keywordtype">void</span>* data)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> x ;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">asm</span>(<span class="stringliteral">&quot;movq %1, %%rax;&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="stringliteral">&quot;cmpq %%rsp, %%rax;&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="stringliteral">&quot;jbe Heap%=;&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="stringliteral">&quot;movl $1,%0;&quot;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="stringliteral">&quot;jmp Done%=;&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="stringliteral">&quot;Heap%=:&quot;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="stringliteral">&quot;movl $0,%0;&quot;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="stringliteral">&quot;Done%=:&quot;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            : <span class="stringliteral">&quot;=r&quot;</span> (x)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            : <span class="stringliteral">&quot;r&quot;</span> (data)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            ) ;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;       <span class="keywordflow">if</span>(x) <span class="keywordflow">return</span> false ;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">return</span> true ;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">//const char* errorMsg = &quot;Cannot allocate pointer to stack value to smart pointer&quot; ;</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">//if(x) throw std::runtime_error(errorMsg) ;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;std::ostream&amp; Salih::operator&lt;&lt;(std::ostream&amp; os, const ::Salih::Types::Pointer&lt;T&gt;&amp; ptr)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    os &lt;&lt; ptr.pointer ;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> os ;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">class </span>SharedPointer&lt;void&gt; ;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">class </span>UniquePointer&lt;void&gt; ;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe">isHeap</a>(<span class="keywordtype">void</span>*) ;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;./pointers/_regular.hpp&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;./pointers/_void.hpp&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//other functions / overloads   </span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe">   45</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe">Salih::Types::isHeap</a>(<span class="keywordtype">void</span>* data)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> x ;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">asm</span>(<span class="stringliteral">&quot;movq %1, %%rax;&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="stringliteral">&quot;cmpq %%rsp, %%rax;&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="stringliteral">&quot;jbe Heap%=;&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="stringliteral">&quot;movl $1,%0;&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="stringliteral">&quot;jmp Done%=;&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="stringliteral">&quot;Heap%=:&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="stringliteral">&quot;movl $0,%0;&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="stringliteral">&quot;Done%=:&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            : <span class="stringliteral">&quot;=r&quot;</span> (x)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            : <span class="stringliteral">&quot;r&quot;</span> (data)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            ) ;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       <span class="keywordflow">if</span>(x) <span class="keywordflow">return</span> false ;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;       <span class="keywordflow">else</span> <span class="keywordflow">return</span> true ;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">//const char* errorMsg = &quot;Cannot allocate pointer to stack value to smart pointer&quot; ;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">//if(x) throw std::runtime_error(errorMsg) ;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">//template&lt;typename T&gt;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//std::ostream&amp; Salih::operator&lt;&lt;(std::ostream&amp; os, const ::Salih::Types::Pointer&lt;T&gt;&amp; ptr)</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//{</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">//  os &lt;&lt; ptr.pointer ;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">//  return os ;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//}</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceSalih_1_1Types_html"><div class="ttname"><a href="namespaceSalih_1_1Types.html">Salih::Types</a></div><div class="ttdoc">Queue-class implementation file, representing the FIFO abstract data type.</div><div class="ttdef"><b>Definition:</b> _regular.hpp:8</div></div>
-<div class="ttc" id="anamespaceSalih_html"><div class="ttname"><a href="namespaceSalih.html">Salih</a></div><div class="ttdoc">Base contiguous-class header file, storing base mechanics of a fixed-contiguous data structure.</div><div class="ttdef"><b>Definition:</b> _contiguous.hpp:16</div></div>
+<div class="ttc" id="anamespaceSalih_1_1Types_html_a21802d65b8768b40657f3257c18631fe"><div class="ttname"><a href="namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe">Salih::Types::isHeap</a></div><div class="ttdeci">bool isHeap(void *)</div><div class="ttdef"><b>Definition:</b> pointers.hpp:45</div></div>
+<div class="ttc" id="anamespaceSalih_1_1Types_html"><div class="ttname"><a href="namespaceSalih_1_1Types.html">Salih::Types</a></div><div class="ttdoc">General smart pointer file, for every implementation of T (ie. all types except void)</div><div class="ttdef"><b>Definition:</b> _regular.hpp:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
