@@ -2,58 +2,99 @@
 #define STACK_HPP
 #pragma once
 
-#include "../Structures/LinkedLists/node.hpp"
+#include "../Structures/LinkedLists/_node.hpp"
 #include <algorithm>
 #include <iterator>
 #include <initializer_list>
 
-/* This file contains the declarations and implementations of a Stack-based structure
- * The data is stored and maintained using a linked-list structure */
+/** @brief Stack-class implementation file, representing the LIFO abstract data type
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
 
 namespace Salih::Types {
-
-	template<typename T>
-	class Stack ;
 	
 	template<class T>
 	class Stack {
+		/** This class is the LIFO (Stack) implementation **/
 		private:
 			Salih::Structures::LinkedLists::Node<T>* tail ;
 			
-			int size ;
+			std::size_t size ;
 		public:
+			/** Empty constructor, intialises empty stack 
+			@return <initialised-object> **/
 			Stack() ;
 			
+			/** Regular constructor, intialises multiple values
+			@param initialisation list (of values for stack)
+			@return <initialised-object> **/		
 			Stack(const std::initializer_list<T>&) ;
 			
+			/** Regular assignment operator, re-assigns values to stack (last element provided becomes tail, etc.)
+			@param initialisation list (of values for stack)
+			@return reference to current object **/
 			Stack& operator=(const std::initializer_list<T>&) ;
 			
+			/** Copy assignment operator, creates copy of a given stack
+			@param a (l-value) stack object
+			@return <initialised-object> **/
 			Stack(const Stack&) ;
 			
+			/** Copy assignment operator, creates copy of a given stack
+			@param a (l-value) stack object
+			@return reference to current object **/
 			Stack& operator=(const Stack&) ;
 			
+			/** Move constructor, takes ownership of an otherwise temporary stack object
+			@param an r-value stack object
+			@return <initialised-object> **/
 			Stack(Stack&&) ;
 			
+			/** Move assignment operator, takes ownership of an otherwise temporary stack object
+			@param an (r-value) stack object
+			@return reference to current object **/
 			Stack& operator=(Stack&&) ;
 			
+			/** Comparison operator, determines calling stack object content matches with a given stack object
+			@param stack object
+			@return a boolean representing whether equality is met **/ 	
 			bool operator==(const Stack<T>&) const ;
 			
+			/** Inequality operator, determines calling stack object content does not match with a given stack object
+			@param stack object
+			@return a boolean representing whether equality is not met **/ 
 			bool operator!=(const Stack<T>&) const ;
 			
+			/** Comparison operator, determines calling stack object content matches with a given stack object
+			@param stack object (which contains different type values)
+			@return a boolean representing whether equality is met **/ 	
 			template<typename OTHER>
 			bool operator==(const Stack<OTHER>&) const ;
-			
+
+			/** Inequality operator, determines calling stack object content does not match with a given stack object
+			@param stack object (which contains different type values)
+			@return a boolean representing whether equality is not met **/ 
 			template<typename OTHER>
 			bool operator!=(const Stack<OTHER>&) const ;
 			
 			~Stack() ;
 			
+			/** pop method, removes newest / latest added value from the stack
+			@return value (of removed data object) **/					
 			T pop() ;
 			
+			/** peek method, shows newest / latest added value to the stack
+			@return constant reference to value (of latest added / newest data object) **/
 			const T& peek() const ;
 			
+			/** push method, adds a value to the end of the stack type
+			@param value (to add) **/
 			void push(T) ;
 			
+			/** push method, adds a value to the top of the queue type
+			@param initialisation list (of values to add) **/	
 			void push(const std::initializer_list<T>&) ;
 			
 			template<typename OTHER>

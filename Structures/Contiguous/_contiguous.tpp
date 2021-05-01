@@ -104,28 +104,28 @@ std::size_t Salih::Structures::Contiguous::Contiguous<T>::getSize() const
 }
 
 template<typename T>		
-T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x)
+T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const std::size_t x)
 {
 	//if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-const T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const int x) const
+const T& Salih::Structures::Contiguous::Contiguous<T>::operator[](const std::size_t x) const
 {
 	//if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
 }
 
 template<typename T>		
-T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x,const bool check)
+T& Salih::Structures::Contiguous::Contiguous<T>::at(const std::size_t x, const bool check)
 {
 	if(check) if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-const T& Salih::Structures::Contiguous::Contiguous<T>::at(const int x, const bool check) const
+const T& Salih::Structures::Contiguous::Contiguous<T>::at(const std::size_t x, const bool check) const
 {
 	if(check) if(x > this->size - 1) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
@@ -192,18 +192,5 @@ Salih::Structures::Contiguous::Contiguous<T>::~Contiguous()
 }
 
 //helpful overloads
-
-template<typename T>		
-std::ostream& std::operator<<(std::ostream& os, const Salih::Structures::Contiguous::Contiguous<T>& list)
-{
-	os << "[" ;
-	for(int i = 0 ; i < list.size ; i++)
-	{
-		os << list[i] ;
-		if( (i + 1) < list.size) os << "," ;
-	}
-	os << "]" ;
-	return os ;
-}	
 
 #endif

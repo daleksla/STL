@@ -155,17 +155,58 @@ TEST_CASE("[] operator - modifying values")
 	REQUIRE(list1[3] != 4) ;
 }
 
-TEST_CASE("[] operator - does 'out_of_range' error get thrown if list is empty")
+TEST_CASE("'at()' method - correct value returned")
+{
+	intList list1 = {1,2,3,4,5,6} ;
+	REQUIRE(list1.at(0) == 1) ;
+	REQUIRE(list1.at(3) != 2) ;
+}
+
+TEST_CASE("'at()' method  - modifying values")
+{
+	intList list1 = {1,2,3,4,5,6} ;
+	list1.at(3) = 1 ;
+	REQUIRE(list1.at(3) == 1) ;
+	REQUIRE(list1.at(3) != 4) ;
+}
+
+TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty and flag is not specified")
 {
 	intList list1 ;
 	bool isError = false ;
 	try {
-		list1[0] ;
+		list1.at(0) ;
 	} catch(const std::out_of_range& error) {
 		isError = true ;
 	}
 	
 	REQUIRE(isError == true) ;
+}
+
+TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty and flag is set to true")
+{
+	intList list1 ;
+	bool isError = false ;
+	try {
+		list1.at(0, true) ;
+	} catch(const std::out_of_range& error) {
+		isError = true ;
+	}
+	
+	REQUIRE(isError == true) ;
+}
+
+TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty but flag is set to false")
+{
+	intList list1 ;
+	bool isError = false ;
+	try {
+		list1.at(0, false) ;
+	} catch(const std::out_of_range& error) {
+		isError = true ;
+	}
+	
+	REQUIRE(isError == false) ;
 }
 
 /* Boolean operators */

@@ -2,7 +2,7 @@
 #define LINKED_LIST_TPP
 #pragma once
 
-#include <lib/Structures/LinkedLists/node.hpp>
+#include <lib/Structures/LinkedLists/_node.hpp>
 #include <stdexcept>
 #include <limits>
 #include <array>
@@ -139,7 +139,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 	this->setSize(list.size) ;
 	list.head = nullptr ;
 	list.tail = nullptr ;
-	list.size = std::numeric_limits<int>::max() ;
+	list.size = 0 ;
 }
 
 template <typename T>
@@ -160,7 +160,7 @@ Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::L
 	this->setSize(list.size) ;
 	list.head = nullptr ;
 	list.tail = nullptr ;
-	list.size = std::numeric_limits<int>::max() ;
+	list.size = 0 ;
 	return *this ;
 }
 
@@ -179,7 +179,7 @@ Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index)
+T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t index)
 {
 	int count = 0 ;
 	Node<T>* node = head ;
@@ -192,7 +192,7 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index)
 }
 
 template <typename T>
-const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int index) const
+const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t index) const
 {
 	int count = 0 ;
 	Node<T>* node = head ;
@@ -205,7 +205,7 @@ const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const int ind
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::LinkedList<T>::at(const int index, const bool check)
+T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t index, const bool check)
 {
 	int count = 0 ;
 	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
@@ -219,7 +219,7 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::at(const int index, const bool
 }
 
 template <typename T>
-const T& Salih::Structures::LinkedLists::LinkedList<T>::at(const int index, const bool check) const
+const T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t index, const bool check) const
 {
 	int count = 0 ;
 	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
@@ -235,12 +235,12 @@ const T& Salih::Structures::LinkedLists::LinkedList<T>::at(const int index, cons
 template <typename T>
 bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Structures::LinkedLists::LinkedList<T>& list) const
 {
-	if(list.getSize() != this->getSize()) return false ;
+	if(list.size != this->size) return false ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.getSize() ; i++)
+	for(int i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -253,12 +253,12 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Stru
 template <typename T>
 bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Structures::LinkedLists::LinkedList<T>& list) const
 {
-	if(list.getSize() != this->getSize()) return true ;
+	if(list.size != this->size) return true ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.getSize() ; i++)
+	for(int i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -272,12 +272,12 @@ template <typename T>
 template <typename OTHER>
 bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Structures::LinkedLists::LinkedList<OTHER>& list) const
 {
-	if(list.getSize() != this->getSize()) return false ;
+	if(list.size != this->size) return false ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.getSize() ; i++)
+	for(int i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -291,12 +291,12 @@ template <typename T>
 template <typename OTHER>
 bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Structures::LinkedLists::LinkedList<OTHER>& list) const
 {
-	if(list.getSize() != this->getSize()) return true ;
+	if(list.getSize() != this->size) return true ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.getSize() ; i++)
+	for(int i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -307,7 +307,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Stru
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::insert(const int pos, T data) 
+void Salih::Structures::LinkedLists::LinkedList<T>::insert(const std::size_t pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
@@ -350,7 +350,7 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
 }
 
 template <typename T>
-int Salih::Structures::LinkedLists::LinkedList<T>::getSize() const
+std::size_t Salih::Structures::LinkedLists::LinkedList<T>::getSize() const
 {
 	return this->size ;
 }
@@ -374,7 +374,7 @@ void Salih::Structures::LinkedLists::LinkedList<T>::append(T data)
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::del(const int index)
+void Salih::Structures::LinkedLists::LinkedList<T>::del(const std::size_t index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
 	
@@ -400,28 +400,6 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures
 	else next->setPrev(prev) ;
 	delete node ;
 	node = nullptr ;
-}
-
-
-template<typename T>
-std::ostream& std::operator<<(std::ostream& os, const Salih::Structures::LinkedLists::LinkedList<T>& dt)
-{
-    //os << dt.mo << '/' << dt.da << '/' << dt.yr;
-    if(dt.size == 0) 
-    {
-    	os << "[]" ;
-    	return os ;
-    }
-    
-    os << "[" ;
-    for(int i = 0 ; i < dt.size ; i++)
-    {
-    	if(i != dt.size - 1) os << dt[i] << "," ;
-    	else os << dt[i] ;
-    }
-    os << "]" ;
-    
-    return os;
 }
 
 #endif

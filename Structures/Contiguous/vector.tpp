@@ -32,7 +32,7 @@ Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<
 	if(this->pointer != nullptr) delete[] this->pointer ;
 	this->size = values.size() ;
 	this->pointer = new T[this->size] ;
-	int i = 0 ;
+	std::size_t i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		this->pointer[i] = *it ;
@@ -51,7 +51,7 @@ Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<
 	this->size = list.size ;
 	//if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = new T[list.size] ;
-	for(int i = 0 ; i < list.size ; i++)
+	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
 	}
@@ -78,7 +78,7 @@ template<typename T>
 void Salih::Structures::Contiguous::Vector<T>::append(T data)
 {
 	T* newPointer = new T[this->size+1] ;
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		newPointer[i] = this->pointer[i] ;
 	}
