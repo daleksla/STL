@@ -14,12 +14,10 @@
 **/
 
 namespace Salih::Types {
-
-	template<typename T>
-	class Stack ;
 	
 	template<class T>
 	class Stack {
+		/** This class is the LIFO (Stack) implementation **/
 		private:
 			Salih::Structures::LinkedLists::Node<T>* tail ;
 			
