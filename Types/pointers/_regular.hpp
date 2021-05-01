@@ -19,15 +19,21 @@ namespace Salih::Types {
 			
 			Pointer(T*) ;
 			
+			explicit Pointer(void*) ;
+			
 			Pointer& operator=(std::nullptr_t) ;
 			
 			Pointer& operator=(T*) ;
 			
 			Pointer(const Pointer&) ;
 			
+			explicit Pointer(const Pointer<void>&) ;
+			
 			Pointer& operator=(const Pointer&) ;
 			
 			Pointer(Pointer&&) ;
+			
+			explicit Pointer(Pointer<void>&&) ;
 			
 			Pointer& operator=(Pointer&&) ;
 			
@@ -60,15 +66,21 @@ namespace Salih::Types {
 			
 			SharedPointer(T*) ;
 			
+			explicit SharedPointer(void*) ;
+			
 			SharedPointer& operator=(std::nullptr_t) ;
 			
 			SharedPointer& operator=(T*) ;
 		
 			SharedPointer(const SharedPointer&) ;
 			
+			explicit SharedPointer(const SharedPointer<void>&) ;
+			
 			SharedPointer& operator=(const SharedPointer&) ;
 			
 			SharedPointer(SharedPointer&&) ;
+			
+			explicit SharedPointer(SharedPointer<void>&&) ;
 			
 			SharedPointer& operator=(SharedPointer&&) ;
 			
@@ -88,6 +100,8 @@ namespace Salih::Types {
 			
 			UniquePointer(T*) ;
 			
+			explicit UniquePointer(void*) ;
+			
 			UniquePointer& operator=(std::nullptr_t) ;
 			
 			UniquePointer& operator=(T*) ;
@@ -97,6 +111,8 @@ namespace Salih::Types {
 			UniquePointer& operator=(const UniquePointer&) = delete ;
 			
 			UniquePointer(UniquePointer&&) ;
+			
+			explicit UniquePointer(UniquePointer<void>&&) ;
 			
 			UniquePointer& operator=(UniquePointer&&) ;
 			

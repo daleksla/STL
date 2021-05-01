@@ -25,6 +25,13 @@ Salih::Types::Pointer<T>::Pointer(T* data)
 }
 
 template<typename T>
+Salih::Types::Pointer<T>::Pointer(void* data)
+{
+	if(! ::Salih::Types::isHeap(data) ) throw std::runtime_error("Cannot allocate stack pointer to smart pointer")  ;
+	this->pointer = static_cast<T*>(data) ;
+}
+
+template<typename T>
 Salih::Types::Pointer<T>& Salih::Types::Pointer<T>::operator=(std::nullptr_t)
 {
 	this->pointer = nullptr ;
@@ -42,6 +49,13 @@ Salih::Types::Pointer<T>& Salih::Types::Pointer<T>::operator=(T* data)
 template<typename T>
 Salih::Types::Pointer<T>::Pointer(const Salih::Types::Pointer<T>& ptr) : pointer(ptr.pointer) {} ;
 
+template<typename T>
+Salih::Types::Pointer<T>::Pointer(const Salih::Types::Pointer<void>& ptr) 
+{
+	if(ptr.bytes != sizeof(T)) throw std::bad_cast() ;
+	this->pointer = static_cast<T*>(ptr.pointer) ;
+}
+
 template<typename T>			
 Salih::Types::Pointer<T>& Salih::Types::Pointer<T>::operator=(const Salih::Types::Pointer<T>& ptr)
 {
@@ -52,6 +66,14 @@ Salih::Types::Pointer<T>& Salih::Types::Pointer<T>::operator=(const Salih::Types
 template<typename T>			
 Salih::Types::Pointer<T>::Pointer(Salih::Types::Pointer<T>&& ptr) : pointer(ptr.pointer) 
 {
+	ptr.pointer = nullptr ;
+}
+
+template<typename T>
+Salih::Types::Pointer<T>::Pointer(Salih::Types::Pointer<void>&& ptr) 
+{
+	if(ptr.bytes != sizeof(T)) throw std::bad_cast() ;
+	this->pointer = static_cast<T*>(ptr.pointer) ;
 	ptr.pointer = nullptr ;
 }
 
@@ -110,6 +132,13 @@ Salih::Types::SharedPointer<T>::SharedPointer(T* data) : Salih::Types::Pointer<T
 }
 
 template<typename T>
+Salih::Types::SharedPointer<T>::SharedPointer(void* data) : Salih::Types::Pointer<T>(data)
+{
+	this->count = new std::size_t ;
+	*(this->count) = 1 ;
+}
+
+template<typename T>
 Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(T* data)
 {
 	this->reset() ;
@@ -129,6 +158,14 @@ Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(std::n
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<T>& ptr) : Salih::Types::Pointer<T>(ptr), count(ptr.count)
 {
+	this->count = ptr.count ;
+	if(this->count != nullptr) *count = *(this->count) + 1 ;
+}
+
+template<typename T>
+Salih::Types::SharedPointer<T>::SharedPointer(const Salih::Types::SharedPointer<void>& ptr) : Salih::Types::Pointer<T>(ptr)
+{
+	this->count = ptr.count ;
 	if(this->count != nullptr) *count = *(this->count) + 1 ;
 }
 
@@ -143,6 +180,13 @@ Salih::Types::SharedPointer<T>& Salih::Types::SharedPointer<T>::operator=(const 
 
 template<typename T>
 Salih::Types::SharedPointer<T>::SharedPointer(Salih::Types::SharedPointer<T>&& ptr) : count(ptr.count), Salih::Types::Pointer<T>( std::move(ptr) )
+{
+	ptr.pointer = nullptr ;
+	ptr.count = nullptr ;
+}
+
+template<typename T>
+Salih::Types::SharedPointer<T>::SharedPointer(Salih::Types::SharedPointer<void>&& ptr) : count(ptr.count), Salih::Types::Pointer<T>( std::move(ptr) )
 {
 	ptr.pointer = nullptr ;
 	ptr.count = nullptr ;
@@ -199,6 +243,9 @@ template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(T* data) : Salih::Types::Pointer<T>(data) {} ;
 
 template<typename T>
+Salih::Types::UniquePointer<T>::UniquePointer(void* data) : Salih::Types::Pointer<T>(data) {} ;
+
+template<typename T>
 Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(T* data)
 {
 	this->reset() ;
@@ -214,6 +261,9 @@ Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(std::n
 
 template<typename T>
 Salih::Types::UniquePointer<T>::UniquePointer(Salih::Types::UniquePointer<T>&& ptr) : Salih::Types::Pointer<T>( std::move(ptr) ) {} ;
+
+template<typename T>
+Salih::Types::UniquePointer<T>::UniquePointer(Salih::Types::UniquePointer<void>&& ptr) : Salih::Types::Pointer<T>( std::move(ptr) ) {} ;
 
 template<typename T>
 Salih::Types::UniquePointer<T>& Salih::Types::UniquePointer<T>::operator=(Salih::Types::UniquePointer<T>&& ptr)
