@@ -13,6 +13,7 @@ namespace Salih::Structures::LinkedLists {
 	
 	template<class T>
 	class Node {
+		/** This class is the Node (doubly linkedlist)-class implementation **/
 		private:
 			Node* prev ; //pointer to prev element in LL
 
