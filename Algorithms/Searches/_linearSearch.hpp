@@ -16,18 +16,8 @@
 
 namespace Salih::Algorithms::Searches {
 
-	template<typename T>
-	bool linearSearch(Salih::Structures::Contiguous::Vector<T>& list, T target)
-	/** This is a linear search algorithm, which iterates through a list until the end if need be
-	 * @param reference to list (to be sorted)
-	 * @return boolean (indicates if supplied value was found or not) **/
-	{
-		for(int i = 0 ; i < list.getSize() ; i++) if(list[i] == target) return true ;
-		return false ;
-	}
-	
-	template<typename T, std::size_t SIZE>
-	bool linearSearch(Salih::Structures::Contiguous::Array<T, SIZE>& list, T target)
+	template<typename T, typename = typename std::enable_if< Salih::Types::Traits::isList<T>::value, T >::type, typename U>
+	bool linearSearch(T& list, U target)
 	/** This is a linear search algorithm, which iterates through a list until the end if need be
 	 * @param reference to list (to be sorted)
 	 * @return boolean (indicates if supplied value was found or not) **/
