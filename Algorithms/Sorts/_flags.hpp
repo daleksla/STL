@@ -10,13 +10,13 @@
 
 namespace Salih::Algorithms::Sorts {
 
-	/** This function indicates 'smaller' value based on desire (for an ascending or descending list)
+	/** This flag indicates 'smaller' value based on desire (for an ascending or descending list)
 	  * @param a, b (values to compare)
 	  * @return boolean if a is smaller, else false **/
 	template<typename U>
 	inline bool ASCEND(U, U) ;
 
-	/** This function indicates 'smaller' value based on desire (for an ascending or descending list)
+	/** This flag indicates 'smaller' value based on desire (for an ascending or descending list)
 	  * @param a, b (values to compare)
 	  * @return boolean if a is larger, else false **/
 	template<typename U>
