@@ -75,6 +75,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a9f768d53cf2328f64f8faf2a2bbed638"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; Salih::Types::Traits::isList&lt;T&gt;::value, T &gt;::type&gt; </td></tr>
+<tr class="memitem:a9f768d53cf2328f64f8faf2a2bbed638"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#a9f768d53cf2328f64f8faf2a2bbed638">bubbleSort</a> (T &amp;list, bool(*order)(int, int)=<a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</td></tr>
+<tr class="separator:a9f768d53cf2328f64f8faf2a2bbed638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8e0482f7a377567def8d56f1a5b5d32"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr class="memitem:ae8e0482f7a377567def8d56f1a5b5d32"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a> (U, U)</td></tr>
 <tr class="separator:ae8e0482f7a377567def8d56f1a5b5d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -89,9 +92,10 @@ Functions</h2></td></tr>
 <tr class="separator:af89a10cd3343b8fc899d33541b61af65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Flags for sorting algorithms. </p>
+<div class="textblock"><p>Bubble sort algorithm file. </p>
 <p>Swapping functionality for sorting algorithms.</p>
 <p>Selection sort algorithm file.</p>
+<p>Flags for sorting algorithms.</p>
 <dl class="section author"><dt>Author</dt><dd>Salih Mahmoud Sayed Ahmed @email <a href="#" onclick="location.href='mai'+'lto:'+'ahm'+'ed'+'233'+'@u'+'ni.'+'co'+'ven'+'tr'+'y.a'+'c.'+'uk'; return false;">ahmed<span style="display: none;">.nosp@m.</span>233@<span style="display: none;">.nosp@m.</span>uni.c<span style="display: none;">.nosp@m.</span>oven<span style="display: none;">.nosp@m.</span>try.a<span style="display: none;">.nosp@m.</span>c.uk</a> </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>May 2021 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -137,6 +141,43 @@ template&lt;typename U &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean if a is smaller, else false </dd></dl>
+
+</div>
+</div>
+<a id="a9f768d53cf2328f64f8faf2a2bbed638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f768d53cf2328f64f8faf2a2bbed638">&#9670;&nbsp;</a></span>bubbleSort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename  = typename std::enable_if&lt; Salih::Types::Traits::isList&lt;T&gt;::value, T &gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; Salih::Algorithms::Sorts::bubbleSort </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramname"><em>order</em> = <code><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the bubble-sort sort algorithm. It works by repeatedly swapping the adjacent elements if they are in wrong order </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reference</td><td>to list (to be sorted) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>reference to list (now sorted) </dd></dl>
 
 </div>
 </div>

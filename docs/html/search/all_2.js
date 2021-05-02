@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['del_7',['del',['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#ad128d66bd8ff0b4fe6536ae5f7fcdcd0',1,'Salih::Structures::LinkedLists::LinkedList']]],
-  ['descend_8',['DESCEND',['../namespaceSalih_1_1Algorithms_1_1Sorts.html#af739bdc2d0bb02a7cb1d0b3ce513c73b',1,'Salih::Algorithms::Sorts']]]
+  ['capitalise_5',['capitalise',['../classSalih_1_1Types_1_1String.html#af19c85bc2287bb584c92c9bf5c815e16',1,'Salih::Types::String']]],
+  ['clear_6',['clear',['../classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#add7bc3c0c6d8c3a59718461e1ae768d6',1,'Salih::Structures::Contiguous::Vector']]],
+  ['contiguous_7',['Contiguous',['../classSalih_1_1Structures_1_1Contiguous_1_1Contiguous.html',1,'Salih::Structures::Contiguous::Contiguous&lt; T &gt;'],['../classSalih_1_1Structures_1_1Contiguous_1_1Contiguous.html#a43f9751d068178e4b842c7c44d4aba4e',1,'Salih::Structures::Contiguous::Contiguous::Contiguous(const std::size_t)'],['../classSalih_1_1Structures_1_1Contiguous_1_1Contiguous.html#ad805e75c1ccc32a7187c367bc03a1a3f',1,'Salih::Structures::Contiguous::Contiguous::Contiguous(const std::initializer_list&lt; T &gt; &amp;, const std::size_t)'],['../classSalih_1_1Structures_1_1Contiguous_1_1Contiguous.html#ad9aa4cd1de574a91c518a983ffea0418',1,'Salih::Structures::Contiguous::Contiguous::Contiguous(const Contiguous &amp;, const std::size_t)'],['../classSalih_1_1Structures_1_1Contiguous_1_1Contiguous.html#a4777fa351226bca619a9b2450c9c18ef',1,'Salih::Structures::Contiguous::Contiguous::Contiguous(Contiguous &amp;&amp;, const std::size_t)']]]
 ];
