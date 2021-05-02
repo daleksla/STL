@@ -10,4 +10,6 @@
 
 #include "./Sorts/_selectionSort.hpp" /** File containing selection sort algorithm **/
 
+#include "./Sorts/_bubbleSort.hpp" /** File containing bubble sort algorithm **/
+
 #endif
