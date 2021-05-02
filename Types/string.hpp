@@ -384,7 +384,7 @@ const char* Salih::Types::String::get() const
 	return this->str ;
 }
 
-int Salih::Types::String::getSize() const
+std::size_t Salih::Types::String::getSize() const
 {
 	return this->size ;
 }
