@@ -2,13 +2,12 @@
 #define VECTOR_HPP
 #pragma once
 
-#include "_contiguous.hpp"
 #include <algorithm>
 #include <iterator>
 #include <utility>
 #include <initializer_list>
 
-/** @brief Vector-class implementation file, representing a dynamic-contiguous data structure
+/** @brief Vector-class implementation file, a wrapper for a C-style dynamic-contiguous data structure
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021
@@ -17,9 +16,13 @@
 namespace Salih::Structures::Contiguous {
 
 	template<class T>
-	class Vector : public Contiguous<T> {
+	class Vector {
 		/** This class is the vector-class implementation, serving as a dynamically resizing c-array wrapper **/
 		private:			
+			T* pointer ;
+			
+			std::size_t size ;
+		
 			Vector(T*, const std::size_t) ;
 		public:
 			/** Empty constructor, intialises empty vector 
@@ -61,8 +64,8 @@ namespace Salih::Structures::Contiguous {
 			@return reference to current object **/
 			Vector& operator=(Vector&&) ;			
 			
-			//template<std::size_t NEW_SIZE>
-			//Array<T,NEW_SIZE> operator()(const int x, const int y) const ;
+			/** Destructor, frees memory and deletes vector **/					
+			~Vector() ;			
 			
 			/** append method, adds a value to the end of the current vector
 			@param value (to add) **/
@@ -71,8 +74,51 @@ namespace Salih::Structures::Contiguous {
 			/** clear method, deletes all elements of the vector **/
 			void clear() ;
 			
-			/** Destructor, frees memory and deletes vector **/					
-			~Vector() ;
+			/** getSize method, returns size of a structure
+			@return returns size (of data structure) **/
+			std::size_t getSize() const ;
+			
+			/** Index operator, modifying structure directly
+			@param integer to index structure with		
+			@return reference to a given element in the structure **/ 
+			T& operator[](const std::size_t) ; 
+	
+			/** Index operator, modifying structure directly
+			@param integer to index structure with		
+			@return constant reference to a given element in the structure **/ 		
+			const T& operator[](const std::size_t) const ; 
+			
+			/** at method, another method to modify the structure
+			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
+			@return reference to a given element in the structure **/ 				
+			T& at(const std::size_t, const bool check = true) ; 
+			
+			/** at method, another method to modify the structure
+			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
+			@return constant reference to a given element in the structure **/ 	
+			const T& at(const std::size_t, const bool check = true) const ; 
+			
+			/** Comparison operator, determines if a calling objects values matches another structure's values
+			@param vector structure to compare with (with different data-type values within)
+			@return a boolean representing whether equality is met **/ 	
+			template<typename OTHER>
+			bool operator==(const Vector<OTHER>&) const ;
+			
+			/** Comparison operator, determines if a calling objects values matches another structure's values
+			@param vector structure to compare with
+			@return a boolean representing whether equality is met **/ 	
+			bool operator==(const Vector&) const ;
+			
+			/** Inequality operator, determines if a calling objects values do not match another structure's values
+			@param vector structure to compare with (with different data-type values within)
+			@return a boolean representing whether equality is not met **/ 	
+			template<typename OTHER>
+			bool operator!=(const Vector<OTHER>&) const ;
+			
+			/** Inequality operator, determines if a calling objects values do not match another structure's values
+			@param vector structure to compare with
+			@return a boolean representing whether equality is not met **/ 
+			bool operator!=(const Vector&) const ;
 			
 			template<typename OTHER>
 			friend class Vector ;
