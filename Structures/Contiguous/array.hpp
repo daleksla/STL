@@ -20,7 +20,7 @@ namespace Salih::Structures::Contiguous {
 	class Array {
 		/** This class is the Array-class implementation, serving as a c-array wrapper **/
 		private:			
-			T* pointer ;
+			T pointer[SIZE] ;
 			
 		public:
 			/** Empty constructor, intialises empty array 
@@ -57,17 +57,7 @@ namespace Salih::Structures::Contiguous {
 			@param a (l-value) array object (of different size)
 			@return reference to current object **/
 			template<std::size_t DIFF>
-			Array& operator=(const Array<T, DIFF>&) ;
-			
-			/** Move constructor, takes ownership of an otherwise temporary array object
-			@param an r-value array object
-			@return <initialised-object> **/
-			Array(Array&&) ;
-			
-			/** Move assignment operator, takes ownership of an otherwise temporary array object
-			@param an (r-value) array object
-			@return reference to current object **/
-			Array& operator=(Array&&) ;			
+			Array& operator=(const Array<T, DIFF>&) ;		
 			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/

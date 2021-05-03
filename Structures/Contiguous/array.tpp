@@ -17,16 +17,16 @@
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T,SIZE>::Array() 
 {
-	T tmp[SIZE] ;
-	this->pointer = tmp ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
 }
 
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T,SIZE>::Array(const std::initializer_list<T>& values)
 {
 	if(values.size() > SIZE) throw std::overflow_error("Size of values is larger than destination array") ;
-	T tmp[SIZE] ;
-	this->pointer = tmp ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
 	std::size_t i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
@@ -51,8 +51,8 @@ Salih::Structures::Contiguous::Array<T,SIZE>& Salih::Structures::Contiguous::Arr
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,SIZE>& list)
 {
-	T tmp[SIZE] ;
-	this->pointer = tmp ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
 	for(std::size_t i = 0 ; i < list.getSize() ; i++)
 	{
 		this->pointer[i] = list[i] ;
@@ -64,8 +64,8 @@ template<std::size_t DIFF>
 Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,DIFF>& list)
 {
 	static_assert(SIZE > DIFF, "Origin array is larger than destination array") ;
-	T tmp[SIZE] ;
-	this->pointer = tmp ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
 	for(std::size_t i = 0 ; i < list.getSize() ; i++)
 	{
 		this->pointer[i] = list[i] ;
@@ -75,8 +75,8 @@ Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,DIFF>& list)
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const Array<T,SIZE>& list)
 {
-	T tmp[SIZE] ;
-	this->pointer = tmp ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
 	for(std::size_t i = 0 ; i < SIZE ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
@@ -89,8 +89,8 @@ template<std::size_t DIFF>
 Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const Array<T,DIFF>& list)
 {
 	static_assert(SIZE > DIFF, "Origin array is larger than destination array") ;
-	T tmp[SIZE] ;
-	this->pointer = tmp ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
 	for(std::size_t i = 0 ; i < DIFF ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
@@ -99,24 +99,9 @@ Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Ar
 }
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>::Array(Array<T,SIZE>&& list)
-{
-	this->pointer = list.pointer ;
-	list.pointer = nullptr ;
-}
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(Array<T,SIZE>&& list)
-{
-	this->pointer = list.pointer ;
-	list.pointer = nullptr ;
-	return *this ;	
-}
-
-template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T,SIZE>::~Array() 
 {
-	this->pointer = nullptr ;
+	//this->pointer = nullptr ;
 }
 
 template<typename T, std::size_t SIZE> 
