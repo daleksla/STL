@@ -2,7 +2,6 @@
 #define ARRAY_HPP
 #pragma once
 
-#include "_contiguous.hpp"
 #include <algorithm>
 #include <iterator>
 #include <utility>
