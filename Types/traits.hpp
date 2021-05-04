@@ -3,6 +3,8 @@
 #pragma once
 
 #include <lib/Types/string.hpp>
+#include <lib/Types/queue.hpp>
+#include <lib/Types/stack.hpp>
 #include <lib/Structures/Contiguous/vector.hpp>
 #include <lib/Structures/Contiguous/array.hpp>
 #include <lib/Structures/LinkedLists/linkedlist.hpp>
@@ -53,6 +55,42 @@ namespace Salih::Types::Traits {
 
 	template<typename T, std::size_t SIZE> // specialised for arrays, true contiguous (list)
 	struct isContiguous< Salih::Structures::Contiguous::Array<T,SIZE> > : trueType {} ;
+	
+	//getDimensions
+	template<typename T>
+	struct getDimensions {
+  		static constexpr size_t value = 0 ;
+	} ;	
+
+	template<typename T>
+	struct getDimensions< Salih::Types::Queue<T> > {
+		static constexpr size_t value = 1 + getDimensions<T>::value ;
+	} ;
+	
+	template<typename T>
+	struct getDimensions< Salih::Types::Stack<T> > {
+		static constexpr size_t value = 1 + getDimensions<T>::value ;
+	} ;
+	
+	template<>
+	struct getDimensions< Salih::Types::String > {
+		static constexpr size_t value = 1 ;
+	} ;
+			
+	template<typename T>
+	struct getDimensions< Salih::Structures::LinkedLists::LinkedList<T> > {
+		static constexpr size_t value = 1 + getDimensions<T>::value ;
+	} ;
+	
+	template<typename T>
+	struct getDimensions< Salih::Structures::Contiguous::Vector<T> > {
+		static constexpr size_t value = 1 + getDimensions<T>::value ;
+	} ;
+	
+	template<typename T, std::size_t SIZE>
+	struct getDimensions< Salih::Structures::Contiguous::Array<T, SIZE> > {
+		static constexpr size_t value = 1 + getDimensions<T>::value ;
+	} ;
 }
 
 #endif
