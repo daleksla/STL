@@ -3,10 +3,6 @@
 #pragma once
 
 #include "../../Types/traits.hpp"
-#include "../../Structures/Contiguous/array.hpp"
-#include "../../Structures/Contiguous/vector.hpp"
-#include "../../Structures/LinkedLists/linkedlist.hpp"
-#include "../../Types/string.hpp"
 
 /** @brief Linear search algorithm file
     @author Salih Mahmoud Sayed Ahmed
