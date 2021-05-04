@@ -5,10 +5,6 @@
 #include "../../Types/traits.hpp"
 #include "_flags.hpp"
 #include "_swap.hpp"
-#include "../../Structures/Contiguous/array.hpp"
-#include "../../Structures/Contiguous/vector.hpp"
-#include "../../Structures/LinkedLists/linkedlist.hpp"
-#include "../../Types/string.hpp"
 
 /** @brief Bubble sort algorithm file
     @author Salih Mahmoud Sayed Ahmed
@@ -18,7 +14,7 @@
 
 namespace Salih::Algorithms::Sorts {
 
-	template<typename T, typename = typename std::enable_if< Salih::Types::Traits::isList<T>::value, T >::type>
+	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::getDimensions<T>::value == 1), T >::type>
 	T& bubbleSort(T& list, bool(*order)(int, int) = ASCEND)
 	/** This is the bubble-sort sort algorithm. It works by repeatedly swapping the adjacent elements if they are in wrong order
 	 * @param reference to list (to be sorted)

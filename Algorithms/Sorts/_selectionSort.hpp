@@ -5,10 +5,6 @@
 #include "../../Types/traits.hpp"
 #include "_flags.hpp"
 #include "_swap.hpp"
-#include "../../Structures/Contiguous/array.hpp"
-#include "../../Structures/Contiguous/vector.hpp"
-#include "../../Structures/LinkedLists/linkedlist.hpp"
-#include "../../Types/string.hpp"
 
 /** @brief Selection sort algorithm file
     @author Salih Mahmoud Sayed Ahmed
@@ -18,7 +14,7 @@
 
 namespace Salih::Algorithms::Sorts {
 
-	template<typename T, typename = typename std::enable_if< Salih::Types::Traits::isList<T>::value, T >::type>
+	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::getDimensions<T>::value), T >::type>
 	T& selectionSort(T& list, bool(*order)(int, int) = ASCEND)
 	/** This is the double-ended selection sort algorithm. It works by sorting a list of values by finding the smallest value from unsorted section and putting it at the end of the first sorted section & has an additional sorted subsection containing the largest values
 	 * @param reference to list (to be sorted)
