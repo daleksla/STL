@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['contiguous_80',['Contiguous',['../classSalih_1_1Structures_1_1Contiguous_1_1Contiguous.html',1,'Salih::Structures::Contiguous']]]
+  ['falsetype_94',['falseType',['../structSalih_1_1Types_1_1Traits_1_1falseType.html',1,'Salih::Types::Traits']]]
 ];

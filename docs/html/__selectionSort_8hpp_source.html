@@ -77,54 +77,50 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../../Types/traits.hpp&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;_flags.hpp&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;_swap.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../../Structures/Contiguous/array.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../../Structures/Contiguous/vector.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../../Structures/LinkedLists/linkedlist.hpp&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../Types/string.hpp&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html">Salih::Algorithms::Sorts</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    template&lt;typename T, typename = typename std::enable_if&lt; Salih::Types::Traits::isList&lt;T&gt;::value, T &gt;::type&gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ab2998427a7a537569add11fd748e1d9d">   22</a></span>&#160;    T&amp; <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ab2998427a7a537569add11fd748e1d9d">selectionSort</a>(T&amp; list, <span class="keywordtype">bool</span>(*order)(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>) = <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">int</span> limit = list.getSize() - 1 ; <span class="comment">//initialise 2nd section boundary value (for larger values) </span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0 ; i &lt; limit ; i++) <span class="comment">// only iterate until the 2nd section boundary (since values past this are sorted)  </span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {               </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordtype">int</span> min = i ; <span class="comment">//set minimum index as current index </span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordtype">int</span> max = i ; <span class="comment">//set maximum index as current index </span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = i ; j &lt; limit + 1 ; j++)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            {           </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">if</span>(list[j] &lt; list[min]) <span class="comment">//set the index for minimum element in list</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                {                  </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    min = j ;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordflow">if</span>(list[j] &gt; list[max]) <span class="comment">//set the index for maximum element in list</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                    max = j ;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#af89a10cd3343b8fc899d33541b61af65">swap</a>(list[i], list[min]) ;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span>(list[min] &gt;= list[max]) <span class="comment">//if the just-found smallest value is larger then the just-found &#39;largest&#39; value</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#af89a10cd3343b8fc899d33541b61af65">swap</a>(list[limit], list[min]) ; <span class="comment">//then put the larger value (at index min) in larger sorted section</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#af89a10cd3343b8fc899d33541b61af65">swap</a>(list[limit], list[max]) ; <span class="comment">//then put the larger value (at index max) in larger sorted section</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }         </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            limit -= 1 ; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="comment">//since we get the largest value and place it at the end of the sorted list, we shrink the limit</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="comment">//this way, on the next-iteration we get the second-largest, element and place it in the slot before, etc.</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> list ;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html">Salih::Algorithms::Sorts</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> = <span class="keyword">typename</span> std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value), T &gt;::type&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ab97e103c659ad60c217d702ba5170b0b">   18</a></span>&#160;    T <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ab97e103c659ad60c217d702ba5170b0b">selectionSort</a>(<span class="keyword">const</span> T&amp; list, <span class="keywordtype">bool</span>(*<span class="keyword">const</span> order)(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>) = <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> limit = list.getSize() - 1 ; <span class="comment">//initialise 2nd section boundary value (for larger values) </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0 ; i &lt; limit ; i++) <span class="comment">// only iterate until the 2nd section boundary (since values past this are sorted)  </span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {               </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordtype">int</span> min = i ; <span class="comment">//set minimum index as current index </span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordtype">int</span> max = i ; <span class="comment">//set maximum index as current index </span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = i ; j &lt; limit + 1 ; j++)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            {           </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">if</span>(list[j] &lt; list[min]) <span class="comment">//set the index for minimum element in list</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                {                  </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                    min = j ;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordflow">if</span>(list[j] &gt; list[max]) <span class="comment">//set the index for maximum element in list</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    max = j ;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#af89a10cd3343b8fc899d33541b61af65">swap</a>(list[i], list[min]) ;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">if</span>(list[min] &gt;= list[max]) <span class="comment">//if the just-found smallest value is larger then the just-found &#39;largest&#39; value</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#af89a10cd3343b8fc899d33541b61af65">swap</a>(list[limit], list[min]) ; <span class="comment">//then put the larger value (at index min) in larger sorted section</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <a class="code" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#af89a10cd3343b8fc899d33541b61af65">swap</a>(list[limit], list[max]) ; <span class="comment">//then put the larger value (at index max) in larger sorted section</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }         </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            limit -= 1 ; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="comment">//since we get the largest value and place it at the end of the sorted list, we shrink the limit</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment">//this way, on the next-iteration we get the second-largest, element and place it in the slot before, etc.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> list ;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Sorts_html_ab2998427a7a537569add11fd748e1d9d"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ab2998427a7a537569add11fd748e1d9d">Salih::Algorithms::Sorts::selectionSort</a></div><div class="ttdeci">T &amp; selectionSort(T &amp;list, bool(*order)(int, int)=ASCEND)</div><div class="ttdef"><b>Definition:</b> _selectionSort.hpp:22</div></div>
 <div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Sorts_html_ae8e0482f7a377567def8d56f1a5b5d32"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">Salih::Algorithms::Sorts::ASCEND</a></div><div class="ttdeci">bool ASCEND(U, U)</div><div class="ttdef"><b>Definition:</b> _flags.hpp:26</div></div>
-<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Sorts_html"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Sorts.html">Salih::Algorithms::Sorts</a></div><div class="ttdoc">Bubble sort algorithm file.</div><div class="ttdef"><b>Definition:</b> _bubbleSort.hpp:19</div></div>
+<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Sorts_html"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Sorts.html">Salih::Algorithms::Sorts</a></div><div class="ttdoc">Bubble sort algorithm file.</div><div class="ttdef"><b>Definition:</b> _bubbleSort.hpp:15</div></div>
+<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Sorts_html_ab97e103c659ad60c217d702ba5170b0b"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ab97e103c659ad60c217d702ba5170b0b">Salih::Algorithms::Sorts::selectionSort</a></div><div class="ttdeci">T selectionSort(const T &amp;list, bool(*const order)(int, int)=ASCEND)</div><div class="ttdef"><b>Definition:</b> _selectionSort.hpp:18</div></div>
 <div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Sorts_html_af89a10cd3343b8fc899d33541b61af65"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Sorts.html#af89a10cd3343b8fc899d33541b61af65">Salih::Algorithms::Sorts::swap</a></div><div class="ttdeci">void swap(U &amp;, U &amp;)</div><div class="ttdef"><b>Definition:</b> _swap.hpp:19</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
