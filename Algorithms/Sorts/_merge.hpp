@@ -14,7 +14,7 @@
 namespace Salih::Algorithms::Sorts {
 
 	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::isDynamic<T>::value && Salih::Types::Traits::getDimensions<T>::value == 1), T >::type>
-	T merge(const T& x, const T& y, const bool(*order)(int, int) = ASCEND)
+	T merge(const T& x, const T& y, bool(*const order)(int, int) = ASCEND)
 	/** This is the merging subroutine - it works by taking two lists and adding the smallest / the largest value from each, such that the resulting list is a combined list in order
 	 * @param const reference to list (one of the lists)
 	 * @param const reference to list (another list)
