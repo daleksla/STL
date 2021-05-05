@@ -16,7 +16,7 @@
 namespace Salih::Algorithms::Sorts {
 
 	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isDynamic<T>::value && Salih::Types::Traits::getDimensions<T>::value == 1), T >::type>
-	T mergeSort(const T& data, const bool(*order)(int, int) = ASCEND)
+	T mergeSort(const T& data, bool(*const order)(int, int) = ASCEND)
 	/** This is the merge sort algorithm. It works splitting a list into minimal sublists and combining two, in order, into a bigger list. It keeps merging the lists together, then the merged lists together, until a fully sorted list is formed
 	 * @param const reference to list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either ASCEND (1,...,n) or DESCEND (n,...,1)

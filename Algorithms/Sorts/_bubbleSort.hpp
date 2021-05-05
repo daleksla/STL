@@ -15,7 +15,7 @@
 namespace Salih::Algorithms::Sorts {
 
 	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::getDimensions<T>::value == 1), T >::type>
-	T bubbleSort(const T& list, const bool(*order)(int, int) = ASCEND)
+	T bubbleSort(const T& list, bool(*const order)(int, int) = ASCEND)
 	/** This is the bubble-sort sort algorithm. It works by repeatedly swapping the adjacent elements if they are in wrong order
 	 * @param const reference to list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either ASCEND (1,...,n) or DESCEND (n,...,1)

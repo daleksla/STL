@@ -15,7 +15,7 @@
 namespace Salih::Algorithms::Sorts {
 
 	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::getDimensions<T>::value), T >::type>
-	T selectionSort(const T& list, const bool(*order)(int, int) = ASCEND)
+	T selectionSort(const T& list, bool(*const order)(int, int) = ASCEND)
 	/** This is the double-ended selection sort algorithm. It works by sorting a list of values by finding the smallest value from unsorted section and putting it at the end of the first sorted section & has an additional sorted subsection containing the largest values
 	 * @param const reference to list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either ASCEND (1,...,n) or DESCEND (n,...,1)
