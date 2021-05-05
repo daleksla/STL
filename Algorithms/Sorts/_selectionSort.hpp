@@ -15,10 +15,10 @@
 namespace Salih::Algorithms::Sorts {
 
 	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::getDimensions<T>::value), T >::type>
-	T& selectionSort(T& list, bool(*order)(int, int) = ASCEND)
+	T selectionSort(const T& list, bool(*order)(int, int) = ASCEND)
 	/** This is the double-ended selection sort algorithm. It works by sorting a list of values by finding the smallest value from unsorted section and putting it at the end of the first sorted section & has an additional sorted subsection containing the largest values
-	 * @param reference to list (to be sorted)
-	 * @return reference to list (now sorted) **/
+	 * @param const reference to list (to be sorted)
+	 * @return list (sorted version) **/
 	{
 		int limit = list.getSize() - 1 ; //initialise 2nd section boundary value (for larger values) 
 		for(int i = 0 ; i < limit ; i++) // only iterate until the 2nd section boundary (since values past this are sorted)  
