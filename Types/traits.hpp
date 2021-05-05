@@ -56,6 +56,25 @@ namespace Salih::Types::Traits {
 	template<typename T, std::size_t SIZE> // specialised for arrays, true contiguous (list)
 	struct isContiguous< Salih::Structures::Contiguous::Array<T,SIZE> > : trueType {} ;
 	
+	//isDynamic (list)
+	template<typename T> // generic, false dynamic (list)
+	struct isDynamic : falseType {} ;
+	
+	template<> // specialised for string, true dynamic (list)
+	struct isDynamic< Salih::Types::String > : trueType {} ;
+
+	template<typename T> // specialised for vectors, true dynamic (list)
+	struct isDynamic< Salih::Structures::Contiguous::Vector<T> > : trueType {} ;
+	
+	template<typename T> // specialised for linked lists, true dynamic (list)
+	struct isDynamic< Salih::Structures::LinkedLists::LinkedList<T> > : trueType {} ;
+
+	template<typename T> // specialised for queues, true dynamic (list)
+	struct isDynamic< Salih::Types::Queue<T> > : trueType {} ;
+	
+	template<typename T> // specialised for stacks, true dynamic (list)
+	struct isDynamic< Salih::Types::Stack<T> > : trueType {} ;
+	
 	//getDimensions
 	template<typename T>
 	struct getDimensions {
