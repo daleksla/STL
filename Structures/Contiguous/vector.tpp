@@ -131,6 +131,15 @@ std::size_t Salih::Structures::Contiguous::Vector<T>::getSize() const
 }	
 
 template<typename T>		
+Salih::Structures::Contiguous::Vector<T> Salih::Structures::Contiguous::Vector<T>::operator()(const std::size_t a, const std::size_t b) const
+{
+	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
+	Salih::Structures::Contiguous::Vector<T> tmp(b-a) ;
+	for(std::size_t idx = a ; idx < b ; idx++) tmp[idx-a] = this->pointer[idx] ;
+	return tmp ;
+}
+
+template<typename T>		
 T& Salih::Structures::Contiguous::Vector<T>::operator[](const std::size_t x)
 {
 	return this->pointer[x] ;

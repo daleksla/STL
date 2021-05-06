@@ -77,6 +77,12 @@ namespace Salih::Structures::Contiguous {
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/
 			std::size_t getSize() const ;
+
+			/** Slicing operator, extract part of structure directly
+			@param integer to start slicing from	
+			@param integer to slice until			
+			@return sliced vector (ie values from index a->b) **/ 
+			Vector operator()(const std::size_t, const std::size_t) const ;
 			
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
