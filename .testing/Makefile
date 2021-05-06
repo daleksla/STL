@@ -19,10 +19,3 @@ all:
 	
 	#testing strings
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
-	
-	#testing pointers
-	g++ $(LIB) $(STD) ./sources/pointerTest.cpp -o $(EXES)/pointerTest
-	
-	#testing contiguous structures
-	g++ $(LIB) $(STD) ./sources/contiguousTest.cpp -o $(EXES)/contiguousTest
-
