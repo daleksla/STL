@@ -1,13 +1,13 @@
-#ifndef LINKED_LIST_HPP
-#define LINKED_LIST_HPP
+#ifndef LIST_HPP
+#define LIST_HPP
 #pragma once
 
-#include <lib/Structures/LinkedLists/_node.hpp>
+#include <lib/Structures/LinkedLists/_dNode.hpp>
 #include <algorithm>
 #include <iostream>
 #include <initializer_list>
 
-/** @brief Linkedlist container-class declaration file
+/** @brief Double Linkedlist container-class declaration file
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021
@@ -16,70 +16,71 @@
 namespace Salih::Structures::LinkedLists {
 	
 	template<typename T>
-	class LinkedList ;
+	class List ;
 
 }
 
 namespace Salih::Structures::LinkedLists {
 
 	template<class T>
-	class LinkedList {
-		/** This class is the Linkedlist-class implementation, serving as a custom linked-node wrapper / manager **/
+	class List {
+		/** @brief This class is a doubly-linkedlist class implementation, serving as a custom linked-node wrapper / manager **/
 		private:
-			Node<T>* head ;
+			DNode<T>* head ;
 			
-			Node<T>* tail ;
+			DNode<T>* tail ;
 			
 			std::size_t size ;
 			
 			inline void setSize(int) ;
 			
-			inline void del(Node<T>*) ;
+			inline void del(DNode<T>*) ;
 			
-			inline void insert(Node<T>*, T) ;
+			inline void insert(DNode<T>*, T) ;
 			
 		public:
 			/** Empty constructor, intialises empty list 
 			@return <initialised-object> **/
-			LinkedList() ; //empty linkedlist (ie no nodes)
+			List() ; //empty linkedlist (ie no nodes)
 			
 			/** Copy constructor, creates copy of a given list
 			@param a (l-value) list object
 			@return <initialised-object> **/	
-			LinkedList(const LinkedList&) ; //create new copy where each node is copied and mapped to new copies
+			List(const List&) ; //create new copy where each node is copied and mapped to new copies
+			
 			/** Copy assignment operator, creates copy of a given list
 			@param a (l-value) list object
 			@return reference to current object **/
-			LinkedList& operator=(const LinkedList&) ;
+			List& operator=(const List&) ;
 					
 			/** Regular constructor, intialises multiple values
 			@param initialisation list (of values for list)
 			@return <initialised-object> **/	
-			LinkedList(const std::initializer_list<T>&) ; //initialise linked list by creating a node for every element in the vector - use new and delete to throw values onto stack - use destructor to loop through and delete
+			List(const std::initializer_list<T>&) ; //initialise linked list by creating a node for every element in the vector - use new and delete to throw values onto stack - use destructor to loop through and delete
 			
 			/** Regular assignment operator, assigns values to list
 			@param initialisation list (of values for list)
 			@return reference to current object **/
-			LinkedList& operator=(const std::initializer_list<T>&) ;
+			List& operator=(const std::initializer_list<T>&) ;
 			
 			/** Move assignment operator, takes ownership of an otherwise temporary list object
 			@param an (r-value) list object
 			@return reference to current object **/
-			LinkedList& operator=(LinkedList&&) ;
+			List& operator=(List&&) ;
 			
 			/** Move constructor, takes ownership of an otherwise temporary list object
 			@param an r-value list object
 			@return <initialised-object> **/
-			LinkedList(LinkedList&&) ;
+			List(List&&) ;
 			
 			/** Destructor, frees memory and deletes list **/					
-			~LinkedList() ; //destructor - will deallocate memory if necessary
+			~List() ; //destructor - will deallocate memory if necessary
 			
 			/** Slicing operator, extract part of structure directly
 			@param integer to start slicing from	
 			@param integer to slice until			
 			@return sliced linked list (ie values from index a->b) **/ 
-			LinkedList operator()(const std::size_t, const std::size_t) const ;			
+			List operator()(const std::size_t, const std::size_t) const ;			
 			
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
@@ -106,24 +107,24 @@ namespace Salih::Structures::LinkedLists {
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param list structure to compare with
 			@return a boolean representing whether equality is met **/ 	
-			bool operator==(const LinkedList<T>&) const ; //method to index linked list, returns data
+			bool operator==(const List<T>&) const ; //method to index linked list, returns data
 			
 			/** Inequality operator, determines if a calling objects values do not match another structure's values
 			@param list structure to compare with
 			@return a boolean representing whether equality is not met **/ 
-			bool operator!=(const LinkedList<T>&) const ; //method to index linked list, returns data
+			bool operator!=(const List<T>&) const ; //method to index linked list, returns data
 			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param list structure to compare with (with different data-type values within)
 			@return a boolean representing whether equality is met **/ 				
 			template<typename OTHER>
-			bool operator==(const LinkedList<OTHER>&) const ; //method to index linked list, returns data
+			bool operator==(const List<OTHER>&) const ; //method to index linked list, returns data
 			
 			/** Inequality operator, determines if a calling objects values do not match another structure's values
 			@param list structure to compare with (with different data-type values within)
 			@return a boolean representing whether equality is not met **/ 	
 			template<typename OTHER>
-			bool operator!=(const LinkedList<OTHER>&) const ; //method to index linked list, returns data
+			bool operator!=(const List<OTHER>&) const ; //method to index linked list, returns data
 			
 			/** insert method, inserts a value into a given position in a list sequence 
 			@param integer (representing position to insert into), value (to insert into said position) **/ 
@@ -142,10 +143,10 @@ namespace Salih::Structures::LinkedLists {
 			void del(const std::size_t) ; //delete element in list based off rank (1st, 2nd, etc.)
 			
 			template<typename OTHER>
-			friend class LinkedList ;
+			friend class List ;
 	} ;	
 }
 
-#include "linkedlist.tpp"
+#include "list.tpp"
 
 #endif

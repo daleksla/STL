@@ -1,8 +1,7 @@
-#ifndef LINKED_LIST_TPP
-#define LINKED_LIST_TPP
+#ifndef LIST_TPP
+#define LIST_TPP
 #pragma once
 
-#include <lib/Structures/LinkedLists/_node.hpp>
 #include <stdexcept>
 #include <limits>
 #include <array>
@@ -15,53 +14,53 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
  
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList() : head(nullptr), tail(nullptr), size(0) {} ;
+Salih::Structures::LinkedLists::List<T>::List() : head(nullptr), tail(nullptr), size(0) {} ;
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const std::initializer_list<T>& values)
+Salih::Structures::LinkedLists::List<T>::List(const std::initializer_list<T>& values)
 {
 	this->setSize(0) ;
-	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::begin(values)) 
 		{
-			this->head = new Node<T>(*it) ;
+			this->head = new DNode<T>(*it) ;
 			p = head ;	
 		} else if(it == std::prev(std::end(values))) {
-			tail = new Node<T>(*it, *p, 0) ;
+			tail = new DNode<T>(*it, *p, 0) ;
 		} else {
-			p = new Node<T>(*it, *p, 0) ;
+			p = new DNode<T>(*it, *p, 0) ;
 		}
 		this->setSize(this->size + 1) ;	
 	}
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(const std::initializer_list<T>& values)
+Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(head != nullptr)
 	{
-		for(Node<T>* node = head ; ;)
+		for(DNode<T>* node = head ; ;)
 		{
-			Node<T>* mem = node->getNext() ;
+			DNode<T>* mem = node->getNext() ;
 			delete node ;
 			if(mem == nullptr) break ;
 			node = mem ;
 		}
 	} 
 	this->setSize(0) ;
-	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::begin(values)) 
 		{
-			this->head = new Node<T>(*it) ;
+			this->head = new DNode<T>(*it) ;
 			p = head ;	
 		} else if(it == std::prev(std::end(values))) {
-			tail = new Node<T>(*it, *p, 0) ;
+			tail = new DNode<T>(*it, *p, 0) ;
 		} else {
-			p = new Node<T>(*it, *p, 0) ;
+			p = new DNode<T>(*it, *p, 0) ;
 		}
 		this->setSize(this->size + 1) ;	
 	}
@@ -69,24 +68,24 @@ Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::L
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structures::LinkedLists::LinkedList<T>& list)
+Salih::Structures::LinkedLists::List<T>::List(const Salih::Structures::LinkedLists::List<T>& list)
 {
 	this->setSize(0) ;
-	Salih::Structures::LinkedLists::Node<T>* h = list.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	Salih::Structures::LinkedLists::DNode<T>* h = list.head ;
+	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	while(h != nullptr)
 	{
 		if(h->getPrev() == nullptr) 
 		{	
-			head = new Node<T>(h->data) ;
+			head = new DNode<T>(h->data) ;
 			p = head ;
 		}
 		else if(h->getNext() == nullptr)
 		{
-			tail = new Node<T>(h->data, *p, 0) ;
+			tail = new DNode<T>(h->data, *p, 0) ;
 		}
 		else {
-			p = new Node<T>(h->data, *p, 0) ;
+			p = new DNode<T>(h->data, *p, 0) ;
 		}
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
@@ -94,13 +93,13 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(const Salih::Structure
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(const Salih::Structures::LinkedLists::LinkedList<T>& list)
+Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(const Salih::Structures::LinkedLists::List<T>& list)
 {
 	if(head != nullptr)
 	{
-		for(Node<T>* node = head ; ;)
+		for(DNode<T>* node = head ; ;)
 		{
-			Node<T>* mem = node->getNext() ;
+			DNode<T>* mem = node->getNext() ;
 			delete node ;
 			if(mem == nullptr) break ;
 			node = mem ;
@@ -108,21 +107,21 @@ Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::L
 	} 
 	
 	this->setSize(0) ;
-	Salih::Structures::LinkedLists::Node<T>* h = list.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	Salih::Structures::LinkedLists::DNode<T>* h = list.head ;
+	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	while(h != nullptr)
 	{
 		if(h->getPrev() == nullptr) 
 		{	
-			head = new Node<T>(h->data) ;
+			head = new DNode<T>(h->data) ;
 			p = head ;
 		}
 		else if(h->getNext() == nullptr)
 		{
-			tail = new Node<T>(h->data, *p, 0) ;
+			tail = new DNode<T>(h->data, *p, 0) ;
 		}
 		else {
-			p = new Node<T>(h->data, *p, 0) ;
+			p = new DNode<T>(h->data, *p, 0) ;
 		}
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
@@ -132,7 +131,7 @@ Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::L
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::LinkedLists::LinkedList<T>&& list)
+Salih::Structures::LinkedLists::List<T>::List(Salih::Structures::LinkedLists::List<T>&& list)
 {
 	this->head = list.head ;
 	this->tail = list.tail ;
@@ -143,13 +142,13 @@ Salih::Structures::LinkedLists::LinkedList<T>::LinkedList(Salih::Structures::Lin
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::LinkedList<T>::operator=(Salih::Structures::LinkedLists::LinkedList<T>&& list)
+Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(Salih::Structures::LinkedLists::List<T>&& list)
 {
 	if(head != nullptr)
 	{
-		for(Node<T>* node = head ; ;)
+		for(DNode<T>* node = head ; ;)
 		{
-			Node<T>* mem = node->getNext() ;
+			DNode<T>* mem = node->getNext() ;
 			delete node ;
 			if(mem == nullptr) break ;
 			node = mem ;
@@ -165,13 +164,13 @@ Salih::Structures::LinkedLists::LinkedList<T>& Salih::Structures::LinkedLists::L
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
+Salih::Structures::LinkedLists::List<T>::~List()
 {
 	if(head == nullptr) return;
 	
-	for(Node<T>* node = head ; ;)
+	for(DNode<T>* node = head ; ;)
 	{
-		Node<T>* mem = node->getNext() ;
+		DNode<T>* mem = node->getNext() ;
 		delete node ;
 		if(mem == nullptr) break ;
 		node = mem ;
@@ -179,11 +178,11 @@ Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
 }
 
 template<typename T>		
-Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::LinkedList<T>::operator()(const std::size_t a, const std::size_t b) const
+Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>::operator()(const std::size_t a, const std::size_t b) const
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
-	Salih::Structures::LinkedLists::LinkedList<T> tmp ;
-	Node<T>* node = head ; std::size_t count = 0 ;
+	Salih::Structures::LinkedLists::List<T> tmp ;
+	DNode<T>* node = head ; std::size_t count = 0 ;
 	while(count != a)
 	{
 		node = node->getNext() ;
@@ -198,10 +197,10 @@ Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::Li
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t index)
+T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index)
 {
 	std::size_t count = 0 ;
-	Node<T>* node = head ;
+	DNode<T>* node = head ;
 	while(count != index)
 	{
 		node = node->getNext() ;
@@ -211,10 +210,10 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t i
 }
 
 template <typename T>
-const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t index) const
+const T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index) const
 {
 	std::size_t count = 0 ;
-	Node<T>* node = head ;
+	DNode<T>* node = head ;
 	while(count != index)
 	{
 		node = node->getNext() ;
@@ -224,25 +223,11 @@ const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::si
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t index, const bool check)
-{
-	std::size_t count = 0 ;
-	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
-	Node<T>* node = head ;
-	while(count != index)
-	{
-		node = node->getNext() ;
-		count++ ;
-	}
-	return node->data ;
-}
-
-template <typename T>
-const T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t index, const bool check) const
+T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check)
 {
 	std::size_t count = 0 ;
 	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
-	Node<T>* node = head ;
+	DNode<T>* node = head ;
 	while(count != index)
 	{
 		node = node->getNext() ;
@@ -252,7 +237,21 @@ const T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t ind
 }
 
 template <typename T>
-bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Structures::LinkedLists::LinkedList<T>& list) const
+const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check) const
+{
+	std::size_t count = 0 ;
+	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
+	DNode<T>* node = head ;
+	while(count != index)
+	{
+		node = node->getNext() ;
+		count++ ;
+	}
+	return node->data ;
+}
+
+template <typename T>
+bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures::LinkedLists::List<T>& list) const
 {
 	if(list.size != this->size) return false ;
 	
@@ -270,7 +269,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Stru
 }
 
 template <typename T>
-bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Structures::LinkedLists::LinkedList<T>& list) const
+bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures::LinkedLists::List<T>& list) const
 {
 	if(list.size != this->size) return true ;
 	
@@ -289,7 +288,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Stru
 
 template <typename T>
 template <typename OTHER>
-bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Structures::LinkedLists::LinkedList<OTHER>& list) const
+bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures::LinkedLists::List<OTHER>& list) const
 {
 	if(list.size != this->size) return false ;
 	
@@ -308,7 +307,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Stru
 
 template <typename T>
 template <typename OTHER>
-bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Structures::LinkedLists::LinkedList<OTHER>& list) const
+bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures::LinkedLists::List<OTHER>& list) const
 {
 	if(list.getSize() != this->size) return true ;
 	
@@ -326,13 +325,13 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Stru
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::insert(const std::size_t pos, T data) 
+void Salih::Structures::LinkedLists::List<T>::insert(const std::size_t pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
 	
 	//loop through LL, find correct 'node'
-	Node<T>* curNode = head ;
+	DNode<T>* curNode = head ;
 	for(std::size_t count = 1 ; count < pos ; count++) 
 	{
 		curNode = curNode->getNext() ;
@@ -343,10 +342,10 @@ void Salih::Structures::LinkedLists::LinkedList<T>::insert(const std::size_t pos
 }
 
 template <typename T>
-inline void Salih::Structures::LinkedLists::LinkedList<T>::insert(Salih::Structures::LinkedLists::Node<T>* node, T data)
+inline void Salih::Structures::LinkedLists::List<T>::insert(Salih::Structures::LinkedLists::DNode<T>* node, T data)
 { //correct function
-	auto newNode = new Node<T>(data) ;
-	Node<T>* prev = node->getPrev() ;
+	auto newNode = new DNode<T>(data) ;
+	DNode<T>* prev = node->getPrev() ;
 	
 	if(prev == nullptr)
 	{
@@ -363,29 +362,29 @@ inline void Salih::Structures::LinkedLists::LinkedList<T>::insert(Salih::Structu
 }
 
 template <typename T>
-inline void Salih::Structures::LinkedLists::LinkedList<T>::setSize(int newSize)
+inline void Salih::Structures::LinkedLists::List<T>::setSize(int newSize)
 {
 	this->size = newSize ;
 }
 
 template <typename T>
-std::size_t Salih::Structures::LinkedLists::LinkedList<T>::getSize() const
+std::size_t Salih::Structures::LinkedLists::List<T>::getSize() const
 {
 	return this->size ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::append(T data)
+void Salih::Structures::LinkedLists::List<T>::append(T data)
 {
-	Node<T>* node = nullptr ;
+	DNode<T>* node = nullptr ;
 	if(this->size == 0) 
 	{
-		node = new Node<T>(data) ;
+		node = new DNode<T>(data) ;
 		this->tail = node ;
 		this->head = node ;
 	}
 	else {
-		node = new Node<T>(data, *tail, 0) ;
+		node = new DNode<T>(data, *tail, 0) ;
 		this->tail = node ;
 	}
 	
@@ -393,12 +392,12 @@ void Salih::Structures::LinkedLists::LinkedList<T>::append(T data)
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::LinkedList<T>::del(const std::size_t index)
+void Salih::Structures::LinkedLists::List<T>::del(const std::size_t index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
 	
 	//loop through LL, find correct 'node'
-	Node<T>* curNode = head ;
+	DNode<T>* curNode = head ;
 	for(int count = 1 ; count < index ; count++) 
 	{
 		curNode = curNode->getNext() ;
@@ -409,10 +408,10 @@ void Salih::Structures::LinkedLists::LinkedList<T>::del(const std::size_t index)
 }
 
 template <typename T>
-inline void Salih::Structures::LinkedLists::LinkedList<T>::del(Salih::Structures::LinkedLists::Node<T>* node)
+inline void Salih::Structures::LinkedLists::List<T>::del(Salih::Structures::LinkedLists::DNode<T>* node)
 { //correct function
-	Node<T>* prev = node->getPrev() ;
-	Node<T>* next = node->getNext() ;
+	DNode<T>* prev = node->getPrev() ;
+	DNode<T>* next = node->getNext() ;
 	if(prev == nullptr) this->head = next ;
 	else prev->setNext(next) ; 
 	if(next == nullptr) this->tail = prev ;
