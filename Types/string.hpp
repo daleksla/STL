@@ -122,16 +122,22 @@ namespace Salih::Types {
 			/** getSize method, returns size of a string object
 			@return integer representing size **/ 				
 			std::size_t getSize() const ;
+			
+			/** Slicing operator, extract part of structure directly
+			@param integer to start slicing from	
+			@param integer to slice until			
+			@return sliced string (ie values from index a->b) **/			
+			String operator()(const std::size_t, const std::size_t) const ;
 
 			/** Index operator, modifying string directly
 			@param integer to index string with		
 			@return reference to a given character in the string **/ 			
-			char& operator[](const int) ;
+			char& operator[](const std::size_t) ;
 
 			/** Index operator, modifying string directly
 			@param integer to index string with		
 			@return constant reference to a given character in the string **/ 			
-			const char& operator[](const int) const ;
+			const char& operator[](const std::size_t) const ;
 
 			/** capitalise method, capitalises a copy of calling object's string value
 			@return calling object copy with capitalised values (where possible) **/ 			
@@ -188,7 +194,7 @@ Salih::Types::String::String(const char* input)
 {
 	for(this->size = 0 ; input[this->size] != '\0'; this->size++) ;
 	this->str = new char[size + 1] ;
-	for(int i = 0 ; i < size ; i++) str[i] = input[i] ;
+	for(std::size_t i = 0 ; i < size ; i++) str[i] = input[i] ;
 	str[this->size] = '\0' ;
 }
 
@@ -196,7 +202,7 @@ Salih::Types::String::String(const Salih::Types::String& tbc)
 {
 	this->str = new char[tbc.size+1] ;
 	this->size = tbc.size ;
-	for(int i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
 	this->str[this->size] = '\0' ;
 }
 
@@ -221,7 +227,7 @@ Salih::Types::String& Salih::Types::String::operator=(const char* tbc)
 	delete[] this->str ;
 	for(this->size = 0 ; tbc[this->size] != '\0'; this->size++) ;
 	this->str = new char[this->size + 1] ;
-	for(int i = 0 ; i < this->size ; i++) this->str[i] = tbc[i] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc[i] ;
 	this->str[this->size] = '\0' ;
 }
 
@@ -230,7 +236,7 @@ Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String
 	delete[] this->str ;
 	this->size = tbc.size ;
 	this->str = new char[this->size+1] ;
-	for(int i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
 	this->str[this->size] = '\0' ;
 }
 
@@ -249,7 +255,7 @@ Salih::Types::String Salih::Types::String::operator+(char c) const
 	delete[] tmp.str ;
 	tmp.size = this->size + 1 ;
 	tmp.str = new char[tmp.size+1] ;
-	for(int i = 0 ; i < tmp.size - 1 ; i++) tmp.str[i] = this->str[i] ;
+	for(std::size_t i = 0 ; i < tmp.size - 1 ; i++) tmp.str[i] = this->str[i] ;
 	tmp.str[tmp.size-1] = c ;
 	tmp.str[tmp.size] = '\0' ;
 	return tmp ;
@@ -259,7 +265,7 @@ Salih::Types::String& Salih::Types::String::operator+=(char c)
 {
 	this->size = this->size + 1 ;
 	char* tmp = new char[this->size+1] ;
-	for(int i = 0 ; i < this->size - 1 ; i++) tmp[i] = this->str[i] ;
+	for(std::size_t i = 0 ; i < this->size - 1 ; i++) tmp[i] = this->str[i] ;
 	tmp[this->size-1] = c ;
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
@@ -274,8 +280,8 @@ Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String&
 	tmp.size = this->size + tbm.size ;
 	tmp.str = new char[tmp.size+1] ;
 	
-	for(int i = 0 ; i < this->size ; i++) tmp.str[i] = this->str[i] ;
-	for(int i = this->size ; i < tmp.size ; i++) tmp.str[i] = tbm.str[i-this->size] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp.str[i] = this->str[i] ;
+	for(std::size_t i = this->size ; i < tmp.size ; i++) tmp.str[i] = tbm.str[i-this->size] ;
 	tmp.str[tmp.size] = '\0' ;
 	return tmp ;
 }
@@ -283,8 +289,8 @@ Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String&
 Salih::Types::String& Salih::Types::String::operator+=(const Salih::Types::String& tbm)
 {
 	char* tmp = new char[this->size + tbm.size + 1] ;
-	for(int i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
-	for(int i = this->size ; i < tbm.size + this->size ; i++) tmp[i] = tbm.str[i-this->size] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
+	for(std::size_t i = this->size ; i < tbm.size + this->size ; i++) tmp[i] = tbm.str[i-this->size] ;
 	this->size = this->size + tbm.size ;
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
@@ -303,20 +309,20 @@ Salih::Types::String Salih::Types::String::operator+(const char* tbm) const
 	
 	tmp.str = new char[tmp.size+1] ;
 	
-	for(int i = 0 ; i < this->size ; i++) tmp.str[i] = this->str[i] ;
-	for(int i = this->size ; i < tmp.size ; i++) tmp.str[i] = tbm[i-this->size] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp.str[i] = this->str[i] ;
+	for(std::size_t i = this->size ; i < tmp.size ; i++) tmp.str[i] = tbm[i-this->size] ;
 	tmp.str[tmp.size] = '\0' ;
 	return tmp ;
 }
 
 Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
 {
-	int tmpSize ;
+	std::size_t tmpSize ;
 	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
 	char* tmp = new char[this->size + tmpSize + 1] ;
 	
-	for(int i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
-	for(int i = this->size ; i < tmpSize + this->size ; i++) tmp[i] = tbm[i-this->size] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
+	for(std::size_t i = this->size ; i < tmpSize + this->size ; i++) tmp[i] = tbm[i-this->size] ;
 	this->size = this->size + tmpSize ;
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
@@ -327,7 +333,7 @@ Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
 
 bool Salih::Types::String::operator==(const char* str) const
 {
-	int i ;
+	std::size_t i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
 	
 	if(this->size != i) return false ;
@@ -342,7 +348,7 @@ bool Salih::Types::String::operator==(const char* str) const
 			
 bool Salih::Types::String::operator!=(const char* str) const
 {
-	int i ;
+	std::size_t i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
 	
 	if(this->size != i) return true ;
@@ -359,7 +365,7 @@ bool Salih::Types::String::operator==(const Salih::Types::String& str) const
 {
 	if(this->size != str.size) return false ;
 	
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		if(this->str[i] != str.str[i]) return false ;
 	}
@@ -371,7 +377,7 @@ bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
 {
 	if(this->size != str.size) return true ;
 	
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		if(this->str[i] != str.str[i]) return true ;
 	}
@@ -389,12 +395,20 @@ std::size_t Salih::Types::String::getSize() const
 	return this->size ;
 }
 
-char& Salih::Types::String::operator[](const int index)
+String Salih::Types::String::operator()(const std::size_t a, const std::size_t b) const 
+{
+	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
+	Salih::Types::String tmp(b-a) ;
+	for(std::size_t idx = a ; idx < b ; idx++) tmp[idx-a] = this->pointer[idx] ;
+	return tmp ;
+}
+
+char& Salih::Types::String::operator[](const std::size_t index)
 {
 	return this->str[index] ;
 }
 
-const char& Salih::Types::String::operator[](const int index) const
+const char& Salih::Types::String::operator[](const std::size_t index) const
 {
 	return this->str[index] ;
 }
@@ -408,7 +422,7 @@ Salih::Types::String Salih::Types::String::capitalise() const
 		tmp[0] = tmp[0] - 32 ;
 	}
 	
-	for(int i = 1 ; i < tmp.size ; i++)
+	for(std::size_t i = 1 ; i < tmp.size ; i++)
 	{
 		if(tmp[i] >= 65 && tmp[i] <= 90)
 		{
@@ -422,7 +436,7 @@ Salih::Types::String Salih::Types::String::upper() const
 {
 	Salih::Types::String tmp(*this) ;
 		
-	for(int i = 0 ; i < tmp.size ; i++)
+	for(std::size_t i = 0 ; i < tmp.size ; i++)
 	{
 		if(tmp[i] >= 97 && tmp[i] <= 122)
 		{
@@ -451,7 +465,7 @@ Salih::Types::String Salih::Types::String::lower() const
 bool Salih::Types::String::isAlphaNum() const
 {
 	if(this->size == 0) return false ;
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		if(	((this->str[i] >= 48 && this->str[i] <= 57) || 
 			(this->str[i] >= 65 && this->str[i] <= 90) || 
@@ -465,7 +479,7 @@ bool Salih::Types::String::isAlphaNum() const
 bool Salih::Types::String::isAlpha() const
 {
 	if(this->size == 0) return false ;
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		if(	((this->str[i] >= 65 && this->str[i] <= 90) || 
 			(this->str[i] >= 97 && this->str[i] <= 122)) == 0
@@ -478,7 +492,7 @@ bool Salih::Types::String::isAlpha() const
 bool Salih::Types::String::isNum() const
 {
 	if(this->size == 0) return false ;
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		if( (this->str[i] >= 48 && this->str[i] <= 57) == 0) return false ;	
 	}
@@ -489,7 +503,7 @@ bool Salih::Types::String::isUpper() const
 {
 	if(this->size == 0) return false ;
 	
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		if(!(this->str[i] >= 60 && this->str[i] <= 90)) return false ;
 	}
@@ -500,7 +514,7 @@ bool Salih::Types::String::isLower() const
 {
 	if(this->size == 0) return false ;
 	
-	for(int i = 0 ; i < this->size ; i++)
+	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
 		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
 	}
@@ -513,7 +527,7 @@ bool Salih::Types::String::isCapitalised() const
 	
 	if(!(this->str[0] >= 60 && this->str[0] <= 90)) return false ;
 	
-	for(int i = 1 ; i < this->size ; i++)
+	for(std::size_t i = 1 ; i < this->size ; i++)
 	{
 		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
 	}
