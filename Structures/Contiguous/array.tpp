@@ -15,22 +15,30 @@
  * It is located in the Salih, Structures, Contiguous namespaces */
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>::Array() : Salih::Structures::Contiguous::Contiguous<T>(SIZE) {} ;
+Salih::Structures::Contiguous::Array<T,SIZE>::Array() 
+{
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
+}
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>::Array(T* dumbArray, const std::size_t sizing) : Salih::Structures::Contiguous::Contiguous<T>(dumbArray, sizing) {} ;
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>::Array(const std::initializer_list<T>& values) : Salih::Structures::Contiguous::Contiguous<T>(values, SIZE) {} ;
+Salih::Structures::Contiguous::Array<T,SIZE>::Array(const std::initializer_list<T>& values)
+{
+	if(values.size() > SIZE) throw std::overflow_error("Size of values is larger than destination array") ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
+	std::size_t i = 0 ;
+	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
+	{
+		this->pointer[i] = *it ;
+		i++ ;
+	}
+}
 
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T,SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const std::initializer_list<T>& values)
 {
-	if(this->pointer != nullptr) delete[] this->pointer ;
-	this->size = SIZE ;
-	if(values.size() > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
-	this->pointer = new T[this->size] ;
-
+	if(values.size() > SIZE) throw std::overflow_error("Size of values is larger than destination array") ;
 	std::size_t i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
@@ -41,16 +49,35 @@ Salih::Structures::Contiguous::Array<T,SIZE>& Salih::Structures::Contiguous::Arr
 }
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,SIZE>& list) : Salih::Structures::Contiguous::Contiguous<T>(list, SIZE) {} ;
+Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,SIZE>& list)
+{
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
+	for(std::size_t i = 0 ; i < list.getSize() ; i++)
+	{
+		this->pointer[i] = list[i] ;
+	}		
+}
+
+template<typename T, std::size_t SIZE> 
+template<std::size_t DIFF> 
+Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,DIFF>& list)
+{
+	static_assert(SIZE > DIFF, "Origin array is larger than destination array") ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
+	for(std::size_t i = 0 ; i < list.getSize() ; i++)
+	{
+		this->pointer[i] = list[i] ;
+	}		
+}
 
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const Array<T,SIZE>& list)
 {
-	if(this->pointer != nullptr) delete[] this->pointer ;
-	this->size = SIZE ;
-	if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
-	this->pointer = new T[list.size] ;
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
+	for(std::size_t i = 0 ; i < SIZE ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
 	}
@@ -58,37 +85,129 @@ Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Ar
 }
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>::Array(Array<T,SIZE>&& list) : Salih::Structures::Contiguous::Contiguous<T>(std::move(list), SIZE) {} ;
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(Array<T,SIZE>&& list)
+template<std::size_t DIFF> 
+Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const Array<T,DIFF>& list)
 {
-	if(this->pointer != nullptr) delete[] this->pointer ;
-	this->size = SIZE ;
-	if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
-	this->pointer = list.pointer ;
-	this->size = list.size ;
-	list.pointer = nullptr ;
-	list.size = 0 ;
-	return *this ;	
+	static_assert(SIZE > DIFF, "Origin array is larger than destination array") ;
+	//T tmp[SIZE] ;
+	//this->pointer = tmp ;
+	for(std::size_t i = 0 ; i < DIFF ; i++)
+	{
+		this->pointer[i] = list.pointer[i] ;
+	}
+	return *this ;		
 }
 
-//template<typename T, std::size_t SIZE> 
-//template<std::size_t NEW_SIZE>
-//Salih::Structures::Contiguous::Array<T,NEW_SIZE> Salih::Structures::Contiguous::Array<T,SIZE>::operator()(const int x, const int y) const
-//{
-//	if(x < 0 || x > this->size - 1 || y < x || y > this->size - 1) throw std::out_of_range("Element range does not exist") ;
-//	const int SIZE_TMP = y - x ;
-//	std::cout << SIZE_TMP << std::endl ;
-//	T* ARRAY = new T[SIZE_TMP] ;
-//	for(int i = x ; i < y ; i++)
-//	{
-//		ARRAY[i-x] = this->pointer[i] ;
-//	}
-//	return Array<T, NEW_SIZE>(ARRAY, SIZE_TMP) ;
-//}
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::~Array() 
+{
+	//this->pointer = nullptr ;
+}
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>::~Array() {} ;	
+constexpr std::size_t Salih::Structures::Contiguous::Array<T, SIZE>::getSize() const
+{
+	return SIZE ;
+}
+
+template<typename T, std::size_t SIZE> 
+T& Salih::Structures::Contiguous::Array<T, SIZE>::operator[](const std::size_t x)
+{
+	return this->pointer[x] ;
+} 
+
+template<typename T, std::size_t SIZE> 
+const T& Salih::Structures::Contiguous::Array<T, SIZE>::operator[](const std::size_t x) const
+{
+	return this->pointer[x] ;	
+}
+
+template<typename T, std::size_t SIZE> 
+T& Salih::Structures::Contiguous::Array<T, SIZE>::at(const std::size_t x, const bool check)
+{
+	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	return this->pointer[x] ;
+} 
+
+template<typename T, std::size_t SIZE> 
+const T& Salih::Structures::Contiguous::Array<T,SIZE>::at(const std::size_t x, const bool check) const
+{
+	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	return this->pointer[x] ;	
+}	
+
+template<typename T, std::size_t SIZE> 
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator==(const Salih::Structures::Contiguous::Array<T,SIZE>& b) const
+{
+	for(std::size_t i = 0 ; i < SIZE ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return false ;
+	}
+	
+	return true ;	
+}
+
+template<typename T, std::size_t SIZE> 
+template<typename OTHER>
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator==(const Salih::Structures::Contiguous::Array<OTHER,SIZE>& b) const
+{
+	for(std::size_t i = 0 ; i < SIZE ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return false ;
+	}
+	
+	return true ;	
+}
+
+template<typename T, std::size_t SIZE> 
+template<std::size_t  DIFF>
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator==(const Salih::Structures::Contiguous::Array<T,DIFF>& b) const
+{
+	return false ;
+}
+
+template<typename T, std::size_t SIZE> 
+template<typename OTHER, std::size_t  DIFF>
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator==(const Salih::Structures::Contiguous::Array<OTHER,DIFF>& b) const
+{
+	return false ;
+}
+
+template<typename T, std::size_t SIZE> 
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Array<T,SIZE>& b) const
+{
+	for(std::size_t i = 0 ; i < SIZE ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return true ;
+	}
+	
+	return false ;	
+}
+
+template<typename T, std::size_t SIZE> 
+template<typename OTHER>
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Array<OTHER,SIZE>& b) const
+{
+	for(std::size_t i = 0 ; i < SIZE ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return true ;
+	}
+	
+	return false ;	
+}
+
+template<typename T, std::size_t SIZE> 
+template<std::size_t  DIFF>
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Array<T,DIFF>& b) const
+{
+	return true ;
+}
+
+template<typename T, std::size_t SIZE> 
+template<typename OTHER, std::size_t DIFF>
+bool Salih::Structures::Contiguous::Array<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Array<OTHER,DIFF>& b) const
+{
+	return true ;
+}
 
 #endif

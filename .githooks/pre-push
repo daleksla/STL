@@ -7,13 +7,37 @@ if [ $protected_branch = $current_branch ]
 then  
     read -p "You're about to push master, is that what you intended? [y|n] " -n 1 -r < /dev/tty
     echo
-    if echo $REPLY | grep -E '^[Yy]$' > /dev/null
+    if !(echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
     then
-        exit 0 # push will execute
+    	exit 1 # push will not execute 
     fi
-    exit 1 # push will not execute
-else  
-    exit 0 # push will execute
 fi  
 
-(cd ./.testing && make)
+git diff --exit-code &> /dev/NULL
+code = $(?)
+
+if [ $code != 0 ] 
+then 
+    read -p "You have not committed all changes, proceed? [y|n] " -n 1 -r < /dev/tty
+    echo
+    if !(echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
+    then
+    	exit 1 # push will not execute 
+    fi
+fi
+    
+echo "Compiling test files..." 
+cd ./.testing && make
+
+if [ $code != 0 ] 
+then 
+    read -p "Tests failed, proceed regardless? [y|n] " -n 1 -r < /dev/tty
+    echo
+    if !(echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
+    then
+    	exit 1 # push will not execute 
+    fi
+fi
+
+exit 0
+

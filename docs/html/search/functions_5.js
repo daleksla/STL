@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['linkedlist_94',['LinkedList',['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a925668b475181c0bd4e86a543da243ec',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a231ceed30ba8356c2961d6846632fa6d',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList(const LinkedList &amp;)'],['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#ab39393ab53a0497988856824e23fcdc1',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList(const std::initializer_list&lt; T &gt; &amp;)'],['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a6b1f43c31abefc7258c374fee67adc5a',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList(LinkedList &amp;&amp;)']]],
-  ['lower_95',['lower',['../classSalih_1_1Types_1_1String.html#a25f4c3c9a10a7abe1a91a5bc8c6c0bbc',1,'Salih::Types::String']]]
+  ['insert_152',['insert',['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a3e8cca46b9eb8af0ab872f9a690d124d',1,'Salih::Structures::LinkedLists::LinkedList']]],
+  ['isalpha_153',['isAlpha',['../classSalih_1_1Types_1_1String.html#a36e2a3b396130f31529cdd2e92e81894',1,'Salih::Types::String']]],
+  ['isalphanum_154',['isAlphaNum',['../classSalih_1_1Types_1_1String.html#a43dc72f9ef648ca0b9a622a5aa9075df',1,'Salih::Types::String']]],
+  ['iscapitalised_155',['isCapitalised',['../classSalih_1_1Types_1_1String.html#aba42d618cdb86c36e1c8e8df67ef82ad',1,'Salih::Types::String']]],
+  ['isheap_156',['isHeap',['../namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe',1,'Salih::Types']]],
+  ['islower_157',['isLower',['../classSalih_1_1Types_1_1String.html#a8f6f14228876d6d6b5e6b4239a153f3f',1,'Salih::Types::String']]],
+  ['isnum_158',['isNum',['../classSalih_1_1Types_1_1String.html#a35bba800c0adbcc4e201c0eed86169e5',1,'Salih::Types::String']]],
+  ['isupper_159',['isUpper',['../classSalih_1_1Types_1_1String.html#aea85ee364335bea2fde3796eebc4628e',1,'Salih::Types::String']]]
 ];

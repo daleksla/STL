@@ -178,10 +178,28 @@ Salih::Structures::LinkedLists::LinkedList<T>::~LinkedList()
 	} 
 }
 
+template<typename T>		
+Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::LinkedList<T>::operator()(const std::size_t a, const std::size_t b) const
+{
+	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
+	Salih::Structures::LinkedLists::LinkedList<T> tmp ;
+	Node<T>* node = head ; std::size_t count = 0 ;
+	while(count != a)
+	{
+		node = node->getNext() ;
+		count++ ;
+	}
+	for( ; count < b ; count++ ) 
+	{
+		tmp.append(node->data) ;
+	}
+	return tmp ;
+}
+
 template <typename T>
 T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t index)
 {
-	int count = 0 ;
+	std::size_t count = 0 ;
 	Node<T>* node = head ;
 	while(count != index)
 	{
@@ -194,7 +212,7 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t i
 template <typename T>
 const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::size_t index) const
 {
-	int count = 0 ;
+	std::size_t count = 0 ;
 	Node<T>* node = head ;
 	while(count != index)
 	{
@@ -207,7 +225,7 @@ const T& Salih::Structures::LinkedLists::LinkedList<T>::operator[](const std::si
 template <typename T>
 T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t index, const bool check)
 {
-	int count = 0 ;
+	std::size_t count = 0 ;
 	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	Node<T>* node = head ;
 	while(count != index)
@@ -221,7 +239,7 @@ T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t index, co
 template <typename T>
 const T& Salih::Structures::LinkedLists::LinkedList<T>::at(const std::size_t index, const bool check) const
 {
-	int count = 0 ;
+	std::size_t count = 0 ;
 	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	Node<T>* node = head ;
 	while(count != index)
@@ -240,7 +258,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Stru
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.size ; i++)
+	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -258,7 +276,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Stru
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.size ; i++)
+	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -277,7 +295,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator==(const Salih::Stru
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.size ; i++)
+	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -296,7 +314,7 @@ bool Salih::Structures::LinkedLists::LinkedList<T>::operator!=(const Salih::Stru
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(int i = 0 ; i < list.size ; i++)
+	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -314,7 +332,7 @@ void Salih::Structures::LinkedLists::LinkedList<T>::insert(const std::size_t pos
 	
 	//loop through LL, find correct 'node'
 	Node<T>* curNode = head ;
-	for(int count = 1 ; count < pos ; count++) 
+	for(std::size_t count = 1 ; count < pos ; count++) 
 	{
 		curNode = curNode->getNext() ;
 	}

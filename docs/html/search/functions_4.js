@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['insert_86',['insert',['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a3e8cca46b9eb8af0ab872f9a690d124d',1,'Salih::Structures::LinkedLists::LinkedList']]],
-  ['isalpha_87',['isAlpha',['../classSalih_1_1Types_1_1String.html#a36e2a3b396130f31529cdd2e92e81894',1,'Salih::Types::String']]],
-  ['isalphanum_88',['isAlphaNum',['../classSalih_1_1Types_1_1String.html#a43dc72f9ef648ca0b9a622a5aa9075df',1,'Salih::Types::String']]],
-  ['iscapitalised_89',['isCapitalised',['../classSalih_1_1Types_1_1String.html#aba42d618cdb86c36e1c8e8df67ef82ad',1,'Salih::Types::String']]],
-  ['isheap_90',['isHeap',['../namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe',1,'Salih::Types']]],
-  ['islower_91',['isLower',['../classSalih_1_1Types_1_1String.html#a8f6f14228876d6d6b5e6b4239a153f3f',1,'Salih::Types::String']]],
-  ['isnum_92',['isNum',['../classSalih_1_1Types_1_1String.html#a35bba800c0adbcc4e201c0eed86169e5',1,'Salih::Types::String']]],
-  ['isupper_93',['isUpper',['../classSalih_1_1Types_1_1String.html#aea85ee364335bea2fde3796eebc4628e',1,'Salih::Types::String']]]
+  ['get_149',['get',['../classSalih_1_1Types_1_1Pointer.html#a0537b09d6b7fac049b935661059236eb',1,'Salih::Types::Pointer::get()'],['../classSalih_1_1Types_1_1Pointer_3_01void_01_4.html#aab994933ece4b6ab20565c4d89fc86e0',1,'Salih::Types::Pointer&lt; void &gt;::get()'],['../classSalih_1_1Types_1_1String.html#a0d463bb39589df5b356e71f83b70f3ea',1,'Salih::Types::String::get()']]],
+  ['getmiddle_150',['getMiddle',['../namespaceSalih_1_1Algorithms_1_1Searches.html#aa52396c23d9b999e2ffe1c19e605f23f',1,'Salih::Algorithms::Searches']]],
+  ['getsize_151',['getSize',['../classSalih_1_1Structures_1_1Contiguous_1_1Array.html#acf9be818fefb8672599638a1c4e45209',1,'Salih::Structures::Contiguous::Array::getSize()'],['../classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a9fd8e88693dce24daabddd88745de4cf',1,'Salih::Structures::Contiguous::Vector::getSize()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#ae49adfda587b3f483401fd1aa9c7b910',1,'Salih::Structures::LinkedLists::LinkedList::getSize()'],['../classSalih_1_1Types_1_1String.html#a19dc95aa52df14d6918dc16754c0371e',1,'Salih::Types::String::getSize()']]]
 ];

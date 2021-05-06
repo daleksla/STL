@@ -14,17 +14,31 @@
  * It is located in the Salih, Structures, Contiguous namespaces */
 
 template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::Vector() : Salih::Structures::Contiguous::Contiguous<T>(0) {} ;
-
-
-template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::Vector(const std::size_t SIZE) : Salih::Structures::Contiguous::Contiguous<T>(SIZE) {} ;
-
-template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::Vector(T* dumbArray, const std::size_t sizing) : Salih::Structures::Contiguous::Contiguous<T>(dumbArray, sizing) {} ;
+Salih::Structures::Contiguous::Vector<T>::Vector() : size(0)
+{
+	this->pointer = new T[this->size] ;
+}
 
 template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::Vector(const std::initializer_list<T>& values) : Salih::Structures::Contiguous::Contiguous<T>(values, values.size()) {} ;
+Salih::Structures::Contiguous::Vector<T>::Vector(const std::size_t SIZE) : size(SIZE)
+{
+	this->pointer = new T[this->size] ;
+}
+
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T>::Vector(T* dumbArray, const std::size_t sizing) : pointer(dumbArray), size(sizing) {} ;
+
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T>::Vector(const std::initializer_list<T>& values) : size(values.size())
+{
+	this->pointer = new T[this->size] ;
+	std::size_t i = 0 ;
+	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
+	{
+		this->pointer[i] = *it ;
+		i++ ;
+	}
+}
 
 template<typename T> 
 Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<T>::operator=(const std::initializer_list<T>& values)
@@ -42,15 +56,21 @@ Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<
 }
 
 template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::Vector(const Vector<T>& list) : Salih::Structures::Contiguous::Contiguous<T>(list, list.size) {} ;
+Salih::Structures::Contiguous::Vector<T>::Vector(const Vector<T>& list) : size(list.size)
+{
+	this->pointer = new T[this->size] ;
+	for(std::size_t i = 0 ; i < list.size ; i++)
+	{
+		this->pointer[i] = list.pointer[i] ;
+	}
+}
 
 template<typename T> 
 Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<T>::operator=(const Vector<T>& list)
 {
 	if(this->pointer != nullptr) delete[] this->pointer ;
 	this->size = list.size ;
-	//if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
-	this->pointer = new T[list.size] ;
+	this->pointer = new T[this->size] ;
 	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
@@ -59,14 +79,16 @@ Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<
 }
 
 template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::Vector(Vector<T>&& list) : Salih::Structures::Contiguous::Contiguous<T>(std::move(list), list.size) {} ;
+Salih::Structures::Contiguous::Vector<T>::Vector(Vector<T>&& list) : size(list.size), pointer(list.pointer)
+{
+	list.pointer = nullptr ;
+	list.size = 0 ;
+}
 
 template<typename T> 
 Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<T>::operator=(Vector<T>&& list)
 {
 	if(this->pointer != nullptr) delete[] this->pointer ;
-	this->size = list.size ;
-	//if(list.size > this->size) throw std::overflow_error("Size of array is smaller then amount of values provided") ;
 	this->pointer = list.pointer ;
 	this->size = list.size ;
 	list.pointer = nullptr ;
@@ -91,13 +113,110 @@ void Salih::Structures::Contiguous::Vector<T>::append(T data)
 template<typename T>
 void Salih::Structures::Contiguous::Vector<T>::clear()
 {
-	T* newPointer = new T[0] ;
 	delete[] this->pointer ;
-	this->pointer = newPointer ;
+	this->pointer = new T[0] ;
 	this->size = 0 ;
 }
 
 template<typename T> 
-Salih::Structures::Contiguous::Vector<T>::~Vector() {} ;	
+Salih::Structures::Contiguous::Vector<T>::~Vector()
+{
+	if(this->pointer != nullptr) delete[] this->pointer ;
+}
+
+template<typename T>		
+std::size_t Salih::Structures::Contiguous::Vector<T>::getSize() const
+{
+	return this->size ;
+}	
+
+template<typename T>		
+Salih::Structures::Contiguous::Vector<T> Salih::Structures::Contiguous::Vector<T>::operator()(const std::size_t a, const std::size_t b) const
+{
+	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
+	Salih::Structures::Contiguous::Vector<T> tmp(b-a) ;
+	for(std::size_t idx = a ; idx < b ; idx++) tmp[idx-a] = this->pointer[idx] ;
+	return tmp ;
+}
+
+template<typename T>		
+T& Salih::Structures::Contiguous::Vector<T>::operator[](const std::size_t x)
+{
+	return this->pointer[x] ;
+} 
+
+template<typename T>		
+const T& Salih::Structures::Contiguous::Vector<T>::operator[](const std::size_t x) const
+{
+	return this->pointer[x] ;	
+}
+
+template<typename T>		
+T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x, const bool check)
+{
+	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	return this->pointer[x] ;
+} 
+
+template<typename T>		
+const T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x, const bool check) const
+{
+	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	return this->pointer[x] ;	
+}
+
+template<typename T>		
+bool Salih::Structures::Contiguous::Vector<T>::operator==(const Salih::Structures::Contiguous::Vector<T>& b) const
+{
+	if(this->size != b.size) return false ;
+	
+	for(std::size_t i = 0 ; i < this->size ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return false ;
+	}
+	
+	return true ;	
+}
+
+template<typename T>
+template<typename OTHER>		
+bool Salih::Structures::Contiguous::Vector<T>::operator==(const Salih::Structures::Contiguous::Vector<OTHER>& b) const
+{
+	if(this->size != b.size) return false ;
+	
+	for(std::size_t i = 0 ; i < this->size ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return false ;
+	}
+	
+	return true ;	
+}
+
+template<typename T>		
+bool Salih::Structures::Contiguous::Vector<T>::operator!=(const Salih::Structures::Contiguous::Vector<T>& b) const
+{
+	if(this->size == b.size) return false ;
+	
+	for(std::size_t i = 0 ; i < this->size ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return true ;
+	}
+	
+	return false ;	
+}
+
+template<typename T>
+template<typename OTHER>				
+bool Salih::Structures::Contiguous::Vector<T>::operator!=(const Salih::Structures::Contiguous::Vector<OTHER>& b) const
+{
+	if(this->size == b.size) return false ;
+	
+	for(std::size_t i = 0 ; i < this->size ; i++)
+	{
+		if(this->pointer[i] != b.pointer[i]) return true ;
+	}
+	
+	return false ;	
+}
 
 #endif
