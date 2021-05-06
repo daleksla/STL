@@ -2,7 +2,7 @@
 #define QUEUE_HPP
 #pragma once
 
-#include "../Structures/LinkedLists/_node.hpp"
+#include "../Structures/LinkedLists/_dNode.hpp"
 #include <algorithm>
 #include <iterator>
 #include <limits>
@@ -19,9 +19,9 @@ namespace Salih::Types {
 	class Queue {
 		/** This class is the FIFo (Queue) implementation **/
 		private:
-			Salih::Structures::LinkedLists::Node<T>* head ;
+			Salih::Structures::LinkedLists::DNode<T>* head ;
 			
-			Salih::Structures::LinkedLists::Node<T>* tail ;
+			Salih::Structures::LinkedLists::DNode<T>* tail ;
 			
 			std::size_t size ;
 		public:
@@ -117,15 +117,15 @@ template <typename T>
 Salih::Types::Queue<T>::Queue(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
-	this->head = new Salih::Structures::LinkedLists::Node<T>(*std::begin(values)) ;
-	Salih::Structures::LinkedLists::Node<T>* p = head ;
+	this->head = new Salih::Structures::LinkedLists::DNode<T>(*std::begin(values)) ;
+	Salih::Structures::LinkedLists::DNode<T>* p = head ;
 	size += 1 ;
 	for(auto it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::prev(std::end(values))) {
-			tail = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
 		} else {
-			p = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
 		}
 		this->size = size + 1 ;	
 	}
@@ -136,9 +136,9 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const std::initializer
 {
 	if(head != nullptr)
 	{
-		for(Salih::Structures::LinkedLists::Node<T>* node = head ; ;)
+		for(Salih::Structures::LinkedLists::DNode<T>* node = head ; ;)
 		{
-			Salih::Structures::LinkedLists::Node<T>* mem = node->getNext() ;
+			Salih::Structures::LinkedLists::DNode<T>* mem = node->getNext() ;
 			delete node ;
 			if(mem == nullptr) break ;
 			node = mem ;
@@ -146,15 +146,15 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const std::initializer
 	}
 	
 	this->size = 0 ;
-	this->head = new Salih::Structures::LinkedLists::Node<T>(*std::begin(values)) ;
-	Salih::Structures::LinkedLists::Node<T>* p = head ;
+	this->head = new Salih::Structures::LinkedLists::DNode<T>(*std::begin(values)) ;
+	Salih::Structures::LinkedLists::DNode<T>* p = head ;
 	size += 1 ;
 	for(auto it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::prev(std::end(values))) {
-			tail = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
 		} else {
-			p = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
 		}
 		this->size = size + 1 ;	
 	}
@@ -165,21 +165,21 @@ template <typename T>
 Salih::Types::Queue<T>::Queue(const Queue& q)
 {
 	this->size = 0 ;
-	Salih::Structures::LinkedLists::Node<T>* h = q.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	Salih::Structures::LinkedLists::DNode<T>* h = q.head ;
+	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	while(h != nullptr)
 	{
 		if(h->getPrev() == nullptr) 
 		{	
-			this->head = new Salih::Structures::LinkedLists::Node<T>(h->data) ;
+			this->head = new Salih::Structures::LinkedLists::DNode<T>(h->data) ;
 			p = head ;
 		}
 		else if(h->getNext() == nullptr)
 		{
-			this->tail = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+			this->tail = new Salih::Structures::LinkedLists::DNode<T>(h->data, *p, 0) ;
 		}
 		else {
-			p = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(h->data, *p, 0) ;
 		}
 		h = h->getNext() ;
 		this->size = this->size + 1 ;	
@@ -200,21 +200,21 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const Queue& q)
 	//	}
 	//}
 	this->size = 0 ;
-	Salih::Structures::LinkedLists::Node<T>* h = q.head ;
-	Salih::Structures::LinkedLists::Node<T>* p = nullptr ;
+	Salih::Structures::LinkedLists::DNode<T>* h = q.head ;
+	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	while(h != nullptr)
 	{
 		if(h->getPrev() == nullptr) 
 		{	
-			this->head = new Salih::Structures::LinkedLists::Node<T>(h->data) ;
+			this->head = new Salih::Structures::LinkedLists::DNode<T>(h->data) ;
 			p = head ;
 		}
 		else if(h->getNext() == nullptr)
 		{
-			this->tail = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+			this->tail = new Salih::Structures::LinkedLists::DNode<T>(h->data, *p, 0) ;
 		}
 		else {
-			p = new Salih::Structures::LinkedLists::Node<T>(h->data, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(h->data, *p, 0) ;
 		}
 		h = h->getNext() ;
 		this->size = this->size + 1 ;	
@@ -320,9 +320,9 @@ Salih::Types::Queue<T>::~Queue()
 {
 	if(head == nullptr) return;
 	
-	for(Salih::Structures::LinkedLists::Node<T>* node = head ; ;)
+	for(Salih::Structures::LinkedLists::DNode<T>* node = head ; ;)
 	{
-		Salih::Structures::LinkedLists::Node<T>* mem = node->getNext() ;
+		Salih::Structures::LinkedLists::DNode<T>* mem = node->getNext() ;
 		delete node ;
 		if(mem == nullptr) break ;
 		node = mem ;
@@ -351,14 +351,14 @@ const T& Salih::Types::Queue<T>::peek() const
 template <typename T>
 void Salih::Types::Queue<T>::push(T val)
 {
-	Salih::Structures::LinkedLists::Node<T>* p ;
+	Salih::Structures::LinkedLists::DNode<T>* p ;
 	if(size == 0)
 	{
-		p = new Salih::Structures::LinkedLists::Node<T>(val) ;
+		p = new Salih::Structures::LinkedLists::DNode<T>(val) ;
 		head = p ;
 	}
 	else {
-		p = new Salih::Structures::LinkedLists::Node<T>(val, *tail, 0) ;	
+		p = new Salih::Structures::LinkedLists::DNode<T>(val, *tail, 0) ;	
 	}
 	tail = p ;
 	size += 1 ;
@@ -367,13 +367,13 @@ void Salih::Types::Queue<T>::push(T val)
 template <typename T>
 void Salih::Types::Queue<T>::push(const std::initializer_list<T>& values)
 {
-	Salih::Structures::LinkedLists::Node<T>* p = tail ;
+	Salih::Structures::LinkedLists::DNode<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::prev(std::end(values))) {
-			tail = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
 		} else {
-			p = new Salih::Structures::LinkedLists::Node<T>(*it, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
 		}
 		size += 1 ;	
 	}
