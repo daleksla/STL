@@ -139,6 +139,19 @@ TEST_CASE("assigning r-value / temporary list using operator to list - value tes
 	REQUIRE(list2.tail->data == 4) ;
 }
 
+/* Slicing operator */
+TEST_CASE("() operator - correct value returned")
+{
+	intList list1 = {1,2,3,4,5,6} ;
+	REQUIRE(list1(0,2) == {1,2}) ;
+}
+
+TEST_CASE("() operator - returns seperate list")
+{
+	intList list1 = {1,2,3,4,5,6} ;
+	REQUIRE(list1(0,2).pointer != list1.pointer) ;
+}
+
 /* Index / access operator */
 TEST_CASE("[] operator - correct value returned")
 {
