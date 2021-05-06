@@ -15,7 +15,7 @@ all:
 	g++ $(LIB) $(STD) $(SOURCES)/queueTest.cpp -o $(EXES)/queueTest
 	
 	#testing linked list 
-	g++ $(LIB) $(STD) $(SOURCES)/linkedlistTest.cpp -o $(EXES)/linkedlistTest
+	g++ $(LIB) $(STD) $(SOURCES)/listTest.cpp -o $(EXES)/listTest
 	
 	#testing strings
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
