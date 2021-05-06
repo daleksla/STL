@@ -395,11 +395,11 @@ std::size_t Salih::Types::String::getSize() const
 	return this->size ;
 }
 
-String Salih::Types::String::operator()(const std::size_t a, const std::size_t b) const 
+Salih::Types::String Salih::Types::String::operator()(const std::size_t a, const std::size_t b) const 
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
-	Salih::Types::String tmp(b-a) ;
-	for(std::size_t idx = a ; idx < b ; idx++) tmp[idx-a] = this->pointer[idx] ;
+	Salih::Types::String tmp ;
+	for(std::size_t idx = a ; idx < b ; idx++) tmp[idx-a] += this->str[idx] ;
 	return tmp ;
 }
 
