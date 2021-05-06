@@ -76,20 +76,20 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../../Types/traits.hpp&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Algorithms_1_1Searches.html">   13</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih_1_1Algorithms_1_1Searches.html">Salih::Algorithms::Searches</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih_1_1Algorithms_1_1Searches.html">Salih::Algorithms::Searches</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    template&lt;typename T, typename = typename std::enable_if&lt; Salih::Types::Traits::isList&lt;T&gt;::value, T &gt;::type, <span class="keyword">typename</span> U&gt;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a735a57d4116279b8162293486f99b3eb">   16</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a735a57d4116279b8162293486f99b3eb">linearSearch</a>(<span class="keyword">const</span> T&amp; list, <span class="keyword">const</span> U&amp; target)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0 ; i &lt; list.getSize() ; i++) <span class="keywordflow">if</span>(list[i] == target) <span class="keywordflow">return</span> true ;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> false ;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0 ; i &lt; list.getSize() ; i++) <span class="keywordflow">if</span>(list[i] == target) <span class="keywordflow">return</span> true ;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> false ;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Searches_html"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Searches.html">Salih::Algorithms::Searches</a></div><div class="ttdoc">Linear search algorithm file.</div><div class="ttdef"><b>Definition:</b> _linearSearch.hpp:13</div></div>
+<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Searches_html"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Searches.html">Salih::Algorithms::Searches</a></div><div class="ttdoc">Binary search algorithm file.</div><div class="ttdef"><b>Definition:</b> _binarySearch.hpp:13</div></div>
 <div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Searches_html_a735a57d4116279b8162293486f99b3eb"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Searches.html#a735a57d4116279b8162293486f99b3eb">Salih::Algorithms::Searches::linearSearch</a></div><div class="ttdeci">bool linearSearch(const T &amp;list, const U &amp;target)</div><div class="ttdef"><b>Definition:</b> _linearSearch.hpp:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

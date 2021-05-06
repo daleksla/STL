@@ -100,6 +100,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:add7bc3c0c6d8c3a59718461e1ae768d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fd8e88693dce24daabddd88745de4cf"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a9fd8e88693dce24daabddd88745de4cf">getSize</a> () const</td></tr>
 <tr class="separator:a9fd8e88693dce24daabddd88745de4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99561acec1816106aa8aacafd9f9551b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a99561acec1816106aa8aacafd9f9551b">operator()</a> (const std::size_t, const std::size_t) const</td></tr>
+<tr class="separator:a99561acec1816106aa8aacafd9f9551b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5368958195203dd6e8548b59ccfa1f9d"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a5368958195203dd6e8548b59ccfa1f9d">operator[]</a> (const std::size_t)</td></tr>
 <tr class="separator:a5368958195203dd6e8548b59ccfa1f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a810137b9c0c56a9072f9305ac4c65561"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a810137b9c0c56a9072f9305ac4c65561">operator[]</a> (const std::size_t) const</td></tr>
@@ -324,7 +326,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>at method, another method to modify the structure </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">integer</td><td>to index structure with, bool (assumingly true flag as to check whether an index is valid) </td></tr>
+    <tr><td class="paramname">integer</td><td>to index structure with </td></tr>
+    <tr><td class="paramname">bool</td><td>(assumingly true flag as to check whether an index is valid) </td></tr>
   </table>
   </dd>
 </dl>
@@ -361,7 +364,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>at method, another method to modify the structure </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">integer</td><td>to index structure with, bool (assumingly true flag as to check whether an index is valid) </td></tr>
+    <tr><td class="paramname">integer</td><td>to index structure with, </td></tr>
+    <tr><td class="paramname">bool</td><td>(assumingly true flag as to check whether an index is valid) </td></tr>
   </table>
   </dd>
 </dl>
@@ -462,6 +466,46 @@ template&lt;typename OTHER &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a boolean representing whether equality is not met </dd></dl>
+
+</div>
+</div>
+<a id="a99561acec1816106aa8aacafd9f9551b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99561acec1816106aa8aacafd9f9551b">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a> <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Salih::Structures::Contiguous::Vector</a>&lt; T &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Slicing operator, extract part of structure directly </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">integer</td><td>to start slicing from <br  />
+ </td></tr>
+    <tr><td class="paramname">integer</td><td>to slice until <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sliced vector (ie values from index a-&gt;b) </dd></dl>
 
 </div>
 </div>

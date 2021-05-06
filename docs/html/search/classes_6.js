@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pointer_121',['Pointer',['../classSalih_1_1Types_1_1Pointer.html',1,'Salih::Types']]],
-  ['pointer_3c_20void_20_3e_122',['Pointer&lt; void &gt;',['../classSalih_1_1Types_1_1Pointer_3_01void_01_4.html',1,'Salih::Types']]]
+  ['pointer_123',['Pointer',['../classSalih_1_1Types_1_1Pointer.html',1,'Salih::Types']]],
+  ['pointer_3c_20void_20_3e_124',['Pointer&lt; void &gt;',['../classSalih_1_1Types_1_1Pointer_3_01void_01_4.html',1,'Salih::Types']]]
 ];

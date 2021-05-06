@@ -75,15 +75,92 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa52396c23d9b999e2ffe1c19e605f23f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#aa52396c23d9b999e2ffe1c19e605f23f">getMiddle</a> (const std::size_t size)</td></tr>
+<tr class="separator:aa52396c23d9b999e2ffe1c19e605f23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace43c610eabb5e1e47b19e524271715c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type, typename U &gt; </td></tr>
+<tr class="memitem:ace43c610eabb5e1e47b19e524271715c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#ace43c610eabb5e1e47b19e524271715c">binarySearch</a> (const T &amp;list, const U &amp;target)</td></tr>
+<tr class="separator:ace43c610eabb5e1e47b19e524271715c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735a57d4116279b8162293486f99b3eb"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; Salih::Types::Traits::isList&lt;T&gt;::value, T &gt;::type, typename U &gt; </td></tr>
 <tr class="memitem:a735a57d4116279b8162293486f99b3eb"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a735a57d4116279b8162293486f99b3eb">linearSearch</a> (const T &amp;list, const U &amp;target)</td></tr>
 <tr class="separator:a735a57d4116279b8162293486f99b3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Linear search algorithm file. </p>
+<div class="textblock"><p>Binary search algorithm file. </p>
+<p>Linear search algorithm file.</p>
 <dl class="section author"><dt>Author</dt><dd>Salih Mahmoud Sayed Ahmed @email <a href="#" onclick="location.href='mai'+'lto:'+'ahm'+'ed'+'233'+'@u'+'ni.'+'co'+'ven'+'tr'+'y.a'+'c.'+'uk'; return false;">ahmed<span style="display: none;">.nosp@m.</span>233@<span style="display: none;">.nosp@m.</span>uni.c<span style="display: none;">.nosp@m.</span>oven<span style="display: none;">.nosp@m.</span>try.a<span style="display: none;">.nosp@m.</span>c.uk</a> </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>May 2021 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ace43c610eabb5e1e47b19e524271715c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace43c610eabb5e1e47b19e524271715c">&#9670;&nbsp;</a></span>binarySearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type, typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Salih::Algorithms::Searches::binarySearch </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is a binary search algorithm, which splits a list into sub-segments to look upon and repeats until the element is found </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">const</td><td>reference to list (to be sorted) </td></tr>
+    <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean (indicates if supplied target was found or not) </dd></dl>
+
+</div>
+</div>
+<a id="aa52396c23d9b999e2ffe1c19e605f23f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa52396c23d9b999e2ffe1c19e605f23f">&#9670;&nbsp;</a></span>getMiddle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Salih::Algorithms::Searches::getMiddle </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is a useful inline function to obtain the 'middle index' value, based on a given size </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">const</td><td>integer (size of list to determine middle of) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>integer ('middle' index) </dd></dl>
+
+</div>
+</div>
 <a id="a735a57d4116279b8162293486f99b3eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a735a57d4116279b8162293486f99b3eb">&#9670;&nbsp;</a></span>linearSearch()</h2>
 
@@ -113,7 +190,8 @@ template&lt;typename T , typename  = typename std::enable_if&lt; Salih::Types::T
 </div><div class="memdoc">
 <p>This is a linear search algorithm, which iterates through a list until the end if need be </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>reference to list (to be sorted), const reference of target (to be identified in list) </td></tr>
+    <tr><td class="paramname">const</td><td>reference to list (to be sorted) </td></tr>
+    <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
   </table>
   </dd>
 </dl>

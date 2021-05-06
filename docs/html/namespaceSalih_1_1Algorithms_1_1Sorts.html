@@ -87,7 +87,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a8eb4002115aceda65f2912a8ca5ca0e7"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </td></tr>
 <tr class="memitem:a8eb4002115aceda65f2912a8ca5ca0e7"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#a8eb4002115aceda65f2912a8ca5ca0e7">merge</a> (const T &amp;x, const T &amp;y, bool(*const order)(int, int)=<a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</td></tr>
 <tr class="separator:a8eb4002115aceda65f2912a8ca5ca0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab584b751411215fc470345f4601cad33"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </td></tr>
+<tr class="memitem:ab584b751411215fc470345f4601cad33"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </td></tr>
 <tr class="memitem:ab584b751411215fc470345f4601cad33"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ab584b751411215fc470345f4601cad33">mergeSort</a> (const T &amp;data, bool(*const order)(int, int)=<a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</td></tr>
 <tr class="separator:ab584b751411215fc470345f4601cad33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97e103c659ad60c217d702ba5170b0b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value), T &gt;::type&gt; </td></tr>
@@ -286,7 +286,7 @@ template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </div>
+template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T Salih::Algorithms::Sorts::mergeSort </td>
