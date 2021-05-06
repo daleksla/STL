@@ -143,13 +143,14 @@ TEST_CASE("assigning r-value / temporary list using operator to list - value tes
 TEST_CASE("() operator - correct value returned")
 {
 	intList list1 = {1,2,3,4,5,6} ;
-	REQUIRE(list1(0,2) == {1,2}) ;
+	REQUIRE(list1(0,6) == intList{1,2,3,4,5,6}) ;
 }
 
 TEST_CASE("() operator - returns seperate list")
 {
 	intList list1 = {1,2,3,4,5,6} ;
-	REQUIRE(list1(0,2).pointer != list1.pointer) ;
+	REQUIRE(list1(0,6).head != list1.head) ;
+	REQUIRE(list1(0,6).tail != list1.tail) ;
 }
 
 /* Index / access operator */
