@@ -73,12 +73,14 @@ namespace Salih::Structures::Contiguous {
 			const T& operator[](const std::size_t) const ; 
 			
 			/** at method, another method to modify the structure
-			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
+			@param integer to index structure with
+			@param bool (assumingly true flag as to check whether an index is valid)
 			@return reference to a given element in the structure **/ 				
 			T& at(const std::size_t, const bool check = true) ; 
 			
 			/** at method, another method to modify the structure
-			@param integer to index structure with, bool (assumingly true flag as to check whether an index is valid)
+			@param integer to index structure with
+			@param bool (assumingly true flag as to check whether an index is valid)
 			@return constant reference to a given element in the structure **/ 	
 			const T& at(const std::size_t, const bool check = true) const ; 
 			
