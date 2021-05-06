@@ -75,6 +75,12 @@ namespace Salih::Structures::LinkedLists {
 			/** Destructor, frees memory and deletes list **/					
 			~LinkedList() ; //destructor - will deallocate memory if necessary
 			
+			/** Slicing operator, extract part of structure directly
+			@param integer to start slicing from	
+			@param integer to slice until			
+			@return sliced linked list (ie values from index a->b) **/ 
+			LinkedList operator()(const std::size_t, const std::size_t) const ;			
+			
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return reference to a given element in the list **/ 
