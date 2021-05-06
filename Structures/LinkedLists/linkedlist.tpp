@@ -192,6 +192,7 @@ Salih::Structures::LinkedLists::LinkedList<T> Salih::Structures::LinkedLists::Li
 	for( ; count < b ; count++ ) 
 	{
 		tmp.append(node->data) ;
+		node = node->getNext() ;
 	}
 	return tmp ;
 }
