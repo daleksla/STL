@@ -12,7 +12,7 @@
 
 #include "./_bubbleSort.hpp" /** File containing bubble sort algorithm **/
 
-#include "./_merge.hpp" /** File to sort two given lists **/
+#include "./_merge.hpp" /** File to merge two given lists **/
 
 #include "./_mergeSort.hpp" /** File containing merge sort algorithm **/
 
