@@ -1,5 +1,5 @@
 var searchData=
 [
   ['binarysearch_145',['binarySearch',['../namespaceSalih_1_1Algorithms_1_1Searches.html#ace43c610eabb5e1e47b19e524271715c',1,'Salih::Algorithms::Searches']]],
-  ['bubblesort_146',['bubbleSort',['../namespaceSalih_1_1Algorithms_1_1Sorts.html#adc225692606724db0ea0cedb01bf21a4',1,'Salih::Algorithms::Sorts']]]
+  ['bubblesort_146',['bubbleSort',['../namespaceSalih_1_1Algorithms_1_1Sorts.html#aa0afdd84df7ef17a1908991c4cd0f0e7',1,'Salih::Algorithms::Sorts']]]
 ];
