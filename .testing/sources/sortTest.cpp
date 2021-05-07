@@ -103,6 +103,9 @@ TEST_CASE("merge sort - does the accepted list get sorted with order not explici
 	floatVec list2{3,6,4,5} ;
 	list2 = Salih::Algorithms::Sorts::mergeSort(list2) ;
 	REQUIRE(list2 == floatVec{3,4,5,6}) ;
+	floatArr list3{3,6,4,5} ;
+	list3 = Salih::Algorithms::Sorts::mergeSort(list3) ;
+	REQUIRE(list3 == floatArr{3,4,5,6}) ;
 }
 
 TEST_CASE("merge sort - does the accepted list get sorted with ascending order set?")
@@ -113,6 +116,9 @@ TEST_CASE("merge sort - does the accepted list get sorted with ascending order s
 	floatVec list2{3,6,4,5} ;
 	list2 = Salih::Algorithms::Sorts::mergeSort(list2, Salih::Algorithms::Sorts::ASCEND) ;
 	REQUIRE(list2 == floatVec{3,4,5,6}) ;
+	floatArr list3{3,6,4,5} ;
+	list3 = Salih::Algorithms::Sorts::mergeSort(list3, Salih::Algorithms::Sorts::ASCEND) ;
+	REQUIRE(list3 == floatArr{3,4,5,6}) ;
 }
 
 TEST_CASE("merge sort - does the accepted list get sorted with descending order set?")
@@ -123,6 +129,9 @@ TEST_CASE("merge sort - does the accepted list get sorted with descending order 
 	floatVec list2{3,6,4,5} ;
 	list2 = Salih::Algorithms::Sorts::mergeSort(list2, Salih::Algorithms::Sorts::DESCEND) ;
 	REQUIRE(list2 == floatVec{6,5,4,3}) ;
+	floatArr list3{3,6,4,5} ;
+	list3 = Salih::Algorithms::Sorts::mergeSort(list3, Salih::Algorithms::Sorts::DESCEND) ;
+	REQUIRE(list3 == floatArr{6,5,4,3}) ;
 }
 
 //** helper functions **//
