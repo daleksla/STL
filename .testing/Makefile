@@ -19,3 +19,6 @@ all:
 	
 	#testing strings
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
+	
+	#testing sorting algorithms
+	g++ $(LIB) $(STD) $(SOURCES)/sortTest.cpp -o $(EXES)/sortTest
