@@ -17,6 +17,9 @@ all:
 	#testing linked list 
 	g++ $(LIB) $(STD) $(SOURCES)/listTest.cpp -o $(EXES)/listTest
 	
+	#testing forward linked list 
+	g++ $(LIB) $(STD) $(SOURCES)/fwdListTest.cpp -o $(EXES)/fwdListTest
+	
 	#testing strings
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
 	
