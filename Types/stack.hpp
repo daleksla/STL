@@ -118,9 +118,9 @@ Salih::Types::Stack<T>::Stack(const std::initializer_list<T>& values)
 	for(auto it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::prev(std::end(values))) {
-			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
+			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, p, 0) ;
 		} else {
-			p = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(*it, p, 0) ;
 		}
 		this->size = size + 1 ;	
 	}
@@ -145,9 +145,9 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const std::initializer
 	for(auto it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::prev(std::end(values))) {
-			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
+			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, p, 0) ;
 		} else {
-			p = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(*it, p, 0) ;
 		}
 		this->size = size + 1 ;	
 	}
@@ -318,7 +318,7 @@ void Salih::Types::Stack<T>::push(T val)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p ;
 	if(size == 0) p = new Salih::Structures::LinkedLists::DNode<T>(val) ;
-	else p = new Salih::Structures::LinkedLists::DNode<T>(val, *tail, 0) ;
+	else p = new Salih::Structures::LinkedLists::DNode<T>(val, tail) ;
 	tail = p ;
 	size += 1 ;
 }
@@ -330,9 +330,9 @@ void Salih::Types::Stack<T>::push(const std::initializer_list<T>& values)
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		if(it == std::prev(std::end(values))) {
-			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
+			tail = new Salih::Structures::LinkedLists::DNode<T>(*it, p, 0) ;
 		} else {
-			p = new Salih::Structures::LinkedLists::DNode<T>(*it, *p, 0) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(*it, p, 0) ;
 		}
 		size += 1 ;	
 	}
