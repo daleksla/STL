@@ -318,7 +318,7 @@ void Salih::Types::Stack<T>::push(T val)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p ;
 	if(size == 0) p = new Salih::Structures::LinkedLists::DNode<T>(val) ;
-	else p = new Salih::Structures::LinkedLists::DNode<T>(val, tail) ;
+	else p = new Salih::Structures::LinkedLists::DNode<T>(val, tail, 0) ;
 	tail = p ;
 	size += 1 ;
 }

@@ -176,10 +176,10 @@ Salih::Types::Queue<T>::Queue(const Queue& q)
 		}
 		else if(h->getNext() == nullptr)
 		{
-			this->tail = new Salih::Structures::LinkedLists::DNode<T>(h->data, p) ;
+			this->tail = new Salih::Structures::LinkedLists::DNode<T>(h->data, p, 0) ;
 		}
 		else {
-			p = new Salih::Structures::LinkedLists::DNode<T>(h->data, p) ;
+			p = new Salih::Structures::LinkedLists::DNode<T>(h->data, p, 0) ;
 		}
 		h = h->getNext() ;
 		this->size = this->size + 1 ;	
@@ -358,7 +358,7 @@ void Salih::Types::Queue<T>::push(T val)
 		head = p ;
 	}
 	else {
-		p = new Salih::Structures::LinkedLists::DNode<T>(val, tail) ;	
+		p = new Salih::Structures::LinkedLists::DNode<T>(val, tail, 0) ;	
 	}
 	tail = p ;
 	size += 1 ;
