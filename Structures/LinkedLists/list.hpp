@@ -32,7 +32,7 @@ namespace Salih::Structures::LinkedLists {
 			
 			std::size_t size ;
 			
-			inline void setSize(int) ;
+			inline void setSize(std::size_t) ;
 			
 			inline void del(DNode<T>*) ;
 			
@@ -141,6 +141,9 @@ namespace Salih::Structures::LinkedLists {
 			/** del method, deletes a value at a given position
 			@param position (from list to remove) **/			
 			void del(const std::size_t) ; //delete element in list based off rank (1st, 2nd, etc.)
+			
+			/** clear method, wipes and deletes all values **/			
+			void clear() ;			
 			
 			template<typename OTHER>
 			friend class List ;

@@ -19,7 +19,7 @@ Salih::Structures::LinkedLists::List<T>::List() : head(nullptr), tail(nullptr), 
 template <typename T>
 Salih::Structures::LinkedLists::List<T>::List(const std::initializer_list<T>& values)
 {
-	this->setSize(0) ;
+	this->setSize(values.size()) ;
 	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
@@ -28,11 +28,10 @@ Salih::Structures::LinkedLists::List<T>::List(const std::initializer_list<T>& va
 			this->head = new DNode<T>(*it) ;
 			p = head ;	
 		} else if(it == std::prev(std::end(values))) {
-			tail = new DNode<T>(*it, *p, 0) ;
+			tail = new DNode<T>(*it, p) ;
 		} else {
-			p = new DNode<T>(*it, *p, 0) ;
+			p = new DNode<T>(*it, p) ;
 		}
-		this->setSize(this->size + 1) ;	
 	}
 }
 
@@ -49,7 +48,7 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 			node = mem ;
 		}
 	} 
-	this->setSize(0) ;
+	this->setSize(values.size()) ;
 	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
@@ -58,11 +57,10 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 			this->head = new DNode<T>(*it) ;
 			p = head ;	
 		} else if(it == std::prev(std::end(values))) {
-			tail = new DNode<T>(*it, *p, 0) ;
+			tail = new DNode<T>(*it, p) ;
 		} else {
-			p = new DNode<T>(*it, *p, 0) ;
+			p = new DNode<T>(*it, p) ;
 		}
-		this->setSize(this->size + 1) ;	
 	}
 	return *this ;
 }
@@ -73,6 +71,7 @@ Salih::Structures::LinkedLists::List<T>::List(const Salih::Structures::LinkedLis
 	this->setSize(0) ;
 	Salih::Structures::LinkedLists::DNode<T>* h = list.head ;
 	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
+	this->head = nullptr ;
 	while(h != nullptr)
 	{
 		if(h->getPrev() == nullptr) 
@@ -82,10 +81,10 @@ Salih::Structures::LinkedLists::List<T>::List(const Salih::Structures::LinkedLis
 		}
 		else if(h->getNext() == nullptr)
 		{
-			tail = new DNode<T>(h->data, *p, 0) ;
+			tail = new DNode<T>(h->data, p) ;
 		}
 		else {
-			p = new DNode<T>(h->data, *p, 0) ;
+			p = new DNode<T>(h->data, p) ;
 		}
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
@@ -107,6 +106,7 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 	} 
 	
 	this->setSize(0) ;
+	this->head = nullptr ;
 	Salih::Structures::LinkedLists::DNode<T>* h = list.head ;
 	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
 	while(h != nullptr)
@@ -118,10 +118,10 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 		}
 		else if(h->getNext() == nullptr)
 		{
-			tail = new DNode<T>(h->data, *p, 0) ;
+			tail = new DNode<T>(h->data, p) ;
 		}
 		else {
-			p = new DNode<T>(h->data, *p, 0) ;
+			p = new DNode<T>(h->data, p) ;
 		}
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
@@ -362,7 +362,7 @@ inline void Salih::Structures::LinkedLists::List<T>::insert(Salih::Structures::L
 }
 
 template <typename T>
-inline void Salih::Structures::LinkedLists::List<T>::setSize(int newSize)
+inline void Salih::Structures::LinkedLists::List<T>::setSize(std::size_t newSize)
 {
 	this->size = newSize ;
 }
@@ -384,7 +384,7 @@ void Salih::Structures::LinkedLists::List<T>::append(T data)
 		this->head = node ;
 	}
 	else {
-		node = new DNode<T>(data, *tail, 0) ;
+		node = new DNode<T>(data, tail, 0) ;
 		this->tail = node ;
 	}
 	
@@ -398,7 +398,7 @@ void Salih::Structures::LinkedLists::List<T>::del(const std::size_t index)
 	
 	//loop through LL, find correct 'node'
 	DNode<T>* curNode = head ;
-	for(int count = 1 ; count < index ; count++) 
+	for(std::size_t count = 1 ; count < index ; count++) 
 	{
 		curNode = curNode->getNext() ;
 	}
@@ -418,6 +418,22 @@ inline void Salih::Structures::LinkedLists::List<T>::del(Salih::Structures::Link
 	else next->setPrev(prev) ;
 	delete node ;
 	node = nullptr ;
+}
+
+template <typename T>
+void Salih::Structures::LinkedLists::List<T>::clear()
+{
+	if(head != nullptr)
+	{
+		for(DNode<T>* node = head ; ;)
+		{
+			DNode<T>* mem = node->getNext() ;
+			delete node ;
+			if(mem == nullptr) break ;
+			node = mem ;
+		}
+	} 
+	this->head = nullptr ;
 }
 
 #endif
