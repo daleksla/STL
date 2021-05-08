@@ -17,11 +17,11 @@ Salih::Structures::LinkedLists::DNode<T>::DNode(T i_data, Salih::Structures::Lin
        auto temp = this ;
        if(flag == 0)
        {
-               this->prev = &node ;
+               this->prev = node ;
                prev->setNext(temp) ;
                this->next = nullptr ;
        } else {
-               this->next = &node ;
+               this->next = node ;
                next->setPrev(temp) ;
                this->prev = nullptr ;
        }

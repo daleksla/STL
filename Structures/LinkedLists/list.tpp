@@ -28,9 +28,9 @@ Salih::Structures::LinkedLists::List<T>::List(const std::initializer_list<T>& va
 			this->head = new DNode<T>(*it) ;
 			p = head ;	
 		} else if(it == std::prev(std::end(values))) {
-			tail = new DNode<T>(*it, p) ;
+			tail = new DNode<T>(*it, p, 0) ;
 		} else {
-			p = new DNode<T>(*it, p) ;
+			p = new DNode<T>(*it, p, 0) ;
 		}
 	}
 }
@@ -57,9 +57,9 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 			this->head = new DNode<T>(*it) ;
 			p = head ;	
 		} else if(it == std::prev(std::end(values))) {
-			tail = new DNode<T>(*it, p) ;
+			tail = new DNode<T>(*it, p, 0) ;
 		} else {
-			p = new DNode<T>(*it, p) ;
+			p = new DNode<T>(*it, p, 0) ;
 		}
 	}
 	return *this ;
@@ -81,10 +81,10 @@ Salih::Structures::LinkedLists::List<T>::List(const Salih::Structures::LinkedLis
 		}
 		else if(h->getNext() == nullptr)
 		{
-			tail = new DNode<T>(h->data, p) ;
+			tail = new DNode<T>(h->data, p, 0) ;
 		}
 		else {
-			p = new DNode<T>(h->data, p) ;
+			p = new DNode<T>(h->data, p, 0) ;
 		}
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
@@ -118,10 +118,10 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 		}
 		else if(h->getNext() == nullptr)
 		{
-			tail = new DNode<T>(h->data, p) ;
+			tail = new DNode<T>(h->data, p, 0) ;
 		}
 		else {
-			p = new DNode<T>(h->data, p) ;
+			p = new DNode<T>(h->data, p, 0) ;
 		}
 		h = h->getNext() ;
 		this->setSize(this->size + 1) ;	
