@@ -12,10 +12,9 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
 
 template <typename T>
-Salih::Structures::LinkedLists::SNode<T>::SNode(T i_data, Salih::Structures::LinkedLists::SNode<T>& i_prev) : data(i_data)
+Salih::Structures::LinkedLists::SNode<T>::SNode(T i_data, Salih::Structures::LinkedLists::SNode<T>* i_prev) : data(i_data), next(nullptr)
 {
-	auto temp = this ;
-	i_prev.setNext(temp) ;
+	i_prev->setNext(this) ;
 }
 
 template <typename T>
@@ -32,13 +31,13 @@ Salih::Structures::LinkedLists::SNode<T>& Salih::Structures::LinkedLists::SNode<
 } 
 
 template <typename T>
-Salih::Structures::LinkedLists::SNode<T>*& Salih::Structures::LinkedLists::SNode<T>::getNext()
+Salih::Structures::LinkedLists::SNode<T>* Salih::Structures::LinkedLists::SNode<T>::getNext()
 {
 	return next ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::SNode<T>::setNext(SNode<T>*& input) 
+void Salih::Structures::LinkedLists::SNode<T>::setNext(SNode<T>* input) 
 {
 	this->next = input ;
 }

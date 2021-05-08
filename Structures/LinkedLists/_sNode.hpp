@@ -22,15 +22,15 @@ namespace Salih::Structures::LinkedLists {
 		
 			SNode(T) ; //constructor - takes data
 			
+			SNode(T, SNode*) ;
+			
 			SNode(const SNode&) ; //copy constructor - copies data and removes links
 			
 			SNode& operator=(const SNode&) ; //copy constructor - copies data and removes links
-			
-			SNode(T, SNode&) ; //constructor - takes data, (prev) node to connect to
 		
-			SNode*& getNext() ; //returns next node in LL
+			SNode* getNext() ; //returns next node in LL
 
-			void setNext(SNode*&) ; //sets next node in LL
+			void setNext(SNode*) ; //sets next node in LL
 
 	} ;	
 }
