@@ -344,24 +344,19 @@ void Salih::Structures::LinkedLists::FwdList<T>::insert(const std::size_t pos, T
 	
 	//loop through LL, find correct 'node'
 	SNode<T>* curNode = head ;
-	for(std::size_t count = 1 ; count < pos ; count++) 
+	for(std::size_t count = 1 ; count < pos - 1 ; count++) 
 	{
-		if(count >= pos - 2) break ;
 		curNode = curNode->getNext() ;
 	}
 
-	this->insert(curNode, data) ;
-	this->setSize(this->size + 1) ;	
-}
-
-template <typename T>
-inline void Salih::Structures::LinkedLists::FwdList<T>::insert(Salih::Structures::LinkedLists::SNode<T>* node, T data)
-{ //correct function
 	auto newNode = new SNode<T>(data) ;
-	SNode<T>* nextAfterNew = node->getNext() ;
+	auto nextNode = curNode->getNext() ;
+	curNode->setNext(newNode) ;
+	newNode->setNext(nextNode) ;
 	
-	this->head = newNode ;
-	this->head->setNext(nextAfterNew) ;
+	if(pos == 1) this->head = newNode ;
+	
+	this->setSize(this->size + 1) ;	
 }
 
 template <typename T>

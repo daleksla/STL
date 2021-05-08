@@ -32,8 +32,6 @@ namespace Salih::Structures::LinkedLists {
 			
 			inline void setSize(int) ;
 			
-			inline void insert(SNode<T>*, T) ;
-			
 		public:
 			/** Empty constructor, intialises empty list 
 			@return <initialised-object> **/
