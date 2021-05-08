@@ -147,9 +147,9 @@ $(function() {
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">if</span>(it == std::prev(std::end(values))) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, *p, 0) ;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, p, 0) ;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, *p, 0) ;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, p, 0) ;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        this-&gt;size = size + 1 ; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
@@ -176,9 +176,9 @@ $(function() {
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">if</span>(it == std::prev(std::end(values))) {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, *p, 0) ;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, p, 0) ;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, *p, 0) ;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, p, 0) ;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        this-&gt;size = size + 1 ; </div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    }</div>
@@ -200,10 +200,10 @@ $(function() {
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(h-&gt;getNext() == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        {</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            this-&gt;tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, *p, 0) ;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            this-&gt;tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, p, 0) ;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        }</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, *p, 0) ;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, p, 0) ;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        }</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        h = h-&gt;getNext() ;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        this-&gt;size = this-&gt;size + 1 ;   </div>
@@ -235,10 +235,10 @@ $(function() {
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        }</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(h-&gt;getNext() == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        {</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            this-&gt;tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, *p, 0) ;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            this-&gt;tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, p) ;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        }</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, *p, 0) ;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(h-&gt;data, p) ;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        }</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        h = h-&gt;getNext() ;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        this-&gt;size = this-&gt;size + 1 ;   </div>
@@ -382,7 +382,7 @@ $(function() {
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        head = p ;</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    }</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(val, *tail, 0) ;   </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(val, tail, 0) ;    </div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    }</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    tail = p ;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    size += 1 ;</div>
@@ -395,9 +395,9 @@ $(function() {
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = std::begin(values) ; it != std::end(values) ; it = std::next(it))</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    {</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">if</span>(it == std::prev(std::end(values))) {</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, *p, 0) ;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            tail = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, p, 0) ;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, *p, 0) ;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            p = <span class="keyword">new</span> <a class="code" href="classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html">Salih::Structures::LinkedLists::DNode&lt;T&gt;</a>(*it, p, 0) ;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        }</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        size += 1 ; </div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    }</div>
