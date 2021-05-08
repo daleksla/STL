@@ -28,17 +28,15 @@ namespace Salih::Structures::LinkedLists {
 			
 			DNode& operator=(const DNode&) ; //copy constructor - copies data and removes head and tail
 			
-			DNode(T, DNode&, bool) ; //constructor - takes data, node to connect to, specify direction (prev or next)
+			DNode(T, DNode*, bool) ; //constructor - takes data, connects to specified node
+
+			DNode* getPrev() ; //gets prev node in LL
 		
-			DNode(T, DNode&, DNode&) ; //constructor - takes data, prev node to connect to, next node to connect to
+			void setPrev(DNode*) ; //sets prev node in LL
 
-			DNode*& getPrev() ; //gets prev node in LL
-		
-			void setPrev(DNode*&) ; //sets prev node in LL
+			DNode* getNext() ; //returns next node in LL
 
-			DNode*& getNext() ; //returns next node in LL
-
-			void setNext(DNode*&) ; //sets next node in LL
+			void setNext(DNode*) ; //sets next node in LL
 
 			void deleteNode() ; //connects previous and next node to each other, deletes data
 

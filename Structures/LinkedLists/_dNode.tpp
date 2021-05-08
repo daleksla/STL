@@ -12,27 +12,19 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>::DNode(T i_data, Salih::Structures::LinkedLists::DNode<T>& i_prev, Salih::Structures::LinkedLists::DNode<T>& i_next) : data(i_data), prev(&i_prev), next(&i_next) 
+Salih::Structures::LinkedLists::DNode<T>::DNode(T i_data, Salih::Structures::LinkedLists::DNode<T>* node, bool flag) : data(i_data)
 {
-	auto temp = this ;
-	prev->setNext(temp) ;
-	next->setPrev(temp) ;
-}
-
-template <typename T>
-Salih::Structures::LinkedLists::DNode<T>::DNode(T i_data, Salih::Structures::LinkedLists::DNode<T>& node, bool type) : data(i_data)
-{
-	auto temp = this ;
-	if(type == 0)
-	{
-		this->prev = &node ;
-		prev->setNext(temp) ;
-		this->next = nullptr ;
-	} else {
-		this->next = &node ;
-		next->setPrev(temp) ;
-		this->prev = nullptr ;
-	}
+       auto temp = this ;
+       if(flag == 0)
+       {
+               this->prev = &node ;
+               prev->setNext(temp) ;
+               this->next = nullptr ;
+       } else {
+               this->next = &node ;
+               next->setPrev(temp) ;
+               this->prev = nullptr ;
+       }
 }
 
 template <typename T>
@@ -50,25 +42,25 @@ Salih::Structures::LinkedLists::DNode<T>& Salih::Structures::LinkedLists::DNode<
 } 
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>*& Salih::Structures::LinkedLists::DNode<T>::getPrev()
+Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev()
 {
 	return prev ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::DNode<T>::setPrev(DNode<T>*& input) 
+void Salih::Structures::LinkedLists::DNode<T>::setPrev(DNode<T>* input) 
 {
 	this->prev = input ;
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>*& Salih::Structures::LinkedLists::DNode<T>::getNext()
+Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext()
 {
 	return next ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::DNode<T>::setNext(DNode<T>*& input) 
+void Salih::Structures::LinkedLists::DNode<T>::setNext(DNode<T>* input) 
 {
 	this->next = input ;
 }
