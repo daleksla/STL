@@ -429,6 +429,7 @@ void Salih::Structures::LinkedLists::FwdList<T>::clear()
 		}
 	} 
 	this->head = nullptr ;
+	this->setSize(0) ;
 }
 
 #endif
