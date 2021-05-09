@@ -112,6 +112,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9348bafb5576f6ceced74c0d587ccb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cf513eff734ac5d476ff4c5a2dbbf38"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Types_1_1String.html#a4cf513eff734ac5d476ff4c5a2dbbf38">operator!=</a> (const <a class="el" href="classSalih_1_1Types_1_1String.html">String</a> &amp;) const</td></tr>
 <tr class="separator:a4cf513eff734ac5d476ff4c5a2dbbf38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59be65a27b3e20c1168e2447fd0318e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Types_1_1String.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Types_1_1String.html#a59be65a27b3e20c1168e2447fd0318e6">operator*</a> (std::size_t) const</td></tr>
+<tr class="separator:a59be65a27b3e20c1168e2447fd0318e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaab08b138ba58019c76c00a218220ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Types_1_1String.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Types_1_1String.html#abaab08b138ba58019c76c00a218220ce">operator*=</a> (std::size_t)</td></tr>
+<tr class="separator:abaab08b138ba58019c76c00a218220ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d463bb39589df5b356e71f83b70f3ea"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Types_1_1String.html#a0d463bb39589df5b356e71f83b70f3ea">get</a> () const</td></tr>
 <tr class="separator:a0d463bb39589df5b356e71f83b70f3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19dc95aa52df14d6918dc16754c0371e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Types_1_1String.html#a19dc95aa52df14d6918dc16754c0371e">getSize</a> () const</td></tr>
@@ -521,6 +525,56 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sliced string (ie values from index a-&gt;b) </dd></dl>
+
+</div>
+</div>
+<a id="a59be65a27b3e20c1168e2447fd0318e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59be65a27b3e20c1168e2447fd0318e6">&#9670;&nbsp;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSalih_1_1Types_1_1String.html">Salih::Types::String</a> Salih::Types::String::operator* </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Multiplication operator, duplicates a string x amount of times </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>to multiply string by </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a duplicated string object </dd></dl>
+
+</div>
+</div>
+<a id="abaab08b138ba58019c76c00a218220ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaab08b138ba58019c76c00a218220ce">&#9670;&nbsp;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSalih_1_1Types_1_1String.html">Salih::Types::String</a> &amp; Salih::Types::String::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Multiplication operator, duplicates a string x amount of times </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>to multiply string by </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a reference to the calling string </dd></dl>
 
 </div>
 </div>
