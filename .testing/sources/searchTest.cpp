@@ -6,7 +6,9 @@
 #include <lib/Structures/Contiguous/vector.hpp>
 #include <lib/Structures/Contiguous/array.hpp>
 #include <lib/Structures/LinkedLists/list.hpp>
-#include <lib/Algorithms/Searches/searches.hpp>
+#include <lib/Algorithms/Searches/binarySearch.hpp>
+#include <lib/Algorithms/Searches/interpolationSearch.hpp>
+#include <lib/Algorithms/Searches/linearSearch.hpp>
 
 typedef Salih::Structures::LinkedLists::List<int> intList ;
 typedef Salih::Structures::Contiguous::Array<float,4> floatArr ;

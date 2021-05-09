@@ -6,7 +6,9 @@
 #include <lib/Structures/Contiguous/vector.hpp>
 #include <lib/Structures/Contiguous/array.hpp>
 #include <lib/Structures/LinkedLists/list.hpp>
-#include <lib/Algorithms/Sorts/sorts.hpp>
+#include <lib/Algorithms/Sorts/mergeSort.hpp>
+#include <lib/Algorithms/Sorts/bubbleSort.hpp>
+#include <lib/Algorithms/Sorts/selectionSort.hpp>
 
 typedef Salih::Structures::LinkedLists::List<int> intList ;
 typedef Salih::Structures::Contiguous::Array<float,4> floatArr ;
