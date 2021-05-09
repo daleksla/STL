@@ -25,3 +25,6 @@ all:
 	
 	#testing sorting algorithms
 	g++ $(LIB) $(STD) $(SOURCES)/sortTest.cpp -o $(EXES)/sortTest
+	
+	#testing searching algorithms
+	g++ $(LIB) $(STD) $(SOURCES)/searchTest.cpp -o $(EXES)/searchTest
