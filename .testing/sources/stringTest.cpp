@@ -212,6 +212,39 @@ TEST_CASE("addition and replacement operator ('+=') for a String - testing memor
 	REQUIRE(&v == beforeV) ;
 }
 
+/* multiplication operators */
+
+TEST_CASE("multiplication operator ('*') for a String - testing value")
+{
+	String v("salih") ;
+	String w = v * 2 ;
+	char* val = "salihsalih" ;
+	REQUIRE(strcmp(w.str, val) == 0) ;
+}
+
+TEST_CASE("multiplication operator ('*') for a String - testing memory")
+{
+	String v("salih") ;
+	String w = v * 2 ;
+	REQUIRE(&w != &v) ;
+}
+
+TEST_CASE("multiplication and replacement operator ('*=') for a char - testing value")
+{
+	String v("salih") ;
+	v *= 2 ;
+	char* val = "salihsalih" ;
+	REQUIRE(strcmp(v.str, val) == 0) ;	
+}
+
+TEST_CASE("multiplication and replacement operator ('*=') for a char - testing memory")
+{
+	String v("salih") ;
+	auto beforeV = &v ;
+	v *= 2 ;
+	REQUIRE(beforeV == &v) ;
+}
+
 /* general functions */
 
 TEST_CASE("'getSize()' method - returns correct size")
