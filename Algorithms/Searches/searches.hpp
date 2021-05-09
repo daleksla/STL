@@ -10,4 +10,6 @@
 
 #include "./_linearSearch.hpp" /** File containing linear search algorithm **/
 
+#include "./_binarySearch.hpp" /** File containing binary search algorithm **/
+
 #endif
