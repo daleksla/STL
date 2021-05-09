@@ -12,4 +12,6 @@
 
 #include "./_binarySearch.hpp" /** File containing binary search algorithm **/
 
+#include "./_interpolationSearch.hpp" /** File containing binary search algorithm **/
+
 #endif
