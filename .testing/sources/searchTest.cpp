@@ -106,3 +106,45 @@ TEST_CASE("binary search - does it find value in empty list?")
 	floatVec list2{} ;
 	REQUIRE(Salih::Algorithms::Searches::binarySearch(list2,5) == false) ;
 }
+
+/* interpolation search */
+TEST_CASE("interpolation search - does it find valid value at start of list?")
+{
+	intList list1{1,2,3} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list1,1) == true) ;
+	floatVec list2{3,4,5,6} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,5) == true) ;
+}
+
+TEST_CASE("interpolation search - does it find valid value in middle of list?")
+{
+	intList list1{1,2,3} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list1,3) == true) ;
+	floatVec list2{3,4,5,6} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,6) == true) ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,4) == true) ;
+}
+
+TEST_CASE("interpolation search - does it find valid value at end of list?")
+{
+	intList list1{1,2,3} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list1,2) == true) ;
+	floatVec list2{3,4,5,6} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,5) == true) ;
+}
+
+TEST_CASE("interpolation search - does it find invalid value in list?")
+{
+	intList list1{1,2,3} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list1,10) == false) ;
+	floatVec list2{3,4,5,6} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,20) == false) ;
+}
+
+TEST_CASE("interpolation search - does it find value in empty list?")
+{
+	intList list1{} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list1,2) == false) ;
+	floatVec list2{} ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,5) == false) ;
+}
