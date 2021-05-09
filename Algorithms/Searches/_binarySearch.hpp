@@ -37,12 +37,12 @@ namespace Salih::Algorithms::Searches {
 		const std::size_t size = list.getSize() ; 
 		if(size == 0) return false ;
 		const std::size_t middleN = getMiddle(size) ;
-		const auto middleVal = list[middleN-1] ; // get middle element of list
+		const auto middleVal = list[middleN] ; // get middle element of list
 
 		if(target == middleVal) return true ;
 		else if(size != 1) // if there's more elements in the list we can actually look at
 		{
-			if(target < middleVal) return binarySearch(list(0,middleN-1), target) ;
+			if(target < middleVal) return binarySearch(list(0,middleN), target) ;
 			else if(target > middleVal) return binarySearch(list(middleN,size), target) ;
 		}
 		else return false ; // if there aren't more elements we can look at
