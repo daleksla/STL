@@ -19,6 +19,7 @@ namespace Salih::Algorithms::Searches {
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
 	{
+		if(list.getSize() == 0) return false ;
 		for(int i = 0 ; i < list.getSize() ; i++) if(list[i] == target) return true ;
 		return false ;
 	}
