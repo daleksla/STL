@@ -115,12 +115,12 @@ namespace Salih::Types {
 			@return a boolean representing whether equality is not met **/ 				
 			bool operator!=(const String&) const ;
 			
-			/** Multiplication operator, duplicates a string x amount of times
+			/** Multiplication operator, creates a duplicated string x amount of times
 			@param number to multiply string by
 			@return a duplicated string object **/ 				
 			String operator*(std::size_t) const ;
 			
-			/** Multiplication operator, duplicates a string x amount of times
+			/** Multiplication operator, overwrites a string with said duplicated string x amount of times
 			@param number to multiply string by
 			@return a reference to the calling string **/ 			
 			String& operator*=(std::size_t) ;			
