@@ -353,9 +353,9 @@ Salih::Types::String Salih::Types::String::operator*(std::size_t x) const
 		}
 	}
 	tmpStr[this->size * x] = '\0' ;
-	delete[] this->str ;
-	tmp.str = tmp ;
+	tmp.str = tmpStr ;
 	tmp.size = this->size * x ;
+	return tmp ;
 }
 
 Salih::Types::String& Salih::Types::String::operator*=(std::size_t x)
@@ -370,6 +370,7 @@ Salih::Types::String& Salih::Types::String::operator*=(std::size_t x)
 	}
 	tmpStr[this->size * x] = '\0' ;
 	delete[] this->str ;
+	this->str = tmpStr ;
 	this->size = this->size * x ;	
 	return *this ;
 }
