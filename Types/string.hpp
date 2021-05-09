@@ -114,6 +114,16 @@ namespace Salih::Types {
 			@param wrapped / object string   
 			@return a boolean representing whether equality is not met **/ 				
 			bool operator!=(const String&) const ;
+			
+			/** Multiplication operator, duplicates a string x amount of times
+			@param number to multiply string by
+			@return a duplicated string object **/ 				
+			String operator*(std::size_t) const ;
+			
+			/** Multiplication operator, duplicates a string x amount of times
+			@param number to multiply string by
+			@return a reference to the calling string **/ 			
+			String& operator*=(std::size_t) ;			
 
 			/** get method, returns the c-string representation of a string
 			@return constant c-string **/ 				
@@ -328,6 +338,39 @@ Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
 	delete[] this->str ;
 	this->str = tmp ;
 	
+	return *this ;
+}
+
+Salih::Types::String Salih::Types::String::operator*(std::size_t x) const
+{
+	Salih::Types::String tmp ;
+	char* tmpStr = new char[(this->size * x) + 1] ;
+	for(int i = 0 ; i < x ; i++)
+	{
+		for(int j = 0 ; j < this->size ; j++)
+		{
+			tmpStr[j+(i*this->size)] = this->str[j] ;
+		}
+	}
+	tmpStr[this->size * x] = '\0' ;
+	delete[] this->str ;
+	tmp.str = tmp ;
+	tmp.size = this->size * x ;
+}
+
+Salih::Types::String& Salih::Types::String::operator*=(std::size_t x)
+{
+	char* tmpStr = new char[(this->size * x) + 1] ;
+	for(int i = 0 ; i < x ; i++)
+	{
+		for(int j = 0 ; j < this->size ; j++)
+		{
+			tmpStr[j+(i*this->size)] = this->str[j] ;
+		}
+	}
+	tmpStr[this->size * x] = '\0' ;
+	delete[] this->str ;
+	this->size = this->size * x ;	
 	return *this ;
 }
 
