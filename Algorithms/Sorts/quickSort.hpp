@@ -16,7 +16,7 @@ namespace Salih::Algorithms::Sorts {
 
 	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::isDynamic<T>::value && Salih::Types::Traits::getDimensions<T>::value == 1), T >::type>
 	T quickSort(const T& list, bool(*const order)(int, int) = ASCEND)
-	/** This is the quick sort algorithm. It creates two empty arrays to hold elements less than the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays and adds them together
+	/** This is the quick sort algorithm. It creates three empty arrays to hold elements less than the pivot value, the same as the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays and adds them together
 	 * @param copy of list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either ASCEND (1,...,n) or DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
