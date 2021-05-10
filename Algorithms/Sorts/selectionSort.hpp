@@ -1,5 +1,5 @@
-#ifndef _SELECTIONSORT_HPP
-#define _SELECTIONSORT_HPP
+#ifndef SELECTIONSORT_HPP
+#define SELECTIONSORT_HPP
 #pragma once
 
 #include "../../Types/traits.hpp"
