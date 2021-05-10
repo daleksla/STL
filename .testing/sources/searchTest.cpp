@@ -119,7 +119,7 @@ TEST_CASE("binary search - does it find invalid value in list?")
 	floatVec list2{3,4,5,6} ;
 	REQUIRE(Salih::Algorithms::Searches::binarySearch(list2,20) == false) ;
 	doubleFwdList list4{3,4,5,6} ;
-	REQUIRE(Salih::Algorithms::Searches::binarySearch(list4,30) == true) ;
+	REQUIRE(Salih::Algorithms::Searches::binarySearch(list4,30) == false) ;
 }
 
 TEST_CASE("binary search - does it find value in empty list?")
@@ -129,7 +129,7 @@ TEST_CASE("binary search - does it find value in empty list?")
 	floatVec list2{} ;
 	REQUIRE(Salih::Algorithms::Searches::binarySearch(list2,5) == false) ;
 	doubleFwdList list4{} ;
-	REQUIRE(Salih::Algorithms::Searches::binarySearch(list4,30) == true) ;
+	REQUIRE(Salih::Algorithms::Searches::binarySearch(list4,30) == false) ;
 }
 
 /* interpolation search */
@@ -172,7 +172,7 @@ TEST_CASE("interpolation search - does it find invalid value in list?")
 	floatVec list2{3,4,5,6} ;
 	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,20) == false) ;
 	doubleFwdList list4{3,4,5,6} ;
-	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list4,30) == true) ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list4,30) == false) ;
 }
 
 TEST_CASE("interpolation search - does it find value in empty list?")
@@ -182,7 +182,7 @@ TEST_CASE("interpolation search - does it find value in empty list?")
 	floatVec list2{} ;
 	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,5) == false) ;
 	doubleFwdList list4{} ;
-	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list4,30) == true) ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list4,30) == false) ;
 }
 
 TEST_CASE("interpolation search - does it find in unevenly (yet ordered) list?")
@@ -190,7 +190,7 @@ TEST_CASE("interpolation search - does it find in unevenly (yet ordered) list?")
 	intList list1{1,2,4,5,8,11,12} ;
 	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list1,8) == true) ;
 	floatVec list2{1,2,4,5,8,11,12} ;
-	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,8) == false) ;
+	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list2,8) == true) ;
 	doubleFwdList list4{1,2,4,5,8,11,12} ;
 	REQUIRE(Salih::Algorithms::Searches::interpolationSearch(list4,8) == true) ;
 }
