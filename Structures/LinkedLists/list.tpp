@@ -253,18 +253,26 @@ const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, co
 template<typename T>
 Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>::operator+(const Salih::Structures::LinkedLists::List<T>& list) const
 {
-	List<T> tmp ;
-	DNode<T> node = this->head ;
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp.append(node->data) ;
+	Salih::Structures::LinkedLists::List<T> tmp ;
+	Salih::Structures::LinkedLists::DNode<T>* node = this->head ;
+	for(std::size_t i = 0 ; i < this->size ; i++)
+	{
+		tmp.append(node->data) ;
+		node = node->getNext() ;
+	}
 	node = list.head ;	
-	for(std::size_t i = 0 ; i < list.size ; i++) tmp.append(node->data) ;
+	for(std::size_t i = 0 ; i < list.size ; i++)
+	{
+		tmp.append(node->data) ;
+		node = node->getNext() ;
+	}
 	return tmp ;
 }
 
 template<typename T>
 Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator+=(const Salih::Structures::LinkedLists::List<T>& list)
 {
-	DNode<T> node = list.head ;	
+	Salih::Structures::LinkedLists::DNode<T>* node = list.head ;
 	for(std::size_t i = 0 ; i < list.size ; i++) this->append(node->data) ;
 	return *this ;
 }
