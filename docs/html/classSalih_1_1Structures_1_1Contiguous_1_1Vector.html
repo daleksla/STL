@@ -110,6 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a914a139ee6f2e057773eeb1e9984b4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdb300f7db0f94f76ea8008051905bc0"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#afdb300f7db0f94f76ea8008051905bc0">at</a> (const std::size_t, const bool check=true) const</td></tr>
 <tr class="separator:afdb300f7db0f94f76ea8008051905bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e33e88d212b3a1bc96205c017471542"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a7e33e88d212b3a1bc96205c017471542">operator+</a> (const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a> &amp;) const</td></tr>
+<tr class="separator:a7e33e88d212b3a1bc96205c017471542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa965fe7a35f03dbf8d74a90836e429f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#aa965fe7a35f03dbf8d74a90836e429f0">operator+=</a> (const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a> &amp;)</td></tr>
+<tr class="separator:aa965fe7a35f03dbf8d74a90836e429f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac43adae6e3735190f35c3d7a955f132f"><td class="memTemplParams" colspan="2">template&lt;typename OTHER &gt; </td></tr>
 <tr class="memitem:ac43adae6e3735190f35c3d7a955f132f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#ac43adae6e3735190f35c3d7a955f132f">operator==</a> (const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a>&lt; OTHER &gt; &amp;) const</td></tr>
 <tr class="separator:ac43adae6e3735190f35c3d7a955f132f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -506,6 +510,60 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sliced vector (ie values from index a-&gt;b) </dd></dl>
+
+</div>
+</div>
+<a id="a7e33e88d212b3a1bc96205c017471542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e33e88d212b3a1bc96205c017471542">&#9670;&nbsp;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a> <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Salih::Structures::Contiguous::Vector</a>&lt; T &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Concatenation operator, adds two vectors together </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>structure to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector containing combined values </dd></dl>
+
+</div>
+</div>
+<a id="aa965fe7a35f03dbf8d74a90836e429f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa965fe7a35f03dbf8d74a90836e429f0">&#9670;&nbsp;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a>&amp; <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Salih::Structures::Contiguous::Vector</a>&lt; T &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Concatenation operator, modifies / appends calling vector with additional values </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>structure to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a reference to the calling vector </dd></dl>
 
 </div>
 </div>

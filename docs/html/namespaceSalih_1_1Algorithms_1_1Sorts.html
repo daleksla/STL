@@ -102,6 +102,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a50a2fce60c16b724ae09454922ef29e6"><td class="memTemplParams" colspan="2">template&lt;typename U , typename  = typename std::enable_if&lt;Salih::Types::Traits::getDimensions&lt;U&gt;::value==0,U&gt;::type, std::size_t SIZE&gt; </td></tr>
 <tr class="memitem:a50a2fce60c16b724ae09454922ef29e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Salih::Structures::Contiguous::Array</a>&lt; U, SIZE &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#a50a2fce60c16b724ae09454922ef29e6">mergeSort</a> (const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Salih::Structures::Contiguous::Array</a>&lt; U, SIZE &gt; &amp;data, bool(*const order)(int, int)=<a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</td></tr>
 <tr class="separator:a50a2fce60c16b724ae09454922ef29e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac227e09c4ccddf73163e44b10259104"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </td></tr>
+<tr class="memitem:aac227e09c4ccddf73163e44b10259104"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#aac227e09c4ccddf73163e44b10259104">quickSort</a> (const T &amp;list, bool(*const order)(int, int)=<a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</td></tr>
+<tr class="separator:aac227e09c4ccddf73163e44b10259104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a131cab16ba495ddb4e7b849c187a099d"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </td></tr>
 <tr class="memitem:a131cab16ba495ddb4e7b849c187a099d"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#a131cab16ba495ddb4e7b849c187a099d">selectionSort</a> (T list, bool(*const order)(int, int)=<a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a>)</td></tr>
 <tr class="separator:a131cab16ba495ddb4e7b849c187a099d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,6 +112,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Flags for sorting algorithms. </p>
 <p>Selection sort algorithm file.</p>
+<p>Quick sort algorithm file.</p>
 <p>Merge sort algorithm file.</p>
 <p>Bubble sort algorithm file.</p>
 <p>Swapping functionality for sorting algorithms.</p>
@@ -470,6 +474,44 @@ template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::
 <p>This is the merge sort algorithm. It works splitting a list into minimal sublists and combining two, in order, into a bigger list. It keeps merging the lists together, then the merged lists together, until a fully sorted list is formed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">const</td><td>refernece to list (to be sorted) </td></tr>
+    <tr><td class="paramname">const</td><td>function pointer, will facilitate ordering of list. Set as either ASCEND (1,...,n) or DESCEND (n,...,1) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>list (sorted version) </dd></dl>
+
+</div>
+</div>
+<a id="aac227e09c4ccddf73163e44b10259104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac227e09c4ccddf73163e44b10259104">&#9670;&nbsp;</a></span>quickSort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T Salih::Algorithms::Sorts::quickSort </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramname"><em>order</em> = <code><a class="el" href="namespaceSalih_1_1Algorithms_1_1Sorts.html#ae8e0482f7a377567def8d56f1a5b5d32">ASCEND</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the quick sort algorithm. It creates three empty arrays to hold elements less than the pivot value, the same as the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays and adds them together </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">copy</td><td>of list (to be sorted) </td></tr>
     <tr><td class="paramname">const</td><td>function pointer, will facilitate ordering of list. Set as either ASCEND (1,...,n) or DESCEND (n,...,1) </td></tr>
   </table>
   </dd>
