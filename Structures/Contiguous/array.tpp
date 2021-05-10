@@ -137,6 +137,29 @@ const T& Salih::Structures::Contiguous::Array<T,SIZE>::at(const std::size_t x, c
 }	
 
 template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,(SIZE+SIZE)> Salih::Structures::Contiguous::Array<T,SIZE>::operator+(const Salih::Structures::Contiguous::Array<T,SIZE>& arr) const
+{
+	Array<T,(SIZE+SIZE)> tmp ;
+	
+	for(std::size_t i = 0 ; i < SIZE ; i++) tmp->pointer[i] = this->pointer[i] ;
+	for(std::size_t i = 0 ; i < SIZE ; i++) tmp->pointer[i+SIZE] = arr.pointer[i] ;
+	
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+template<std::size_t DIFF>
+Salih::Structures::Contiguous::Array<T,(SIZE+DIFF)> Salih::Structures::Contiguous::Array<T,SIZE>::operator+(const Salih::Structures::Contiguous::Array<T,DIFF>& arr) const
+{
+	Array<T,(SIZE+DIFF)> tmp ;
+	
+	for(std::size_t i = 0 ; i < SIZE ; i++) tmp->pointer[i] = this->pointer[i] ;
+	for(std::size_t i = 0 ; i < DIFF ; i++) tmp->pointer[i+SIZE] = arr.pointer[i] ;
+	
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
 bool Salih::Structures::Contiguous::Array<T,SIZE>::operator==(const Salih::Structures::Contiguous::Array<T,SIZE>& b) const
 {
 	for(std::size_t i = 0 ; i < SIZE ; i++)
