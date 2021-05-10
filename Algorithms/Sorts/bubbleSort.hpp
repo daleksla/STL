@@ -1,5 +1,5 @@
-#ifndef _BUBBLESORT_HPP
-#define _BUBBLESORT_HPP
+#ifndef BUBBLESORT_HPP
+#define BUBBLESORT_HPP
 #pragma once
 
 #include "../../Types/traits.hpp"
