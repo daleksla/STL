@@ -1,5 +1,5 @@
-#ifndef _MERGESORT_HPP
-#define _MERGESORT_HPP
+#ifndef MERGESORT_HPP
+#define MERGESORT_HPP
 #pragma once
 
 #include "../../Types/traits.hpp"
