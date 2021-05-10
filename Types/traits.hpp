@@ -8,6 +8,7 @@
 #include <lib/Structures/Contiguous/vector.hpp>
 #include <lib/Structures/Contiguous/array.hpp>
 #include <lib/Structures/LinkedLists/list.hpp>
+#include <lib/Structures/LinkedLists/fwdList.hpp>
 
 namespace Salih::Types::Traits {
 
@@ -42,6 +43,9 @@ namespace Salih::Types::Traits {
 
 	template<typename T> // specialised for linked lists, true list
 	struct isList< Salih::Structures::LinkedLists::List<T> > : trueType {} ;
+	
+	template<typename T> // specialised for linked lists, true list
+	struct isList< Salih::Structures::LinkedLists::FwdList<T> > : trueType {} ;
 
 	//isContiguous (list)
 	template<typename T> // generic, false contiguous (list)
@@ -68,6 +72,9 @@ namespace Salih::Types::Traits {
 	
 	template<typename T> // specialised for linked lists, true dynamic (list)
 	struct isDynamic< Salih::Structures::LinkedLists::List<T> > : trueType {} ;
+	
+	template<typename T> // specialised for linked lists, true dynamic (list)
+	struct isDynamic< Salih::Structures::LinkedLists::FwdList<T> > : trueType {} ;
 
 	template<typename T> // specialised for queues, true dynamic (list)
 	struct isDynamic< Salih::Types::Queue<T> > : trueType {} ;
@@ -108,6 +115,11 @@ namespace Salih::Types::Traits {
 	
 	template<typename T, std::size_t SIZE>
 	struct getDimensions< Salih::Structures::Contiguous::Array<T, SIZE> > {
+		static constexpr size_t value = 1 + getDimensions<T>::value ;
+	} ;
+	
+	template<typename T>
+	struct getDimensions< Salih::Structures::LinkedLists::FwdList<T> > {
 		static constexpr size_t value = 1 + getDimensions<T>::value ;
 	} ;
 }
