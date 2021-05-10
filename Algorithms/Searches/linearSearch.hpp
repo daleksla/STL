@@ -1,5 +1,5 @@
-#ifndef _LINEARSEARCH_HPP
-#define _LINEARSEARCH_HPP
+#ifndef LINEARSEARCH_HPP
+#define LINEARSEARCH_HPP
 #pragma once
 
 #include "../../Types/traits.hpp"
