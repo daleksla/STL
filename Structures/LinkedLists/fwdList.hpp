@@ -98,6 +98,16 @@ namespace Salih::Structures::LinkedLists {
 			@return constant reference to a given element in the structure **/ 
 			const T& at(const std::size_t, const bool check = true) const ; //method to index linked list, returns data
 			
+			/** Concatenation operator, adds two forward lists together
+			@param forward list structure to add
+			@return forward list containing combined values **/ 	
+			FwdList operator+(const FwdList&) const ;	
+			
+			/** Concatenation operator, modifies / appends calling forward list with additional values
+			@param forward list structure to add
+			@return a reference to the calling forward list **/ 			
+			FwdList& operator+=(const FwdList&) ;	
+			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param list structure to compare with
 			@return a boolean representing whether equality is met **/ 	

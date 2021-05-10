@@ -262,6 +262,25 @@ const T& Salih::Structures::LinkedLists::FwdList<T>::at(const std::size_t index,
 	return node->data ;
 }
 
+template<typename T>
+Salih::Structures::LinkedLists::FwdList<T> Salih::Structures::LinkedLists::FwdList<T>::operator+(const Salih::Structures::LinkedLists::FwdList<T>& list) const
+{
+	FwdList<T> tmp ;
+	SNode<T> node = this->head ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp.append(node->data) ;
+	node = list.head ;	
+	for(std::size_t i = 0 ; i < list.size ; i++) tmp.append(node->data) ;
+	return tmp ;
+}
+
+template<typename T>
+Salih::Structures::LinkedLists::FwdList<T>& Salih::Structures::LinkedLists::FwdList<T>::operator+=(const Salih::Structures::LinkedLists::FwdList<T>& list)
+{
+	SNode<T> node = list.head ;	
+	for(std::size_t i = 0 ; i < list.size ; i++) this->append(node->data) ;
+	return *this ;
+}
+
 template <typename T>
 bool Salih::Structures::LinkedLists::FwdList<T>::operator==(const Salih::Structures::LinkedLists::FwdList<T>& list) const
 {
