@@ -250,6 +250,26 @@ const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, co
 	return node->data ;
 }
 
+template<typename T>
+Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>::operator+(const Salih::Structures::LinkedLists::List<T>& list) const
+{
+	List<T> tmp ;
+	DNode<T> node = this->head ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp.append(node->data) ;
+	node = list.head ;	
+	for(std::size_t i = 0 ; i < list.size ; i++) tmp.append(node->data) ;
+	return tmp ;
+}
+
+template<typename T>
+Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator+=(const Salih::Structures::LinkedLists::List<T>& list)
+{
+	DNode<T> node = list.head ;	
+	for(std::size_t i = 0 ; i < list.size ; i++) this->append(node->data) ;
+	return *this ;
+}
+
+
 template <typename T>
 bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures::LinkedLists::List<T>& list) const
 {

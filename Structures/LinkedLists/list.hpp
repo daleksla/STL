@@ -104,6 +104,16 @@ namespace Salih::Structures::LinkedLists {
 			@return constant reference to a given element in the structure **/ 
 			const T& at(const std::size_t, const bool check = true) const ; //method to index linked list, returns data
 			
+			/** Concatenation operator, adds two lists together
+			@param list structure to add
+			@return list containing combined values **/ 	
+			List operator+(const List&) const ;	
+			
+			/** Concatenation operator, modifies / appends calling list with additional values
+			@param list structure to add
+			@return a reference to the calling list **/ 			
+			List& operator+=(const List&) ;				
+			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param list structure to compare with
 			@return a boolean representing whether equality is met **/ 	
