@@ -9,6 +9,7 @@
 #include <lib/Algorithms/Sorts/mergeSort.hpp>
 #include <lib/Algorithms/Sorts/bubbleSort.hpp>
 #include <lib/Algorithms/Sorts/selectionSort.hpp>
+#include <lib/Algorithms/Sorts/quickSort.hpp>
 
 typedef Salih::Structures::LinkedLists::List<int> intList ;
 typedef Salih::Structures::Contiguous::Array<float,4> floatArr ;
@@ -134,6 +135,38 @@ TEST_CASE("merge sort - does the accepted list get sorted with descending order 
 	floatArr list3{3,6,4,5} ;
 	list3 = Salih::Algorithms::Sorts::mergeSort(list3, Salih::Algorithms::Sorts::DESCEND) ;
 	REQUIRE(list3 == floatArr{6,5,4,3}) ;
+}
+
+/* quick sort */
+
+TEST_CASE("quick sort - does the accepted list get sorted with order not explicitly set?")
+{
+	intList list1{1,3,2} ;
+	list1 = Salih::Algorithms::Sorts::quickSort(list1) ;
+	REQUIRE(list1 == intList{1,2,3}) ;
+	floatVec list2{3,6,4,5} ;
+	list2 = Salih::Algorithms::Sorts::quickSort(list2) ;
+	REQUIRE(list2 == floatVec{3,4,5,6}) ;
+}
+
+TEST_CASE("quick sort - does the accepted list get sorted with ascending order set?")
+{
+	intList list1{1,3,2} ;
+	list1 = Salih::Algorithms::Sorts::quickSort(list1, Salih::Algorithms::Sorts::ASCEND) ;
+	REQUIRE(list1 == intList{1,2,3}) ;
+	floatVec list2{3,6,4,5} ;
+	list2 = Salih::Algorithms::Sorts::quickSort(list2, Salih::Algorithms::Sorts::ASCEND) ;
+	REQUIRE(list2 == floatVec{3,4,5,6}) ;
+}
+
+TEST_CASE("quick sort - does the accepted list get sorted with descending order set?")
+{
+	intList list1{1,3,2} ;
+	list1 = Salih::Algorithms::Sorts::quickSort(list1, Salih::Algorithms::Sorts::DESCEND) ;
+	REQUIRE(list1 == intList{3,2,1}) ;
+	floatVec list2{3,6,4,5} ;
+	list2 = Salih::Algorithms::Sorts::quickSort(list2, Salih::Algorithms::Sorts::DESCEND) ;
+	REQUIRE(list2 == floatVec{6,5,4,3}) ;
 }
 
 //** helper functions **//
