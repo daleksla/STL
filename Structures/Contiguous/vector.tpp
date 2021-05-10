@@ -165,6 +165,32 @@ const T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x, const
 	return this->pointer[x] ;	
 }
 
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T> Salih::Structures::Contiguous::Vector<T>::operator+(const Salih::Structures::Contiguous::Vector<T>& vec) const
+{
+	Vector<T> tmp(this->size + vec.size) ;
+	
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp.pointer[i] = this->pointer[i] ;
+	for(std::size_t i = 0 ; i < vec.size ; i++) tmp.pointer[i+this->size] = vec.pointer[i] ;
+	
+	return tmp ;
+}
+
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<T>::operator+=(const Salih::Structures::Contiguous::Vector<T>& vec)
+{
+	T* tmp = new T[this->size + vec.size] ;
+	
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp.pointer[i] = this->pointer[i] ;
+	for(std::size_t i = 0 ; i < vec.size ; i++) tmp.pointer[i+this->size] = vec.pointer[i] ;
+	
+	this->size = this->size + vec.size ;
+	delete[] this->pointer ;
+	this->pointer = tmp ;
+	
+	return *this ;
+}
+
 template<typename T>		
 bool Salih::Structures::Contiguous::Vector<T>::operator==(const Salih::Structures::Contiguous::Vector<T>& b) const
 {

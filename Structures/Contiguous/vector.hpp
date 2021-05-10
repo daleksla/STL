@@ -106,6 +106,16 @@ namespace Salih::Structures::Contiguous {
 			@return constant reference to a given element in the structure **/ 	
 			const T& at(const std::size_t, const bool check = true) const ; 
 			
+			/** Concatenation operator, adds two vectors together
+			@param vector structure to add
+			@return vector containing combined values **/ 	
+			Vector operator+(const Vector&) const ;	
+			
+			/** Concatenation operator, modifies / appends calling vector with additional values
+			@param vector structure to add
+			@return a reference to the calling vector **/ 			
+			Vector& operator+=(const Vector&) ;			
+			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param vector structure to compare with (with different data-type values within)
 			@return a boolean representing whether equality is met **/ 	
