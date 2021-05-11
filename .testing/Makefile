@@ -20,6 +20,12 @@ all:
 	#testing forward linked list 
 	g++ $(LIB) $(STD) $(SOURCES)/fwdListTest.cpp -o $(EXES)/fwdListTest
 	
+	#testing vectors
+	g++ $(LIB) $(STD) $(SOURCES)/vectorTest.cpp -o $(EXES)/vectorTest
+	
+	#testing arrays
+	g++ $(LIB) $(STD) $(SOURCES)/arrayTest.cpp -o $(EXES)/arrayTest
+	
 	#testing strings
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
 	
