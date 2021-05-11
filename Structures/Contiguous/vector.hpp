@@ -74,6 +74,14 @@ namespace Salih::Structures::Contiguous {
 			/** clear method, deletes all elements of the vector **/
 			void clear() ;
 			
+			/** insert method, adds an element into a specified position
+			@param position in vector to insert to **/
+			void insert(const std::size_t, T) ;
+			
+			/** del method, deletes a selected element by position
+			@param value representing position to delete from vector **/
+			void del(const std::size_t) ;
+			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/
 			std::size_t getSize() const ;

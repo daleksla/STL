@@ -118,6 +118,52 @@ void Salih::Structures::Contiguous::Vector<T>::clear()
 	this->size = 0 ;
 }
 
+template<typename T>
+void Salih::Structures::Contiguous::Vector<T>::insert(const std::size_t pos, T data)
+{
+	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
+	else if(pos == this->size + 1) return this->append(data) ;
+	T* ptr = new T[this->size+1] ;
+	bool check = false ;
+	for(std::size_t i = 0 ; i < this->size ; i++) 
+	{
+		if(i == (pos - 1))
+		{
+			ptr[i] = data ;
+			check = true ;
+			continue ;
+		}
+		
+		if(check) ptr[i+1] = this->pointer[i] ;
+		else ptr[i] = this->pointer[i] ;	
+	}
+	delete[] this->pointer ;
+	this->pointer = ptr ;
+	this->size += 1 ;
+}
+
+template<typename T>
+void Salih::Structures::Contiguous::Vector<T>::del(const std::size_t pos)
+{
+	if(pos == 0 || pos > this->size) throw std::out_of_range("Index does not exist") ;	
+	T* ptr = new T[this->size-1] ;
+	bool check = false ;
+	for(std::size_t i = 0 ; i < this->size ; i++) 
+	{
+		if(i == (pos - 1))
+		{
+			check = true ;
+			continue ;
+		}
+		
+		if(check) ptr[i-1] = this->pointer[i] ;
+		else ptr[i] = this->pointer[i] ;	
+	}
+	delete[] this->pointer ;
+	this->pointer = ptr ;
+	this->size -= 1 ;
+}
+
 template<typename T> 
 Salih::Structures::Contiguous::Vector<T>::~Vector()
 {
