@@ -98,6 +98,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1258844198a9803e519299a8c17aab10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7bc3c0c6d8c3a59718461e1ae768d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#add7bc3c0c6d8c3a59718461e1ae768d6">clear</a> ()</td></tr>
 <tr class="separator:add7bc3c0c6d8c3a59718461e1ae768d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f9414dc59af32a87a4230c57df0627e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a5f9414dc59af32a87a4230c57df0627e">insert</a> (const std::size_t, T)</td></tr>
+<tr class="separator:a5f9414dc59af32a87a4230c57df0627e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcad008e298cce60e0217c6bfba1dd9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#abcad008e298cce60e0217c6bfba1dd9a">del</a> (const std::size_t)</td></tr>
+<tr class="separator:abcad008e298cce60e0217c6bfba1dd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fd8e88693dce24daabddd88745de4cf"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a9fd8e88693dce24daabddd88745de4cf">getSize</a> () const</td></tr>
 <tr class="separator:a9fd8e88693dce24daabddd88745de4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99561acec1816106aa8aacafd9f9551b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a99561acec1816106aa8aacafd9f9551b">operator()</a> (const std::size_t, const std::size_t) const</td></tr>
@@ -397,6 +401,32 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="abcad008e298cce60e0217c6bfba1dd9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcad008e298cce60e0217c6bfba1dd9a">&#9670;&nbsp;</a></span>del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Salih::Structures::Contiguous::Vector</a>&lt; T &gt;::del </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>del method, deletes a selected element by position </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>representing position to delete from vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a9fd8e88693dce24daabddd88745de4cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9fd8e88693dce24daabddd88745de4cf">&#9670;&nbsp;</a></span>getSize()</h2>
 
@@ -414,6 +444,42 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>getSize method, returns size of a structure </p><dl class="section return"><dt>Returns</dt><dd>returns size (of data structure) </dd></dl>
+
+</div>
+</div>
+<a id="a5f9414dc59af32a87a4230c57df0627e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f9414dc59af32a87a4230c57df0627e">&#9670;&nbsp;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Vector.html">Salih::Structures::Contiguous::Vector</a>&lt; T &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>insert method, adds an element into a specified position </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>in vector to insert to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

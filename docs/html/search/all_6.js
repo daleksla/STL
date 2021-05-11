@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['insert_24',['insert',['../classSalih_1_1Structures_1_1LinkedLists_1_1FwdList.html#a78b19d255ebdcaec8ecb8efdc9203eae',1,'Salih::Structures::LinkedLists::FwdList::insert()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1List.html#a1cd317e705b992343aa25d3d4c9dcee6',1,'Salih::Structures::LinkedLists::List::insert()']]],
+  ['insert_24',['insert',['../classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a5f9414dc59af32a87a4230c57df0627e',1,'Salih::Structures::Contiguous::Vector::insert()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1FwdList.html#a78b19d255ebdcaec8ecb8efdc9203eae',1,'Salih::Structures::LinkedLists::FwdList::insert()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1List.html#a1cd317e705b992343aa25d3d4c9dcee6',1,'Salih::Structures::LinkedLists::List::insert()']]],
   ['interpolationsearch_25',['interpolationSearch',['../namespaceSalih_1_1Algorithms_1_1Searches.html#a67d4510a3faf6d95987c02f1cac2b708',1,'Salih::Algorithms::Searches']]],
   ['isalpha_26',['isAlpha',['../classSalih_1_1Types_1_1String.html#a36e2a3b396130f31529cdd2e92e81894',1,'Salih::Types::String']]],
   ['isalphanum_27',['isAlphaNum',['../classSalih_1_1Types_1_1String.html#a43dc72f9ef648ca0b9a622a5aa9075df',1,'Salih::Types::String']]],
