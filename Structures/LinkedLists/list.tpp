@@ -462,6 +462,7 @@ void Salih::Structures::LinkedLists::List<T>::clear()
 		}
 	} 
 	this->head = nullptr ;
+	this->size = 0 ;
 }
 
 #endif
