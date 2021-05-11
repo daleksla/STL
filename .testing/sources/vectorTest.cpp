@@ -151,7 +151,6 @@ TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is small
 		list1.at(7) ;
 	} catch(const std::out_of_range& error) {
 		isError = true ;
-		std::cout << 1 << std::endl ;
 	}
 	
 	REQUIRE(isError == true) ;
