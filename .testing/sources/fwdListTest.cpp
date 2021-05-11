@@ -313,3 +313,12 @@ TEST_CASE("'del()' method - does 'out_of_range' error get thrown if list doesn't
 	
 	REQUIRE(isError == true) ;
 }
+
+/* clear method */
+TEST_CASE("'clear()' method - attribute test")
+{
+	intList list1{1,2,3} ;
+	list1.clear() ;
+	REQUIRE(list1.size == 0) ;
+	REQUIRE(list1.head == nullptr) ;
+}
