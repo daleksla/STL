@@ -154,14 +154,14 @@ const T& Salih::Structures::Contiguous::Vector<T>::operator[](const std::size_t 
 template<typename T>		
 T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x, const bool check)
 {
-	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
 const T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x, const bool check) const
 {
-	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
 }
 
@@ -181,8 +181,8 @@ Salih::Structures::Contiguous::Vector<T>& Salih::Structures::Contiguous::Vector<
 {
 	T* tmp = new T[this->size + vec.size] ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp.pointer[i] = this->pointer[i] ;
-	for(std::size_t i = 0 ; i < vec.size ; i++) tmp.pointer[i+this->size] = vec.pointer[i] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->pointer[i] ;
+	for(std::size_t i = 0 ; i < vec.size ; i++) tmp[i+this->size] = vec.pointer[i] ;
 	
 	this->size = this->size + vec.size ;
 	delete[] this->pointer ;
@@ -221,7 +221,7 @@ bool Salih::Structures::Contiguous::Vector<T>::operator==(const Salih::Structure
 template<typename T>		
 bool Salih::Structures::Contiguous::Vector<T>::operator!=(const Salih::Structures::Contiguous::Vector<T>& b) const
 {
-	if(this->size == b.size) return false ;
+	if(this->size != b.size) return true ;
 	
 	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
@@ -235,7 +235,7 @@ template<typename T>
 template<typename OTHER>				
 bool Salih::Structures::Contiguous::Vector<T>::operator!=(const Salih::Structures::Contiguous::Vector<OTHER>& b) const
 {
-	if(this->size == b.size) return false ;
+	if(this->size == b.size) return true ;
 	
 	for(std::size_t i = 0 ; i < this->size ; i++)
 	{
