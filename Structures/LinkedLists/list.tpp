@@ -226,7 +226,7 @@ template <typename T>
 T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check)
 {
 	std::size_t count = 0 ;
-	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
+	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
 	DNode<T>* node = head ;
 	while(count != index)
 	{
@@ -240,7 +240,7 @@ template <typename T>
 const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check) const
 {
 	std::size_t count = 0 ;
-	if(check) if(index >= this->size) throw std::out_of_range("Element does not exist") ;
+	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
 	DNode<T>* node = head ;
 	while(count != index)
 	{
