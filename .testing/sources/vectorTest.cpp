@@ -227,3 +227,108 @@ TEST_CASE("'getSize()' method - correct value returned")
 	intList list1 = {1,2,3,4,5,6} ;
 	REQUIRE(list1.getSize() == 6) ;
 }
+
+/* Append method */
+TEST_CASE("'append()' method - correct value added")
+{
+	intList list1 ;
+	list1.append(5) ;
+	REQUIRE(list1.pointer[0] == 5) ;
+	REQUIRE(list1.size == 1) ;
+}
+
+/* Insert method */
+TEST_CASE("'insert()' method - correct value added at beginning of list")
+{
+	intList list1{54,2,3,4,5} ;
+	auto size = list1.size ;
+	list1.insert(1,1) ;
+	REQUIRE(list1.pointer[0] == 1) ;
+	REQUIRE(list1.size == (size+1)) ;
+}
+
+TEST_CASE("'insert()' method - correct value added in the middle of list")
+{
+	intList list1{1,2,4,5} ;
+	auto size = list1.size ;
+	list1.insert(3,3) ;
+	REQUIRE(list1[2] == 3) ;
+	REQUIRE(list1.size == (size+1)) ;
+}
+
+TEST_CASE("'insert()' method - correct value added at end of list")
+{
+	intList list1{1,2,3} ;
+	auto size = list1.size ;
+	list1.insert(4,4) ;
+	REQUIRE(list1.pointer[3] == 4) ;
+	REQUIRE(list1.size == (size+1)) ;
+}
+
+TEST_CASE("'insert()' method - does 'out_of_range' error get thrown if position is invalid / too large")
+{
+	intList list1 ;
+	bool isError = false ;
+	try {
+		list1.insert(2,1) ;
+	} catch(const std::out_of_range& error) {
+		isError = true ;
+	}
+	
+	REQUIRE(isError == true) ;
+}
+
+TEST_CASE("'insert()' method - does 'out_of_range' error not get thrown if position provided is only one larger than current size")
+{
+	intList list1 ;
+	bool isError = false ;
+	try {
+		list1.insert(1,1) ;
+	} catch(const std::out_of_range& error) {
+		isError = true ;
+	}
+	
+	REQUIRE(isError == false) ;
+}
+
+/* Clear method */
+TEST_CASE("'clear()' method - values deleted")
+{
+	intList list1{1,2,3} ;
+	list1.clear() ;
+	REQUIRE(list1.size == 0) ;
+}
+
+/* Delete method */
+TEST_CASE("'del()' method - correct value deleted")
+{
+	intList list1{1,2,3} ;
+	list1.del(1) ;
+	REQUIRE(list1.pointer[0] == 2) ;
+}
+
+TEST_CASE("'del()' method - does 'out_of_range' error get thrown if list is empty")
+{
+	intList list1 ;
+	bool isError = false ;
+	try {
+		list1.del(1) ;
+	} catch(const std::out_of_range& error) {
+		isError = true ;
+	}
+	
+	REQUIRE(isError == true) ;
+}
+
+TEST_CASE("'del()' method - does 'out_of_range' error get thrown if list doesn't contain index")
+{
+	intList list1{1} ;
+	bool isError = false ;
+	try {
+		list1.del(2) ;
+	} catch(const std::out_of_range& error) {
+		isError = true ;
+	}
+	
+	REQUIRE(isError == true) ;
+}
