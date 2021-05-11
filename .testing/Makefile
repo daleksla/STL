@@ -15,14 +15,22 @@ all:
 	g++ $(LIB) $(STD) $(SOURCES)/queueTest.cpp -o $(EXES)/queueTest
 	
 	#testing linked list 
-	g++ $(LIB) $(STD) $(SOURCES)/linkedlistTest.cpp -o $(EXES)/linkedlistTest
+	g++ $(LIB) $(STD) $(SOURCES)/listTest.cpp -o $(EXES)/listTest
+	
+	#testing forward linked list 
+	g++ $(LIB) $(STD) $(SOURCES)/fwdListTest.cpp -o $(EXES)/fwdListTest
+	
+	#testing vectors
+	g++ $(LIB) $(STD) $(SOURCES)/vectorTest.cpp -o $(EXES)/vectorTest
+	
+	#testing arrays
+	g++ $(LIB) $(STD) $(SOURCES)/arrayTest.cpp -o $(EXES)/arrayTest
 	
 	#testing strings
 	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
 	
-	#testing pointers
-	g++ $(LIB) $(STD) ./sources/pointerTest.cpp -o $(EXES)/pointerTest
+	#testing sorting algorithms
+	g++ $(LIB) $(STD) $(SOURCES)/sortTest.cpp -o $(EXES)/sortTest
 	
-	#testing contiguous structures
-	g++ $(LIB) $(STD) ./sources/contiguousTest.cpp -o $(EXES)/contiguousTest
-
+	#testing searching algorithms
+	g++ $(LIB) $(STD) $(SOURCES)/searchTest.cpp -o $(EXES)/searchTest

@@ -80,6 +80,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ace43c610eabb5e1e47b19e524271715c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type, typename U &gt; </td></tr>
 <tr class="memitem:ace43c610eabb5e1e47b19e524271715c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#ace43c610eabb5e1e47b19e524271715c">binarySearch</a> (const T &amp;list, const U &amp;target)</td></tr>
 <tr class="separator:ace43c610eabb5e1e47b19e524271715c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d4510a3faf6d95987c02f1cac2b708"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type, typename U &gt; </td></tr>
+<tr class="memitem:a67d4510a3faf6d95987c02f1cac2b708"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a67d4510a3faf6d95987c02f1cac2b708">interpolationSearch</a> (const T &amp;list, const U &amp;target)</td></tr>
+<tr class="separator:a67d4510a3faf6d95987c02f1cac2b708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735a57d4116279b8162293486f99b3eb"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; Salih::Types::Traits::isList&lt;T&gt;::value, T &gt;::type, typename U &gt; </td></tr>
 <tr class="memitem:a735a57d4116279b8162293486f99b3eb"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a735a57d4116279b8162293486f99b3eb">linearSearch</a> (const T &amp;list, const U &amp;target)</td></tr>
 <tr class="separator:a735a57d4116279b8162293486f99b3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -87,6 +90,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Binary search algorithm file. </p>
 <p>Linear search algorithm file.</p>
+<p>Interpolation search algorithm file.</p>
 <dl class="section author"><dt>Author</dt><dd>Salih Mahmoud Sayed Ahmed @email <a href="#" onclick="location.href='mai'+'lto:'+'ahm'+'ed'+'233'+'@u'+'ni.'+'co'+'ven'+'tr'+'y.a'+'c.'+'uk'; return false;">ahmed<span style="display: none;">.nosp@m.</span>233@<span style="display: none;">.nosp@m.</span>uni.c<span style="display: none;">.nosp@m.</span>oven<span style="display: none;">.nosp@m.</span>try.a<span style="display: none;">.nosp@m.</span>c.uk</a> </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>May 2021 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -158,6 +162,44 @@ template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>integer ('middle' index) </dd></dl>
+
+</div>
+</div>
+<a id="a67d4510a3faf6d95987c02f1cac2b708"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d4510a3faf6d95987c02f1cac2b708">&#9670;&nbsp;</a></span>interpolationSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename  = typename std::enable_if&lt; (Salih::Types::Traits::isList&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::isDynamic&lt;T&gt;::value &amp;&amp; Salih::Types::Traits::getDimensions&lt;T&gt;::value == 1), T &gt;::type, typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Salih::Algorithms::Searches::interpolationSearch </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the interpolation search algorithm, I don't exactly know how to explain this one but it works </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">const</td><td>reference to list (to be sorted) </td></tr>
+    <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean (indicates if supplied target was found or not) </dd></dl>
 
 </div>
 </div>

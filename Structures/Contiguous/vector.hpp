@@ -74,6 +74,14 @@ namespace Salih::Structures::Contiguous {
 			/** clear method, deletes all elements of the vector **/
 			void clear() ;
 			
+			/** insert method, adds an element into a specified position
+			@param position in vector to insert to **/
+			void insert(const std::size_t, T) ;
+			
+			/** del method, deletes a selected element by position
+			@param value representing position to delete from vector **/
+			void del(const std::size_t) ;
+			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/
 			std::size_t getSize() const ;
@@ -105,6 +113,16 @@ namespace Salih::Structures::Contiguous {
 			@param bool (assumingly true flag as to check whether an index is valid)
 			@return constant reference to a given element in the structure **/ 	
 			const T& at(const std::size_t, const bool check = true) const ; 
+			
+			/** Concatenation operator, adds two vectors together
+			@param vector structure to add
+			@return vector containing combined values **/ 	
+			Vector operator+(const Vector&) const ;	
+			
+			/** Concatenation operator, modifies / appends calling vector with additional values
+			@param vector structure to add
+			@return a reference to the calling vector **/ 			
+			Vector& operator+=(const Vector&) ;			
 			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param vector structure to compare with (with different data-type values within)

@@ -102,6 +102,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac81440b6260f2c88f1a37d0bee033621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26797548ef86ca7480792779de5c2f6d"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html#a26797548ef86ca7480792779de5c2f6d">at</a> (const std::size_t, const bool check=true) const</td></tr>
 <tr class="separator:a26797548ef86ca7480792779de5c2f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b262901bbdb1bf7e49b2221102ec832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a>&lt; T,(SIZE+SIZE)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html#a1b262901bbdb1bf7e49b2221102ec832">operator+</a> (const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a> &amp;) const</td></tr>
+<tr class="separator:a1b262901bbdb1bf7e49b2221102ec832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0bc5d4ca8fca4ab2b0ef2eccd3a5d10"><td class="memTemplParams" colspan="2">template&lt;std::size_t DIFF&gt; </td></tr>
+<tr class="memitem:ae0bc5d4ca8fca4ab2b0ef2eccd3a5d10"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a>&lt; T,(SIZE+DIFF)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html#ae0bc5d4ca8fca4ab2b0ef2eccd3a5d10">operator+</a> (const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a>&lt; T, DIFF &gt; &amp;) const</td></tr>
+<tr class="separator:ae0bc5d4ca8fca4ab2b0ef2eccd3a5d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab582e5dde45931e7820682dd751c3f3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html#ab582e5dde45931e7820682dd751c3f3c">operator==</a> (const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a> &amp;) const</td></tr>
 <tr class="separator:ab582e5dde45931e7820682dd751c3f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a373faa12f00eba4d513716ba6ca235be"><td class="memTemplParams" colspan="2">template&lt;typename OTHER &gt; </td></tr>
@@ -467,6 +472,62 @@ template&lt;std::size_t DIFF&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a boolean representing whether inequality is met (will always return true) </dd></dl>
+
+</div>
+</div>
+<a id="a1b262901bbdb1bf7e49b2221102ec832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b262901bbdb1bf7e49b2221102ec832">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t SIZE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a>&lt;T,(SIZE+SIZE)&gt; <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Salih::Structures::Contiguous::Array</a>&lt; T, SIZE &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a>&lt; T, SIZE &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Concatenation operator, adds two arrays together </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>structure to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array containing combined values </dd></dl>
+
+</div>
+</div>
+<a id="ae0bc5d4ca8fca4ab2b0ef2eccd3a5d10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0bc5d4ca8fca4ab2b0ef2eccd3a5d10">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t SIZE&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t DIFF&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a>&lt;T,(SIZE+DIFF)&gt; <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Salih::Structures::Contiguous::Array</a>&lt; T, SIZE &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSalih_1_1Structures_1_1Contiguous_1_1Array.html">Array</a>&lt; T, DIFF &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Concatenation operator, adds two arrays together </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>structure (of a different size) to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array containing combined values </dd></dl>
 
 </div>
 </div>

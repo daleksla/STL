@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['linearsearch_160',['linearSearch',['../namespaceSalih_1_1Algorithms_1_1Searches.html#a735a57d4116279b8162293486f99b3eb',1,'Salih::Algorithms::Searches']]],
-  ['linkedlist_161',['LinkedList',['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a925668b475181c0bd4e86a543da243ec',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a231ceed30ba8356c2961d6846632fa6d',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList(const LinkedList &amp;)'],['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#ab39393ab53a0497988856824e23fcdc1',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList(const std::initializer_list&lt; T &gt; &amp;)'],['../classSalih_1_1Structures_1_1LinkedLists_1_1LinkedList.html#a6b1f43c31abefc7258c374fee67adc5a',1,'Salih::Structures::LinkedLists::LinkedList::LinkedList(LinkedList &amp;&amp;)']]],
-  ['lower_162',['lower',['../classSalih_1_1Types_1_1String.html#a25f4c3c9a10a7abe1a91a5bc8c6c0bbc',1,'Salih::Types::String']]]
+  ['insert_167',['insert',['../classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#a5f9414dc59af32a87a4230c57df0627e',1,'Salih::Structures::Contiguous::Vector::insert()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1FwdList.html#a78b19d255ebdcaec8ecb8efdc9203eae',1,'Salih::Structures::LinkedLists::FwdList::insert()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1List.html#a1cd317e705b992343aa25d3d4c9dcee6',1,'Salih::Structures::LinkedLists::List::insert()']]],
+  ['interpolationsearch_168',['interpolationSearch',['../namespaceSalih_1_1Algorithms_1_1Searches.html#a67d4510a3faf6d95987c02f1cac2b708',1,'Salih::Algorithms::Searches']]],
+  ['isalpha_169',['isAlpha',['../classSalih_1_1Types_1_1String.html#a36e2a3b396130f31529cdd2e92e81894',1,'Salih::Types::String']]],
+  ['isalphanum_170',['isAlphaNum',['../classSalih_1_1Types_1_1String.html#a43dc72f9ef648ca0b9a622a5aa9075df',1,'Salih::Types::String']]],
+  ['iscapitalised_171',['isCapitalised',['../classSalih_1_1Types_1_1String.html#aba42d618cdb86c36e1c8e8df67ef82ad',1,'Salih::Types::String']]],
+  ['isheap_172',['isHeap',['../namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe',1,'Salih::Types']]],
+  ['islower_173',['isLower',['../classSalih_1_1Types_1_1String.html#a8f6f14228876d6d6b5e6b4239a153f3f',1,'Salih::Types::String']]],
+  ['isnum_174',['isNum',['../classSalih_1_1Types_1_1String.html#a35bba800c0adbcc4e201c0eed86169e5',1,'Salih::Types::String']]],
+  ['isupper_175',['isUpper',['../classSalih_1_1Types_1_1String.html#aea85ee364335bea2fde3796eebc4628e',1,'Salih::Types::String']]]
 ];

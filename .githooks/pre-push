@@ -7,20 +7,20 @@ if [ $protected_branch = $current_branch ]
 then  
     read -p "You're about to push master, is that what you intended? [y|n] " -n 1 -r < /dev/tty
     echo
-    if !(echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
+    if !  (echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
     then
     	exit 1 # push will not execute 
     fi
 fi  
 
 git diff --exit-code &> /dev/NULL
-code = $(?)
+code=$?
 
 if [ $code != 0 ] 
 then 
     read -p "You have not committed all changes, proceed? [y|n] " -n 1 -r < /dev/tty
     echo
-    if !(echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
+    if !  (echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
     then
     	exit 1 # push will not execute 
     fi
@@ -33,7 +33,7 @@ if [ $code != 0 ]
 then 
     read -p "Tests failed, proceed regardless? [y|n] " -n 1 -r < /dev/tty
     echo
-    if !(echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
+    if !  (echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
     then
     	exit 1 # push will not execute 
     fi

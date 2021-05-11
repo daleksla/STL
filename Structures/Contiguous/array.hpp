@@ -84,6 +84,17 @@ namespace Salih::Structures::Contiguous {
 			@return constant reference to a given element in the structure **/ 	
 			const T& at(const std::size_t, const bool check = true) const ; 
 			
+			/** Concatenation operator, adds two arrays together
+			@param array structure to add 
+			@return array containing combined values **/ 	
+			Array<T,(SIZE+SIZE)> operator+(const Array&) const ;			
+			
+			/** Concatenation operator, adds two arrays together
+			@param array structure (of a different size) to add
+			@return array containing combined values **/ 	
+			template<std::size_t DIFF>
+			Array<T,(SIZE+DIFF)> operator+(const Array<T, DIFF>&) const ;	
+			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param array structure to compare with (of same type and size)
 			@return a boolean representing whether equality is met **/ 	
