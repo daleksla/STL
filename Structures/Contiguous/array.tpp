@@ -125,14 +125,14 @@ const T& Salih::Structures::Contiguous::Array<T, SIZE>::operator[](const std::si
 template<typename T, std::size_t SIZE> 
 T& Salih::Structures::Contiguous::Array<T, SIZE>::at(const std::size_t x, const bool check)
 {
-	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T, std::size_t SIZE> 
 const T& Salih::Structures::Contiguous::Array<T,SIZE>::at(const std::size_t x, const bool check) const
 {
-	if(check && x > this->size - 1) throw std::out_of_range("Element does not exist") ;
+	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
 }	
 
