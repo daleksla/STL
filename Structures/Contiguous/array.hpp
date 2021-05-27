@@ -17,46 +17,44 @@ namespace Salih::Structures::Contiguous {
 
 	template<class T, std::size_t SIZE>
 	class Array {
-		/** This class is the Array-class implementation, serving as a c-array wrapper **/
-		private:			
+		/** This aggregate class is the Array-class implementation, serving as a c-style array wrapper **/
+		public:			
 			T pointer[SIZE] ;
 			
 		public:
 			/** Empty constructor, intialises empty array 
 			@return <initialised-object> **/
-			Array() ;
+			//Array() = default ;
+
+			/** Regular constructor, assigns values to an array
+			@param an initialiser list of values
+			@return <initialised-object> **/	
+			//Array(const std::intializer_list<T>&) ;
+			
+			/** Regular assignment operator, assigns values to an array
+			@param an initialiser list of values
+			@return reference to current object **/
+			//Array& operator=(const std::intializer_list<T>&) ;
 		
-			/** Regular constructor, intialises multiple values
-			@param initialisation list (of values for array)
-			@return <initialised-object> **/	
-			Array(const std::initializer_list<T>&) ;
-			
-			/** Regular assignment operator, assigns values to array
-			@param initialisation list (of values for array)
-			@return reference to current object **/
-			Array& operator=(const std::initializer_list<T>&) ;
-			
 			/** Copy constructor, creates copy of a given array
 			@param a (l-value) array object
 			@return <initialised-object> **/	
-			Array(const Array&) ;
-			
-			/** Copy constructor, creates copy of a given array
-			@param a (l-value) array object (of different size)
-			@return <initialised-object> **/	
-			template<std::size_t DIFF>
-			Array(const Array<T, DIFF>&) ;
+			//Array(const Array&) = default ;
 			
 			/** Copy assignment operator, creates copy of a given array
 			@param a (l-value) array object
 			@return reference to current object **/
-			Array& operator=(const Array&) ;
+			//Array& operator=(const Array&) = default ;
 			
-			/** Copy assignment operator, creates copy of a given array
-			@param a (l-value) array object (of different size)
+			/** Move constructor, takes ownership of array contents
+			@param an r-value array object
+			@return <initialised-object> **/	
+			//Array(const Array&) = default ;
+			
+			/** Move assignment operator, takes ownership of array contents
+			@param an r-value array object
 			@return reference to current object **/
-			template<std::size_t DIFF>
-			Array& operator=(const Array<T, DIFF>&) ;		
+			//Array& operator=(const Array&) = default ;			
 			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/
@@ -141,8 +139,85 @@ namespace Salih::Structures::Contiguous {
 			template<typename OTHER, std::size_t DIFF>
 			bool operator!=(const Array<OTHER, DIFF>&) const ;
 			
-			/** Destructor **/					
-			~Array() ;
+			/** (Trivial) Destructor **/					
+			~Array() = default ;
+			
+			class Iterator {
+				private:
+					T* pointer ;
+				
+				public:
+					Iterator(T*) ;
+					
+					T& operator*() const ;
+					
+					T* operator->() const ;
+					
+					Iterator operator+(const std::size_t) const ;
+					
+					Iterator& operator+=(const std::size_t) ;
+					
+					Iterator& operator++() ; 
+
+					Iterator operator++(const int) ;
+					
+					Iterator operator-(const std::size_t) const ;
+					
+					Iterator& operator-=(const std::size_t) ;
+					
+					Iterator& operator--() ; 
+
+					Iterator operator--(const int) ;
+
+					bool operator==(const Iterator&) const ;
+					
+					bool operator!=(const Iterator&) const ;
+					
+			} ; 
+			
+			class ConstIterator {
+				private:
+					T const* pointer ;
+					
+				public:
+					ConstIterator(T const*) ;
+					
+					const T& operator*() const ;
+					
+					const T* operator->() const ;
+					
+					ConstIterator operator+(const std::size_t) const ;
+					
+					ConstIterator& operator+=(const std::size_t) ;
+					
+					ConstIterator& operator++() ; 
+
+					ConstIterator operator++(const int) ;
+					
+					ConstIterator operator-(const std::size_t) const ;
+					
+					ConstIterator& operator-=(const std::size_t) ;
+					
+					ConstIterator& operator--() ; 
+
+					ConstIterator operator--(const int) ;
+
+					bool operator==(const ConstIterator&) const ;
+					
+					bool operator!=(const ConstIterator&) const ;
+			} ; 
+			
+			Iterator begin() ;
+			
+			Iterator end() ;
+			
+			ConstIterator begin() const ;
+			
+			ConstIterator end() const ;
+			
+			ConstIterator cbegin() const ;
+			
+			ConstIterator cend() const ;
 			
 			template<class, std::size_t>
 			friend class Array ;

@@ -15,96 +15,6 @@
  * It is located in the Salih, Structures, Contiguous namespaces */
 
 template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>::Array() 
-{
-	//T tmp[SIZE] ;
-	//this->pointer = tmp ;
-}
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>::Array(const std::initializer_list<T>& values)
-{
-	if(values.size() > SIZE) throw std::overflow_error("Size of values is larger than destination array") ;
-	//T tmp[SIZE] ;
-	//this->pointer = tmp ;
-	std::size_t i = 0 ;
-	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
-	{
-		this->pointer[i] = *it ;
-		i++ ;
-	}
-}
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const std::initializer_list<T>& values)
-{
-	if(values.size() > SIZE) throw std::overflow_error("Size of values is larger than destination array") ;
-	std::size_t i = 0 ;
-	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
-	{
-		this->pointer[i] = *it ;
-		i++ ;
-	}
-	return *this ;
-}
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,SIZE>& list)
-{
-	//T tmp[SIZE] ;
-	//this->pointer = tmp ;
-	for(std::size_t i = 0 ; i < list.getSize() ; i++)
-	{
-		this->pointer[i] = list[i] ;
-	}		
-}
-
-template<typename T, std::size_t SIZE> 
-template<std::size_t DIFF> 
-Salih::Structures::Contiguous::Array<T, SIZE>::Array(const Array<T,DIFF>& list)
-{
-	static_assert(SIZE > DIFF, "Origin array is larger than destination array") ;
-	//T tmp[SIZE] ;
-	//this->pointer = tmp ;
-	for(std::size_t i = 0 ; i < list.getSize() ; i++)
-	{
-		this->pointer[i] = list[i] ;
-	}		
-}
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const Array<T,SIZE>& list)
-{
-	//T tmp[SIZE] ;
-	//this->pointer = tmp ;
-	for(std::size_t i = 0 ; i < SIZE ; i++)
-	{
-		this->pointer[i] = list.pointer[i] ;
-	}
-	return *this ;	
-}
-
-template<typename T, std::size_t SIZE> 
-template<std::size_t DIFF> 
-Salih::Structures::Contiguous::Array<T, SIZE>& Salih::Structures::Contiguous::Array<T, SIZE>::operator=(const Array<T,DIFF>& list)
-{
-	static_assert(SIZE > DIFF, "Origin array is larger than destination array") ;
-	//T tmp[SIZE] ;
-	//this->pointer = tmp ;
-	for(std::size_t i = 0 ; i < DIFF ; i++)
-	{
-		this->pointer[i] = list.pointer[i] ;
-	}
-	return *this ;		
-}
-
-template<typename T, std::size_t SIZE> 
-Salih::Structures::Contiguous::Array<T,SIZE>::~Array() 
-{
-	//this->pointer = nullptr ;
-}
-
-template<typename T, std::size_t SIZE> 
 constexpr std::size_t Salih::Structures::Contiguous::Array<T, SIZE>::getSize() const
 {
 	return SIZE ;
@@ -231,6 +141,214 @@ template<typename OTHER, std::size_t DIFF>
 bool Salih::Structures::Contiguous::Array<T,SIZE>::operator!=(const Salih::Structures::Contiguous::Array<OTHER,DIFF>& b) const
 {
 	return true ;
+}
+
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::Iterator(T* input) : pointer(input) {} ;
+
+template<typename T, std::size_t SIZE> 
+T& Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator*() const
+{
+	return *this->pointer ; 
+}
+
+template<typename T, std::size_t SIZE> 
+T* Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator->() const
+{
+	return this->pointer ; 
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator+(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Array<T,SIZE>::Iterator(this->pointer + x) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator& Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator+=(const std::size_t x)
+{
+	this->pointer += x ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator& Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator++()
+{
+	this->pointer += 1 ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator++(const int)
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::Iterator tmp(this->pointer) ;
+	this->pointer += 1 ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator-(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Array<T,SIZE>::Iterator(this->pointer - x) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator& Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator-=(const std::size_t x)
+{
+	this->pointer -= x ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator& Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator--()
+{
+	this->pointer -= 1 ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator--(const int)
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::Iterator tmp(this->pointer) ;
+	this->pointer -= 1 ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+bool Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator==(const Salih::Structures::Contiguous::Array<T,SIZE>::Iterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+bool Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator!=(const Salih::Structures::Contiguous::Array<T,SIZE>::Iterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::ConstIterator(T const* input) : pointer(input) {} ;
+
+template<typename T, std::size_t SIZE> 
+const T& Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator*() const
+{
+	return *this->pointer ; 
+}
+
+template<typename T, std::size_t SIZE> 
+const T* Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator->() const
+{
+	return this->pointer ; 
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator+(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator(this->pointer + x) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator& Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator+=(const std::size_t x)
+{
+	this->pointer += x ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator& Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator++()
+{
+	this->pointer += 1 ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator++(const int)
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
+	this->pointer += 1 ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator-(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator(this->pointer - x) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator& Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator-=(const std::size_t x)
+{
+	this->pointer -= x ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator& Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator--()
+{
+	this->pointer -= 1 ;
+	return *this ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator--(const int)
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
+	this->pointer -= 1 ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+bool Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator==(const Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+bool Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator!=(const Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::begin()
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::Iterator tmp(this->pointer) ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::end()
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::Iterator tmp(this->pointer + SIZE) ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::begin() const 
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::end() const
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer + SIZE) ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::cbegin() const 
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
+	return tmp ;
+}
+
+template<typename T, std::size_t SIZE> 
+typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::cend() const
+{
+	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer + SIZE) ;
+	return tmp ;
 }
 
 #endif
