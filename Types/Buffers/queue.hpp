@@ -2,7 +2,7 @@
 #define QUEUE_HPP
 #pragma once
 
-#include "../Structures/LinkedLists/_dNode.hpp"
+#include "../../Structures/LinkedLists/_dNode.hpp"
 #include <algorithm>
 #include <iterator>
 #include <limits>
