@@ -36,14 +36,16 @@ template<typename T, std::size_t SIZE>
 _GLIBCXX14_CONSTEXPR T& Salih::Structures::Contiguous::Array<T, SIZE>::at(const std::size_t x, const bool check)
 {
 	// boolean ? lvalue : (throw-expr, lvalue)
-	return (check) ? (x < SIZE ? this->pointer[x] : (throw std::out_of_range("Element does not exist"), this->pointer[x])) : this->pointer[x] ;
+	return check ? x < SIZE ? this->pointer[x]
+	  : (throw std::out_of_range("Element does not exist"), this->pointer[0]) : this->pointer[x] ;
 }
 
 template<typename T, std::size_t SIZE> 
 constexpr const T& Salih::Structures::Contiguous::Array<T,SIZE>::at(const std::size_t x, const bool check) const
 {
 	// boolean ? lvalue : (throw-expr, lvalue)
-	return (check) ? (x < SIZE ? this->pointer[x] : (throw std::out_of_range("Element does not exist"), this->pointer[x])) : this->pointer[x] ;
+	return check ? x < SIZE ? this->pointer[x]
+	  : (throw std::out_of_range("Element does not exist"), this->pointer[0]) : this->pointer[x] ;
 }	
 
 template<typename T, std::size_t SIZE> 
