@@ -3,13 +3,13 @@
 #include "catch.hpp"
 
 /* Include the code that we plan to test */
-#include <lib/Structures/Contiguous/vector.hpp>
-#include <lib/Structures/Contiguous/array.hpp>
-#include <lib/Structures/LinkedLists/list.hpp>
-#include <lib/Algorithms/Sorts/mergeSort.hpp>
-#include <lib/Algorithms/Sorts/bubbleSort.hpp>
-#include <lib/Algorithms/Sorts/selectionSort.hpp>
-#include <lib/Algorithms/Sorts/quickSort.hpp>
+#include "../../Structures/Contiguous/vector.hpp"
+#include "../../Structures/Contiguous/array.hpp"
+#include "../../Structures/LinkedLists/list.hpp"
+#include "../../Algorithms/Sorts/mergeSort.hpp"
+#include "../../Algorithms/Sorts/bubbleSort.hpp"
+#include "../../Algorithms/Sorts/selectionSort.hpp"
+#include "../../Algorithms/Sorts/quickSort.hpp"
 
 typedef Salih::Structures::LinkedLists::List<int> intList ;
 typedef Salih::Structures::LinkedLists::FwdList<double> doubleFwdList ;
@@ -125,9 +125,6 @@ TEST_CASE("merge sort - does the accepted list get sorted with order not explici
 	floatVec list2{3,6,4,5} ;
 	list2 = Salih::Algorithms::Sorts::mergeSort(list2) ;
 	REQUIRE(list2 == floatVec{3,4,5,6}) ;
-	floatArr list3{3,6,4,5} ;
-	list3 = Salih::Algorithms::Sorts::mergeSort(list3) ;
-	REQUIRE(list3 == floatArr{3,4,5,6}) ;
 	doubleFwdList list4{3,6,4,5} ;
 	list4 = Salih::Algorithms::Sorts::mergeSort(list4) ;
 	REQUIRE(list4 == doubleFwdList{3,4,5,6}) ;
@@ -141,9 +138,6 @@ TEST_CASE("merge sort - does the accepted list get sorted with ascending order s
 	floatVec list2{3,6,4,5} ;
 	list2 = Salih::Algorithms::Sorts::mergeSort(list2, Salih::Algorithms::Sorts::ASCEND) ;
 	REQUIRE(list2 == floatVec{3,4,5,6}) ;
-	floatArr list3{3,6,4,5} ;
-	list3 = Salih::Algorithms::Sorts::mergeSort(list3, Salih::Algorithms::Sorts::ASCEND) ;
-	REQUIRE(list3 == floatArr{3,4,5,6}) ;
 	doubleFwdList list4{3,6,4,5} ;
 	list4 = Salih::Algorithms::Sorts::mergeSort(list4, Salih::Algorithms::Sorts::ASCEND) ;
 	REQUIRE(list4 == doubleFwdList{3,4,5,6}) ;
@@ -157,9 +151,6 @@ TEST_CASE("merge sort - does the accepted list get sorted with descending order 
 	floatVec list2{3,6,4,5} ;
 	list2 = Salih::Algorithms::Sorts::mergeSort(list2, Salih::Algorithms::Sorts::DESCEND) ;
 	REQUIRE(list2 == floatVec{6,5,4,3}) ;
-	floatArr list3{3,6,4,5} ;
-	list3 = Salih::Algorithms::Sorts::mergeSort(list3, Salih::Algorithms::Sorts::DESCEND) ;
-	REQUIRE(list3 == floatArr{6,5,4,3}) ;
 	doubleFwdList list4{3,6,4,5} ;
 	list4 = Salih::Algorithms::Sorts::mergeSort(list4, Salih::Algorithms::Sorts::DESCEND) ;
 	REQUIRE(list4 == doubleFwdList{6,5,4,3}) ;

@@ -5,7 +5,7 @@
 #define private public
 #define protected public
 /* Include the code that we plan to test */
-#include <lib/Types/queue.hpp>
+#include "../../Types/queue.hpp"
 #include <string>
 #include <iostream>
 #include <stdexcept>

@@ -5,7 +5,7 @@
 #define protected public
 
 /* Include the code that we plan to test */
-#include <lib/Types/string.hpp>
+#include "../../Types/string.hpp"
 #include <string>
 #include <iostream>
 #include <cstring>

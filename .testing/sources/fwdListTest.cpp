@@ -9,7 +9,7 @@
 #include <stdexcept>
 
 #define private public
-#include <lib/Structures/LinkedLists/fwdList.hpp>
+#include "../../Structures/LinkedLists/fwdList.hpp"
 
 typedef Salih::Structures::LinkedLists::FwdList<int> intList ;
 typedef Salih::Structures::LinkedLists::FwdList<float> floatList ;

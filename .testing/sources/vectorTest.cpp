@@ -9,7 +9,7 @@
 #include <stdexcept>
 
 #define private public
-#include <lib/Structures/Contiguous/vector.hpp>
+#include "../../Structures/Contiguous/vector.hpp"
 
 typedef Salih::Structures::Contiguous::Vector<int> intList ;
 typedef Salih::Structures::Contiguous::Vector<float> floatList ;
