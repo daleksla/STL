@@ -538,7 +538,7 @@ typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator Salih::Struct
 {
 	Salih::Structures::LinkedLists::SNode<T>* tmp = this->pointer ;
 	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
-	return Salih::Structures::LinkedLists::List<T>::ConstIterator(tmp) ; 
+	return Salih::Structures::LinkedLists::FwdList<T>::ConstIterator(tmp) ; 
 }
 
 template<typename T> 
