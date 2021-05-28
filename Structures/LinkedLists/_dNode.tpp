@@ -42,7 +42,13 @@ Salih::Structures::LinkedLists::DNode<T>& Salih::Structures::LinkedLists::DNode<
 } 
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev() const
+Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev()
+{
+	return prev ;
+}
+
+template <typename T>
+const Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev() const
 {
 	return prev ;
 }
@@ -54,7 +60,13 @@ void Salih::Structures::LinkedLists::DNode<T>::setPrev(DNode<T>* input)
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext() const 
+Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext() 
+{
+	return next ;
+}
+
+template <typename T>
+const Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext() const 
 {
 	return next ;
 }
@@ -63,13 +75,6 @@ template <typename T>
 void Salih::Structures::LinkedLists::DNode<T>::setNext(DNode<T>* input) 
 {
 	this->next = input ;
-}
-
-template <typename T>
-void Salih::Structures::LinkedLists::DNode<T>::deleteNode() 
-{	
-	prev->setNext(this->getNext()) ; 
-	next->setPrev(this->getPrev()) ; 
 }
 
 #endif

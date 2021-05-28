@@ -30,15 +30,17 @@ namespace Salih::Structures::LinkedLists {
 			
 			DNode(T, DNode*, bool) ; //constructor - takes data, connects to specified node
 
-			DNode* getPrev() const ; //gets prev node in LL
+			DNode* getPrev() ; //gets prev node in LL
+
+			const DNode* getPrev() const ; //gets prev node in LL
 		
 			void setPrev(DNode*) ; //sets prev node in LL
 
-			DNode* getNext() const ; //returns next node in LL
+			DNode* getNext() ; //returns next node in LL
+			
+			const DNode* getNext() const ; //returns next node in LL
 
 			void setNext(DNode*) ; //sets next node in LL
-
-			void deleteNode() ; //connects previous and next node to each other, deletes data
 
 	} ;	
 }
