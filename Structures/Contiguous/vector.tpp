@@ -291,4 +291,218 @@ bool Salih::Structures::Contiguous::Vector<T>::operator!=(const Salih::Structure
 	return false ;	
 }
 
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T>::Iterator::Iterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T>::Iterator::Iterator(T* input) : pointer(input) {} ;
+
+template<typename T> 
+T& Salih::Structures::Contiguous::Vector<T>::Iterator::operator*() const
+{
+	return *this->pointer ; 
+}
+
+template<typename T> 
+T* Salih::Structures::Contiguous::Vector<T>::Iterator::operator->() const
+{
+	return this->pointer ; 
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::Iterator::operator+(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Vector<T>::Iterator(this->pointer + x) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator& Salih::Structures::Contiguous::Vector<T>::Iterator::operator+=(const std::size_t x)
+{
+	this->pointer += x ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator& Salih::Structures::Contiguous::Vector<T>::Iterator::operator++()
+{
+	this->pointer += 1 ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::Iterator::operator++(const int)
+{
+	Salih::Structures::Contiguous::Vector<T>::Iterator tmp(this->pointer) ;
+	this->pointer += 1 ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::Iterator::operator-(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Vector<T>::Iterator(this->pointer - x) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator& Salih::Structures::Contiguous::Vector<T>::Iterator::operator-=(const std::size_t x)
+{
+	this->pointer -= x ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator& Salih::Structures::Contiguous::Vector<T>::Iterator::operator--()
+{
+	this->pointer -= 1 ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::Iterator::operator--(const int)
+{
+	Salih::Structures::Contiguous::Vector<T>::Iterator tmp(this->pointer) ;
+	this->pointer -= 1 ;
+	return tmp ;
+}
+
+template<typename T> 
+bool Salih::Structures::Contiguous::Vector<T>::Iterator::operator==(const Salih::Structures::Contiguous::Vector<T>::Iterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+bool Salih::Structures::Contiguous::Vector<T>::Iterator::operator!=(const Salih::Structures::Contiguous::Vector<T>::Iterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+Salih::Structures::Contiguous::Vector<T>::ConstIterator::ConstIterator(T const* input) : pointer(input) {} ;
+
+template<typename T> 
+const T& Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator*() const
+{
+	return *this->pointer ; 
+}
+
+template<typename T> 
+const T* Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator->() const
+{
+	return this->pointer ; 
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator+(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Vector<T>::ConstIterator(this->pointer + x) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator& Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator+=(const std::size_t x)
+{
+	this->pointer += x ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator& Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator++()
+{
+	this->pointer += 1 ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator++(const int)
+{
+	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer) ;
+	this->pointer += 1 ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator-(const std::size_t x) const
+{
+	return Salih::Structures::Contiguous::Vector<T>::ConstIterator(this->pointer - x) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator& Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator-=(const std::size_t x)
+{
+	this->pointer -= x ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator& Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator--()
+{
+	this->pointer -= 1 ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator--(const int)
+{
+	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer) ;
+	this->pointer -= 1 ;
+	return tmp ;
+}
+
+template<typename T> 
+bool Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator==(const Salih::Structures::Contiguous::Vector<T>::ConstIterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+bool Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator!=(const Salih::Structures::Contiguous::Vector<T>::ConstIterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::begin()
+{
+	Salih::Structures::Contiguous::Vector<T>::Iterator tmp(this->pointer) ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::end()
+{
+	Salih::Structures::Contiguous::Vector<T>::Iterator tmp(this->pointer + this->size) ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::begin() const 
+{
+	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer) ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::end() const
+{
+	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer + this->size) ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::cbegin() const 
+{
+	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer) ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::cend() const
+{
+	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer + this->size) ;
+	return tmp ;
+}
+
 #endif
