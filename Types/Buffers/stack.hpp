@@ -13,7 +13,7 @@
     @date April 2021
 **/
 
-namespace Salih::Types {
+namespace Salih::Types::Buffers {
 	
 	template<class T>
 	class Stack {
@@ -103,14 +103,14 @@ namespace Salih::Types {
 }
 
 template <typename T>
-Salih::Types::Stack<T>::Stack()
+Salih::Types::Buffers::Stack<T>::Stack()
 {
 	this->size = 0 ;
 	this->tail = nullptr ;
 }
 
 template <typename T>
-Salih::Types::Stack<T>::Stack(const std::initializer_list<T>& values)
+Salih::Types::Buffers::Stack<T>::Stack(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* p = new Salih::Structures::LinkedLists::DNode<T>(*std::begin(values)) ;
@@ -127,7 +127,7 @@ Salih::Types::Stack<T>::Stack(const std::initializer_list<T>& values)
 }
 
 template <typename T>
-Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const std::initializer_list<T>& values)
+Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(this->size != 0)
 	{
@@ -155,7 +155,7 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const std::initializer
 }
 
 template <typename T>
-Salih::Types::Stack<T>::Stack(const Salih::Types::Stack<T>& stck)
+Salih::Types::Buffers::Stack<T>::Stack(const Salih::Types::Buffers::Stack<T>& stck)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* node = stck.tail ;
@@ -173,7 +173,7 @@ Salih::Types::Stack<T>::Stack(const Salih::Types::Stack<T>& stck)
 }
 			
 template <typename T>
-Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const Salih::Types::Stack<T>& stck) 
+Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(const Salih::Types::Buffers::Stack<T>& stck) 
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* node = stck.tail ;
@@ -192,7 +192,7 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(const Salih::Types::St
 }
 			
 template <typename T>
-Salih::Types::Stack<T>::Stack(Salih::Types::Stack<T>&& stck)
+Salih::Types::Buffers::Stack<T>::Stack(Salih::Types::Buffers::Stack<T>&& stck)
 {
 	this->size = stck.size ;
 	this->tail = stck.tail ;
@@ -201,7 +201,7 @@ Salih::Types::Stack<T>::Stack(Salih::Types::Stack<T>&& stck)
 }
 			
 template <typename T>
-Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(Salih::Types::Stack<T>&& stck)
+Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(Salih::Types::Buffers::Stack<T>&& stck)
 {
 	this->size = stck.size ;
 	this->tail = stck.tail ;
@@ -211,7 +211,7 @@ Salih::Types::Stack<T>& Salih::Types::Stack<T>::operator=(Salih::Types::Stack<T>
 }
 
 template <typename T>
-bool Salih::Types::Stack<T>::operator==(const Salih::Types::Stack<T>& qq) const
+bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::Stack<T>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -228,7 +228,7 @@ bool Salih::Types::Stack<T>::operator==(const Salih::Types::Stack<T>& qq) const
 }
 
 template <typename T>			
-bool Salih::Types::Stack<T>::operator!=(const Salih::Types::Stack<T>& qq) const
+bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::Stack<T>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -246,7 +246,7 @@ bool Salih::Types::Stack<T>::operator!=(const Salih::Types::Stack<T>& qq) const
 
 template <typename T>	
 template<typename OTHER>
-bool Salih::Types::Stack<T>::operator==(const Salih::Types::Stack<OTHER>& qq) const
+bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::Stack<OTHER>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -264,7 +264,7 @@ bool Salih::Types::Stack<T>::operator==(const Salih::Types::Stack<OTHER>& qq) co
 		
 template <typename T>	
 template <typename OTHER>
-bool Salih::Types::Stack<T>::operator!=(const Salih::Types::Stack<OTHER>& qq) const
+bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::Stack<OTHER>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -281,7 +281,7 @@ bool Salih::Types::Stack<T>::operator!=(const Salih::Types::Stack<OTHER>& qq) co
 }
 
 template <typename T>
-Salih::Types::Stack<T>::~Stack()
+Salih::Types::Buffers::Stack<T>::~Stack()
 {
 	if(size == 0) return;
 	
@@ -295,7 +295,7 @@ Salih::Types::Stack<T>::~Stack()
 }
 
 template <typename T>
-T Salih::Types::Stack<T>::pop()
+T Salih::Types::Buffers::Stack<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Stack is empty") ;
 	auto newTail = tail->getPrev() ;
@@ -307,14 +307,14 @@ T Salih::Types::Stack<T>::pop()
 }
 
 template <typename T>
-const T& Salih::Types::Stack<T>::peek() const
+const T& Salih::Types::Buffers::Stack<T>::peek() const
 {
 	if(size != 0) return tail->data ;
 	else throw std::out_of_range("Stack is empty") ;
 }
 
 template <typename T>
-void Salih::Types::Stack<T>::push(T val)
+void Salih::Types::Buffers::Stack<T>::push(T val)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p ;
 	if(size == 0) p = new Salih::Structures::LinkedLists::DNode<T>(val) ;
@@ -324,7 +324,7 @@ void Salih::Types::Stack<T>::push(T val)
 }
 
 template <typename T>
-void Salih::Types::Stack<T>::push(const std::initializer_list<T>& values)
+void Salih::Types::Buffers::Stack<T>::push(const std::initializer_list<T>& values)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
