@@ -318,43 +318,37 @@ bool Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::operator!=(con
 template<typename T, std::size_t SIZE> 
 typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::begin()
 {
-	Salih::Structures::Contiguous::Array<T,SIZE>::Iterator tmp(this->pointer) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Array<T,SIZE>::Iterator(this->pointer) ;
 }
 
 template<typename T, std::size_t SIZE> 
 typename Salih::Structures::Contiguous::Array<T,SIZE>::Iterator Salih::Structures::Contiguous::Array<T,SIZE>::end()
 {
-	Salih::Structures::Contiguous::Array<T,SIZE>::Iterator tmp(this->pointer + SIZE) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Array<T,SIZE>::Iterator(this->pointer + SIZE) ;
 }
 
 template<typename T, std::size_t SIZE> 
 typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::begin() const 
 {
-	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator(this->pointer) ;
 }
 
 template<typename T, std::size_t SIZE> 
 typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::end() const
 {
-	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer + SIZE) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator(this->pointer + SIZE) ;
 }
 
 template<typename T, std::size_t SIZE> 
 typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::cbegin() const 
 {
-	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator(this->pointer) ;
 }
 
 template<typename T, std::size_t SIZE> 
 typename Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator Salih::Structures::Contiguous::Array<T,SIZE>::cend() const
 {
-	Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator tmp(this->pointer + SIZE) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator(this->pointer + SIZE) ;
 }
 
 #endif
