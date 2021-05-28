@@ -28,7 +28,9 @@ namespace Salih::Structures::LinkedLists {
 			
 			SNode& operator=(const SNode&) ; //copy constructor - copies data and removes links
 		
-			SNode* getNext() const ; //returns next node in LL
+			SNode* getNext() ; //returns next node in LL
+		
+			const SNode* getNext() const ; //returns next node in LL
 
 			void setNext(SNode*) ; //sets next node in LL
 
