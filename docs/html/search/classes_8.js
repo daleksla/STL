@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue_151',['Queue',['../classSalih_1_1Types_1_1Queue.html',1,'Salih::Types']]]
+  ['queue_152',['Queue',['../classSalih_1_1Types_1_1Queue.html',1,'Salih::Types']]]
 ];

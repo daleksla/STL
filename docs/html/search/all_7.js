@@ -16,7 +16,7 @@ var searchData=
   ['isdynamic_3c_20salih_3a_3atypes_3a_3aqueue_3c_20t_20_3e_20_3e_42',['isDynamic&lt; Salih::Types::Queue&lt; T &gt; &gt;',['../structSalih_1_1Types_1_1Traits_1_1isDynamic_3_01Salih_1_1Types_1_1Queue_3_01T_01_4_01_4.html',1,'Salih::Types::Traits']]],
   ['isdynamic_3c_20salih_3a_3atypes_3a_3astack_3c_20t_20_3e_20_3e_43',['isDynamic&lt; Salih::Types::Stack&lt; T &gt; &gt;',['../structSalih_1_1Types_1_1Traits_1_1isDynamic_3_01Salih_1_1Types_1_1Stack_3_01T_01_4_01_4.html',1,'Salih::Types::Traits']]],
   ['isdynamic_3c_20salih_3a_3atypes_3a_3astring_20_3e_44',['isDynamic&lt; Salih::Types::String &gt;',['../structSalih_1_1Types_1_1Traits_1_1isDynamic_3_01Salih_1_1Types_1_1String_01_4.html',1,'Salih::Types::Traits']]],
-  ['isheap_45',['isHeap',['../namespaceSalih_1_1Types.html#a21802d65b8768b40657f3257c18631fe',1,'Salih::Types']]],
+  ['isheap_45',['isHeap',['../namespaceSalih_1_1Types_1_1SmartPointers.html#a483b47fe2b7717b94481b371004a6fd8',1,'Salih::Types::SmartPointers']]],
   ['islist_46',['isList',['../structSalih_1_1Types_1_1Traits_1_1isList.html',1,'Salih::Types::Traits']]],
   ['islist_3c_20salih_3a_3astructures_3a_3acontiguous_3a_3aarray_3c_20t_2c_20size_20_3e_20_3e_47',['isList&lt; Salih::Structures::Contiguous::Array&lt; T, SIZE &gt; &gt;',['../structSalih_1_1Types_1_1Traits_1_1isList_3_01Salih_1_1Structures_1_1Contiguous_1_1Array_3_01T_00_01SIZE_01_4_01_4.html',1,'Salih::Types::Traits']]],
   ['islist_3c_20salih_3a_3astructures_3a_3acontiguous_3a_3avector_3c_20t_20_3e_20_3e_48',['isList&lt; Salih::Structures::Contiguous::Vector&lt; T &gt; &gt;',['../structSalih_1_1Types_1_1Traits_1_1isList_3_01Salih_1_1Structures_1_1Contiguous_1_1Vector_3_01T_01_4_01_4.html',1,'Salih::Types::Traits']]],
