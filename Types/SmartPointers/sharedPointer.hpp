@@ -38,10 +38,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/	
 			SharedPointer(T*) ;
 			
-			/** Explicit constructor, intialises shared smart pointer container to void pointer
+			/** Regular constructor, intialises shared smart pointer container to void pointer
 			@param void* (raw void pointer)
 			@return <initialised-object> **/	
-			explicit SharedPointer(void*) ;
+			SharedPointer(void*) ;
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
@@ -58,10 +58,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/
 			SharedPointer(const SharedPointer&) ;
 			
-			/** Explicit pseudo-copy constructor, creates copy of a given specialised void smart pointer
+			/** Pseudo-copy constructor, creates copy of a given specialised void smart pointer
 			@param a (l-value) base class reference 
 			@return <initialised-object> **/	
-			explicit SharedPointer(const SharedPointer<void>&) ;
+			SharedPointer(const SharedPointer<void>&) ;
 			
 			/** Copy assignment operator, creates copy of a given shared smart pointer
 			@param a (l-value) base class reference 
@@ -73,10 +73,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/
 			SharedPointer(SharedPointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given specialised void shared smart pointer
+			/** Pseudo-move constructor, takes ownership of a given specialised void shared smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			explicit SharedPointer(SharedPointer<void>&&) ;
+			SharedPointer(SharedPointer<void>&&) ;
 			
 			/** Move assignment operator, takes ownership of a given shared smart pointer
 			@param an r-value object reference 
@@ -157,12 +157,12 @@ namespace Salih::Types::SmartPointers {
 			template<typename T>
 			SharedPointer& operator=(const SharedPointer<T>&) ;	
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given templated shared smart pointer
+			/** Pseudo-move constructor, takes ownership of a given templated shared smart pointer
 			@param an r-value templated base class reference 
 			@return <initialised-object> **/
 			SharedPointer(SharedPointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given templated shared smart pointer
+			/** Pseudo-move constructor, takes ownership of a given templated shared smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
@@ -173,7 +173,7 @@ namespace Salih::Types::SmartPointers {
 			@return reference to modified smart pointer **/
 			SharedPointer& operator=(SharedPointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given templated shared smart pointer
+			/** Pseudo-move assignment operator, takes ownership of a given templated shared smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
@@ -191,5 +191,7 @@ namespace Salih::Types::SmartPointers {
 	} ;
 	
 }
+
+#include "sharedPointer.tpp"
 
 #endif
