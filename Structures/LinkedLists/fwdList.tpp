@@ -3,11 +3,7 @@
 #pragma once
 
 #include <stdexcept>
-#include <limits>
-#include <array>
-#include <algorithm>
-#include <iostream>
-#include <iterator>
+#include "_sNode.hpp"
 #include <initializer_list>
 
 /* This file contains the implementations of a linked list
@@ -457,6 +453,162 @@ void Salih::Structures::LinkedLists::FwdList<T>::clear()
 	} 
 	this->head = nullptr ;
 	this->setSize(0) ;
+}
+
+template<typename T> 
+Salih::Structures::LinkedLists::FwdList<T>::Iterator::Iterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+Salih::Structures::LinkedLists::FwdList<T>::Iterator::Iterator(Salih::Structures::LinkedLists::SNode<T>* input) : pointer(input) {} ;
+
+template<typename T> 
+T& Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator*() const
+{
+	return this->pointer->data ; 
+}
+
+template<typename T> 
+T* Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator->() const
+{
+	return &(this->pointer->data) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::Iterator Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator+(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::SNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	return Salih::Structures::LinkedLists::FwdList<T>::Iterator(tmp) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::Iterator& Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator+=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::Iterator& Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator++()
+{
+	this->pointer = this->pointer->getNext() ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::Iterator Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator++(const int)
+{
+	Salih::Structures::LinkedLists::FwdList<T>::Iterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getNext() ;
+	return tmp ;
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator==(const Salih::Structures::LinkedLists::FwdList<T>::Iterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::FwdList<T>::Iterator::operator!=(const Salih::Structures::LinkedLists::FwdList<T>::Iterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::ConstIterator(Salih::Structures::LinkedLists::SNode<T> const* input) : pointer(input) {} ;
+
+template<typename T> 
+const T& Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator*() const
+{
+	return this->pointer->data ; 
+}
+
+template<typename T> 
+const T* Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator->() const
+{
+	return &(this->pointer->data) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator+(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::SNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(tmp) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator& Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator+=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator& Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator++()
+{
+	this->pointer = this->pointer->getNext() ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator++(const int)
+{
+	Salih::Structures::LinkedLists::FwdList<T>::ConstIterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getNext() ;
+	return tmp ;
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator==(const Salih::Structures::LinkedLists::FwdList<T>::ConstIterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::FwdList<T>::ConstIterator::operator!=(const Salih::Structures::LinkedLists::FwdList<T>::ConstIterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::Iterator Salih::Structures::LinkedLists::FwdList<T>::begin()
+{
+	return Salih::Structures::LinkedLists::FwdList<T>::Iterator(this->head) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::Iterator Salih::Structures::LinkedLists::FwdList<T>::end()
+{
+	return Salih::Structures::LinkedLists::FwdList<T>::Iterator(nullptr) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator Salih::Structures::LinkedLists::FwdList<T>::begin() const 
+{
+	return Salih::Structures::LinkedLists::FwdList<T>::ConstIterator(this->head) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator Salih::Structures::LinkedLists::FwdList<T>::end() const
+{
+	return Salih::Structures::LinkedLists::FwdList<T>::ConstIterator(nullptr) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator Salih::Structures::LinkedLists::FwdList<T>::cbegin() const 
+{
+	return Salih::Structures::LinkedLists::FwdList<T>::ConstIterator(this->head) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::FwdList<T>::ConstIterator Salih::Structures::LinkedLists::FwdList<T>::cend() const
+{
+	return Salih::Structures::LinkedLists::FwdList<T>::ConstIterator(nullptr) ;
 }
 
 #endif
