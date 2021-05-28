@@ -243,7 +243,7 @@ namespace Salih::Structures::Contiguous {
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the Vector's values **/ 
 				private:
-					T* pointer;
+					T const* pointer;
 				
 				public:
 					/** Empty constructor, intialises empty ConstIterator 
