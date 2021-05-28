@@ -3,11 +3,6 @@
 #pragma once
 
 #include <stdexcept>
-#include <limits>
-#include <array>
-#include <algorithm>
-#include <iostream>
-#include <iterator>
 #include <initializer_list>
 
 /* This file contains the implementations of a linked list
@@ -464,6 +459,222 @@ void Salih::Structures::LinkedLists::List<T>::clear()
 	this->head = nullptr ;
 	this->tail = nullptr ;
 	this->size = 0 ;
+}
+
+template<typename T> 
+Salih::Structures::LinkedLists::List<T>::Iterator::Iterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+Salih::Structures::LinkedLists::List<T>::Iterator::Iterator(Salih::Structures::LinkedLists::DNode<T>* input) : pointer(input) {} ;
+
+template<typename T> 
+T& Salih::Structures::LinkedLists::List<T>::Iterator::operator*() const
+{
+	return this->pointer->data ; 
+}
+
+template<typename T> 
+T* Salih::Structures::LinkedLists::List<T>::Iterator::operator->() const
+{
+	return &(this->pointer->data) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator+(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	return Salih::Structures::LinkedLists::List<T>::Iterator(tmp) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator+=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator++()
+{
+	this->pointer = this->pointer->getNext() ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator++(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::Iterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getNext() ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator-(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	return Salih::Structures::LinkedLists::List<T>::Iterator(tmp) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator-=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator--()
+{
+	this->pointer = this->pointer->getPrev() ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator--(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::Iterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getPrev() ;
+	return tmp ;
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::List<T>::Iterator::operator==(const Salih::Structures::LinkedLists::List<T>::Iterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::List<T>::Iterator::operator!=(const Salih::Structures::LinkedLists::List<T>::Iterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+Salih::Structures::LinkedLists::List<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+Salih::Structures::LinkedLists::List<T>::ConstIterator::ConstIterator(Salih::Structures::LinkedLists::DNode<T> const* input) : pointer(input) {} ;
+
+template<typename T> 
+const T& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator*() const
+{
+	return this->pointer->data ; 
+}
+
+template<typename T> 
+const T* Salih::Structures::LinkedLists::List<T>::ConstIterator::operator->() const
+{
+	return &(this->pointer->data) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator+(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(tmp) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator+=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator++()
+{
+	this->pointer = this->pointer->getNext() ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator++(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::ConstIterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getNext() ;
+	return tmp ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator-(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(tmp) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator-=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator--()
+{
+	this->pointer = this->pointer->getPrev() ;
+	return *this ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator--(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::ConstIterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getPrev() ;
+	return tmp ;
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::List<T>::ConstIterator::operator==(const Salih::Structures::LinkedLists::List<T>::ConstIterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+bool Salih::Structures::LinkedLists::List<T>::ConstIterator::operator!=(const Salih::Structures::LinkedLists::List<T>::ConstIterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::begin()
+{
+	return Salih::Structures::LinkedLists::List<T>::Iterator(this->head) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::end()
+{
+	return Salih::Structures::LinkedLists::List<T>::Iterator(nullptr) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::begin() const 
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(this->head) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::end() const
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(nullptr) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::cbegin() const 
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(this->head) ;
+}
+
+template<typename T> 
+typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::cend() const
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(nullptr) ;
 }
 
 #endif

@@ -2,9 +2,7 @@
 #define LIST_HPP
 #pragma once
 
-#include <lib/Structures/LinkedLists/_dNode.hpp>
-#include <algorithm>
-#include <iostream>
+#include "_dNode.hpp"
 #include <initializer_list>
 
 /** @brief Double Linkedlist container-class declaration file
@@ -153,7 +151,219 @@ namespace Salih::Structures::LinkedLists {
 			void del(const std::size_t) ; //delete element in list based off rank (1st, 2nd, etc.)
 			
 			/** clear method, wipes and deletes all values **/			
-			void clear() ;			
+			void clear() ;	
+			
+			class Iterator {
+				/** This class represents an Iterator object, allowing for controlled, read-write access to the list's values **/ 
+				private:
+					DNode<T>* pointer;
+				
+				public:
+					/** Empty constructor, intialises empty iterator 
+					@return <initialised-object> **/
+					Iterator() ;
+					
+					/** Copy constructor, copies address of element behind an iterator
+					@param Iterator object
+					@return <initialised-object> **/
+					Iterator(const Iterator&) = default ;
+					
+					/** Copy assignment operator, copies address of element behind an iterator
+					@param Iterator object
+					@return reference to calling Iterator **/
+					Iterator& operator=(const Iterator&) = default ;
+					
+					/** Move constructor, takes ownership of Iterator properties
+					@param Iterator object
+					@return <initialised-object> **/
+					Iterator(Iterator&&) = default ;
+					
+					/** Move assignment operator, takes ownership of Iterator properties
+					@param Iterator object
+					@return reference to calling Iterator **/
+					Iterator& operator=(Iterator&&) = default ;
+
+					/** Regular constructor, intialises iterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					Iterator(DNode<T>*) ;
+
+					/** Dereferncing operator - gets data behind the iterator
+					@return referemce to data **/					
+					T& operator*() const ;
+
+					/** Access / Arrow operator - gets data behind the iterator
+					@return Pointer to data (behind the iterator) **/
+					T* operator->() const ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the iterator should point to
+					@return Iterator object (pointing to the further element in sequence) **/					
+					Iterator operator+(const std::size_t) const ;
+
+					/** Subtraction operator - modifies iterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the iterator should point to
+					@return reference to calling Iterator (now pointing to further element in sequence) **/					
+					Iterator& operator+=(const std::size_t) ;
+
+					/** Prefix increment operator - modifies iterator to point to the next element in sequence
+					@return reference to calling Iterator (now pointing to the next element in sequence) **/										
+					Iterator& operator++() ; 
+
+					/** Postfix increment operator - modifies iterator to point to the next element in sequence
+					@return Iterator object (pointing to the element prior to modification) **/					
+					Iterator operator++(const int) ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the iterator should point to
+					@return Iterator object (pointing to the earlier element in sequence) **/						
+					Iterator operator-(const std::size_t) const ;
+
+					/** Subtraction operator - modifies iterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the iterator should point to
+					@return reference to calling Iterator (now pointing to the earlier element in sequence) **/											
+					Iterator& operator-=(const std::size_t) ;
+
+					/** Prefix decrement operator - modifies iterator to point to the previous element in sequence
+					@return reference to calling Iterator (now pointing to the previous element in sequence) **/						
+					Iterator& operator--() ; 
+
+					/** Postfix decrement operator - modifies iterator to point to the previous element in sequence
+					@return Iterator object (pointing to the element prior to modification) **/					
+					Iterator operator--(const int) ;
+
+					/** Comparison operator, determines if two iterators point to the same location
+					@param Iterator object
+					@return a boolean (True if iterators point to same location, false if otherwise) **/
+					bool operator==(const Iterator&) const ;
+
+					/** Inequality operator, determines if two iterators don't point to the same location
+					@param Iterator object
+					@return a boolean (False if iterators point to same location, true if otherwise) **/					
+					bool operator!=(const Iterator&) const ;
+					
+					/** (Trivial) Destructor (Default) **/
+					~Iterator() = default ;
+					
+			} ; 
+			
+			class ConstIterator {
+				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the list's values **/ 
+				private:
+					T* pointer;
+				
+				public:
+					/** Empty constructor, intialises empty ConstIterator 
+					@return <initialised-object> **/
+					ConstIterator() ;
+					
+					/** Copy constructor, copies address of element behind an ConstIterator
+					@param ConstIterator object
+					@return <initialised-object> **/
+					ConstIterator(const ConstIterator&) = default ;
+					
+					/** Copy assignment operator, copies address of element behind an ConstIterator
+					@param ConstIterator object
+					@return reference to calling ConstIterator **/
+					ConstIterator& operator=(const ConstIterator&) = default ;
+					
+					/** Move constructor, takes ownership of ConstIterator properties
+					@param ConstIterator object
+					@return <initialised-object> **/
+					ConstIterator(ConstIterator&&) = default ;
+					
+					/** Move assignment operator, takes ownership of ConstIterator properties
+					@param ConstIterator object
+					@return reference to calling ConstIterator **/
+					ConstIterator& operator=(ConstIterator&&) = default ;
+
+					/** Regular constructor, intialises ConstIterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					ConstIterator(DNode<T> const*) ;
+
+					/** Dereferncing operator - gets data behind the iterator
+					@return referemce to data **/					
+					const T& operator*() const ;
+
+					/** Access / Arrow operator - gets data behind the iterator
+					@return Pointer to data (behind the iterator) **/
+					const T* operator->() const ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the iterator should point to
+					@return ConstIterator object (pointing to the further element in sequence) **/					
+					ConstIterator operator+(const std::size_t) const ;
+
+					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the ConstIterator should point to
+					@return reference to calling ConstIterator (now pointing to further element in sequence) **/					
+					ConstIterator& operator+=(const std::size_t) ;
+
+					/** Prefix increment operator - modifies iterator to point to the next element in sequence
+					@return reference to calling ConstIterator (now pointing to the next element in sequence) **/										
+					ConstIterator& operator++() ; 
+
+					/** Postfix increment operator - modifies ConstIterator to point to the next element in sequence
+					@return ConstIterator object (pointing to the element prior to modification) **/					
+					ConstIterator operator++(const int) ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the ConstIterator should point to
+					@return ConstIterator object (pointing to the earlier element in sequence) **/						
+					ConstIterator operator-(const std::size_t) const ;
+
+					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the iterator should point to
+					@return reference to calling ConstIterator (now pointing to the earlier element in sequence) **/											
+					ConstIterator& operator-=(const std::size_t) ;
+
+					/** Prefix decrement operator - modifies ConstIterator to point to the previous element in sequence
+					@return reference to calling ConstIterator (now pointing to the previous element in sequence) **/						
+					ConstIterator& operator--() ; 
+
+					/** Postfix decrement operator - modifies ConstIterator to point to the previous element in sequence
+					@return ConstIterator object (pointing to the element prior to modification) **/					
+					ConstIterator operator--(const int) ;
+
+					/** Comparison operator, determines if two ConstIterators point to the same location
+					@param ConstIterator object
+					@return a boolean (True if iterators point to same location, false if otherwise) **/
+					bool operator==(const ConstIterator&) const ;
+
+					/** Inequality operator, determines if two ConstIterators don't point to the same location
+					@param ConstIterator object
+					@return a boolean (False if iterators point to same location, true if otherwise) **/					
+					bool operator!=(const ConstIterator&) const ;
+					
+					/** (Trivial) Destructor (Default) **/
+					~ConstIterator() = default ;
+					
+			} ; 
+			
+			/** begin method, creates Iterator object to the first element of the structure. Allows for read-write access of structure. Note: is called if calling object is mutable
+			@return Iterator pointing to first element in sequence **/ 
+			Iterator begin() ;
+
+			/** end method, creates Iterator object to beyond the final element of the structure. Allows for read-write access of structure. Note: is called if calling object is mutable
+			@return Iterator pointing to beyond the final element in sequence **/ 			
+			Iterator end() ;
+
+			/** begin method, creates ConstIterator object to the first element of the structure. Allows for read-only access of structure. Note: is called if calling object is a constant
+			@return ConstIterator pointing to first element in sequence **/ 			
+			ConstIterator begin() const ;
+
+			/** end method, creates ConstIterator object to beyond the final element of the structure. Allows for read-only access of structure. Note: is called if calling object is a constant
+			@return ConstIterator pointing to beyond the final element in sequence **/ 			
+			ConstIterator end() const ;
+
+			/** cbegin method, creates ConstIterator object to the first element of the structure. Allows for read-only access of structure
+			@return ConstIterator pointing to first element in sequence **/ 			
+			ConstIterator cbegin() const ;
+
+			/** cend method, creates ConstIterator object to beyond the final element of the structure. Allows for read-only access of structure
+			@return ConstIterator pointing to beyond the final element in sequence **/ 			
+			ConstIterator cend() const ;				
 			
 			template<typename OTHER>
 			friend class List ;
