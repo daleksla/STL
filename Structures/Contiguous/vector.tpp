@@ -466,43 +466,37 @@ bool Salih::Structures::Contiguous::Vector<T>::ConstIterator::operator!=(const S
 template<typename T> 
 typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::begin()
 {
-	Salih::Structures::Contiguous::Vector<T>::Iterator tmp(this->pointer) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Vector<T>::Iterator(this->pointer) ;
 }
 
 template<typename T> 
 typename Salih::Structures::Contiguous::Vector<T>::Iterator Salih::Structures::Contiguous::Vector<T>::end()
 {
-	Salih::Structures::Contiguous::Vector<T>::Iterator tmp(this->pointer + this->size) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Vector<T>::Iterator(this->pointer + this->size) ;
 }
 
 template<typename T> 
 typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::begin() const 
 {
-	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Vector<T>::ConstIterator(this->pointer) ;
 }
 
 template<typename T> 
 typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::end() const
 {
-	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer + this->size) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Vector<T>::ConstIterator (this->pointer + this->size) ;
 }
 
 template<typename T> 
 typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::cbegin() const 
 {
-	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Vector<T>::ConstIterator(this->pointer) ;
 }
 
 template<typename T> 
 typename Salih::Structures::Contiguous::Vector<T>::ConstIterator Salih::Structures::Contiguous::Vector<T>::cend() const
 {
-	Salih::Structures::Contiguous::Vector<T>::ConstIterator tmp(this->pointer + this->size) ;
-	return tmp ;
+	return Salih::Structures::Contiguous::Vector<T>::ConstIterator(this->pointer + this->size) ;
 }
 
 #endif
