@@ -144,6 +144,9 @@ bool Salih::Structures::Contiguous::Array<T,SIZE>::operator!=(const Salih::Struc
 }
 
 template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::Iterator() : pointer(nullptr) {} ;
+
+template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::Iterator(T* input) : pointer(input) {} ;
 
 template<typename T, std::size_t SIZE> 
@@ -225,6 +228,9 @@ bool Salih::Structures::Contiguous::Array<T,SIZE>::Iterator::operator!=(const Sa
 {
 	return (this->pointer != other.pointer) ; 
 }
+
+template<typename T, std::size_t SIZE> 
+Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
 
 template<typename T, std::size_t SIZE> 
 Salih::Structures::Contiguous::Array<T,SIZE>::ConstIterator::ConstIterator(T const* input) : pointer(input) {} ;
