@@ -140,7 +140,7 @@ namespace Salih::Structures::Contiguous {
 			bool operator!=(const Array<OTHER, DIFF>&) const ;
 			
 			/** (Trivial) Destructor **/					
-			~Array() = default ;
+			//~Array() = default ;
 			
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the Array's values **/ 
