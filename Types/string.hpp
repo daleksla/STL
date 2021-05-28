@@ -26,164 +26,164 @@ namespace Salih::Types {
 			
 			std::size_t size ;
 					
-			String(char*, const std::size_t) ;	
+			_GLIBCXX20_CONSTEXPR String(char*, const std::size_t) ;	
 		public:
 			/** Empty constructor, intialises empty string 
 			@return <initialised-object> **/
-			String() ;
+			_GLIBCXX20_CONSTEXPR String() ;
 			
 			/** Regular constructor, intialises string 
 			@param a c-string to wrap
 			@return <initialised-object> **/			
-			String(const char*) ;
+			_GLIBCXX20_CONSTEXPR String(const char*) ;
 
 			/** Copy constructor, creates copy of a given string
 			@param a (l-value) string object
 			@return <initialised-object> **/				
-			String(const String&) ;
+			_GLIBCXX20_CONSTEXPR String(const String&) ;
 		
 			/** Move constructor, takes ownership of an otherwise temporary string object
 			@param an r-value string object
 			@return <initialised-object> **/				
-			String(String&&) ;
+			_GLIBCXX20_CONSTEXPR String(String&&) ;
 				
 			/** Destructor, frees memory and deletes string **/					
-			~String() ;
+			_GLIBCXX20_CONSTEXPR ~String() ;
 			
 			/** Regular assignment operator, wraps around a new c-string
 			@param a c-string to wrap
 			@return reference to current object **/			
-			String& operator=(const char*) ;
+			_GLIBCXX20_CONSTEXPR String& operator=(const char*) ;
 			
 			/** Copy assignment operator, creates copy of a given string
 			@param a (l-value) string object
 			@return reference to current object **/			
-			String& operator=(const String&) ;
+			_GLIBCXX20_CONSTEXPR String& operator=(const String&) ;
 	
 			/** Move assignment operator, takes ownership of an otherwise temporary string object
 			@param an (r-value) string object
 			@return reference to current object **/			
-			String& operator=(String&&) ;
+			_GLIBCXX20_CONSTEXPR String& operator=(String&&) ;
 
 			/** Concatenation operator, creates a copy of a calling string with an additional character
 			@param a character to append
 			@return a copy of the string with the appended value **/ 			
-			String operator+(char) const ; //to append char
+			_GLIBCXX20_CONSTEXPR String operator+(char) const ; //to append char
 
 			/** Concatenation operator, modifies / appends calling string with an additional character
 			@param a character to append
 			@return a reference to the calling string **/ 			
-			String& operator+=(char) ; //to append char
+			_GLIBCXX20_CONSTEXPR String& operator+=(char) ; //to append char
 
 			/** Concatenation operator, creates a copy of a calling string with an additional sequence of characters
 			@param wrapped / object string 
 			@return a copy of the string with the appended value **/ 			
-			String operator+(const String&) const ; //to append another string
+			_GLIBCXX20_CONSTEXPR String operator+(const String&) const ; //to append another string
 			
 			/** Concatenation operator, modifies / appends calling string with data of a provided string object
 			@param wrapped / object string 
 			@return a reference to the calling string **/ 			
-			String& operator+=(const String&) ; //to append another string
+			_GLIBCXX20_CONSTEXPR String& operator+=(const String&) ; //to append another string
 
 			/** Concatenation operator, creates a copy of a calling string with an additional sequence of characters
 			@param c-string / null-terminated sequence of characters 
 			@return a copy of the string with the appended value **/ 				
-			String operator+(const char*) const ;
+			_GLIBCXX20_CONSTEXPR String operator+(const char*) const ;
 			
 			/** Concatenation operator, modifies / appends calling string with an additional sequence of characters
 			@param c-string / null-terminated sequence of characters  
 			@return a reference to the calling string **/ 			
-			String& operator+=(const char*) ;
+			_GLIBCXX20_CONSTEXPR String& operator+=(const char*) ;
 
 			/** Comparison operator, determines if string object content matches with a given (c-)string
 			@param c-string / null-terminated sequence of characters  
 			@return a boolean representing whether equality is met **/ 			
-			bool operator==(const char*) const ;
+			_GLIBCXX20_CONSTEXPR bool operator==(const char*) const ;
 
 			/** Inequality operator, determines if string object content does not match with a given (c-)string
 			@param c-string / null-terminated sequence of characters  
 			@return a boolean representing whether equality is not met **/ 			
-			bool operator!=(const char*) const ;
+			_GLIBCXX20_CONSTEXPR bool operator!=(const char*) const ;
 
 			/** Comparison operator, determines if string object content matches with a given string object
 			@param wrapped / object string   
 			@return a boolean representing whether equality is met **/ 				
-			bool operator==(const String&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator==(const String&) const ;
 
 			/** Inequality operator, determines if string object content does not match with a given string object
 			@param wrapped / object string   
 			@return a boolean representing whether equality is not met **/ 				
-			bool operator!=(const String&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator!=(const String&) const ;
 			
 			/** Multiplication operator, creates a duplicated string x amount of times
 			@param number to multiply string by
 			@return a duplicated string object **/ 				
-			String operator*(std::size_t) const ;
+			_GLIBCXX20_CONSTEXPR String operator*(std::size_t) const ;
 			
 			/** Multiplication operator, overwrites a string with said duplicated string x amount of times
 			@param number to multiply string by
 			@return a reference to the calling string **/ 			
-			String& operator*=(std::size_t) ;			
+			_GLIBCXX20_CONSTEXPR String& operator*=(std::size_t) ;			
 
 			/** get method, returns the c-string representation of a string
 			@return constant c-string **/ 				
-			const char* get() const ;
+			_GLIBCXX20_CONSTEXPR const char* get() const ;
 
 			/** getSize method, returns size of a string object
 			@return integer representing size **/ 				
-			std::size_t getSize() const ;
+			_GLIBCXX20_CONSTEXPR std::size_t getSize() const ;
 			
 			/** Slicing operator, extract part of structure directly
 			@param integer to start slicing from	
 			@param integer to slice until			
 			@return sliced string (ie values from index a->b) **/			
-			String operator()(const std::size_t, const std::size_t) const ;
+			_GLIBCXX20_CONSTEXPR String operator()(const std::size_t, const std::size_t) const ;
 
 			/** Index operator, modifying string directly
 			@param integer to index string with		
 			@return reference to a given character in the string **/ 			
-			char& operator[](const std::size_t) ;
+			_GLIBCXX20_CONSTEXPR char& operator[](const std::size_t) ;
 
 			/** Index operator, modifying string directly
 			@param integer to index string with		
 			@return constant reference to a given character in the string **/ 			
-			const char& operator[](const std::size_t) const ;
+			_GLIBCXX20_CONSTEXPR const char& operator[](const std::size_t) const ;
 
 			/** capitalise method, capitalises a copy of calling object's string value
 			@return calling object copy with capitalised values (where possible) **/ 			
-			String capitalise() const ;
+			_GLIBCXX20_CONSTEXPR String capitalise() const ;
 
 			/** upper method, upper cases entire copy of calling object's string value
 			@return calling object copy with upper-cased values (where possible) **/ 			
-			String upper() const ;
+			_GLIBCXX20_CONSTEXPR String upper() const ;
 
 			/** lower method, lower cases entire copy of calling object's string value
 			@return calling object copy with lower-cased values (where possible) **/ 			
-			String lower() const ;
+			_GLIBCXX20_CONSTEXPR String lower() const ;
 
 			/** isAlphaNum method, determines if all values within string object are alphanumeric
 			@return boolean indicatting if all values are alphanumeric **/ 				
-			bool isAlphaNum() const ;
+			_GLIBCXX20_CONSTEXPR bool isAlphaNum() const ;
 
 			/** isAlpha method, determines if all values within string object are alphabetical
 			@return boolean indicatting if all values are alphabetical **/ 				
-			bool isAlpha() const ;
+			_GLIBCXX20_CONSTEXPR bool isAlpha() const ;
 
 			/** isNum method, determines if all values within string object are numerical
 			@return boolean indicatting if all values are numerical **/ 				
-			bool isNum() const ;
+			_GLIBCXX20_CONSTEXPR bool isNum() const ;
 
 			/** isUpper method, determines if all values within string object are in upper-case
 			@return boolean indicatting if all values are in upper-case **/ 				
-			bool isUpper() const ;
+			_GLIBCXX20_CONSTEXPR bool isUpper() const ;
 
 			/** isLower method, determines if all values within string object are in lower-case
 			@return boolean indicatting if all values are in lower-case **/ 				
-			bool isLower() const ;
+			_GLIBCXX20_CONSTEXPR bool isLower() const ;
 
 			/** isCapitalised method, determines if all values within string object are in a capitalised format
 			@return boolean indicatting if all values are in a capitalised format **/ 				
-			bool isCapitalised() const ;	
+			_GLIBCXX20_CONSTEXPR bool isCapitalised() const ;	
 			
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the string's values **/ 
@@ -193,85 +193,85 @@ namespace Salih::Types {
 				public:
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
-					Iterator() ;
+					_GLIBCXX20_CONSTEXPR Iterator() ;
 					
 					/** Copy constructor, copies address of element behind an iterator
 					@param Iterator object
 					@return <initialised-object> **/
-					Iterator(const Iterator&) = default ;
+					_GLIBCXX20_CONSTEXPR Iterator(const Iterator&) = default ;
 					
 					/** Copy assignment operator, copies address of element behind an iterator
 					@param Iterator object
 					@return reference to calling Iterator **/
-					Iterator& operator=(const Iterator&) = default ;
+					_GLIBCXX20_CONSTEXPR Iterator& operator=(const Iterator&) = default ;
 					
 					/** Move constructor, takes ownership of Iterator properties
 					@param Iterator object
 					@return <initialised-object> **/
-					Iterator(Iterator&&) = default ;
+					_GLIBCXX20_CONSTEXPR Iterator(Iterator&&) = default ;
 					
 					/** Move assignment operator, takes ownership of Iterator properties
 					@param Iterator object
 					@return reference to calling Iterator **/
-					Iterator& operator=(Iterator&&) = default ;
+					_GLIBCXX20_CONSTEXPR Iterator& operator=(Iterator&&) = default ;
 
 					/** Regular constructor, intialises iterator to a given location
 					@param Pointer (to an element of type T)
 					@return <initialised-object> **/				
-					Iterator(char*) ;
+					_GLIBCXX20_CONSTEXPR Iterator(char*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
-					char& operator*() const ;
+					_GLIBCXX20_CONSTEXPR char& operator*() const ;
 
 					/** Subtraction operator - gets iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return Iterator object (pointing to the further element in sequence) **/					
-					Iterator operator+(const std::size_t) const ;
+					_GLIBCXX20_CONSTEXPR Iterator operator+(const std::size_t) const ;
 
 					/** Subtraction operator - modifies iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return reference to calling Iterator (now pointing to further element in sequence) **/					
-					Iterator& operator+=(const std::size_t) ;
+					_GLIBCXX20_CONSTEXPR Iterator& operator+=(const std::size_t) ;
 
 					/** Prefix increment operator - modifies iterator to point to the next element in sequence
 					@return reference to calling Iterator (now pointing to the next element in sequence) **/										
-					Iterator& operator++() ; 
+					_GLIBCXX20_CONSTEXPR Iterator& operator++() ; 
 
 					/** Postfix increment operator - modifies iterator to point to the next element in sequence
 					@return Iterator object (pointing to the element prior to modification) **/					
-					Iterator operator++(const int) ;
+					_GLIBCXX20_CONSTEXPR Iterator operator++(const int) ;
 
 					/** Subtraction operator - gets iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return Iterator object (pointing to the earlier element in sequence) **/						
-					Iterator operator-(const std::size_t) const ;
+					_GLIBCXX20_CONSTEXPR Iterator operator-(const std::size_t) const ;
 
 					/** Subtraction operator - modifies iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return reference to calling Iterator (now pointing to the earlier element in sequence) **/											
-					Iterator& operator-=(const std::size_t) ;
+					_GLIBCXX20_CONSTEXPR Iterator& operator-=(const std::size_t) ;
 
 					/** Prefix decrement operator - modifies iterator to point to the previous element in sequence
 					@return reference to calling Iterator (now pointing to the previous element in sequence) **/						
-					Iterator& operator--() ; 
+					_GLIBCXX20_CONSTEXPR Iterator& operator--() ; 
 
 					/** Postfix decrement operator - modifies iterator to point to the previous element in sequence
 					@return Iterator object (pointing to the element prior to modification) **/					
-					Iterator operator--(const int) ;
+					_GLIBCXX20_CONSTEXPR Iterator operator--(const int) ;
 
 					/** Comparison operator, determines if two iterators point to the same location
 					@param Iterator object
 					@return a boolean (True if iterators point to same location, false if otherwise) **/
-					bool operator==(const Iterator&) const ;
+					_GLIBCXX20_CONSTEXPR bool operator==(const Iterator&) const ;
 
 					/** Inequality operator, determines if two iterators don't point to the same location
 					@param Iterator object
 					@return a boolean (False if iterators point to same location, true if otherwise) **/					
-					bool operator!=(const Iterator&) const ;
+					_GLIBCXX20_CONSTEXPR bool operator!=(const Iterator&) const ;
 					
 					/** (Trivial) Destructor (Default) **/
-					~Iterator() = default ;
+					_GLIBCXX20_CONSTEXPR ~Iterator() = default ;
 					
 			} ; 
 			
@@ -283,129 +283,124 @@ namespace Salih::Types {
 				public:
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
-					ConstIterator() ;
+					_GLIBCXX20_CONSTEXPR ConstIterator() ;
 					
 					/** Copy constructor, copies address of element behind an ConstIterator
 					@param ConstIterator object
 					@return <initialised-object> **/
-					ConstIterator(const ConstIterator&) = default ;
+					_GLIBCXX20_CONSTEXPR ConstIterator(const ConstIterator&) = default ;
 					
 					/** Copy assignment operator, copies address of element behind an ConstIterator
 					@param ConstIterator object
 					@return reference to calling ConstIterator **/
-					ConstIterator& operator=(const ConstIterator&) = default ;
+					_GLIBCXX20_CONSTEXPR ConstIterator& operator=(const ConstIterator&) = default ;
 					
 					/** Move constructor, takes ownership of ConstIterator properties
 					@param ConstIterator object
 					@return <initialised-object> **/
-					ConstIterator(ConstIterator&&) = default ;
+					_GLIBCXX20_CONSTEXPR ConstIterator(ConstIterator&&) = default ;
 					
 					/** Move assignment operator, takes ownership of ConstIterator properties
 					@param ConstIterator object
 					@return reference to calling ConstIterator **/
-					ConstIterator& operator=(ConstIterator&&) = default ;
+					_GLIBCXX20_CONSTEXPR ConstIterator& operator=(ConstIterator&&) = default ;
 
 					/** Regular constructor, intialises ConstIterator to a given location
 					@param Pointer (to an element of type T)
 					@return <initialised-object> **/				
-					ConstIterator(char const*) ;
+					_GLIBCXX20_CONSTEXPR ConstIterator(char const*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
-					const char& operator*() const ;
+					_GLIBCXX20_CONSTEXPR const char& operator*() const ;
 
 					/** Subtraction operator - gets iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return ConstIterator object (pointing to the further element in sequence) **/					
-					ConstIterator operator+(const std::size_t) const ;
+					_GLIBCXX20_CONSTEXPR ConstIterator operator+(const std::size_t) const ;
 
 					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the ConstIterator should point to
 					@return reference to calling ConstIterator (now pointing to further element in sequence) **/					
-					ConstIterator& operator+=(const std::size_t) ;
+					_GLIBCXX20_CONSTEXPR ConstIterator& operator+=(const std::size_t) ;
 
 					/** Prefix increment operator - modifies iterator to point to the next element in sequence
 					@return reference to calling ConstIterator (now pointing to the next element in sequence) **/										
-					ConstIterator& operator++() ; 
+					_GLIBCXX20_CONSTEXPR ConstIterator& operator++() ; 
 
 					/** Postfix increment operator - modifies ConstIterator to point to the next element in sequence
 					@return ConstIterator object (pointing to the element prior to modification) **/					
-					ConstIterator operator++(const int) ;
+					_GLIBCXX20_CONSTEXPR ConstIterator operator++(const int) ;
 
 					/** Subtraction operator - gets iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the ConstIterator should point to
 					@return ConstIterator object (pointing to the earlier element in sequence) **/						
-					ConstIterator operator-(const std::size_t) const ;
+					_GLIBCXX20_CONSTEXPR ConstIterator operator-(const std::size_t) const ;
 
 					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return reference to calling ConstIterator (now pointing to the earlier element in sequence) **/											
-					ConstIterator& operator-=(const std::size_t) ;
+					_GLIBCXX20_CONSTEXPR ConstIterator& operator-=(const std::size_t) ;
 
 					/** Prefix decrement operator - modifies ConstIterator to point to the previous element in sequence
 					@return reference to calling ConstIterator (now pointing to the previous element in sequence) **/						
-					ConstIterator& operator--() ; 
+					_GLIBCXX20_CONSTEXPR ConstIterator& operator--() ; 
 
 					/** Postfix decrement operator - modifies ConstIterator to point to the previous element in sequence
 					@return ConstIterator object (pointing to the element prior to modification) **/					
-					ConstIterator operator--(const int) ;
+					_GLIBCXX20_CONSTEXPR ConstIterator operator--(const int) ;
 
 					/** Comparison operator, determines if two ConstIterators point to the same location
 					@param ConstIterator object
 					@return a boolean (True if iterators point to same location, false if otherwise) **/
-					bool operator==(const ConstIterator&) const ;
+					_GLIBCXX20_CONSTEXPR bool operator==(const ConstIterator&) const ;
 
 					/** Inequality operator, determines if two ConstIterators don't point to the same location
 					@param ConstIterator object
 					@return a boolean (False if iterators point to same location, true if otherwise) **/					
-					bool operator!=(const ConstIterator&) const ;
+					_GLIBCXX20_CONSTEXPR bool operator!=(const ConstIterator&) const ;
 					
 					/** (Trivial) Destructor (Default) **/
-					~ConstIterator() = default ;
+					_GLIBCXX20_CONSTEXPR ~ConstIterator() = default ;
 					
 			} ; 
 			
 			/** begin method, creates Iterator object to the first element of the structure. Allows for read-write access of structure. Note: is called if calling object is mutable
 			@return Iterator pointing to first element in sequence **/ 
-			Iterator begin() ;
+			_GLIBCXX20_CONSTEXPR Iterator begin() ;
 
 			/** end method, creates Iterator object to beyond the final element of the structure. Allows for read-write access of structure. Note: is called if calling object is mutable
 			@return Iterator pointing to beyond the final element in sequence **/ 			
-			Iterator end() ;
+			_GLIBCXX20_CONSTEXPR Iterator end() ;
 
 			/** begin method, creates ConstIterator object to the first element of the structure. Allows for read-only access of structure. Note: is called if calling object is a constant
 			@return ConstIterator pointing to first element in sequence **/ 			
-			ConstIterator begin() const ;
+			_GLIBCXX20_CONSTEXPR ConstIterator begin() const ;
 
 			/** end method, creates ConstIterator object to beyond the final element of the structure. Allows for read-only access of structure. Note: is called if calling object is a constant
 			@return ConstIterator pointing to beyond the final element in sequence **/ 			
-			ConstIterator end() const ;
+			_GLIBCXX20_CONSTEXPR ConstIterator end() const ;
 
 			/** cbegin method, creates ConstIterator object to the first element of the structure. Allows for read-only access of structure
 			@return ConstIterator pointing to first element in sequence **/ 			
-			ConstIterator cbegin() const ;
+			_GLIBCXX20_CONSTEXPR ConstIterator cbegin() const ;
 
 			/** cend method, creates ConstIterator object to beyond the final element of the structure. Allows for read-only access of structure
 			@return ConstIterator pointing to beyond the final element in sequence **/ 			
-			ConstIterator cend() const ;	
+			_GLIBCXX20_CONSTEXPR ConstIterator cend() const ;	
 		
 	} ;
 }
 
-Salih::Types::String::String(char* temp, const std::size_t SIZE)
-{
-	this->str = temp ;
-	this->size = SIZE ;
-}
+_GLIBCXX20_CONSTEXPR Salih::Types::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
 
-Salih::Types::String::String()
+_GLIBCXX20_CONSTEXPR Salih::Types::String::String() : size(0)
 {
 	this->str = new char[1] ;
 	this->str[0] = '\0' ;
-	this->size = 0 ;
 }
 
-Salih::Types::String::String(const char* input)
+_GLIBCXX20_CONSTEXPR Salih::Types::String::String(const char* input)
 {
 	for(this->size = 0 ; input[this->size] != '\0'; this->size++) ;
 	this->str = new char[size + 1] ;
@@ -413,15 +408,13 @@ Salih::Types::String::String(const char* input)
 	str[this->size] = '\0' ;
 }
 
-Salih::Types::String::String(const Salih::Types::String& tbc)
+_GLIBCXX20_CONSTEXPR Salih::Types::String::String(const Salih::Types::String& tbc) : str(new char[tbc.size+1]), size(tbc.size)
 {
-	this->str = new char[tbc.size+1] ;
-	this->size = tbc.size ;
 	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
 	this->str[this->size] = '\0' ;
 }
 
-Salih::Types::String::String(Salih::Types::String&& tbo)
+_GLIBCXX20_CONSTEXPR Salih::Types::String::String(Salih::Types::String&& tbo)
 {
 	delete[] this->str ;
 	this->size = tbo.size ;
@@ -430,14 +423,14 @@ Salih::Types::String::String(Salih::Types::String&& tbo)
 	tbo.str = nullptr ;
 }
 
-Salih::Types::String::~String()
+_GLIBCXX20_CONSTEXPR Salih::Types::String::~String()
 {
 	if(str == nullptr) return;
 	delete[] str ; //else
 	str = nullptr ;
 }
 
-Salih::Types::String& Salih::Types::String::operator=(const char* tbc)
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(const char* tbc)
 {
 	delete[] this->str ;
 	for(this->size = 0 ; tbc[this->size] != '\0'; this->size++) ;
@@ -447,7 +440,7 @@ Salih::Types::String& Salih::Types::String::operator=(const char* tbc)
 	return *this ;
 }
 
-Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
 {
 	delete[] this->str ;
 	this->size = tbc.size ;
@@ -457,7 +450,7 @@ Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String
 	return *this ;
 }
 
-Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
 {
 	delete[] this->str ;
 	this->size = tbo.size ;
@@ -467,7 +460,7 @@ Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo
 	return *this ;
 }
 
-Salih::Types::String Salih::Types::String::operator+(char c) const
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator+(char c) const
 {
 	Salih::Types::String tmp ;
 	delete[] tmp.str ;
@@ -479,7 +472,7 @@ Salih::Types::String Salih::Types::String::operator+(char c) const
 	return tmp ;
 }
 
-Salih::Types::String& Salih::Types::String::operator+=(char c) 
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator+=(char c) 
 {
 	this->size = this->size + 1 ;
 	char* tmp = new char[this->size+1] ;
@@ -492,7 +485,7 @@ Salih::Types::String& Salih::Types::String::operator+=(char c)
 	return *this ;
 }
 
-Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String& tbm) const
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String& tbm) const
 {
 	Salih::Types::String tmp ; delete[] tmp.str ;
 	tmp.size = this->size + tbm.size ;
@@ -504,7 +497,7 @@ Salih::Types::String Salih::Types::String::operator+(const Salih::Types::String&
 	return tmp ;
 }
 
-Salih::Types::String& Salih::Types::String::operator+=(const Salih::Types::String& tbm)
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator+=(const Salih::Types::String& tbm)
 {
 	char* tmp = new char[this->size + tbm.size + 1] ;
 	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
@@ -517,7 +510,7 @@ Salih::Types::String& Salih::Types::String::operator+=(const Salih::Types::Strin
 	return *this ;
 }
 
-Salih::Types::String Salih::Types::String::operator+(const char* tbm) const
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator+(const char* tbm) const
 {
 	Salih::Types::String tmp ; delete[] tmp.str ;
 	
@@ -533,7 +526,7 @@ Salih::Types::String Salih::Types::String::operator+(const char* tbm) const
 	return tmp ;
 }
 
-Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
 {
 	std::size_t tmpSize ;
 	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
@@ -549,13 +542,13 @@ Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
 	return *this ;
 }
 
-Salih::Types::String Salih::Types::String::operator*(std::size_t x) const
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator*(std::size_t x) const
 {
 	Salih::Types::String tmp ;
 	char* tmpStr = new char[(this->size * x) + 1] ;
-	for(int i = 0 ; i < x ; i++)
+	for(std::size_t i = 0 ; i < x ; i++)
 	{
-		for(int j = 0 ; j < this->size ; j++)
+		for(std::size_t j = 0 ; j < this->size ; j++)
 		{
 			tmpStr[j+(i*this->size)] = this->str[j] ;
 		}
@@ -566,12 +559,12 @@ Salih::Types::String Salih::Types::String::operator*(std::size_t x) const
 	return tmp ;
 }
 
-Salih::Types::String& Salih::Types::String::operator*=(std::size_t x)
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator*=(std::size_t x)
 {
 	char* tmpStr = new char[(this->size * x) + 1] ;
-	for(int i = 0 ; i < x ; i++)
+	for(std::size_t i = 0 ; i < x ; i++)
 	{
-		for(int j = 0 ; j < this->size ; j++)
+		for(std::size_t j = 0 ; j < this->size ; j++)
 		{
 			tmpStr[j+(i*this->size)] = this->str[j] ;
 		}
@@ -583,7 +576,7 @@ Salih::Types::String& Salih::Types::String::operator*=(std::size_t x)
 	return *this ;
 }
 
-bool Salih::Types::String::operator==(const char* str) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::operator==(const char* str) const
 {
 	std::size_t i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
@@ -598,7 +591,7 @@ bool Salih::Types::String::operator==(const char* str) const
 	return true ;
 }
 			
-bool Salih::Types::String::operator!=(const char* str) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::operator!=(const char* str) const
 {
 	std::size_t i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
@@ -613,7 +606,7 @@ bool Salih::Types::String::operator!=(const char* str) const
 	return false ;
 }
 			
-bool Salih::Types::String::operator==(const Salih::Types::String& str) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::operator==(const Salih::Types::String& str) const
 {
 	if(this->size != str.size) return false ;
 	
@@ -625,7 +618,7 @@ bool Salih::Types::String::operator==(const Salih::Types::String& str) const
 	return true ;
 }
 			
-bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
 {
 	if(this->size != str.size) return true ;
 	
@@ -637,17 +630,17 @@ bool Salih::Types::String::operator!=(const Salih::Types::String& str) const
 	return false ;
 }
 
-const char* Salih::Types::String::get() const
+_GLIBCXX20_CONSTEXPR const char* Salih::Types::String::get() const
 {
 	return this->str ;
 }
 
-std::size_t Salih::Types::String::getSize() const
+_GLIBCXX20_CONSTEXPR std::size_t Salih::Types::String::getSize() const
 {
 	return this->size ;
 }
 
-Salih::Types::String Salih::Types::String::operator()(const std::size_t a, const std::size_t b) const 
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator()(const std::size_t a, const std::size_t b) const 
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	Salih::Types::String tmp ;
@@ -655,17 +648,17 @@ Salih::Types::String Salih::Types::String::operator()(const std::size_t a, const
 	return tmp ;
 }
 
-char& Salih::Types::String::operator[](const std::size_t index)
+_GLIBCXX20_CONSTEXPR char& Salih::Types::String::operator[](const std::size_t index)
 {
 	return this->str[index] ;
 }
 
-const char& Salih::Types::String::operator[](const std::size_t index) const
+_GLIBCXX20_CONSTEXPR const char& Salih::Types::String::operator[](const std::size_t index) const
 {
 	return this->str[index] ;
 }
 			
-Salih::Types::String Salih::Types::String::capitalise() const
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::capitalise() const
 {
 	Salih::Types::String tmp(*this) ;
 	
@@ -684,7 +677,7 @@ Salih::Types::String Salih::Types::String::capitalise() const
 	return tmp ;
 }
 			
-Salih::Types::String Salih::Types::String::upper() const
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::upper() const
 {
 	Salih::Types::String tmp(*this) ;
 		
@@ -699,11 +692,11 @@ Salih::Types::String Salih::Types::String::upper() const
 	return tmp ;
 }
 			
-Salih::Types::String Salih::Types::String::lower() const
+_GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::lower() const
 {
 	Salih::Types::String tmp(*this) ;
 		
-	for(int i = 0 ; i < tmp.size ; i++)
+	for(std::size_t i = 0 ; i < tmp.size ; i++)
 	{
 		if(tmp[i] >= 65 && tmp[i] <= 90)
 		{
@@ -714,7 +707,7 @@ Salih::Types::String Salih::Types::String::lower() const
 	return tmp ;
 }
 
-bool Salih::Types::String::isAlphaNum() const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::isAlphaNum() const
 {
 	if(this->size == 0) return false ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -728,7 +721,7 @@ bool Salih::Types::String::isAlphaNum() const
 	return true ;
 }
 			
-bool Salih::Types::String::isAlpha() const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::isAlpha() const
 {
 	if(this->size == 0) return false ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -741,7 +734,7 @@ bool Salih::Types::String::isAlpha() const
 	return true ;
 }
 			
-bool Salih::Types::String::isNum() const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::isNum() const
 {
 	if(this->size == 0) return false ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -751,7 +744,7 @@ bool Salih::Types::String::isNum() const
 	return true ;
 }
 
-bool Salih::Types::String::isUpper() const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::isUpper() const
 {
 	if(this->size == 0) return false ;
 	
@@ -762,7 +755,7 @@ bool Salih::Types::String::isUpper() const
 	return true ;
 }
 			
-bool Salih::Types::String::isLower() const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::isLower() const
 {
 	if(this->size == 0) return false ;
 	
@@ -773,7 +766,7 @@ bool Salih::Types::String::isLower() const
 	return true ;
 }
 			
-bool Salih::Types::String::isCapitalised() const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::isCapitalised() const
 {
 	if(this->size == 0) return false ;
 	
@@ -787,166 +780,166 @@ bool Salih::Types::String::isCapitalised() const
 	return true ;
 }
 
-Salih::Types::String::Iterator::Iterator() : pointer(nullptr) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Types::String::Iterator::Iterator() : pointer(nullptr) {} ;
 
-Salih::Types::String::Iterator::Iterator(char* input) : pointer(input) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Types::String::Iterator::Iterator(char* input) : pointer(input) {} ;
 
-char& Salih::Types::String::Iterator::operator*() const
+_GLIBCXX20_CONSTEXPR char& Salih::Types::String::Iterator::operator*() const
 {
 	return *this->pointer ; 
 }
 
-typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator+(const std::size_t x) const
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator+(const std::size_t x) const
 {
 	return Salih::Types::String::Iterator(this->pointer + x) ; 
 }
 
-typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator+=(const std::size_t x)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator+=(const std::size_t x)
 {
 	this->pointer += x ;
 	return *this ;
 }
 
-typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator++()
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator++()
 {
 	this->pointer += 1 ;
 	return *this ;
 }
 
-typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator++(const int)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator++(const int)
 {
 	Salih::Types::String::Iterator tmp(this->pointer) ;
 	this->pointer += 1 ;
 	return tmp ;
 }
 
-typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator-(const std::size_t x) const
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator-(const std::size_t x) const
 {
 	return Salih::Types::String::Iterator(this->pointer - x) ; 
 }
 
-typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator-=(const std::size_t x)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator-=(const std::size_t x)
 {
 	this->pointer -= x ;
 	return *this ;
 }
 
-typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator--()
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator--()
 {
 	this->pointer -= 1 ;
 	return *this ;
 }
 
-typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator--(const int)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator--(const int)
 {
 	Salih::Types::String::Iterator tmp(this->pointer) ;
 	this->pointer -= 1 ;
 	return tmp ;
 }
 
-bool Salih::Types::String::Iterator::operator==(const Salih::Types::String::Iterator& other) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::Iterator::operator==(const Salih::Types::String::Iterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
-bool Salih::Types::String::Iterator::operator!=(const Salih::Types::String::Iterator& other) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::Iterator::operator!=(const Salih::Types::String::Iterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
-Salih::Types::String::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Types::String::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
 
-Salih::Types::String::ConstIterator::ConstIterator(char const* input) : pointer(input) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Types::String::ConstIterator::ConstIterator(char const* input) : pointer(input) {} ;
 
-const char& Salih::Types::String::ConstIterator::operator*() const
+_GLIBCXX20_CONSTEXPR const char& Salih::Types::String::ConstIterator::operator*() const
 {
 	return *this->pointer ; 
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator+(const std::size_t x) const
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator+(const std::size_t x) const
 {
 	return Salih::Types::String::ConstIterator(this->pointer + x) ; 
 }
 
-typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator+=(const std::size_t x)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator+=(const std::size_t x)
 {
 	this->pointer += x ;
 	return *this ;
 }
 
-typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator++()
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator++()
 {
 	this->pointer += 1 ;
 	return *this ;
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator++(const int)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator++(const int)
 {
 	Salih::Types::String::ConstIterator tmp(this->pointer) ;
 	this->pointer += 1 ;
 	return tmp ;
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator-(const std::size_t x) const
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator-(const std::size_t x) const
 {
 	return Salih::Types::String::ConstIterator(this->pointer - x) ; 
 }
 
-typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator-=(const std::size_t x)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator-=(const std::size_t x)
 {
 	this->pointer -= x ;
 	return *this ;
 }
 
-typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator--()
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator--()
 {
 	this->pointer -= 1 ;
 	return *this ;
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator--(const int)
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator--(const int)
 {
 	Salih::Types::String::ConstIterator tmp(this->pointer) ;
 	this->pointer -= 1 ;
 	return tmp ;
 }
 
-bool Salih::Types::String::ConstIterator::operator==(const Salih::Types::String::ConstIterator& other) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::ConstIterator::operator==(const Salih::Types::String::ConstIterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
-bool Salih::Types::String::ConstIterator::operator!=(const Salih::Types::String::ConstIterator& other) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::String::ConstIterator::operator!=(const Salih::Types::String::ConstIterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
-typename Salih::Types::String::Iterator Salih::Types::String::begin()
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator Salih::Types::String::begin()
 {
 	return Salih::Types::String::Iterator(this->str) ;
 }
 
-typename Salih::Types::String::Iterator Salih::Types::String::end()
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::Iterator Salih::Types::String::end()
 {
 	return Salih::Types::String::Iterator(this->str + this->size) ;
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::begin() const 
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::begin() const 
 {
 	return Salih::Types::String::ConstIterator(this->str) ;
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::end() const
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::end() const
 {
 	return Salih::Types::String::ConstIterator (this->str + this->size) ;
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::cbegin() const 
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::cbegin() const 
 {
 	return Salih::Types::String::ConstIterator(this->str) ;
 }
 
-typename Salih::Types::String::ConstIterator Salih::Types::String::cend() const
+_GLIBCXX20_CONSTEXPR typename Salih::Types::String::ConstIterator Salih::Types::String::cend() const
 {
 	return Salih::Types::String::ConstIterator(this->str + this->size) ;
 }
