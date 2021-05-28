@@ -183,7 +183,212 @@ namespace Salih::Types {
 
 			/** isCapitalised method, determines if all values within string object are in a capitalised format
 			@return boolean indicatting if all values are in a capitalised format **/ 				
-			bool isCapitalised() const ;			
+			bool isCapitalised() const ;	
+			
+			class Iterator {
+				/** This class represents an Iterator object, allowing for controlled, read-write access to the string's values **/ 
+				private:
+					char* pointer;
+				
+				public:
+					/** Empty constructor, intialises empty iterator 
+					@return <initialised-object> **/
+					Iterator() ;
+					
+					/** Copy constructor, copies address of element behind an iterator
+					@param Iterator object
+					@return <initialised-object> **/
+					Iterator(const Iterator&) = default ;
+					
+					/** Copy assignment operator, copies address of element behind an iterator
+					@param Iterator object
+					@return reference to calling Iterator **/
+					Iterator& operator=(const Iterator&) = default ;
+					
+					/** Move constructor, takes ownership of Iterator properties
+					@param Iterator object
+					@return <initialised-object> **/
+					Iterator(Iterator&&) = default ;
+					
+					/** Move assignment operator, takes ownership of Iterator properties
+					@param Iterator object
+					@return reference to calling Iterator **/
+					Iterator& operator=(Iterator&&) = default ;
+
+					/** Regular constructor, intialises iterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					Iterator(char*) ;
+
+					/** Dereferncing operator - gets data behind the iterator
+					@return referemce to data **/					
+					char& operator*() const ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the iterator should point to
+					@return Iterator object (pointing to the further element in sequence) **/					
+					Iterator operator+(const std::size_t) const ;
+
+					/** Subtraction operator - modifies iterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the iterator should point to
+					@return reference to calling Iterator (now pointing to further element in sequence) **/					
+					Iterator& operator+=(const std::size_t) ;
+
+					/** Prefix increment operator - modifies iterator to point to the next element in sequence
+					@return reference to calling Iterator (now pointing to the next element in sequence) **/										
+					Iterator& operator++() ; 
+
+					/** Postfix increment operator - modifies iterator to point to the next element in sequence
+					@return Iterator object (pointing to the element prior to modification) **/					
+					Iterator operator++(const int) ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the iterator should point to
+					@return Iterator object (pointing to the earlier element in sequence) **/						
+					Iterator operator-(const std::size_t) const ;
+
+					/** Subtraction operator - modifies iterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the iterator should point to
+					@return reference to calling Iterator (now pointing to the earlier element in sequence) **/											
+					Iterator& operator-=(const std::size_t) ;
+
+					/** Prefix decrement operator - modifies iterator to point to the previous element in sequence
+					@return reference to calling Iterator (now pointing to the previous element in sequence) **/						
+					Iterator& operator--() ; 
+
+					/** Postfix decrement operator - modifies iterator to point to the previous element in sequence
+					@return Iterator object (pointing to the element prior to modification) **/					
+					Iterator operator--(const int) ;
+
+					/** Comparison operator, determines if two iterators point to the same location
+					@param Iterator object
+					@return a boolean (True if iterators point to same location, false if otherwise) **/
+					bool operator==(const Iterator&) const ;
+
+					/** Inequality operator, determines if two iterators don't point to the same location
+					@param Iterator object
+					@return a boolean (False if iterators point to same location, true if otherwise) **/					
+					bool operator!=(const Iterator&) const ;
+					
+					/** (Trivial) Destructor (Default) **/
+					~Iterator() = default ;
+					
+			} ; 
+			
+			class ConstIterator {
+				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the string's values **/ 
+				private:
+					char const* pointer;
+				
+				public:
+					/** Empty constructor, intialises empty ConstIterator 
+					@return <initialised-object> **/
+					ConstIterator() ;
+					
+					/** Copy constructor, copies address of element behind an ConstIterator
+					@param ConstIterator object
+					@return <initialised-object> **/
+					ConstIterator(const ConstIterator&) = default ;
+					
+					/** Copy assignment operator, copies address of element behind an ConstIterator
+					@param ConstIterator object
+					@return reference to calling ConstIterator **/
+					ConstIterator& operator=(const ConstIterator&) = default ;
+					
+					/** Move constructor, takes ownership of ConstIterator properties
+					@param ConstIterator object
+					@return <initialised-object> **/
+					ConstIterator(ConstIterator&&) = default ;
+					
+					/** Move assignment operator, takes ownership of ConstIterator properties
+					@param ConstIterator object
+					@return reference to calling ConstIterator **/
+					ConstIterator& operator=(ConstIterator&&) = default ;
+
+					/** Regular constructor, intialises ConstIterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					ConstIterator(char const*) ;
+
+					/** Dereferncing operator - gets data behind the iterator
+					@return referemce to data **/					
+					const char& operator*() const ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the iterator should point to
+					@return ConstIterator object (pointing to the further element in sequence) **/					
+					ConstIterator operator+(const std::size_t) const ;
+
+					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps later
+					@param Number of positions further in sequence that the ConstIterator should point to
+					@return reference to calling ConstIterator (now pointing to further element in sequence) **/					
+					ConstIterator& operator+=(const std::size_t) ;
+
+					/** Prefix increment operator - modifies iterator to point to the next element in sequence
+					@return reference to calling ConstIterator (now pointing to the next element in sequence) **/										
+					ConstIterator& operator++() ; 
+
+					/** Postfix increment operator - modifies ConstIterator to point to the next element in sequence
+					@return ConstIterator object (pointing to the element prior to modification) **/					
+					ConstIterator operator++(const int) ;
+
+					/** Subtraction operator - gets iterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the ConstIterator should point to
+					@return ConstIterator object (pointing to the earlier element in sequence) **/						
+					ConstIterator operator-(const std::size_t) const ;
+
+					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps prior
+					@param Number of positions previous in sequence that the iterator should point to
+					@return reference to calling ConstIterator (now pointing to the earlier element in sequence) **/											
+					ConstIterator& operator-=(const std::size_t) ;
+
+					/** Prefix decrement operator - modifies ConstIterator to point to the previous element in sequence
+					@return reference to calling ConstIterator (now pointing to the previous element in sequence) **/						
+					ConstIterator& operator--() ; 
+
+					/** Postfix decrement operator - modifies ConstIterator to point to the previous element in sequence
+					@return ConstIterator object (pointing to the element prior to modification) **/					
+					ConstIterator operator--(const int) ;
+
+					/** Comparison operator, determines if two ConstIterators point to the same location
+					@param ConstIterator object
+					@return a boolean (True if iterators point to same location, false if otherwise) **/
+					bool operator==(const ConstIterator&) const ;
+
+					/** Inequality operator, determines if two ConstIterators don't point to the same location
+					@param ConstIterator object
+					@return a boolean (False if iterators point to same location, true if otherwise) **/					
+					bool operator!=(const ConstIterator&) const ;
+					
+					/** (Trivial) Destructor (Default) **/
+					~ConstIterator() = default ;
+					
+			} ; 
+			
+			/** begin method, creates Iterator object to the first element of the structure. Allows for read-write access of structure. Note: is called if calling object is mutable
+			@return Iterator pointing to first element in sequence **/ 
+			Iterator begin() ;
+
+			/** end method, creates Iterator object to beyond the final element of the structure. Allows for read-write access of structure. Note: is called if calling object is mutable
+			@return Iterator pointing to beyond the final element in sequence **/ 			
+			Iterator end() ;
+
+			/** begin method, creates ConstIterator object to the first element of the structure. Allows for read-only access of structure. Note: is called if calling object is a constant
+			@return ConstIterator pointing to first element in sequence **/ 			
+			ConstIterator begin() const ;
+
+			/** end method, creates ConstIterator object to beyond the final element of the structure. Allows for read-only access of structure. Note: is called if calling object is a constant
+			@return ConstIterator pointing to beyond the final element in sequence **/ 			
+			ConstIterator end() const ;
+
+			/** cbegin method, creates ConstIterator object to the first element of the structure. Allows for read-only access of structure
+			@return ConstIterator pointing to first element in sequence **/ 			
+			ConstIterator cbegin() const ;
+
+			/** cend method, creates ConstIterator object to beyond the final element of the structure. Allows for read-only access of structure
+			@return ConstIterator pointing to beyond the final element in sequence **/ 			
+			ConstIterator cend() const ;	
+		
 	} ;
 }
 
@@ -239,6 +444,7 @@ Salih::Types::String& Salih::Types::String::operator=(const char* tbc)
 	this->str = new char[this->size + 1] ;
 	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc[i] ;
 	this->str[this->size] = '\0' ;
+	return *this ;
 }
 
 Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
@@ -248,6 +454,7 @@ Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String
 	this->str = new char[this->size+1] ;
 	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
 	this->str[this->size] = '\0' ;
+	return *this ;
 }
 
 Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
@@ -257,6 +464,7 @@ Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo
 	this->str = tbo.str ;
 	tbo.size = 0 ;
 	tbo.str = nullptr ;
+	return *this ;
 }
 
 Salih::Types::String Salih::Types::String::operator+(char c) const
@@ -579,7 +787,168 @@ bool Salih::Types::String::isCapitalised() const
 	return true ;
 }
 
-// helpful overloads
+Salih::Types::String::Iterator::Iterator() : pointer(nullptr) {} ;
 
+Salih::Types::String::Iterator::Iterator(char* input) : pointer(input) {} ;
+
+char& Salih::Types::String::Iterator::operator*() const
+{
+	return *this->pointer ; 
+}
+
+typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator+(const std::size_t x) const
+{
+	return Salih::Types::String::Iterator(this->pointer + x) ; 
+}
+
+typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator+=(const std::size_t x)
+{
+	this->pointer += x ;
+	return *this ;
+}
+
+typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator++()
+{
+	this->pointer += 1 ;
+	return *this ;
+}
+
+typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator++(const int)
+{
+	Salih::Types::String::Iterator tmp(this->pointer) ;
+	this->pointer += 1 ;
+	return tmp ;
+}
+
+typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator-(const std::size_t x) const
+{
+	return Salih::Types::String::Iterator(this->pointer - x) ; 
+}
+
+typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator-=(const std::size_t x)
+{
+	this->pointer -= x ;
+	return *this ;
+}
+
+typename Salih::Types::String::Iterator& Salih::Types::String::Iterator::operator--()
+{
+	this->pointer -= 1 ;
+	return *this ;
+}
+
+typename Salih::Types::String::Iterator Salih::Types::String::Iterator::operator--(const int)
+{
+	Salih::Types::String::Iterator tmp(this->pointer) ;
+	this->pointer -= 1 ;
+	return tmp ;
+}
+
+bool Salih::Types::String::Iterator::operator==(const Salih::Types::String::Iterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+bool Salih::Types::String::Iterator::operator!=(const Salih::Types::String::Iterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+Salih::Types::String::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+
+Salih::Types::String::ConstIterator::ConstIterator(char const* input) : pointer(input) {} ;
+
+const char& Salih::Types::String::ConstIterator::operator*() const
+{
+	return *this->pointer ; 
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator+(const std::size_t x) const
+{
+	return Salih::Types::String::ConstIterator(this->pointer + x) ; 
+}
+
+typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator+=(const std::size_t x)
+{
+	this->pointer += x ;
+	return *this ;
+}
+
+typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator++()
+{
+	this->pointer += 1 ;
+	return *this ;
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator++(const int)
+{
+	Salih::Types::String::ConstIterator tmp(this->pointer) ;
+	this->pointer += 1 ;
+	return tmp ;
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator-(const std::size_t x) const
+{
+	return Salih::Types::String::ConstIterator(this->pointer - x) ; 
+}
+
+typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator-=(const std::size_t x)
+{
+	this->pointer -= x ;
+	return *this ;
+}
+
+typename Salih::Types::String::ConstIterator& Salih::Types::String::ConstIterator::operator--()
+{
+	this->pointer -= 1 ;
+	return *this ;
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::ConstIterator::operator--(const int)
+{
+	Salih::Types::String::ConstIterator tmp(this->pointer) ;
+	this->pointer -= 1 ;
+	return tmp ;
+}
+
+bool Salih::Types::String::ConstIterator::operator==(const Salih::Types::String::ConstIterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+bool Salih::Types::String::ConstIterator::operator!=(const Salih::Types::String::ConstIterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+typename Salih::Types::String::Iterator Salih::Types::String::begin()
+{
+	return Salih::Types::String::Iterator(this->str) ;
+}
+
+typename Salih::Types::String::Iterator Salih::Types::String::end()
+{
+	return Salih::Types::String::Iterator(this->str + this->size) ;
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::begin() const 
+{
+	return Salih::Types::String::ConstIterator(this->str) ;
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::end() const
+{
+	return Salih::Types::String::ConstIterator (this->str + this->size) ;
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::cbegin() const 
+{
+	return Salih::Types::String::ConstIterator(this->str) ;
+}
+
+typename Salih::Types::String::ConstIterator Salih::Types::String::cend() const
+{
+	return Salih::Types::String::ConstIterator(this->str + this->size) ;
+}
 
 #endif

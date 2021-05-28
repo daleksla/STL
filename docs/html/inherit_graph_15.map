@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structSalih_1_1Types_1_1Traits_1_1getDimensions_3_01Salih_1_1Structures_1_1LinkedLists_1_1List_3_01T_01_4_01_4.html" title=" " alt="" coords="5,5,181,76"/>
+<area shape="rect" id="node1" href="$classSalih_1_1Types_1_1Pointer_3_01void_01_4.html" title=" " alt="" coords="5,39,159,80"/>
+<area shape="rect" id="node2" href="$classSalih_1_1Types_1_1SharedPointer_3_01void_01_4.html" title=" " alt="" coords="207,5,405,47"/>
+<area shape="rect" id="node3" href="$classSalih_1_1Types_1_1UniquePointer_3_01void_01_4.html" title=" " alt="" coords="207,71,405,112"/>
 </map>
