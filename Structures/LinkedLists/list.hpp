@@ -250,7 +250,7 @@ namespace Salih::Structures::LinkedLists {
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the list's values **/ 
 				private:
-					T* pointer;
+					DNode<T> const* pointer;
 				
 				public:
 					/** Empty constructor, intialises empty ConstIterator 
