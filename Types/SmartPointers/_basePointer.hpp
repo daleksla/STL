@@ -36,10 +36,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/			
 			Pointer(T*) ;
 
-			/** Explicit constructor, intialises base-properties for smart pointer container to void pointer
+			/** Regular constructor, intialises base-properties for smart pointer container to void pointer
 			@param void* (raw void pointer)
 			@return <initialised-object> **/			
-			explicit Pointer(void*) ;
+			Pointer(void*) ;
 
 			/** Regular assignment operator, assigns null pointer to base-properties for smart pointer
 			@param nullptr_t (special type indicating NULL)
@@ -56,10 +56,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/
 			Pointer(const Pointer&) ;
 
-			/** Explicit pseudo-copy constructor, creates copy (of base-properties) of a given specialised void smart pointer
+			/** Pseudo-copy constructor, creates copy (of base-properties) of a given specialised void smart pointer
 			@param a (l-value) specialised void base class reference
 			@return <initialised-object> **/			
-			explicit Pointer(const Pointer<void>&) ;
+			Pointer(const Pointer<void>&) ;
 			
 			/** Copy assignment operator, creates copy (of base-properties) of a given base-reference smart pointer
 			@param a (l-value) base class reference 
@@ -71,10 +71,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/
 			Pointer(Pointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given base-reference specialised void smart pointer
+			/** Pseudo-move constructor, takes ownership of a given base-reference specialised void smart pointer
 			@param an r-value specialised void base class reference 
 			@return <initialised-object> **/
-			explicit Pointer(Pointer<void>&&) ;
+			Pointer(Pointer<void>&&) ;
 			
 			/** Move assignment operator, takes ownership of a given base-reference smart pointer
 			@param an r-value base class reference 
@@ -182,7 +182,7 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/
 			Pointer(Pointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given base-reference templated smart pointer
+			/** Pseudo-move constructor, takes ownership of a given base-reference templated smart pointer
 			@param an r-value templated base class reference 
 			@return <initialised-object> **/
 			template<typename T>
@@ -193,7 +193,7 @@ namespace Salih::Types::SmartPointers {
 			@return reference to modified smart pointer **/
 			Pointer& operator=(Pointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given base-reference templated smart pointer
+			/** Pseudo-move assignment operator, takes ownership of a given base-reference templated smart pointer
 			@param an r-value templated base class reference 
 			@return <initialised-object> **/
 			template<typename T>
