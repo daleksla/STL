@@ -35,10 +35,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/	
 			UniquePointer(T*) ;
 			
-			/** Explicit constructor, intialises unique smart pointer container to void pointer
+			/** Regular constructor, intialises unique smart pointer container to void pointer
 			@param void* (raw void pointer)
 			@return <initialised-object> **/
-			explicit UniquePointer(void*) ;
+			UniquePointer(void*) ;
 			
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param nullptr_t (special type indicating NULL)
@@ -61,10 +61,10 @@ namespace Salih::Types::SmartPointers {
 			@return <initialised-object> **/
 			UniquePointer(UniquePointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given specialised void unique smart pointer
+			/** Pseudo-move constructor, takes ownership of a given specialised void unique smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			explicit UniquePointer(UniquePointer<void>&&) ;
+			UniquePointer(UniquePointer<void>&&) ;
 			
 			/** Move assignment operator, takes ownership of a given unique smart pointer
 			@param an r-value object reference 
@@ -126,12 +126,12 @@ namespace Salih::Types::SmartPointers {
 			/** Removed copy assignment operator **/
 			UniquePointer& operator=(const UniquePointer&) = delete ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given templated unique smart pointer
+			/** Pseudo-move constructor, takes ownership of a given templated unique smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			UniquePointer(UniquePointer&&) ;
 			
-			/** Move assignment operator, takes ownership of a given shared unique pointer
+			/** Pseudo-move constructor, takes ownership of a given shared unique pointer
 			@param an r-value object reference 
 			@return reference to modified smart pointer **/
 			template<typename T>
@@ -142,7 +142,7 @@ namespace Salih::Types::SmartPointers {
 			@return reference to modified smart pointer **/
 			UniquePointer& operator=(UniquePointer&&) ;
 			
-			/** Explicit pseudo-move constructor, takes ownership of a given templated unique smart pointer
+			/** Pseudo-move assignment operator, takes ownership of a given templated unique smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
@@ -159,5 +159,7 @@ namespace Salih::Types::SmartPointers {
 	} ;
 
 }
+
+#include "uniquePointer.tpp"
 
 #endif
