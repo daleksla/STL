@@ -3,8 +3,8 @@
 #pragma once
 
 #include "string.hpp"
-#include "queue.hpp"
-#include "stack.hpp"
+#include "Buffers/queue.hpp"
+#include "Buffers/stack.hpp"
 #include "../Structures/Contiguous/vector.hpp"
 #include "../Structures/Contiguous/array.hpp"
 #include "../Structures/LinkedLists/list.hpp"
