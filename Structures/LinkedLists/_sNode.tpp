@@ -31,7 +31,7 @@ Salih::Structures::LinkedLists::SNode<T>& Salih::Structures::LinkedLists::SNode<
 } 
 
 template <typename T>
-Salih::Structures::LinkedLists::SNode<T>* Salih::Structures::LinkedLists::SNode<T>::getNext()
+Salih::Structures::LinkedLists::SNode<T>* Salih::Structures::LinkedLists::SNode<T>::getNext() const
 {
 	return next ;
 }
