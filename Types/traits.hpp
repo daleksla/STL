@@ -2,13 +2,13 @@
 #define TRAITS_HPP
 #pragma once
 
-#include <lib/Types/string.hpp>
-#include <lib/Types/queue.hpp>
-#include <lib/Types/stack.hpp>
-#include <lib/Structures/Contiguous/vector.hpp>
-#include <lib/Structures/Contiguous/array.hpp>
-#include <lib/Structures/LinkedLists/list.hpp>
-#include <lib/Structures/LinkedLists/fwdList.hpp>
+#include "string.hpp"
+#include "queue.hpp"
+#include "stack.hpp"
+#include "../Structures/Contiguous/vector.hpp"
+#include "../Structures/Contiguous/array.hpp"
+#include "../Structures/LinkedLists/list.hpp"
+#include "../Structures/LinkedLists/fwdList.hpp"
 
 namespace Salih::Types::Traits {
 
