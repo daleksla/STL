@@ -14,7 +14,8 @@
     @date April 2021
 **/
 
-namespace Salih::Types {
+namespace Salih::Types::Buffers {
+
 	template<class T>
 	class Queue {
 		/** This class is the FIFo (Queue) implementation **/
@@ -102,11 +103,12 @@ namespace Salih::Types {
 			
 			template<typename OTHER>
     			friend class Queue ;
+    			
 	} ;
 }
 
 template <typename T>
-Salih::Types::Queue<T>::Queue()
+Salih::Types::Buffers::Queue<T>::Queue()
 {
 	this->size = 0 ;
 	this->head = nullptr ;
@@ -114,7 +116,7 @@ Salih::Types::Queue<T>::Queue()
 }
 
 template <typename T>
-Salih::Types::Queue<T>::Queue(const std::initializer_list<T>& values)
+Salih::Types::Buffers::Queue<T>::Queue(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	this->head = new Salih::Structures::LinkedLists::DNode<T>(*std::begin(values)) ;
@@ -132,7 +134,7 @@ Salih::Types::Queue<T>::Queue(const std::initializer_list<T>& values)
 }
 
 template <typename T>
-Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const std::initializer_list<T>& values)
+Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(head != nullptr)
 	{
@@ -162,7 +164,7 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const std::initializer
 }
 
 template <typename T>
-Salih::Types::Queue<T>::Queue(const Queue& q)
+Salih::Types::Buffers::Queue<T>::Queue(const Queue& q)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* h = q.head ;
@@ -187,7 +189,7 @@ Salih::Types::Queue<T>::Queue(const Queue& q)
 }
 
 template <typename T>
-Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const Queue& q)
+Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(const Queue& q)
 {
 	//if(this->head != nullptr)
 	//{
@@ -223,7 +225,7 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=(const Queue& q)
 }
 
 template <typename T>
-Salih::Types::Queue<T>::Queue(Queue&& q)
+Salih::Types::Buffers::Queue<T>::Queue(Queue&& q)
 {
 	this->head = q.head ;
 	this->tail = q.tail ;
@@ -234,7 +236,7 @@ Salih::Types::Queue<T>::Queue(Queue&& q)
 }
 
 template <typename T>
-Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=( Queue&& q ) 
+Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=( Queue&& q ) 
 {
 	this->head = q.head ;
 	this->tail = q.tail ;
@@ -246,7 +248,7 @@ Salih::Types::Queue<T>& Salih::Types::Queue<T>::operator=( Queue&& q )
 }
 
 template <typename T>
-bool Salih::Types::Queue<T>::operator==(const Salih::Types::Queue<T>& qq) const
+bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Queue<T>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -263,7 +265,7 @@ bool Salih::Types::Queue<T>::operator==(const Salih::Types::Queue<T>& qq) const
 }
 
 template <typename T>			
-bool Salih::Types::Queue<T>::operator!=(const Salih::Types::Queue<T>& qq) const
+bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Queue<T>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -281,7 +283,7 @@ bool Salih::Types::Queue<T>::operator!=(const Salih::Types::Queue<T>& qq) const
 
 template <typename T>			
 template<typename OTHER>
-bool Salih::Types::Queue<T>::operator==(const Salih::Types::Queue<OTHER>& qq) const
+bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Queue<OTHER>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -299,7 +301,7 @@ bool Salih::Types::Queue<T>::operator==(const Salih::Types::Queue<OTHER>& qq) co
 		
 template <typename T>	
 template<typename OTHER>
-bool Salih::Types::Queue<T>::operator!=(const Salih::Types::Queue<OTHER>& qq) const
+bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Queue<OTHER>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -316,7 +318,7 @@ bool Salih::Types::Queue<T>::operator!=(const Salih::Types::Queue<OTHER>& qq) co
 }
 
 template <typename T>
-Salih::Types::Queue<T>::~Queue()
+Salih::Types::Buffers::Queue<T>::~Queue()
 {
 	if(head == nullptr) return;
 	
@@ -330,7 +332,7 @@ Salih::Types::Queue<T>::~Queue()
 }
 
 template <typename T>
-T Salih::Types::Queue<T>::pop()
+T Salih::Types::Buffers::Queue<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Queue is empty") ;
 	auto newHead = head->getNext() ;
@@ -342,14 +344,14 @@ T Salih::Types::Queue<T>::pop()
 }
 
 template <typename T>
-const T& Salih::Types::Queue<T>::peek() const
+const T& Salih::Types::Buffers::Queue<T>::peek() const
 {
 	if(size != 0) return head->data ;
 	else throw std::out_of_range("Queue is empty") ;
 }
 
 template <typename T>
-void Salih::Types::Queue<T>::push(T val)
+void Salih::Types::Buffers::Queue<T>::push(T val)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p ;
 	if(size == 0)
@@ -365,7 +367,7 @@ void Salih::Types::Queue<T>::push(T val)
 }
 
 template <typename T>
-void Salih::Types::Queue<T>::push(const std::initializer_list<T>& values)
+void Salih::Types::Buffers::Queue<T>::push(const std::initializer_list<T>& values)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
