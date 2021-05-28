@@ -42,7 +42,7 @@ Salih::Structures::LinkedLists::DNode<T>& Salih::Structures::LinkedLists::DNode<
 } 
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev()
+Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev() const
 {
 	return prev ;
 }
@@ -54,7 +54,7 @@ void Salih::Structures::LinkedLists::DNode<T>::setPrev(DNode<T>* input)
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext()
+Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext() const 
 {
 	return next ;
 }
