@@ -104,6 +104,8 @@ namespace Salih::Types::SmartPointers {
 			template<typename T>
 			UniquePointer(T*) ;	
 			
+			UniquePointer(void*) = delete ;			
+			
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
@@ -119,6 +121,8 @@ namespace Salih::Types::SmartPointers {
 			@return reference to modified smart pointer **/
 			template<typename T>
 			UniquePointer& operator=(T*) ;
+			
+			UniquePointer& operator=(void*) = delete ;			
 			
 			/** Removed copy constructor **/
 			UniquePointer(const UniquePointer&) = delete ;
