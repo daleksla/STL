@@ -10,8 +10,8 @@
 #include <iostream>
 #include <stdexcept>
 
-typedef Salih::Types::Queue<int> intQueue ;
-typedef Salih::Types::Queue<float> floatQueue ;
+typedef Salih::Types::Buffers::Queue<int> intQueue ;
+typedef Salih::Types::Buffers::Queue<float> floatQueue ;
 
 /* Create sub-categories to test with predicted outcomes */
 TEST_CASE("empty constructor - attribute testing")
