@@ -5,7 +5,7 @@
 #define private public
 #define protected public
 /* Include the code that we plan to test */
-#include "../../Types/stack.hpp"
+#include "../../Types/Buffers/stack.hpp"
 #include <string>
 #include <iostream>
 #include <stdexcept>
