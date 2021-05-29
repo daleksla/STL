@@ -119,6 +119,8 @@ namespace Salih::Types::SmartPointers {
 			template<typename T>
 			SharedPointer(T*) ;	
 			
+			SharedPointer(void*) = delete ;			
+			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
@@ -134,6 +136,8 @@ namespace Salih::Types::SmartPointers {
 			@return reference to modified smart pointer **/
 			template<typename T>
 			SharedPointer& operator=(T*) ;
+			
+			SharedPointer& operator=(void*) = delete ;			
 			
 			/** Copy constructor, creates copy of a given shared smart pointer
 			@param a (l-value) object reference 
