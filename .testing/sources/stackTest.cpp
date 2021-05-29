@@ -10,8 +10,8 @@
 #include <iostream>
 #include <stdexcept>
 
-typedef Salih::Types::Stack<int> intStack ;
-typedef Salih::Types::Stack<float> floatStack ;
+typedef Salih::Types::Buffers::Stack<int> intStack ;
+typedef Salih::Types::Buffers::Stack<float> floatStack ;
 
 /* Create sub-categories to test with predicted outcomes */
 TEST_CASE("empty constructor - attribute testing")
