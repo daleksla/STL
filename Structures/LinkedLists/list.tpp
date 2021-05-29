@@ -195,11 +195,23 @@ template <typename T>
 T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index)
 {
 	std::size_t count = 0 ;
-	DNode<T>* node = head ;
-	while(count != index)
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
@@ -208,11 +220,23 @@ template <typename T>
 const T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index) const
 {
 	std::size_t count = 0 ;
-	DNode<T>* node = head ;
-	while(count != index)
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
@@ -220,13 +244,25 @@ const T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t i
 template <typename T>
 T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check)
 {
-	std::size_t count = 0 ;
 	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
-	DNode<T>* node = head ;
-	while(count != index)
+	std::size_t count = 0 ;
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
@@ -234,13 +270,25 @@ T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bo
 template <typename T>
 const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check) const
 {
-	std::size_t count = 0 ;
 	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
-	DNode<T>* node = head ;
-	while(count != index)
+	std::size_t count = 0 ;
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
