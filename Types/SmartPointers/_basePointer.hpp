@@ -139,6 +139,8 @@ namespace Salih::Types::SmartPointers {
 			template<typename T>
 			Pointer(T*) ;
 			
+			Pointer(void*) = delete ;
+			
 			/** Regular assignment operator, assigns null pointer to base-properties for smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
@@ -154,6 +156,8 @@ namespace Salih::Types::SmartPointers {
 			@return reference to modified smart pointer **/
 			template<typename T>
 			Pointer& operator=(T*) ;
+			
+			Pointer& operator=(void*) = delete ;			
 			
 			/** Copy constructor, creates copy (of base-properties) of a given base-reference smart pointer
 			@param a (l-value) base class reference 
