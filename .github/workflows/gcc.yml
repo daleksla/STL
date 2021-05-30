@@ -1,8 +1,5 @@
 name: GCC Support #give this pipeline an actual name
-on:
-  push:
-    branches:
-      - master
+on: push
 jobs:
   Building:
     runs-on: ubuntu-latest
