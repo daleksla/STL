@@ -21,11 +21,12 @@ namespace Salih::Algorithms::Sorts {
 	 * @param const function pointer, will facilitate ordering of list. Set as either ASCEND (1,...,n) or DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	{
-		int listLength = list.getSize() ;
+		std::size_t listLength = list.getSize() ;
+		if(listLength <= 1) return list ;
 		
-		for(int main = 0 ; main < (listLength - 1) ; main++)
+		for(std::size_t main = 0 ; main < (listLength - 1) ; main++)
 		{
-			for(int inner = 0 ; inner < (listLength - main - 1) ; inner++)
+			for(std::size_t inner = 0 ; inner < (listLength - main - 1) ; inner++)
 			{
 				if((*order)(list[inner+1], list[inner]))
 				{
