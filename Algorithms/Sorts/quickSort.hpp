@@ -26,7 +26,7 @@ namespace Salih::Algorithms::Sorts {
 		T left, right, equal ;		
 		auto pivot = list[0] ;
 		
-		for(int i = 0 ; i < list.getSize() ; i++)
+		for(std::size_t i = 0 ; i < list.getSize() ; i++)
 		{
 			auto iterR = list[i] ;
 			if((*order)(iterR, pivot)) left.append(iterR) ;
