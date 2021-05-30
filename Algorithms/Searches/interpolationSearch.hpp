@@ -15,7 +15,7 @@ namespace Salih::Algorithms::Searches {
 	template<typename T, typename U>
 	bool interpolationSearch(const T& list, const U& target)
 	/** This is the interpolation search algorithm, I don't exactly know how to explain this one but it works
-	 * @param const reference to list (to be sorted)
+	 * @param const reference to list (to be searched)
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
 	{
