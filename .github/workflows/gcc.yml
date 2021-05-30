@@ -1,0 +1,56 @@
+name: GCC Support #give this pipeline an actual name
+on:
+  push:
+    branches:
+      - master
+jobs:
+  Building:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependancies
+        run: |
+          sudo apt-get install clang
+          sudo apt-get install valgrind
+      - name: Build targets using compilers C++11 -> C++20
+        run: |
+          make COMP=g++ STD=--std=c++11
+          make COMP=g++ STD=--std=c++14
+          make COMP=g++ STD=--std=c++17
+          make COMP=g++ STD=--std=c++2a
+  Testing:
+    needs: [Building]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Navigate to testing folder
+        run: cd ./.testing/exes/
+      - name: Store all testing filenames and store in a file
+        run: find . -maxdepth 1 -perm -111 -type f >> filestest.log
+      - name: Loop through & Run files
+        run: |
+          input="./filestest.log"
+          while read line
+          do
+            ./"$line"
+          done < "$input"
+      - name: Delete temporary file name holder
+        run: rm filestest.log
+  Memory-Leaks:
+    needs: [Building]
+    runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Store all testing filenames and store in a file
+        run: find ./exes -maxdepth 1 -perm -111 -type f >> filesmem.log
+      - name: Create valgrind alias with specific testing and return type
+        run: alias vg='valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes'
+      - name: Loop through & run valgrind for each one
+        run: |
+          input="./filesmem.log"
+          while read line
+          do
+            vg ./"$line"
+          done < "$input"
+      - name: Delete temporary file name holder
+        run: rm filesmem.log
