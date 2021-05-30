@@ -25,8 +25,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Valgrind
         run: sudo apt install valgrind
-      - name: Create valgrind alias with specific testing and return type
-        run: alias vg='valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes'
       - name: Store all testing filenames and store in a file
         run: |
           cd ./.testing/exes
@@ -37,7 +35,7 @@ jobs:
           input="./gfilesmem.log"
           while read line
           do
-            vg ./"$line"
+            valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes ./"$line"
           done < "$input"
       - name: Delete temporary file name holder
         run: rm ./.testing/exes/gfilesmem.log
