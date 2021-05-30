@@ -175,32 +175,6 @@ TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is small
 	REQUIRE(isError == true) ;
 }
 
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty and flag is set to true")
-{
-	intList list1 ;
-	bool isError = false ;
-	try {
-		list1.at(0, true) ;
-	} catch(const std::out_of_range& error) {
-		isError = true ;
-	}
-	
-	REQUIRE(isError == true) ;
-}
-
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty but flag is set to false")
-{
-	intList list1 ;
-	bool isError = false ;
-	try {
-		list1.at(0, false) ;
-	} catch(const std::out_of_range& error) {
-		isError = true ;
-	}
-	
-	REQUIRE(isError == false) ;
-}
-
 /* Boolean operators */
 TEST_CASE("== operator - comparing values of same type")
 {
