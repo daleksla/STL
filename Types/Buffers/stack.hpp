@@ -25,77 +25,77 @@ namespace Salih::Types::Buffers {
 		public:
 			/** Empty constructor, intialises empty stack 
 			@return <initialised-object> **/
-			Stack() ;
+			_GLIBCXX20_CONSTEXPR Stack() ;
 			
 			/** Regular constructor, intialises multiple values
 			@param initialisation list (of values for stack)
 			@return <initialised-object> **/		
-			Stack(const std::initializer_list<T>&) ;
+			_GLIBCXX20_CONSTEXPR Stack(const std::initializer_list<T>&) ;
 			
 			/** Regular assignment operator, re-assigns values to stack (last element provided becomes tail, etc.)
 			@param initialisation list (of values for stack)
 			@return reference to current object **/
-			Stack& operator=(const std::initializer_list<T>&) ;
+			_GLIBCXX20_CONSTEXPR Stack& operator=(const std::initializer_list<T>&) ;
 			
 			/** Copy assignment operator, creates copy of a given stack
 			@param a (l-value) stack object
 			@return <initialised-object> **/
-			Stack(const Stack&) ;
+			_GLIBCXX20_CONSTEXPR Stack(const Stack&) ;
 			
 			/** Copy assignment operator, creates copy of a given stack
 			@param a (l-value) stack object
 			@return reference to current object **/
-			Stack& operator=(const Stack&) ;
+			_GLIBCXX20_CONSTEXPR Stack& operator=(const Stack&) ;
 			
 			/** Move constructor, takes ownership of an otherwise temporary stack object
 			@param an r-value stack object
 			@return <initialised-object> **/
-			Stack(Stack&&) ;
+			_GLIBCXX20_CONSTEXPR Stack(Stack&&) ;
 			
 			/** Move assignment operator, takes ownership of an otherwise temporary stack object
 			@param an (r-value) stack object
 			@return reference to current object **/
-			Stack& operator=(Stack&&) ;
+			_GLIBCXX20_CONSTEXPR Stack& operator=(Stack&&) ;
 			
 			/** Comparison operator, determines calling stack object content matches with a given stack object
 			@param stack object
 			@return a boolean representing whether equality is met **/ 	
-			bool operator==(const Stack<T>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator==(const Stack<T>&) const ;
 			
 			/** Inequality operator, determines calling stack object content does not match with a given stack object
 			@param stack object
 			@return a boolean representing whether equality is not met **/ 
-			bool operator!=(const Stack<T>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator!=(const Stack<T>&) const ;
 			
 			/** Comparison operator, determines calling stack object content matches with a given stack object
 			@param stack object (which contains different type values)
 			@return a boolean representing whether equality is met **/ 	
 			template<typename OTHER>
-			bool operator==(const Stack<OTHER>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator==(const Stack<OTHER>&) const ;
 
 			/** Inequality operator, determines calling stack object content does not match with a given stack object
 			@param stack object (which contains different type values)
 			@return a boolean representing whether equality is not met **/ 
 			template<typename OTHER>
-			bool operator!=(const Stack<OTHER>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator!=(const Stack<OTHER>&) const ;
 			
-			~Stack() ;
+			_GLIBCXX20_CONSTEXPR ~Stack() ;
 			
 			/** pop method, removes newest / latest added value from the stack
 			@return value (of removed data object) **/					
-			T pop() ;
+			_GLIBCXX20_CONSTEXPR T pop() ;
 			
 			/** peek method, shows newest / latest added value to the stack
 			@return constant reference to value (of latest added / newest data object) **/
-			const T& peek() const ;
+			_GLIBCXX20_CONSTEXPR const T& peek() const ;
 			
 			/** push method, adds a value to the end of the stack type
 			@param value (to add) **/
-			void push(T) ;
+			_GLIBCXX20_CONSTEXPR void push(T) ;
 			
 			/** push method, adds a value to the top of the queue type
 			@param initialisation list (of values to add) **/	
-			void push(const std::initializer_list<T>&) ;
+			_GLIBCXX20_CONSTEXPR void push(const std::initializer_list<T>&) ;
 			
 			template<typename OTHER>
 			friend class Stack ;
@@ -103,14 +103,14 @@ namespace Salih::Types::Buffers {
 }
 
 template <typename T>
-Salih::Types::Buffers::Stack<T>::Stack()
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>::Stack()
 {
 	this->size = 0 ;
 	this->tail = nullptr ;
 }
 
 template <typename T>
-Salih::Types::Buffers::Stack<T>::Stack(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>::Stack(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* p = new Salih::Structures::LinkedLists::DNode<T>(*std::begin(values)) ;
@@ -127,7 +127,7 @@ Salih::Types::Buffers::Stack<T>::Stack(const std::initializer_list<T>& values)
 }
 
 template <typename T>
-Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(this->size != 0)
 	{
@@ -155,7 +155,7 @@ Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(cons
 }
 
 template <typename T>
-Salih::Types::Buffers::Stack<T>::Stack(const Salih::Types::Buffers::Stack<T>& stck)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>::Stack(const Salih::Types::Buffers::Stack<T>& stck)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* node = stck.tail ;
@@ -173,7 +173,7 @@ Salih::Types::Buffers::Stack<T>::Stack(const Salih::Types::Buffers::Stack<T>& st
 }
 			
 template <typename T>
-Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(const Salih::Types::Buffers::Stack<T>& stck) 
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(const Salih::Types::Buffers::Stack<T>& stck) 
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* node = stck.tail ;
@@ -192,7 +192,7 @@ Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(cons
 }
 			
 template <typename T>
-Salih::Types::Buffers::Stack<T>::Stack(Salih::Types::Buffers::Stack<T>&& stck)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>::Stack(Salih::Types::Buffers::Stack<T>&& stck)
 {
 	this->size = stck.size ;
 	this->tail = stck.tail ;
@@ -201,7 +201,7 @@ Salih::Types::Buffers::Stack<T>::Stack(Salih::Types::Buffers::Stack<T>&& stck)
 }
 			
 template <typename T>
-Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(Salih::Types::Buffers::Stack<T>&& stck)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(Salih::Types::Buffers::Stack<T>&& stck)
 {
 	this->size = stck.size ;
 	this->tail = stck.tail ;
@@ -211,7 +211,7 @@ Salih::Types::Buffers::Stack<T>& Salih::Types::Buffers::Stack<T>::operator=(Sali
 }
 
 template <typename T>
-bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::Stack<T>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::Stack<T>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -228,7 +228,7 @@ bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::St
 }
 
 template <typename T>			
-bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::Stack<T>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::Stack<T>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -246,7 +246,7 @@ bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::St
 
 template <typename T>	
 template<typename OTHER>
-bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::Stack<OTHER>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::Stack<OTHER>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -264,7 +264,7 @@ bool Salih::Types::Buffers::Stack<T>::operator==(const Salih::Types::Buffers::St
 		
 template <typename T>	
 template <typename OTHER>
-bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::Stack<OTHER>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::Stack<OTHER>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -281,7 +281,7 @@ bool Salih::Types::Buffers::Stack<T>::operator!=(const Salih::Types::Buffers::St
 }
 
 template <typename T>
-Salih::Types::Buffers::Stack<T>::~Stack()
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Stack<T>::~Stack()
 {
 	if(size == 0) return;
 	
@@ -295,7 +295,7 @@ Salih::Types::Buffers::Stack<T>::~Stack()
 }
 
 template <typename T>
-T Salih::Types::Buffers::Stack<T>::pop()
+_GLIBCXX20_CONSTEXPR T Salih::Types::Buffers::Stack<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Stack is empty") ;
 	auto newTail = tail->getPrev() ;
@@ -307,14 +307,14 @@ T Salih::Types::Buffers::Stack<T>::pop()
 }
 
 template <typename T>
-const T& Salih::Types::Buffers::Stack<T>::peek() const
+_GLIBCXX20_CONSTEXPR const T& Salih::Types::Buffers::Stack<T>::peek() const
 {
 	if(size != 0) return tail->data ;
 	else throw std::out_of_range("Stack is empty") ;
 }
 
 template <typename T>
-void Salih::Types::Buffers::Stack<T>::push(T val)
+_GLIBCXX20_CONSTEXPR void Salih::Types::Buffers::Stack<T>::push(T val)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p ;
 	if(size == 0) p = new Salih::Structures::LinkedLists::DNode<T>(val) ;
@@ -324,7 +324,7 @@ void Salih::Types::Buffers::Stack<T>::push(T val)
 }
 
 template <typename T>
-void Salih::Types::Buffers::Stack<T>::push(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR void Salih::Types::Buffers::Stack<T>::push(const std::initializer_list<T>& values)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
