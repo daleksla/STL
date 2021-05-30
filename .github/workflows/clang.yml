@@ -13,6 +13,7 @@ jobs:
         run: cd ./.testing/
       - name: Build targets using compilers C++11 -> C++20
         run: |
+          echo $(pwd)
           make -f Makefile COMP=clang++ STD=--std=c++11
           make -f Makefile COMP=clang++ STD=--std=c++14
           make -f Makefile COMP=clang++ STD=--std=c++17
