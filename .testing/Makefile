@@ -1,6 +1,7 @@
 # standard compile options for the c++ executable
 STD = --std=c++17
 LIB = -isystem /usr/include/c++/9/
+WARN = -Wall
 
 # deposit directories
 SOURCES = ./sources
@@ -9,28 +10,28 @@ EXES = ./exes
 # default super-target
 all: 
 	#testing stack
-	g++ $(LIB) $(STD) $(SOURCES)/stackTest.cpp -o $(EXES)/stackTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/stackTest.cpp -o $(EXES)/stackTest
 	
 	#testing queue
-	g++ $(LIB) $(STD) $(SOURCES)/queueTest.cpp -o $(EXES)/queueTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/queueTest.cpp -o $(EXES)/queueTest
 	
 	#testing linked list 
-	g++ $(LIB) $(STD) $(SOURCES)/listTest.cpp -o $(EXES)/listTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/listTest.cpp -o $(EXES)/listTest
 	
 	#testing forward linked list 
-	g++ $(LIB) $(STD) $(SOURCES)/fwdListTest.cpp -o $(EXES)/fwdListTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/fwdListTest.cpp -o $(EXES)/fwdListTest
 	
 	#testing vectors
-	g++ $(LIB) $(STD) $(SOURCES)/vectorTest.cpp -o $(EXES)/vectorTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/vectorTest.cpp -o $(EXES)/vectorTest
 	
 	#testing arrays
-	g++ $(LIB) $(STD) $(SOURCES)/arrayTest.cpp -o $(EXES)/arrayTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/arrayTest.cpp -o $(EXES)/arrayTest
 	
 	#testing strings
-	g++ $(LIB) $(STD) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/stringTest.cpp -o $(EXES)/stringTest
 	
 	#testing sorting algorithms
-	g++ $(LIB) $(STD) $(SOURCES)/sortTest.cpp -o $(EXES)/sortTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/sortTest.cpp -o $(EXES)/sortTest
 	
 	#testing searching algorithms
-	g++ $(LIB) $(STD) $(SOURCES)/searchTest.cpp -o $(EXES)/searchTest
+	g++ $(LIB) $(STD) $(WARN) $(SOURCES)/searchTest.cpp -o $(EXES)/searchTest
