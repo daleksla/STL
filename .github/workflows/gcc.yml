@@ -37,17 +37,17 @@ jobs:
     needs: [Building]
     runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v2
-      - name: Store all testing filenames and store in a file
-        run: find ./exes -maxdepth 1 -perm -111 -type f >> filesmem.log
-      - name: Create valgrind alias with specific testing and return type
-        run: alias vg='valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes'
-      - name: Loop through & run valgrind for each one
-        run: |
-          input="./filesmem.log"
-          while read line
-          do
-            vg ./"$line"
-          done < "$input"
-      - name: Delete temporary file name holder
-        run: rm filesmem.log
+        - uses: actions/checkout@v2
+        - name: Store all testing filenames and store in a file
+          run: find ./exes -maxdepth 1 -perm -111 -type f >> filesmem.log
+        - name: Create valgrind alias with specific testing and return type
+          run: alias vg='valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes'
+        - name: Loop through & run valgrind for each one
+          run: |
+            input="./filesmem.log"
+            while read line
+            do
+              vg ./"$line"
+            done < "$input"
+        - name: Delete temporary file name holder
+          run: rm filesmem.log
