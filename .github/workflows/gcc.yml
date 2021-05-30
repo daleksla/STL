@@ -1,4 +1,4 @@
-name: GCC Workflow #give this pipeline an actual name
+name: Clang Workflow #give this pipeline an actual name
 on: push
 jobs:
   Building:
@@ -7,51 +7,52 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependancies
         run: |
-          sudo apt-get install g++-10
+          sudo apt-get install clang
           sudo apt-get install valgrind
-      - name: Navigate to testing folder
-        run: cd ./.testing/
       - name: Build targets using compilers C++11 -> C++20
         run: |
-          make -f Makefile COMP=g++-10 STD=--std=c++11
-          make -f Makefile COMP=g++-10 STD=--std=c++14
-          make -f Makefile COMP=g++-10 STD=--std=c++17
-          make -f Makefile COMP=g++-10 STD=--std=c++2a
+          cd ./.testing/
+          make -f Makefile COMP=clang++ STD=--std=c++11
+          make -f Makefile COMP=clang++ STD=--std=c++14
+          make -f Makefile COMP=clang++ STD=--std=c++17
+          make -f Makefile COMP=clang++ STD=--std=c++2a
   Testing:
     needs: [Building]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Navigate to testing folder w/ exes
-        run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
-        run: find . -maxdepth 1 -perm -111 -type f >> filestest.log
+        run: |
+          cd ./.testing/
+          find . -maxdepth 1 -perm -111 -type f >> gfilestest.log
       - name: Loop through & Run files
         run: |
-          input="./filestest.log"
+          cd ./.testing/
+          input="./gfilestest.log"
           while read line
           do
             ./"$line"
           done < "$input"
       - name: Delete temporary file name holder
-        run: rm filestest.log
+        run: rm ./.testing/gfilestest.log
   Memory-Leaks:
     needs: [Building]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Navigate to testing folder w/ exes
-        run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
-        run: find ./exes -maxdepth 1 -perm -111 -type f >> filesmem.log
+        run: |
+          cd ./.testing/
+          find ./exes -maxdepth 1 -perm -111 -type f >> gfilesmem.log
       - name: Create valgrind alias with specific testing and return type
         run: alias vg='valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes'
       - name: Loop through & run valgrind for each one
         run: |
-          input="./filesmem.log"
+          cd ./.testing/
+          input="./gfilesmem.log"
           while read line
           do
             vg ./"$line"
           done < "$input"
       - name: Delete temporary file name holder
-        run: rm filesmem.log
+        run: rm ./.testing/gfilesmem.log
