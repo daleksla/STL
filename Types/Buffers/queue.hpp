@@ -28,78 +28,78 @@ namespace Salih::Types::Buffers {
 		public:
 			/** Empty constructor, intialises empty queue 
 			@return <initialised-object> **/
-			Queue() ;
+			_GLIBCXX20_CONSTEXPR Queue() ;
 
 			/** Regular constructor, intialises multiple values
 			@param initialisation list (of values for queue)
 			@return <initialised-object> **/			
-			Queue(const std::initializer_list<T>&) ;
+			_GLIBCXX20_CONSTEXPR Queue(const std::initializer_list<T>&) ;
 			
 			/** Regular assignment operator, re-assigns values to queue (1st element provided becomes head, etc.)
 			@param initialisation list (of values for queue)
 			@return reference to current object **/
-			Queue& operator=(const std::initializer_list<T>&) ;
+			_GLIBCXX20_CONSTEXPR Queue& operator=(const std::initializer_list<T>&) ;
 		
 			/** Copy constructor, creates copy of a given queue
 			@param a (l-value) queue object
 			@return <initialised-object> **/				
-			Queue(const Queue<T>&) ;
+			_GLIBCXX20_CONSTEXPR Queue(const Queue<T>&) ;
 			
 			/** Copy assignment operator, creates copy of a given queue
 			@param a (l-value) queue object
 			@return reference to current object **/	
-			Queue& operator=(const Queue<T>&) ;
+			_GLIBCXX20_CONSTEXPR Queue& operator=(const Queue<T>&) ;
 			
 			/** Move constructor, takes ownership of an otherwise temporary queue object
 			@param an r-value queue object
 			@return <initialised-object> **/
-			Queue(Queue<T>&&) ;
+			_GLIBCXX20_CONSTEXPR Queue(Queue<T>&&) ;
 			
 			/** Move assignment operator, takes ownership of an otherwise temporary queue object
 			@param an (r-value) queue object
 			@return reference to current object **/
-			Queue& operator=(Queue<T>&&) ;
+			_GLIBCXX20_CONSTEXPR Queue& operator=(Queue<T>&&) ;
 			
 			/** Comparison operator, determines calling queue object content matches with a given queue object
 			@param queue object
 			@return a boolean representing whether equality is met **/ 	
-			bool operator==(const Queue<T>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator==(const Queue<T>&) const ;
 
 			/** Inequality operator, determines calling queue object content does not match with a given queue object
 			@param queue object
 			@return a boolean representing whether equality is not met **/ 				
-			bool operator!=(const Queue<T>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator!=(const Queue<T>&) const ;
 
 			/** Comparison operator, determines calling queue object content matches with a given queue object
 			@param queue object (which contains different type values)
 			@return a boolean representing whether equality is met **/ 			
 			template<typename OTHER>
-			bool operator==(const Queue<OTHER>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator==(const Queue<OTHER>&) const ;
 
 			/** Inequality operator, determines calling queue object content does not match with a given queue object
 			@param queue object (which contains different type values)
 			@return a boolean representing whether equality is not met **/ 				
 			template<typename OTHER>
-			bool operator!=(const Queue<OTHER>&) const ;
+			_GLIBCXX20_CONSTEXPR bool operator!=(const Queue<OTHER>&) const ;
 			
 			/** Destructor, frees memory and deletes queue **/					
-			~Queue() ;
+			_GLIBCXX20_CONSTEXPR ~Queue() ;
 			
 			/** pop method, removes oldest / earliest added value from the queue
 			@return value (of removed data object) **/					
-			T pop() ;
+			_GLIBCXX20_CONSTEXPR T pop() ;
 
 			/** peek method, shows oldest / earliest added value to the queue
 			@return constant reference to value (of earliest added / oldest data object) **/				
-			const T& peek() const ;
+			_GLIBCXX20_CONSTEXPR const T& peek() const ;
 
 			/** push method, adds a value to the end of the queue type
 			@param value (to add) **/							
-			void push(T) ;
+			_GLIBCXX20_CONSTEXPR void push(T) ;
 
 			/** push method, adds a value to the end of the queue type
 			@param initialisation list (of values to add) **/			
-			void push(const std::initializer_list<T>&) ;
+			_GLIBCXX20_CONSTEXPR void push(const std::initializer_list<T>&) ;
 			
 			template<typename OTHER>
     			friend class Queue ;
@@ -108,7 +108,7 @@ namespace Salih::Types::Buffers {
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>::Queue()
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>::Queue()
 {
 	this->size = 0 ;
 	this->head = nullptr ;
@@ -116,7 +116,7 @@ Salih::Types::Buffers::Queue<T>::Queue()
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>::Queue(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>::Queue(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	this->head = new Salih::Structures::LinkedLists::DNode<T>(*std::begin(values)) ;
@@ -134,7 +134,7 @@ Salih::Types::Buffers::Queue<T>::Queue(const std::initializer_list<T>& values)
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(head != nullptr)
 	{
@@ -164,7 +164,7 @@ Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(cons
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>::Queue(const Queue& q)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>::Queue(const Queue& q)
 {
 	this->size = 0 ;
 	Salih::Structures::LinkedLists::DNode<T>* h = q.head ;
@@ -189,7 +189,7 @@ Salih::Types::Buffers::Queue<T>::Queue(const Queue& q)
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(const Queue& q)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(const Queue& q)
 {
 	//if(this->head != nullptr)
 	//{
@@ -225,7 +225,7 @@ Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=(cons
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>::Queue(Queue&& q)
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>::Queue(Queue&& q)
 {
 	this->head = q.head ;
 	this->tail = q.tail ;
@@ -236,7 +236,7 @@ Salih::Types::Buffers::Queue<T>::Queue(Queue&& q)
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=( Queue&& q ) 
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=( Queue&& q ) 
 {
 	this->head = q.head ;
 	this->tail = q.tail ;
@@ -248,7 +248,7 @@ Salih::Types::Buffers::Queue<T>& Salih::Types::Buffers::Queue<T>::operator=( Que
 }
 
 template <typename T>
-bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Queue<T>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Queue<T>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -265,7 +265,7 @@ bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Qu
 }
 
 template <typename T>			
-bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Queue<T>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Queue<T>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -283,7 +283,7 @@ bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Qu
 
 template <typename T>			
 template<typename OTHER>
-bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Queue<OTHER>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Queue<OTHER>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -301,7 +301,7 @@ bool Salih::Types::Buffers::Queue<T>::operator==(const Salih::Types::Buffers::Qu
 		
 template <typename T>	
 template<typename OTHER>
-bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Queue<OTHER>& qq) const
+_GLIBCXX20_CONSTEXPR bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Queue<OTHER>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -318,7 +318,7 @@ bool Salih::Types::Buffers::Queue<T>::operator!=(const Salih::Types::Buffers::Qu
 }
 
 template <typename T>
-Salih::Types::Buffers::Queue<T>::~Queue()
+_GLIBCXX20_CONSTEXPR Salih::Types::Buffers::Queue<T>::~Queue()
 {
 	if(head == nullptr) return;
 	
@@ -332,7 +332,7 @@ Salih::Types::Buffers::Queue<T>::~Queue()
 }
 
 template <typename T>
-T Salih::Types::Buffers::Queue<T>::pop()
+_GLIBCXX20_CONSTEXPR T Salih::Types::Buffers::Queue<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Queue is empty") ;
 	auto newHead = head->getNext() ;
@@ -344,14 +344,14 @@ T Salih::Types::Buffers::Queue<T>::pop()
 }
 
 template <typename T>
-const T& Salih::Types::Buffers::Queue<T>::peek() const
+_GLIBCXX20_CONSTEXPR const T& Salih::Types::Buffers::Queue<T>::peek() const
 {
 	if(size != 0) return head->data ;
 	else throw std::out_of_range("Queue is empty") ;
 }
 
 template <typename T>
-void Salih::Types::Buffers::Queue<T>::push(T val)
+_GLIBCXX20_CONSTEXPR void Salih::Types::Buffers::Queue<T>::push(T val)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p ;
 	if(size == 0)
@@ -367,7 +367,7 @@ void Salih::Types::Buffers::Queue<T>::push(T val)
 }
 
 template <typename T>
-void Salih::Types::Buffers::Queue<T>::push(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR void Salih::Types::Buffers::Queue<T>::push(const std::initializer_list<T>& values)
 {
 	Salih::Structures::LinkedLists::DNode<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
