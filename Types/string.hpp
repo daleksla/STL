@@ -189,6 +189,11 @@ namespace Salih::Types {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the string's values **/ 
 				private:
 					char* pointer;
+					
+					/** Regular constructor, intialises iterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					_GLIBCXX20_CONSTEXPR Iterator(char*) ;
 				
 				public:
 					/** Empty constructor, intialises empty iterator 
@@ -214,11 +219,6 @@ namespace Salih::Types {
 					@param Iterator object
 					@return reference to calling Iterator **/
 					_GLIBCXX20_CONSTEXPR Iterator& operator=(Iterator&&) = default ;
-
-					/** Regular constructor, intialises iterator to a given location
-					@param Pointer (to an element of type T)
-					@return <initialised-object> **/				
-					_GLIBCXX20_CONSTEXPR Iterator(char*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
@@ -273,12 +273,19 @@ namespace Salih::Types {
 					/** (Trivial) Destructor (Default) **/
 					_GLIBCXX20_CONSTEXPR ~Iterator() = default ;
 					
+					friend class String ;
+					
 			} ; 
 			
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the string's values **/ 
 				private:
 					char const* pointer;
+				
+					/** Regular constructor, intialises ConstIterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					_GLIBCXX20_CONSTEXPR ConstIterator(char const*) ;
 				
 				public:
 					/** Empty constructor, intialises empty ConstIterator 
@@ -304,11 +311,6 @@ namespace Salih::Types {
 					@param ConstIterator object
 					@return reference to calling ConstIterator **/
 					_GLIBCXX20_CONSTEXPR ConstIterator& operator=(ConstIterator&&) = default ;
-
-					/** Regular constructor, intialises ConstIterator to a given location
-					@param Pointer (to an element of type T)
-					@return <initialised-object> **/				
-					_GLIBCXX20_CONSTEXPR ConstIterator(char const*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
@@ -363,6 +365,8 @@ namespace Salih::Types {
 					/** (Trivial) Destructor (Default) **/
 					_GLIBCXX20_CONSTEXPR ~ConstIterator() = default ;
 					
+					friend class String ;
+					
 			} ; 
 			
 			/** begin method, creates Iterator object to the first element of the structure. Allows for read-write access of structure. Note: is called if calling object is mutable
@@ -416,7 +420,7 @@ _GLIBCXX20_CONSTEXPR Salih::Types::String::String(const Salih::Types::String& tb
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
 {
-	if(!this->str) delete[] this->str ;
+	delete[] this->str ;
 	this->size = tbc.size ;
 	this->str = new char[this->size+1] ;
 	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
@@ -432,7 +436,7 @@ _GLIBCXX20_CONSTEXPR Salih::Types::String::String(Salih::Types::String&& tbo) : 
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
 {
-	if(!this->str) delete[] this->str ;
+	delete[] this->str ;
 	this->size = tbo.size ;
 	this->str = tbo.str ;
 	tbo.size = 0 ;
