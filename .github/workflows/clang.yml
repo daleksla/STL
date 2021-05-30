@@ -13,10 +13,10 @@ jobs:
         run: cd ./.testing/
       - name: Build targets using compilers C++11 -> C++20
         run: |
-          make COMP=clang++ STD=--std=c++11
-          make COMP=clang++ STD=--std=c++14
-          make COMP=clang++ STD=--std=c++17
-          make COMP=clang++ STD=--std=c++2a
+          make -f Makefile COMP=clang++ STD=--std=c++11
+          make -f Makefile COMP=clang++ STD=--std=c++14
+          make -f Makefile COMP=clang++ STD=--std=c++17
+          make -f Makefile COMP=clang++ STD=--std=c++2a
   Testing:
     needs: [Building]
     runs-on: ubuntu-latest
