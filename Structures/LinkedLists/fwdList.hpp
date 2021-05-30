@@ -151,6 +151,11 @@ namespace Salih::Structures::LinkedLists {
 				private:
 					SNode<T>* pointer;
 				
+					/** Regular constructor, intialises iterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					_GLIBCXX20_CONSTEXPR Iterator(SNode<T>*) ;				
+				
 				public:
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
@@ -175,11 +180,6 @@ namespace Salih::Structures::LinkedLists {
 					@param Iterator object
 					@return reference to calling Iterator **/
 					_GLIBCXX20_CONSTEXPR Iterator& operator=(Iterator&&) = default ;
-
-					/** Regular constructor, intialises iterator to a given location
-					@param Pointer (to an element of type T)
-					@return <initialised-object> **/				
-					_GLIBCXX20_CONSTEXPR Iterator(SNode<T>*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
@@ -220,12 +220,19 @@ namespace Salih::Structures::LinkedLists {
 					/** (Trivial) Destructor (Default) **/
 					_GLIBCXX20_CONSTEXPR ~Iterator() = default ;
 					
+					friend class FwdList ;
+					
 			} ; 
 			
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the forward list's values **/ 
 				private:
 					SNode<T> const* pointer;
+
+					/** Regular constructor, intialises ConstIterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					_GLIBCXX20_CONSTEXPR ConstIterator(SNode<T> const*) ;
 				
 				public:
 					/** Empty constructor, intialises empty ConstIterator 
@@ -251,11 +258,6 @@ namespace Salih::Structures::LinkedLists {
 					@param ConstIterator object
 					@return reference to calling ConstIterator **/
 					_GLIBCXX20_CONSTEXPR ConstIterator& operator=(ConstIterator&&) = default ;
-
-					/** Regular constructor, intialises ConstIterator to a given location
-					@param Pointer (to an element of type T)
-					@return <initialised-object> **/				
-					_GLIBCXX20_CONSTEXPR ConstIterator(SNode<T> const*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
@@ -295,6 +297,8 @@ namespace Salih::Structures::LinkedLists {
 					
 					/** (Trivial) Destructor (Default) **/
 					_GLIBCXX20_CONSTEXPR ~ConstIterator() = default ;
+					
+					friend class FwdList ;
 					
 			} ; 
 			
