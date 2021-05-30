@@ -16,23 +16,17 @@ template <typename T>
 _GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::FwdList<T>::FwdList(const std::initializer_list<T>& values)
 {
 	this->setSize(values.size()) ;
-	if(this->size == 0) 
-	{
-		this->head = nullptr ; 
-		return ;
-	}
-	SNode<T>* tmp = nullptr ;
+	Salih::Structures::LinkedLists::SNode<T>* p = nullptr ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
-		if(it == std::begin(values))
+		if(it == std::begin(values)) 
 		{
 			this->head = new SNode<T>(*it) ;
-			tmp = this->head ;
+			p = this->head ;	
+		} else {
+			p = new SNode<T>(*it, p) ;
 		}
-		else {
-			tmp = new SNode<T>(*it, tmp) ;
-		}
-	} 
+	}
 }
 
 template <typename T>
