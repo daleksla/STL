@@ -101,6 +101,10 @@ namespace Salih::Types::Buffers {
 			@param initialisation list (of values to add) **/			
 			_GLIBCXX20_CONSTEXPR void push(const std::initializer_list<T>&) ;
 			
+			/** getSize method, returns size of a structure
+			@return returns size (of data structure) **/	
+			_GLIBCXX20_CONSTEXPR std::size_t getSize() ;
+			
 			template<typename OTHER>
     			friend class Queue ;
     			
@@ -380,6 +384,12 @@ _GLIBCXX20_CONSTEXPR void Salih::Types::Buffers::Queue<T>::push(const std::initi
 		size += 1 ;	
 	}
 	tail = p ;
+}
+
+template <typename T>
+_GLIBCXX20_CONSTEXPR std::size_t Salih::Types::Buffers::Queue<T>::getSize()
+{
+	return this->size ;
 }
 
 #endif
