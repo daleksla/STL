@@ -83,9 +83,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ab4468af14ecfcde8a5ca3afa00bc0bfb"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
 <tr class="memitem:ab4468af14ecfcde8a5ca3afa00bc0bfb"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#ab4468af14ecfcde8a5ca3afa00bc0bfb">interpolationSearch</a> (const T &amp;list, const U &amp;target)</td></tr>
 <tr class="separator:ab4468af14ecfcde8a5ca3afa00bc0bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b35a30150a63b8aba4e955b0a3bd15"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a48b35a30150a63b8aba4e955b0a3bd15"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a48b35a30150a63b8aba4e955b0a3bd15">linearSearch</a> (const T &amp;list, const U &amp;target)</td></tr>
-<tr class="separator:a48b35a30150a63b8aba4e955b0a3bd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438849e16d15ccd4f77a10ffc6da1b8f"><td class="memTemplParams" colspan="2">template&lt;typename UniDirectionalIterator , typename U &gt; </td></tr>
+<tr class="memitem:a438849e16d15ccd4f77a10ffc6da1b8f"><td class="memTemplItemLeft" align="right" valign="top">_GLIBCXX14_CONSTEXPR bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a438849e16d15ccd4f77a10ffc6da1b8f">linearSearch</a> (const UniDirectionalIterator &amp;begin, const UniDirectionalIterator &amp;end, const U &amp;target)</td></tr>
+<tr class="separator:a438849e16d15ccd4f77a10ffc6da1b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa56e8cb7972435773329fcdeb8f81fbb"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
+<tr class="memitem:aa56e8cb7972435773329fcdeb8f81fbb"><td class="memTemplItemLeft" align="right" valign="top">_GLIBCXX14_CONSTEXPR bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceSalih_1_1Algorithms_1_1Searches.html#aa56e8cb7972435773329fcdeb8f81fbb">linearSearch</a> (const T &amp;list, const U &amp;target)</td></tr>
+<tr class="separator:aa56e8cb7972435773329fcdeb8f81fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Binary search algorithm file. </p>
@@ -123,7 +126,7 @@ template&lt;typename T , typename U &gt; </div>
 </div><div class="memdoc">
 <p>This is a binary search algorithm, which splits a list into sub-segments to look upon and repeats until the element is found </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>reference to list (to be sorted) </td></tr>
+    <tr><td class="paramname">const</td><td>reference to list (to be searched) </td></tr>
     <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
   </table>
   </dd>
@@ -194,7 +197,7 @@ template&lt;typename T , typename U &gt; </div>
 </div><div class="memdoc">
 <p>This is the interpolation search algorithm, I don't exactly know how to explain this one but it works </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>reference to list (to be sorted) </td></tr>
+    <tr><td class="paramname">const</td><td>reference to list (to be searched) </td></tr>
     <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
   </table>
   </dd>
@@ -203,16 +206,16 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
-<a id="a48b35a30150a63b8aba4e955b0a3bd15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48b35a30150a63b8aba4e955b0a3bd15">&#9670;&nbsp;</a></span>linearSearch()</h2>
+<a id="aa56e8cb7972435773329fcdeb8f81fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa56e8cb7972435773329fcdeb8f81fbb">&#9670;&nbsp;</a></span>linearSearch() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T , typename U &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool Salih::Algorithms::Searches::linearSearch </td>
+          <td class="memname">_GLIBCXX14_CONSTEXPR bool Salih::Algorithms::Searches::linearSearch </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>list</em>, </td>
@@ -232,7 +235,52 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>This is a linear search algorithm, which iterates through a list until the end if need be </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>reference to list (to be sorted) </td></tr>
+    <tr><td class="paramname">const</td><td>reference to list (to be searched through) </td></tr>
+    <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean (indicates if supplied target was found or not) </dd></dl>
+
+</div>
+</div>
+<a id="a438849e16d15ccd4f77a10ffc6da1b8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438849e16d15ccd4f77a10ffc6da1b8f">&#9670;&nbsp;</a></span>linearSearch() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UniDirectionalIterator , typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">_GLIBCXX14_CONSTEXPR bool Salih::Algorithms::Searches::linearSearch </td>
+          <td>(</td>
+          <td class="paramtype">const UniDirectionalIterator &amp;&#160;</td>
+          <td class="paramname"><em>begin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const UniDirectionalIterator &amp;&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is a linear search algorithm, which iterates through a list until the end if need be </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">const</td><td>reference to iterator to beginning of search range </td></tr>
+    <tr><td class="paramname">const</td><td>reference to iterator to end of search range </td></tr>
     <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
   </table>
   </dd>

@@ -78,19 +78,26 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceSalih_1_1Algorithms_1_1Searches.html">Salih::Algorithms::Searches</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a48b35a30150a63b8aba4e955b0a3bd15">   16</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a48b35a30150a63b8aba4e955b0a3bd15">linearSearch</a>(<span class="keyword">const</span> T&amp; list, <span class="keyword">const</span> U&amp; target)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span>(list.getSize() == 0) <span class="keywordflow">return</span> false ;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = list.begin() ; it != list.end() ; ++it) <span class="keywordflow">if</span>(list[i] == target) <span class="keywordflow">return</span> true ;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> UniDirectionalIterator, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a438849e16d15ccd4f77a10ffc6da1b8f">   16</a></span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a438849e16d15ccd4f77a10ffc6da1b8f">linearSearch</a>(<span class="keyword">const</span> UniDirectionalIterator&amp; begin, <span class="keyword">const</span> UniDirectionalIterator&amp; end, <span class="keyword">const</span> U&amp; target)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = begin ; it != end ; ++it) <span class="keywordflow">if</span>(*it == target) <span class="keywordflow">return</span> true ;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> false ;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespaceSalih_1_1Algorithms_1_1Searches.html#aa56e8cb7972435773329fcdeb8f81fbb">   28</a></span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespaceSalih_1_1Algorithms_1_1Searches.html#a438849e16d15ccd4f77a10ffc6da1b8f">linearSearch</a>(<span class="keyword">const</span> T&amp; list, <span class="keyword">const</span> U&amp; target)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">if</span>(list.getSize() == 0) <span class="keywordflow">return</span> false ;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = list.cbegin() ; it != list.cend() ; ++it) <span class="keywordflow">if</span>(*it == target) <span class="keywordflow">return</span> true ;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> false ;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Searches_html_a48b35a30150a63b8aba4e955b0a3bd15"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Searches.html#a48b35a30150a63b8aba4e955b0a3bd15">Salih::Algorithms::Searches::linearSearch</a></div><div class="ttdeci">bool linearSearch(const T &amp;list, const U &amp;target)</div><div class="ttdef"><b>Definition:</b> linearSearch.hpp:16</div></div>
+<div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Searches_html_a438849e16d15ccd4f77a10ffc6da1b8f"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Searches.html#a438849e16d15ccd4f77a10ffc6da1b8f">Salih::Algorithms::Searches::linearSearch</a></div><div class="ttdeci">_GLIBCXX14_CONSTEXPR bool linearSearch(const UniDirectionalIterator &amp;begin, const UniDirectionalIterator &amp;end, const U &amp;target)</div><div class="ttdef"><b>Definition:</b> linearSearch.hpp:16</div></div>
 <div class="ttc" id="anamespaceSalih_1_1Algorithms_1_1Searches_html"><div class="ttname"><a href="namespaceSalih_1_1Algorithms_1_1Searches.html">Salih::Algorithms::Searches</a></div><div class="ttdoc">Binary search algorithm file.</div><div class="ttdef"><b>Definition:</b> binarySearch.hpp:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
