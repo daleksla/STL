@@ -15,7 +15,7 @@ jobs:
           input="./gfilestest.log"
           while read line
           do
-            ./"$line"
+            ./"$line" -s
           done < "$input"
       - name: Delete temporary file name holder
         run: rm ./.testing/exes/gfilestest.log
