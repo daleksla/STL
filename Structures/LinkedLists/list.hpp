@@ -154,7 +154,12 @@ namespace Salih::Structures::LinkedLists {
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the list's values **/ 
 				private:
-					DNode<T>* pointer;
+					DNode<T>* pointer ;
+
+					/** Regular constructor, intialises iterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					_GLIBCXX20_CONSTEXPR Iterator(DNode<T>*) ;
 				
 				public:
 					/** Empty constructor, intialises empty iterator 
@@ -180,11 +185,6 @@ namespace Salih::Structures::LinkedLists {
 					@param Iterator object
 					@return reference to calling Iterator **/
 					_GLIBCXX20_CONSTEXPR Iterator& operator=(Iterator&&) = default ;
-
-					/** Regular constructor, intialises iterator to a given location
-					@param Pointer (to an element of type T)
-					@return <initialised-object> **/				
-					_GLIBCXX20_CONSTEXPR Iterator(DNode<T>*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
@@ -243,12 +243,19 @@ namespace Salih::Structures::LinkedLists {
 					/** (Trivial) Destructor (Default) **/
 					_GLIBCXX20_CONSTEXPR ~Iterator() = default ;
 					
+					friend class List ;
+					
 			} ; 
 			
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the list's values **/ 
 				private:
 					DNode<T> const* pointer;
+
+					/** Regular constructor, intialises ConstIterator to a given location
+					@param Pointer (to an element of type T)
+					@return <initialised-object> **/				
+					_GLIBCXX20_CONSTEXPR ConstIterator(DNode<T> const*) ;
 				
 				public:
 					/** Empty constructor, intialises empty ConstIterator 
@@ -274,11 +281,6 @@ namespace Salih::Structures::LinkedLists {
 					@param ConstIterator object
 					@return reference to calling ConstIterator **/
 					_GLIBCXX20_CONSTEXPR ConstIterator& operator=(ConstIterator&&) = default ;
-
-					/** Regular constructor, intialises ConstIterator to a given location
-					@param Pointer (to an element of type T)
-					@return <initialised-object> **/				
-					_GLIBCXX20_CONSTEXPR ConstIterator(DNode<T> const*) ;
 
 					/** Dereferncing operator - gets data behind the iterator
 					@return referemce to data **/					
@@ -336,6 +338,8 @@ namespace Salih::Structures::LinkedLists {
 					
 					/** (Trivial) Destructor (Default) **/
 					_GLIBCXX20_CONSTEXPR ~ConstIterator() = default ;
+					
+					friend class List ;
 					
 			} ; 
 			
