@@ -12,13 +12,13 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::SNode<T>::SNode(const T i_data, Salih::Structures::LinkedLists::SNode<T>* i_prev) : data(i_data), next(nullptr)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::SNode<T>::SNode(const T i_data, Salih::Structures::LinkedLists::SNode<T>* i_prev) : next(nullptr), data(i_data)
 {
 	i_prev->setNext(this) ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::SNode<T>::SNode(const T i_data) : data(i_data), next(nullptr) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::SNode<T>::SNode(const T i_data) : next(nullptr), data(i_data) {} ;
 
 template <typename T>
 _GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::SNode<T>* Salih::Structures::LinkedLists::SNode<T>::getNext()
