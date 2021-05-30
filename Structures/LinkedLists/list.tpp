@@ -242,9 +242,9 @@ _GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::List<T>::operator[
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check)
+_GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index)
 {
-	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	std::size_t count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
@@ -268,9 +268,9 @@ _GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::List<T>::at(const std::s
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check) const
+_GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index) const
 {
-	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	std::size_t count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))

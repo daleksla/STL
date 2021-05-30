@@ -101,17 +101,15 @@ namespace Salih::Structures::Contiguous {
 			@return constant reference to a given element in the structure **/ 		
 			_GLIBCXX20_CONSTEXPR const T& operator[](const std::size_t) const ; 
 			
-			/** at method, another method to modify the structure
+			/** at method, another method to modify the structure but with boundary checks
 			@param integer to index structure with
-			@param bool (assumingly true flag as to check whether an index is valid)
 			@return reference to a given element in the structure **/ 				
-			_GLIBCXX20_CONSTEXPR T& at(const std::size_t, const bool check = true) ; 
+			_GLIBCXX20_CONSTEXPR T& at(const std::size_t) ; 
 			
 			/** at method, another method to modify the structure
 			@param integer to index structure with, 
-			@param bool (assumingly true flag as to check whether an index is valid)
 			@return constant reference to a given element in the structure **/ 	
-			_GLIBCXX20_CONSTEXPR const T& at(const std::size_t, const bool check = true) const ; 
+			_GLIBCXX20_CONSTEXPR const T& at(const std::size_t) const ; 
 			
 			/** Concatenation operator, adds two vectors together
 			@param vector structure to add

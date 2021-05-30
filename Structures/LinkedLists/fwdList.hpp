@@ -84,17 +84,16 @@ namespace Salih::Structures::LinkedLists {
 			@return constant reference to a given element in the structure **/
 			_GLIBCXX20_CONSTEXPR const T& operator[](const std::size_t) const ; //method to index linked list, returns data
 			
-			/** at method, another method to modify the structure
+			/** at method, another method to modify the structure but with range checks
 			@param integer to index structure with
-			@param bool (assumingly true flag as to check whether an index is valid)
 			@return reference to a given element in the structure **/ 			
-			_GLIBCXX20_CONSTEXPR T& at(const std::size_t, const bool check = true) ; //method to index linked list, returns data
+			_GLIBCXX20_CONSTEXPR T& at(const std::size_t) ; //method to index linked list, returns data
 			
-			/** at method, another method to modify the structure
+			/** at method, another method to modify the structure but with range checks
 			@param integer to index structure with
 			@param bool (assumingly true flag as to check whether an index is valid)
 			@return constant reference to a given element in the structure **/ 
-			_GLIBCXX20_CONSTEXPR const T& at(const std::size_t, const bool check = true) const ; //method to index linked list, returns data
+			_GLIBCXX20_CONSTEXPR const T& at(const std::size_t) const ; //method to index linked list, returns data
 			
 			/** Concatenation operator, adds two forward lists together
 			@param forward list structure to add

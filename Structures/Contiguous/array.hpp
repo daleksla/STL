@@ -74,13 +74,12 @@ namespace Salih::Structures::Contiguous {
 			@param integer to index structure with
 			@param bool (assumingly true flag as to check whether an index is valid)
 			@return reference to a given element in the structure **/ 				
-			_GLIBCXX14_CONSTEXPR T& at(const std::size_t, const bool check = true) ; 
+			_GLIBCXX14_CONSTEXPR T& at(const std::size_t) ; 
 			
-			/** at method, another method to modify the structure
+			/** at method, another method to modify the structure but with range checks
 			@param integer to index structure with
-			@param bool (assumingly true flag as to check whether an index is valid)
 			@return constant reference to a given element in the structure **/ 	
-			constexpr const T& at(const std::size_t, const bool check = true) const ; 
+			constexpr const T& at(const std::size_t) const ; 
 			
 			/** Concatenation operator, adds two arrays together
 			@param array structure to add 

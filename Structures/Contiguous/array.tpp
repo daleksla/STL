@@ -33,19 +33,19 @@ constexpr const T& Salih::Structures::Contiguous::Array<T, SIZE>::operator[](con
 }
 
 template<typename T, std::size_t SIZE> 
-_GLIBCXX14_CONSTEXPR T& Salih::Structures::Contiguous::Array<T, SIZE>::at(const std::size_t x, const bool check)
+_GLIBCXX14_CONSTEXPR T& Salih::Structures::Contiguous::Array<T, SIZE>::at(const std::size_t x)
 {
 	// boolean ? lvalue : (throw-expr, lvalue)
-	return check ? x < SIZE ? this->pointer[x]
-	  : (throw std::out_of_range("Element does not exist"), this->pointer[0]) : this->pointer[x] ;
+	return x < SIZE ? this->pointer[x]
+	  : (throw std::out_of_range("Element does not exist"), this->pointer[0]) ;
 }
 
 template<typename T, std::size_t SIZE> 
-constexpr const T& Salih::Structures::Contiguous::Array<T,SIZE>::at(const std::size_t x, const bool check) const
+constexpr const T& Salih::Structures::Contiguous::Array<T,SIZE>::at(const std::size_t x) const
 {
 	// boolean ? lvalue : (throw-expr, lvalue)
-	return check ? x < SIZE ? this->pointer[x]
-	  : (throw std::out_of_range("Element does not exist"), this->pointer[0]) : this->pointer[x] ;
+	return x < SIZE ? this->pointer[x]
+	  : (throw std::out_of_range("Element does not exist"), this->pointer[0]) ;
 }	
 
 template<typename T, std::size_t SIZE> 

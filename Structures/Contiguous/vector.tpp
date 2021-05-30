@@ -187,16 +187,16 @@ _GLIBCXX20_CONSTEXPR const T& Salih::Structures::Contiguous::Vector<T>::operator
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x, const bool check)
+_GLIBCXX20_CONSTEXPR T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x)
 {
-	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
+	if(x >= this->size) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR const T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x, const bool check) const
+_GLIBCXX20_CONSTEXPR const T& Salih::Structures::Contiguous::Vector<T>::at(const std::size_t x) const
 {
-	if((check) && (x >= this->size)) throw std::out_of_range("Element does not exist") ;
+	if(x >= this->size) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
 }
 

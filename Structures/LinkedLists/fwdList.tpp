@@ -231,10 +231,10 @@ _GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::FwdList<T>::operat
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::FwdList<T>::at(const std::size_t index, const bool check)
+_GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::FwdList<T>::at(const std::size_t index)
 {
 	std::size_t count = 0 ;
-	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	SNode<T>* node = head ;
 	while(count != index)
 	{
@@ -245,10 +245,10 @@ _GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::FwdList<T>::at(const std
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::FwdList<T>::at(const std::size_t index, const bool check) const
+_GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::FwdList<T>::at(const std::size_t index) const
 {
 	std::size_t count = 0 ;
-	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	SNode<T>* node = head ;
 	while(count != index)
 	{
