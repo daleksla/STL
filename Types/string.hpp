@@ -513,18 +513,16 @@ _GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator+=(cons
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator+(const char* tbm) const
 {
-	Salih::Types::String tmp ; delete[] tmp.str ;
+	std::size_t tmpSize = 0 ;
+	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
+	tmpSize += this->size ;
 	
-	tmp.size = 0 ;
-	for(tmp.size = 0 ; tbm[tmp.size] != '\0' ; tmp.size++) ;
-	tmp.size += this->size ;
+	char* tmpStr = new char[tmpSize+1] ;
 	
-	tmp.str = new char[tmp.size+1] ;
-	
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp.str[i] = this->str[i] ;
-	for(std::size_t i = this->size ; i < tmp.size ; i++) tmp.str[i] = tbm[i-this->size] ;
-	tmp.str[tmp.size] = '\0' ;
-	return tmp ;
+	for(std::size_t i = 0 ; i < this->size ; i++) tmpStr[i] = this->str[i] ;
+	for(std::size_t i = this->size ; i < tmpSize ; i++) tmpStr[i] = tbm[i-this->size] ;
+	tmpStr[tmpSize] = '\0' ;
+	return Salih::Types::String(tmpStr, tmpSize) ;
 }
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator+=(const char* tbm)
@@ -545,7 +543,6 @@ _GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator+=(cons
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator*(std::size_t x) const
 {
-	Salih::Types::String tmp ;
 	char* tmpStr = new char[(this->size * x) + 1] ;
 	for(std::size_t i = 0 ; i < x ; i++)
 	{
@@ -555,9 +552,7 @@ _GLIBCXX20_CONSTEXPR Salih::Types::String Salih::Types::String::operator*(std::s
 		}
 	}
 	tmpStr[this->size * x] = '\0' ;
-	tmp.str = tmpStr ;
-	tmp.size = this->size * x ;
-	return tmp ;
+	return Salih::Types::String(tmpStr, this->size * x) ;
 }
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator*=(std::size_t x)
