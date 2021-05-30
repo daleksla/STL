@@ -45,7 +45,7 @@ namespace Salih::Algorithms::Searches {
 			if(target < middleVal) return binarySearch(list(0,middleN), target) ;
 			else if(target > middleVal) return binarySearch(list(middleN,size), target) ;
 		}
-		else return false ; // if there aren't more elements we can look at
+		return false ; // if there aren't more elements we can look at
 	}
 	
 }
