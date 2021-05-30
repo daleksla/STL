@@ -14,10 +14,10 @@
  * It is located in the Salih, Structures, Contiguous namespaces */
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector() : size(0), pointer(new T[0]) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector() : pointer(new T[0]), size(0) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector(const std::size_t SIZE) : size(SIZE), pointer(new T[SIZE]) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector(const std::size_t SIZE) : pointer(new T[SIZE]), size(SIZE) {} ;
 
 template<typename T> 
 _GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector(const std::initializer_list<T>& values) : pointer(new T[values.size()]), size(values.size())
@@ -46,7 +46,7 @@ _GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>& Salih::Structures
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector(const Vector<T>& list) : size(list.size), pointer(new T[list.size])
+_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector(const Vector<T>& list) : pointer(new T[list.size]),  size(list.size)
 {
 	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
@@ -68,7 +68,7 @@ _GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>& Salih::Structures
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector(Vector<T>&& list) : size(list.size), pointer(list.pointer)
+_GLIBCXX20_CONSTEXPR Salih::Structures::Contiguous::Vector<T>::Vector(Vector<T>&& list) : pointer(list.pointer), size(list.size)
 {
 	list.pointer = nullptr ;
 	list.size = 0 ;
