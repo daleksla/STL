@@ -27,7 +27,7 @@ namespace Salih::Algorithms::Searches {
 		return middleN ;
 	}
 	
-	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::isDynamic<T>::value && Salih::Types::Traits::getDimensions<T>::value == 1), T >::type, typename U>
+	template<typename T, typename U>
 	bool binarySearch(const T& list, const U& target)
 	/** This is a binary search algorithm, which splits a list into sub-segments to look upon and repeats until the element is found
 	 * @param const reference to list (to be sorted)
