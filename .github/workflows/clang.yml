@@ -1,4 +1,4 @@
-name: Clang Support #give this pipeline an actual name
+name: Clang Workflow #give this pipeline an actual name
 on: push
 jobs:
   Building:
@@ -9,18 +9,20 @@ jobs:
         run: |
           sudo apt-get install clang
           sudo apt-get install valgrind
+      - name: Navigate to testing folder
+        run: cd ./.testing/
       - name: Build targets using compilers C++11 -> C++20
         run: |
-          make COMP=clang++ STD=-std=c++11
-          make COMP=clang++ STD=-std=c++14
-          make COMP=clang++ STD=-std=c++17
-          make COMP=clang++ STD=-std=c++2a
+          make COMP=clang++ STD=--std=c++11
+          make COMP=clang++ STD=--std=c++14
+          make COMP=clang++ STD=--std=c++17
+          make COMP=clang++ STD=--std=c++2a
   Testing:
     needs: [Building]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Navigate to testing folder
+      - name: Navigate to testing folder w/ exes
         run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
         run: find . -maxdepth 1 -perm -111 -type f >> filestest.log
@@ -38,6 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Navigate to testing folder w/ exes
+        run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
         run: find ./exes -maxdepth 1 -perm -111 -type f >> filesmem.log
       - name: Create valgrind alias with specific testing and return type
