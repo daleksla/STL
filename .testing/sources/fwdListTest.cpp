@@ -162,7 +162,7 @@ TEST_CASE("'at()' method  - modifying values")
 	REQUIRE(list1.at(3) != 4) ;
 }
 
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is empty and flag is not specified")
+TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index")
 {
 	intList list1 ;
 	bool isError = false ;

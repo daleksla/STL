@@ -136,6 +136,8 @@ TEST_CASE("assigning r-value / temporary list using operator to list - value tes
 	REQUIRE(list2.tail->data == 4) ;
 }
 
+/* Methods */
+
 TEST_CASE("Testing peek() method - correct value returned")
 {
 	intQueue queue1 = {1,2,3,4,5,6} ;
@@ -211,6 +213,14 @@ TEST_CASE("Testing push() method - do values get added correctly when queue has 
 	intQueue queue1{1,2} ;
 	queue1.push(2) ;
 	REQUIRE(queue1.peek() == 1) ;
+}
+
+TEST_CASE("getSize method - does it return correct values")
+{
+	intQueue queue1{1,2,3} ;
+	floatQueue queue2{1,2,3} ;
+	REQUIRE(queue1.getSize() == queue2.getSize()) ;
+	REQUIRE(queue1.getSize() == 3) ;
 }
 
 /* Comparison operators */
