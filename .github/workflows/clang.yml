@@ -1,16 +1,43 @@
 name: Clang #give this pipeline an actual name
 on: push
 jobs:
-  Clang:
+  CXX11:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install clang compiler
-        run:  sudo apt-get install clang
-      - name: Build targets using compilers C++11 -> C++20
+        run: sudo apt-get install clang
+      - name: Build targets using compiler v. C++11
         run: |
           cd ./.testing/
           make -f Makefile COMP=clang++ STD=--std=c++11
+  CXX14:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install clang compiler
+        run: sudo apt-get install clang
+      - name: Build targets using compiler v. C++14
+        run: |
+          cd ./.testing/
           make -f Makefile COMP=clang++ STD=--std=c++14
+  CXX17:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install clang compiler
+        run: sudo apt-get install clang
+      - name: Build targets using compiler v. C++17
+        run: |
+          cd ./.testing/
           make -f Makefile COMP=clang++ STD=--std=c++17
+  CXX20:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install clang compiler
+        run: sudo apt-get install clang
+      - name: Build targets using compiler v. C++20
+        run: |
+          cd ./.testing/
           make -f Makefile COMP=clang++ STD=--std=c++2a
