@@ -45,7 +45,7 @@ jobs:
       - name: Store all testing filenames and store in a file
         run: |
           cd ./.testing/exes
-          find ./exes -maxdepth 1 -perm -111 -type f >> gfilesmem.log
+          find . -maxdepth 1 -perm -111 -type f >> gfilesmem.log
       - name: Loop through & run valgrind for each one
         run: |
           cd ./.testing/exes
