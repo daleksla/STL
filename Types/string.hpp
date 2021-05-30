@@ -26,7 +26,7 @@ namespace Salih::Types {
 			
 			std::size_t size ;
 					
-			_GLIBCXX20_CONSTEXPR String(char*, const std::size_t) ;	
+			inline _GLIBCXX20_CONSTEXPR String(char*, const std::size_t) ;	
 		public:
 			/** Empty constructor, intialises empty string 
 			@return <initialised-object> **/
@@ -392,7 +392,7 @@ namespace Salih::Types {
 	} ;
 }
 
-_GLIBCXX20_CONSTEXPR Salih::Types::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
+inline _GLIBCXX20_CONSTEXPR Salih::Types::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String::String() : size(0)
 {
@@ -414,13 +414,30 @@ _GLIBCXX20_CONSTEXPR Salih::Types::String::String(const Salih::Types::String& tb
 	this->str[this->size] = '\0' ;
 }
 
-_GLIBCXX20_CONSTEXPR Salih::Types::String::String(Salih::Types::String&& tbo)
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
 {
-	delete[] this->str ;
+	if(!this->str) delete[] this->str ;
+	this->size = tbc.size ;
+	this->str = new char[this->size+1] ;
+	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
+	this->str[this->size] = '\0' ;
+	return *this ;
+}
+
+_GLIBCXX20_CONSTEXPR Salih::Types::String::String(Salih::Types::String&& tbo) : str(tbo.str), size(tbo.size)
+{
+	tbo.size = 0 ;
+	tbo.str = nullptr ;
+}
+
+_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
+{
+	if(!this->str) delete[] this->str ;
 	this->size = tbo.size ;
 	this->str = tbo.str ;
 	tbo.size = 0 ;
 	tbo.str = nullptr ;
+	return *this ;
 }
 
 _GLIBCXX20_CONSTEXPR Salih::Types::String::~String()
@@ -437,26 +454,6 @@ _GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(const
 	this->str = new char[this->size + 1] ;
 	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc[i] ;
 	this->str[this->size] = '\0' ;
-	return *this ;
-}
-
-_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(const Salih::Types::String& tbc)
-{
-	delete[] this->str ;
-	this->size = tbc.size ;
-	this->str = new char[this->size+1] ;
-	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
-	this->str[this->size] = '\0' ;
-	return *this ;
-}
-
-_GLIBCXX20_CONSTEXPR Salih::Types::String& Salih::Types::String::operator=(Salih::Types::String&& tbo)
-{
-	delete[] this->str ;
-	this->size = tbo.size ;
-	this->str = tbo.str ;
-	tbo.size = 0 ;
-	tbo.str = nullptr ;
 	return *this ;
 }
 
