@@ -12,7 +12,7 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>::DNode(const T i_data, Salih::Structures::LinkedLists::DNode<T>* node, const bool flag) : data(i_data)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>::DNode(const T i_data, Salih::Structures::LinkedLists::DNode<T>* node, const bool flag)
 {
        auto temp = this ;
        if(flag == 0)
@@ -21,14 +21,15 @@ _GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>::DNode(const T i_d
                prev->setNext(temp) ;
                this->next = nullptr ;
        } else {
+               this->prev = nullptr ;
                this->next = node ;
                next->setPrev(temp) ;
-               this->prev = nullptr ;
        }
+       this->data = i_data ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>::DNode(const T i_data) : data(i_data), prev(nullptr), next(nullptr) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>::DNode(const T i_data) : prev(nullptr), next(nullptr), data(i_data) {} ;
 
 template <typename T>
 _GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev()
