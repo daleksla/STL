@@ -358,20 +358,24 @@ _GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::FwdList<T>::insert(con
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
-	
-	//loop through LL, find correct 'node'
-	SNode<T>* curNode = head ;
-	for(std::size_t count = 1 ; count < pos - 1 ; count++) 
+	else if(pos == 1) 
 	{
-		curNode = curNode->getNext() ;
+		SNode<T>* exHead = this->head ;
+		this->head = new SNode<T>(data) ;
+		this->head->setNext(exHead) ;
 	}
+	else {
+		//loop through LL, find correct 'node'
+		SNode<T>* curNode = this->head ;
+		for(std::size_t count = 1 ; count < pos - 1 ; count++) 
+		{
+			curNode = curNode->getNext() ;
+		}
 
-	auto newNode = new SNode<T>(data) ;
-	auto nextNode = curNode->getNext() ;
-	curNode->setNext(newNode) ;
-	newNode->setNext(nextNode) ;
-	
-	if(pos == 1) this->head = newNode ;
+		auto nextNode = curNode->getNext() ;
+		auto newNode = new SNode<T>(data, curNode) ;
+		newNode->setNext(nextNode) ;
+	}
 	
 	this->setSize(this->size + 1) ;	
 }
@@ -398,7 +402,7 @@ _GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::FwdList<T>::append(T d
 	else {
 		SNode<T>* node = nullptr ;
 		for(node = this->head ; node->getNext() != nullptr ; node = node->getNext()) ;
-		node->setNext(new SNode<T>(data, node)) ;
+		new SNode<T>(data, node) ;
 	}
 	
 	this->setSize(this->size + 1) ;
