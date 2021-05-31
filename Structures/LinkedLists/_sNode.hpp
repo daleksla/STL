@@ -19,18 +19,26 @@ namespace Salih::Structures::LinkedLists {
 					
 		public:
 			T data ; //template variable for data		
+			
+			SNode() = default ;
 		
-			SNode(T) ; //constructor - takes data
+			_GLIBCXX20_CONSTEXPR SNode(const T) ; //constructor - takes data
 			
-			SNode(T, SNode*) ;
+			_GLIBCXX20_CONSTEXPR SNode(const T, SNode*) ;
 			
-			SNode(const SNode&) ; //copy constructor - copies data and removes links
+			_GLIBCXX20_CONSTEXPR SNode(const SNode&) = delete ;
 			
-			SNode& operator=(const SNode&) ; //copy constructor - copies data and removes links
+			_GLIBCXX20_CONSTEXPR SNode& operator=(const SNode&) = delete ;
 		
-			SNode* getNext() ; //returns next node in LL
+			_GLIBCXX20_CONSTEXPR SNode(SNode&&) = default ;
+			
+			_GLIBCXX20_CONSTEXPR SNode& operator=(SNode&&) = default ;
+		
+			_GLIBCXX20_CONSTEXPR SNode* getNext() ; //returns next node in LL
+		
+			_GLIBCXX20_CONSTEXPR const SNode* getNext() const ; //returns next node in LL
 
-			void setNext(SNode*) ; //sets next node in LL
+			_GLIBCXX20_CONSTEXPR void setNext(SNode*) ; //sets next node in LL
 
 	} ;	
 }

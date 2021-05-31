@@ -14,7 +14,7 @@
 
 namespace Salih::Algorithms::Sorts {
 
-	template<typename T, typename = typename std::enable_if< (Salih::Types::Traits::isList<T>::value && Salih::Types::Traits::isDynamic<T>::value && Salih::Types::Traits::getDimensions<T>::value == 1), T >::type>
+	template<typename T>
 	T quickSort(const T& list, bool(*const order)(int, int) = ASCEND)
 	/** This is the quick sort algorithm. It creates three empty arrays to hold elements less than the pivot value, the same as the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays and adds them together
 	 * @param copy of list (to be sorted)
@@ -26,7 +26,7 @@ namespace Salih::Algorithms::Sorts {
 		T left, right, equal ;		
 		auto pivot = list[0] ;
 		
-		for(int i = 0 ; i < list.getSize() ; i++)
+		for(std::size_t i = 0 ; i < list.getSize() ; i++)
 		{
 			auto iterR = list[i] ;
 			if((*order)(iterR, pivot)) left.append(iterR) ;

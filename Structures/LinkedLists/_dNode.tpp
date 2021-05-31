@@ -12,7 +12,7 @@
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>::DNode(T i_data, Salih::Structures::LinkedLists::DNode<T>* node, bool flag) : data(i_data)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>::DNode(const T i_data, Salih::Structures::LinkedLists::DNode<T>* node, const bool flag)
 {
        auto temp = this ;
        if(flag == 0)
@@ -21,55 +21,50 @@ Salih::Structures::LinkedLists::DNode<T>::DNode(T i_data, Salih::Structures::Lin
                prev->setNext(temp) ;
                this->next = nullptr ;
        } else {
+               this->prev = nullptr ;
                this->next = node ;
                next->setPrev(temp) ;
-               this->prev = nullptr ;
        }
+       this->data = i_data ;
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>::DNode(T i_data) : data(i_data), prev(nullptr), next(nullptr) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>::DNode(const T i_data) : prev(nullptr), next(nullptr), data(i_data) {} ;
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>::DNode(const DNode<T>& node) : data(node.data), prev(nullptr), next(nullptr) {} ;
-
-template <typename T>
-Salih::Structures::LinkedLists::DNode<T>& Salih::Structures::LinkedLists::DNode<T>::operator=(const DNode<T>& node)
-{
-	this->data(node.data) ; 
-	this->prev = nullptr ;
-	this->next = nullptr ;
-} 
-
-template <typename T>
-Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev()
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev()
 {
 	return prev ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::DNode<T>::setPrev(DNode<T>* input) 
+_GLIBCXX20_CONSTEXPR const Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getPrev() const
+{
+	return prev ;
+}
+
+template <typename T>
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::DNode<T>::setPrev(DNode<T>* input) 
 {
 	this->prev = input ;
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext()
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext() 
 {
 	return next ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::DNode<T>::setNext(DNode<T>* input) 
+_GLIBCXX20_CONSTEXPR const Salih::Structures::LinkedLists::DNode<T>* Salih::Structures::LinkedLists::DNode<T>::getNext() const 
 {
-	this->next = input ;
+	return next ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::DNode<T>::deleteNode() 
-{	
-	prev->setNext(this->getNext()) ; 
-	next->setPrev(this->getPrev()) ; 
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::DNode<T>::setNext(DNode<T>* input) 
+{
+	this->next = input ;
 }
 
 #endif

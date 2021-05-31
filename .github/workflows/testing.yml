@@ -1,23 +1,41 @@
 name: Testing #give this pipeline an actual name
-on:
-  push:
-    branches:
-      - master
+on: push
 jobs:
-  Testing:
+  Unit-Testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Navigate to testing folder
-        run: cd ./.testing/exes/
       - name: Store all testing filenames and store in a file
-        run: find . -maxdepth 1 -perm -111 -type f >> filestest.log
+        run: |
+          cd ./.testing/exes
+          find . -maxdepth 1 -perm -111 -type f >> gfilestest.log
       - name: Loop through & Run files
         run: |
-          input="./filestest.log"
+          cd ./.testing/exes
+          input="./gfilestest.log"
           while read line
           do
-            ./"$line"
+            ./"$line" -s
           done < "$input"
       - name: Delete temporary file name holder
-        run: rm filestest.log
+        run: rm ./.testing/exes/gfilestest.log
+  Memory-Leaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Valgrind
+        run: sudo apt install valgrind
+      - name: Store all testing filenames and store in a file
+        run: |
+          cd ./.testing/exes
+          find . -maxdepth 1 -perm -111 -type f >> gfilesmem.log
+      - name: Loop through & run valgrind for each one
+        run: |
+          cd ./.testing/exes
+          input="./gfilesmem.log"
+          while read line
+          do
+            valgrind --error-exitcode=1 --leak-check=full -v --track-origins=yes ./"$line"
+          done < "$input"
+      - name: Delete temporary file name holder
+        run: rm ./.testing/exes/gfilesmem.log

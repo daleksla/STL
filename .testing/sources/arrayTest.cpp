@@ -9,7 +9,7 @@
 #include <stdexcept>
 
 #define private public
-#include <lib/Structures/Contiguous/array.hpp>
+#include "../../Structures/Contiguous/array.hpp"
 
 typedef Salih::Structures::Contiguous::Array<int,6> bigList ;
 typedef Salih::Structures::Contiguous::Array<int,6> floatList ;
@@ -23,94 +23,34 @@ constexpr std::size_t getSize(Salih::Structures::Contiguous::Array<int, SIZE> a)
 
 //** Create sub-categories to test with predicted outcomes **//
 
-/* Constructors */
-TEST_CASE("Empty constructor - attribute testing")
+/* Aggregate class - testing assignment only */
+TEST_CASE("Empty assignment - attribute testing")
 {
 	bigList list ;
 	REQUIRE(getSize(list) == 6) ;
+	bigList list2{} ;
+	REQUIRE(getSize(list2) == 6) ;
+	bigList list3 = {} ;
+	REQUIRE(getSize(list3) == 6) ;
 }
 
-TEST_CASE("Regular constructor - attribute testing")
+TEST_CASE("Regular assignment - attribute testing")
 {
 	bigList list{1,2,3,4,5,6} ;
 	REQUIRE(getSize(list) == 6) ;
-}
-
-TEST_CASE("Regular constructor - value testing")
-{
-	bigList list{1,2,3,4,5,6} ;
-	REQUIRE((list.pointer[0] == 1 && list.pointer[1] == 2 && list.pointer[2] == 3 && list.pointer[3] == 4 && list.pointer[4] == 5 && list.pointer[5] == 6)) ;
-}
-
-TEST_CASE("Copy constructor (same size arrays) - attribute testing")
-{
-	bigList list{1,2,3,4,5,6} ;
-	bigList list2(list) ; //copy constructor
-	REQUIRE(list.pointer != list2.pointer) ;
-	REQUIRE(getSize(list) == getSize(list2)) ;
-}
-
-TEST_CASE("Copy constructor (same size arrays) - value testing")
-{
-	bigList list{1,2,3,4,5,6} ;
-	bigList list2(list) ; //copy constructor
-	REQUIRE((list.pointer[0] == list2.pointer[0] && list.pointer[1] == list2.pointer[1] && list.pointer[2] == list2.pointer[2] && list.pointer[3] == list2.pointer[3] && list.pointer[4] == list2.pointer[4] && list.pointer[5] == list2.pointer[5])) ;
-}
-
-TEST_CASE("Copy constructor (copying smaller sized arrays) - attribute testing")
-{
-	smallList list{1,2,3} ;
-	bigList list2(list) ; //copy constructor
-	REQUIRE(list.pointer != list2.pointer) ;
-	REQUIRE(getSize(list) != getSize(list2)) ;
-}
-
-TEST_CASE("Copy constructor (copying smaller sized arrays) - value testing")
-{
-	smallList list{1,2,3} ;
-	bigList list2(list) ; //copy constructor
-	REQUIRE((list.pointer[0] == list2.pointer[0] && list.pointer[1] == list2.pointer[1] && list.pointer[2] == list2.pointer[2])) ;
-}
-
-//no move constructor tests, since array class has a compiler generated version
-
-/* Assignment operators */
-TEST_CASE("Initialisation list assignment - attribute testing")
-{
-	bigList list = {1,2,3,4,5,6} ;
+	list = {1,2,3,4,5,6} ;
 	REQUIRE(getSize(list) == 6) ;
+	bigList list2 = {1,2,3,4,5,6} ;
+	REQUIRE(getSize(list2) == 6) ;
 }
 
-TEST_CASE("Initialisation list assignment - value testing")
+TEST_CASE("Regular assignment - value testing")
 {
-	bigList list = {1,2,3,4,5,6} ;
+	bigList list{1,2,3,4,5,6} ;
 	REQUIRE((list.pointer[0] == 1 && list.pointer[1] == 2 && list.pointer[2] == 3 && list.pointer[3] == 4 && list.pointer[4] == 5 && list.pointer[5] == 6)) ;
+	list = {1,2,3,4,5,7} ;
+	REQUIRE((list.pointer[0] == 1 && list.pointer[1] == 2 && list.pointer[2] == 3 && list.pointer[3] == 4 && list.pointer[4] == 5 && list.pointer[5] == 7)) ;
 }
-
-TEST_CASE("Copy assignment operator (same size arrays) - attribute testing")
-{
-	bigList list{1,2,3,4,5,6} ;
-	bigList list2 = list ; //copy constructor
-	REQUIRE(list.pointer != list2.pointer) ;
-	REQUIRE(getSize(list) == getSize(list2)) ;
-}
-
-TEST_CASE("Copy assignment operator (same size arrays) - value testing")
-{
-	bigList list{1,2,3,4,5,6} ;
-	bigList list2 = list ; //copy constructor
-	REQUIRE((list.pointer[0] == list2.pointer[0] && list.pointer[1] == list2.pointer[1] && list.pointer[2] == list2.pointer[2] && list.pointer[3] == list2.pointer[3] && list.pointer[4] == list2.pointer[4] && list.pointer[5] == list2.pointer[5])) ;
-}
-
-TEST_CASE("Copy assignment operator (copying smaller sized arrays) - attribute testing")
-{
-	smallList list{1,2,3} ;
-	bigList list2 = list ; //copy constructor
-	REQUIRE(list.pointer != list2.pointer) ;
-	REQUIRE(getSize(list) != getSize(list2)) ;
-}
-
-//no move assignment tests, since array class has a compiler generated version
 
 /* Index / access operators */
 TEST_CASE("[] operator - correct value returned")
@@ -143,7 +83,7 @@ TEST_CASE("'at()' method  - modifying values")
 	REQUIRE(list1.at(3) != 4) ;
 }
 
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index and flag is not specified")
+TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index")
 {
 	bigList list1 ;
 	bool isError = false ;
@@ -154,32 +94,6 @@ TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is small
 	}
 	
 	REQUIRE(isError == true) ;
-}
-
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index and flag is set to true")
-{
-	bigList list1 ;
-	bool isError = false ;
-	try {
-		list1.at(7, true) ;
-	} catch(const std::out_of_range& error) {
-		isError = true ;
-	}
-	
-	REQUIRE(isError == true) ;
-}
-
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index but flag is set to false")
-{
-	bigList list1 ;
-	bool isError = false ;
-	try {
-		list1.at(7, false) ;
-	} catch(const std::out_of_range& error) {
-		isError = true ;
-	}
-	
-	REQUIRE(isError == false) ;
 }
 
 /* Boolean operators */

@@ -9,7 +9,7 @@
 #include <stdexcept>
 
 #define private public
-#include <lib/Structures/Contiguous/vector.hpp>
+#include "../../Structures/Contiguous/vector.hpp"
 
 typedef Salih::Structures::Contiguous::Vector<int> intList ;
 typedef Salih::Structures::Contiguous::Vector<float> floatList ;
@@ -143,7 +143,7 @@ TEST_CASE("'at()' method  - modifying values")
 	REQUIRE(list1.at(3) != 4) ;
 }
 
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index and flag is not specified")
+TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index")
 {
 	intList list1 ;
 	bool isError = false ;
@@ -154,32 +154,6 @@ TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is small
 	}
 	
 	REQUIRE(isError == true) ;
-}
-
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index and flag is set to true")
-{
-	intList list1 ;
-	bool isError ;
-	try {
-		list1.at(7, true) ;
-	} catch(const std::out_of_range& error) {
-		isError = true ;
-	}
-	
-	REQUIRE(isError == true) ;
-}
-
-TEST_CASE("'at()' method - does 'out_of_range' error get thrown if list is smaller than requested index but flag is set to false")
-{
-	intList list1 ;
-	bool isError = false ;
-	try {
-		list1.at(7, false) ;
-	} catch(const std::out_of_range& error) {
-		isError = true ;
-	}
-	
-	REQUIRE(isError == false) ;
 }
 
 /* Boolean operators */

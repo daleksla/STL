@@ -12,15 +12,27 @@
 
 namespace Salih::Algorithms::Searches {
 
-	template<typename T, typename = typename std::enable_if< Salih::Types::Traits::isList<T>::value, T >::type, typename U>
-	bool linearSearch(const T& list, const U& target)
+	template<typename UniDirectionalIterator, typename U>
+	_GLIBCXX14_CONSTEXPR bool linearSearch(const UniDirectionalIterator& begin, const UniDirectionalIterator& end, const U& target)
 	/** This is a linear search algorithm, which iterates through a list until the end if need be
-	 * @param const reference to list (to be sorted)
+	 * @param const reference to iterator to beginning of search range
+	 * @param const reference to iterator to end of search range
+	 * @param const reference of target (to be identified in list)
+	 * @return boolean (indicates if supplied target was found or not) **/
+	{
+		for(auto it = begin ; it != end ; ++it) if(*it == target) return true ;
+		return false ;
+	}
+
+	template<typename T, typename U>
+	_GLIBCXX14_CONSTEXPR bool linearSearch(const T& list, const U& target)
+	/** This is a linear search algorithm, which iterates through a list until the end if need be
+	 * @param const reference to list (to be searched through)
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
 	{
 		if(list.getSize() == 0) return false ;
-		for(int i = 0 ; i < list.getSize() ; i++) if(list[i] == target) return true ;
+		for(auto it = list.cbegin() ; it != list.cend() ; ++it) if(*it == target) return true ;
 		return false ;
 	}
 

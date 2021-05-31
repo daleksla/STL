@@ -21,24 +21,32 @@ namespace Salih::Structures::LinkedLists {
 					
 		public:
 			T data ; //template variable for data		
+			
+			_GLIBCXX20_CONSTEXPR DNode() = default ;
 		
-			DNode(T) ; //constructor - takes data
+			_GLIBCXX20_CONSTEXPR DNode(const T) ; //constructor - takes data
 			
-			DNode(const DNode&) ; //copy constructor - copies data and removes head and tail
+			_GLIBCXX20_CONSTEXPR DNode(const DNode&) = delete ;
 			
-			DNode& operator=(const DNode&) ; //copy constructor - copies data and removes head and tail
+			_GLIBCXX20_CONSTEXPR DNode& operator=(const DNode&) = delete ;
 			
-			DNode(T, DNode*, bool) ; //constructor - takes data, connects to specified node
+			_GLIBCXX20_CONSTEXPR DNode(DNode&&) = default ;
+			
+			_GLIBCXX20_CONSTEXPR DNode& operator=(DNode&&) = default ;
+			
+			_GLIBCXX20_CONSTEXPR DNode(const T, DNode*, const bool) ; //constructor - takes data, connects to specified node
 
-			DNode* getPrev() ; //gets prev node in LL
+			_GLIBCXX20_CONSTEXPR DNode* getPrev() ; //gets prev node in LL
+
+			_GLIBCXX20_CONSTEXPR const DNode* getPrev() const ; //gets prev node in LL
 		
-			void setPrev(DNode*) ; //sets prev node in LL
+			_GLIBCXX20_CONSTEXPR void setPrev(DNode*) ; //sets prev node in LL
 
-			DNode* getNext() ; //returns next node in LL
+			_GLIBCXX20_CONSTEXPR DNode* getNext() ; //returns next node in LL
+			
+			_GLIBCXX20_CONSTEXPR const DNode* getNext() const ; //returns next node in LL
 
-			void setNext(DNode*) ; //sets next node in LL
-
-			void deleteNode() ; //connects previous and next node to each other, deletes data
+			_GLIBCXX20_CONSTEXPR void setNext(DNode*) ; //sets next node in LL
 
 	} ;	
 }

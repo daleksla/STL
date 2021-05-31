@@ -3,12 +3,12 @@
 #include "catch.hpp"
 
 /* Include the code that we plan to test */
-#include <lib/Structures/Contiguous/vector.hpp>
-#include <lib/Structures/Contiguous/array.hpp>
-#include <lib/Structures/LinkedLists/list.hpp>
-#include <lib/Algorithms/Searches/binarySearch.hpp>
-#include <lib/Algorithms/Searches/interpolationSearch.hpp>
-#include <lib/Algorithms/Searches/linearSearch.hpp>
+#include "../../Structures/Contiguous/vector.hpp"
+#include "../../Structures/Contiguous/array.hpp"
+#include "../../Structures/LinkedLists/list.hpp"
+#include "../../Algorithms/Searches/binarySearch.hpp"
+#include "../../Algorithms/Searches/interpolationSearch.hpp"
+#include "../../Algorithms/Searches/linearSearch.hpp"
 
 typedef Salih::Structures::LinkedLists::List<int> intList ;
 typedef Salih::Structures::Contiguous::Array<float,4> floatArr ;

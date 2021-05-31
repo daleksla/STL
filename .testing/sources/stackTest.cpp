@@ -5,13 +5,13 @@
 #define private public
 #define protected public
 /* Include the code that we plan to test */
-#include <lib/Types/stack.hpp>
+#include "../../Types/Buffers/stack.hpp"
 #include <string>
 #include <iostream>
 #include <stdexcept>
 
-typedef Salih::Types::Stack<int> intStack ;
-typedef Salih::Types::Stack<float> floatStack ;
+typedef Salih::Types::Buffers::Stack<int> intStack ;
+typedef Salih::Types::Buffers::Stack<float> floatStack ;
 
 /* Create sub-categories to test with predicted outcomes */
 TEST_CASE("empty constructor - attribute testing")
@@ -115,6 +115,8 @@ TEST_CASE("assigning r-value / temporary list using operator to list - value tes
 	REQUIRE(list2.tail->data == 4) ;
 }
 
+/* Methods */
+
 TEST_CASE("Testing peek() method - correct value returned")
 {
 	intStack stack1 = {1,2,3,4,5,6} ;
@@ -190,6 +192,14 @@ TEST_CASE("Testing push() method - do values get added correctly when stack has 
 	intStack stack1{1,2} ;
 	stack1.push(3) ;
 	REQUIRE(stack1.peek() == 3) ;
+}
+
+TEST_CASE("getSize method - does it return correct values")
+{
+	intStack stack1{1,2,3} ;
+	floatStack stack2{1,2,3} ;
+	REQUIRE(stack1.getSize() == stack2.getSize()) ;
+	REQUIRE(stack1.getSize() == 3) ;
 }
 
 /* Comparison operators */

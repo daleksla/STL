@@ -3,21 +3,16 @@
 #pragma once
 
 #include <stdexcept>
-#include <limits>
-#include <array>
-#include <algorithm>
-#include <iostream>
-#include <iterator>
 #include <initializer_list>
 
 /* This file contains the implementations of a linked list
  * It is located in the nested Salih, Structures, LinkedLists namespaces */
  
 template <typename T>
-Salih::Structures::LinkedLists::List<T>::List() : head(nullptr), tail(nullptr), size(0) {} ;
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::List() : head(nullptr), tail(nullptr), size(0) {} ;
 
 template <typename T>
-Salih::Structures::LinkedLists::List<T>::List(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::List(const std::initializer_list<T>& values)
 {
 	this->setSize(values.size()) ;
 	Salih::Structures::LinkedLists::DNode<T>* p = nullptr ;
@@ -36,7 +31,7 @@ Salih::Structures::LinkedLists::List<T>::List(const std::initializer_list<T>& va
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(const std::initializer_list<T>& values)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(head != nullptr)
 	{
@@ -66,7 +61,7 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::List<T>::List(const Salih::Structures::LinkedLists::List<T>& list)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::List(const Salih::Structures::LinkedLists::List<T>& list)
 {
 	this->setSize(0) ;
 	Salih::Structures::LinkedLists::DNode<T>* h = list.head ;
@@ -92,7 +87,7 @@ Salih::Structures::LinkedLists::List<T>::List(const Salih::Structures::LinkedLis
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(const Salih::Structures::LinkedLists::List<T>& list)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(const Salih::Structures::LinkedLists::List<T>& list)
 {
 	if(head != nullptr)
 	{
@@ -131,7 +126,7 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::List<T>::List(Salih::Structures::LinkedLists::List<T>&& list)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::List(Salih::Structures::LinkedLists::List<T>&& list)
 {
 	this->head = list.head ;
 	this->tail = list.tail ;
@@ -142,7 +137,7 @@ Salih::Structures::LinkedLists::List<T>::List(Salih::Structures::LinkedLists::Li
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(Salih::Structures::LinkedLists::List<T>&& list)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator=(Salih::Structures::LinkedLists::List<T>&& list)
 {
 	if(head != nullptr)
 	{
@@ -164,7 +159,7 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 }
 
 template <typename T>
-Salih::Structures::LinkedLists::List<T>::~List()
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::~List()
 {
 	if(head == nullptr) return;
 	
@@ -178,7 +173,7 @@ Salih::Structures::LinkedLists::List<T>::~List()
 }
 
 template<typename T>		
-Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>::operator()(const std::size_t a, const std::size_t b) const
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>::operator()(const std::size_t a, const std::size_t b) const
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	Salih::Structures::LinkedLists::List<T> tmp ;
@@ -197,61 +192,109 @@ Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>:
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index)
+_GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index)
 {
 	std::size_t count = 0 ;
-	DNode<T>* node = head ;
-	while(count != index)
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
 
 template <typename T>
-const T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index) const
+_GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::List<T>::operator[](const std::size_t index) const
 {
 	std::size_t count = 0 ;
-	DNode<T>* node = head ;
-	while(count != index)
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
 
 template <typename T>
-T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check)
+_GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index)
 {
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	std::size_t count = 0 ;
-	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
-	DNode<T>* node = head ;
-	while(count != index)
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
 
 template <typename T>
-const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index, const bool check) const
+_GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::List<T>::at(const std::size_t index) const
 {
+	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	std::size_t count = 0 ;
-	if((check) && (index >= this->size)) throw std::out_of_range("Element does not exist") ;
-	DNode<T>* node = head ;
-	while(count != index)
+	DNode<T>* node = nullptr ;
+	if(this->size - index > (this->size / 2))
 	{
-		node = node->getNext() ;
-		count++ ;
+		node = this->head ;
+		while(count != index)
+		{
+			node = node->getNext() ;
+			count++ ;
+		}
+	} 
+	else {
+		node = this->tail ;
+		while((this->size - count) - 1 != index)
+		{
+			node = node->getPrev() ;
+			count++ ;
+		}		
 	}
 	return node->data ;
 }
 
 template<typename T>
-Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>::operator+(const Salih::Structures::LinkedLists::List<T>& list) const
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>::operator+(const Salih::Structures::LinkedLists::List<T>& list) const
 {
 	Salih::Structures::LinkedLists::List<T> tmp ;
 	Salih::Structures::LinkedLists::DNode<T>* node = this->head ;
@@ -270,7 +313,7 @@ Salih::Structures::LinkedLists::List<T> Salih::Structures::LinkedLists::List<T>:
 }
 
 template<typename T>
-Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator+=(const Salih::Structures::LinkedLists::List<T>& list)
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>::operator+=(const Salih::Structures::LinkedLists::List<T>& list)
 {
 	Salih::Structures::LinkedLists::DNode<T>* node = list.head ;
 	for(std::size_t i = 0 ; i < list.size ; i++) this->append(node->data) ;
@@ -279,7 +322,7 @@ Salih::Structures::LinkedLists::List<T>& Salih::Structures::LinkedLists::List<T>
 
 
 template <typename T>
-bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures::LinkedLists::List<T>& list) const
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures::LinkedLists::List<T>& list) const
 {
 	if(list.size != this->size) return false ;
 	
@@ -297,7 +340,7 @@ bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures
 }
 
 template <typename T>
-bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures::LinkedLists::List<T>& list) const
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures::LinkedLists::List<T>& list) const
 {
 	if(list.size != this->size) return true ;
 	
@@ -316,7 +359,7 @@ bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures
 
 template <typename T>
 template <typename OTHER>
-bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures::LinkedLists::List<OTHER>& list) const
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures::LinkedLists::List<OTHER>& list) const
 {
 	if(list.size != this->size) return false ;
 	
@@ -335,7 +378,7 @@ bool Salih::Structures::LinkedLists::List<T>::operator==(const Salih::Structures
 
 template <typename T>
 template <typename OTHER>
-bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures::LinkedLists::List<OTHER>& list) const
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures::LinkedLists::List<OTHER>& list) const
 {
 	if(list.getSize() != this->size) return true ;
 	
@@ -353,7 +396,7 @@ bool Salih::Structures::LinkedLists::List<T>::operator!=(const Salih::Structures
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::List<T>::insert(const std::size_t pos, T data) 
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::List<T>::insert(const std::size_t pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
@@ -370,7 +413,7 @@ void Salih::Structures::LinkedLists::List<T>::insert(const std::size_t pos, T da
 }
 
 template <typename T>
-inline void Salih::Structures::LinkedLists::List<T>::insert(Salih::Structures::LinkedLists::DNode<T>* node, T data)
+_GLIBCXX20_CONSTEXPR inline void Salih::Structures::LinkedLists::List<T>::insert(Salih::Structures::LinkedLists::DNode<T>* node, T data)
 { //correct function
 	auto newNode = new DNode<T>(data) ;
 	DNode<T>* prev = node->getPrev() ;
@@ -390,19 +433,19 @@ inline void Salih::Structures::LinkedLists::List<T>::insert(Salih::Structures::L
 }
 
 template <typename T>
-inline void Salih::Structures::LinkedLists::List<T>::setSize(std::size_t newSize)
+_GLIBCXX20_CONSTEXPR inline void Salih::Structures::LinkedLists::List<T>::setSize(std::size_t newSize)
 {
 	this->size = newSize ;
 }
 
 template <typename T>
-std::size_t Salih::Structures::LinkedLists::List<T>::getSize() const
+_GLIBCXX20_CONSTEXPR std::size_t Salih::Structures::LinkedLists::List<T>::getSize() const
 {
 	return this->size ;
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::List<T>::append(T data)
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::List<T>::append(T data)
 {
 	DNode<T>* node = nullptr ;
 	if(this->size == 0) 
@@ -420,7 +463,7 @@ void Salih::Structures::LinkedLists::List<T>::append(T data)
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::List<T>::del(const std::size_t index)
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::List<T>::del(const std::size_t index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
 	
@@ -436,7 +479,7 @@ void Salih::Structures::LinkedLists::List<T>::del(const std::size_t index)
 }
 
 template <typename T>
-inline void Salih::Structures::LinkedLists::List<T>::del(Salih::Structures::LinkedLists::DNode<T>* node)
+_GLIBCXX20_CONSTEXPR inline void Salih::Structures::LinkedLists::List<T>::del(Salih::Structures::LinkedLists::DNode<T>* node)
 { //correct function
 	DNode<T>* prev = node->getPrev() ;
 	DNode<T>* next = node->getNext() ;
@@ -449,7 +492,7 @@ inline void Salih::Structures::LinkedLists::List<T>::del(Salih::Structures::Link
 }
 
 template <typename T>
-void Salih::Structures::LinkedLists::List<T>::clear()
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::List<T>::clear()
 {
 	if(head != nullptr)
 	{
@@ -464,6 +507,222 @@ void Salih::Structures::LinkedLists::List<T>::clear()
 	this->head = nullptr ;
 	this->tail = nullptr ;
 	this->size = 0 ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::Iterator::Iterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::Iterator::Iterator(Salih::Structures::LinkedLists::DNode<T>* input) : pointer(input) {} ;
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR T& Salih::Structures::LinkedLists::List<T>::Iterator::operator*() const
+{
+	return this->pointer->data ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR T* Salih::Structures::LinkedLists::List<T>::Iterator::operator->() const
+{
+	return &(this->pointer->data) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator+(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	return Salih::Structures::LinkedLists::List<T>::Iterator(tmp) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator+=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator++()
+{
+	this->pointer = this->pointer->getNext() ;
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator++(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::Iterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getNext() ;
+	return tmp ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator-(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	return Salih::Structures::LinkedLists::List<T>::Iterator(tmp) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator-=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator& Salih::Structures::LinkedLists::List<T>::Iterator::operator--()
+{
+	this->pointer = this->pointer->getPrev() ;
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::Iterator::operator--(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::Iterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getPrev() ;
+	return tmp ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::Iterator::operator==(const Salih::Structures::LinkedLists::List<T>::Iterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::Iterator::operator!=(const Salih::Structures::LinkedLists::List<T>::Iterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::List<T>::ConstIterator::ConstIterator(Salih::Structures::LinkedLists::DNode<T> const* input) : pointer(input) {} ;
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR const T& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator*() const
+{
+	return this->pointer->data ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR const T* Salih::Structures::LinkedLists::List<T>::ConstIterator::operator->() const
+{
+	return &(this->pointer->data) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator+(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(tmp) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator+=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator++()
+{
+	this->pointer = this->pointer->getNext() ;
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator++(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::ConstIterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getNext() ;
+	return tmp ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator-(const std::size_t x) const
+{
+	Salih::Structures::LinkedLists::DNode<T>* tmp = this->pointer ;
+	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(tmp) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator-=(const std::size_t x)
+{
+	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator& Salih::Structures::LinkedLists::List<T>::ConstIterator::operator--()
+{
+	this->pointer = this->pointer->getPrev() ;
+	return *this ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::ConstIterator::operator--(const int)
+{
+	Salih::Structures::LinkedLists::List<T>::ConstIterator tmp(this->pointer) ;
+	this->pointer = this->pointer->getPrev() ;
+	return tmp ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::ConstIterator::operator==(const Salih::Structures::LinkedLists::List<T>::ConstIterator& other) const
+{
+	return (this->pointer == other.pointer) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR bool Salih::Structures::LinkedLists::List<T>::ConstIterator::operator!=(const Salih::Structures::LinkedLists::List<T>::ConstIterator& other) const
+{
+	return (this->pointer != other.pointer) ; 
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::begin()
+{
+	return Salih::Structures::LinkedLists::List<T>::Iterator(this->head) ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::Iterator Salih::Structures::LinkedLists::List<T>::end()
+{
+	return Salih::Structures::LinkedLists::List<T>::Iterator(nullptr) ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::begin() const 
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(this->head) ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::end() const
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(nullptr) ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::cbegin() const 
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(this->head) ;
+}
+
+template<typename T> 
+_GLIBCXX20_CONSTEXPR typename Salih::Structures::LinkedLists::List<T>::ConstIterator Salih::Structures::LinkedLists::List<T>::cend() const
+{
+	return Salih::Structures::LinkedLists::List<T>::ConstIterator(nullptr) ;
 }
 
 #endif
