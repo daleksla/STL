@@ -139,6 +139,10 @@ namespace Salih::Structures::LinkedLists {
 			@param value (to add) **/
 			_GLIBCXX20_CONSTEXPR void append(T) ; //append value to list
 			
+			/** append method, adds values to the end of the linkedlist
+			@param values (to add) **/
+			_GLIBCXX20_CONSTEXPR void append(const std::intializer_list<T>&) ; //append values to list			
+			
 			/** del method, deletes a value at a given position
 			@param position (from list to remove) **/			
 			_GLIBCXX20_CONSTEXPR void del(const std::size_t) ; //delete element in list based off rank (1st, 2nd, etc.)

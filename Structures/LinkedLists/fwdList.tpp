@@ -275,7 +275,11 @@ template<typename T>
 _GLIBCXX20_CONSTEXPR Salih::Structures::LinkedLists::FwdList<T>& Salih::Structures::LinkedLists::FwdList<T>::operator+=(const Salih::Structures::LinkedLists::FwdList<T>& list)
 {
 	Salih::Structures::LinkedLists::SNode<T>* node = list.head ;
-	for(std::size_t i = 0 ; i < list.size ; i++) this->append(node->data) ;
+	for(std::size_t i = 0 ; i < list.size ; i++) 
+	{
+		this->append(node->data) ;
+		node = node->getNext() ;
+	}
 	return *this ;
 }
 
@@ -406,6 +410,27 @@ _GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::FwdList<T>::append(T d
 	}
 	
 	this->setSize(this->size + 1) ;
+}
+
+template <typename T>
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::FwdList<T>::append(const std::initializer_list<T>& data)
+{
+	SNode<T>* node = nullptr ;
+	for(node = this->head ; node->getNext() != nullptr ; node = node->getNext()) ;
+	for(auto it = std::begin(data) ; it != std::end(data) ; it = std::next(it))
+	{ 
+		if(this->size == 0) 
+		{
+			this->head = new SNode<T>(*it) ;
+			node = node->getNext() ;
+		}	
+		else {
+			new SNode<T>(*it, node) ;
+			node = node->getNext() ;
+		}
+	
+		this->setSize(this->size + 1) ;
+	}
 }
 
 template <typename T>
