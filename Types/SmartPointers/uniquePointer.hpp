@@ -81,7 +81,7 @@ namespace Salih::Types::SmartPointers {
 	} ;
 	
 	template<>
-	class UniquePointer<void> : Pointer<void> {
+	class UniquePointer<void> : public Pointer<void> {
 		/** This class is the derived-class unique smart pointer implementation, whereby access to a resource is restricted to only one variable / existing object and upon it's deletion, the memory resource expires **/
 		public:
 			/** Empty constructor, intialises unique smart pointer container 
