@@ -70,6 +70,10 @@ namespace Salih::Structures::Contiguous {
 			@param value (to add) **/
 			_GLIBCXX20_CONSTEXPR void append(T) ;
 			
+			/** append method, adds values to the end of the current vector
+			@param values (to add) **/
+			_GLIBCXX20_CONSTEXPR void append(const std::initializer_list<T>&) ;
+			
 			/** clear method, deletes all elements of the vector **/
 			_GLIBCXX20_CONSTEXPR void clear() ;
 			

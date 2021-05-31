@@ -100,6 +100,25 @@ _GLIBCXX20_CONSTEXPR void Salih::Structures::Contiguous::Vector<T>::append(T dat
 }
 
 template<typename T>
+_GLIBCXX20_CONSTEXPR void Salih::Structures::Contiguous::Vector<T>::append(const std::initializer_list<T>& data)
+{
+	T* newPointer = new T[this->size+data.size()] ;
+	for(std::size_t i = 0 ; i < this->size ; i++)
+	{
+		newPointer[i] = this->pointer[i] ;
+	}
+	std::size_t i = this->size ;
+	for(auto it = std::begin(data) ; it != std::end(data) ; ++it) 
+	{
+		this->newPointer[i] = *it ;
+		i++ ;
+	}
+	delete[] this->pointer ;
+	this->pointer = newPointer ;
+	this->size = this->size + 1 ;
+}
+
+template<typename T>
 _GLIBCXX20_CONSTEXPR void Salih::Structures::Contiguous::Vector<T>::clear()
 {
 	delete[] this->pointer ;
