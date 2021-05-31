@@ -9,10 +9,10 @@
 #include <stdexcept>
 
 #define private public
-#include "../../Structures/Contiguous/vector.hpp"
+#include "../../containers/vector.hpp"
 
-typedef Salih::Structures::Contiguous::Vector<int> intList ;
-typedef Salih::Structures::Contiguous::Vector<float> floatList ;
+typedef salih::containers::Vector<int> intList ;
+typedef salih::containers::Vector<float> floatList ;
 
 //** Create sub-categories to test with predicted outcomes **//
 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['queue_223',['Queue',['../classSalih_1_1Types_1_1Buffers_1_1Queue.html#a6caad49301087ca35a74bee91248b38e',1,'Salih::Types::Buffers::Queue::Queue()'],['../classSalih_1_1Types_1_1Buffers_1_1Queue.html#ae0798779513609689c6602468fd96425',1,'Salih::Types::Buffers::Queue::Queue(const std::initializer_list&lt; T &gt; &amp;)'],['../classSalih_1_1Types_1_1Buffers_1_1Queue.html#ab1b98634534f4ec101564704f2ed6555',1,'Salih::Types::Buffers::Queue::Queue(const Queue&lt; T &gt; &amp;)'],['../classSalih_1_1Types_1_1Buffers_1_1Queue.html#a40533439bb57ab9858e385672fb7300d',1,'Salih::Types::Buffers::Queue::Queue(Queue&lt; T &gt; &amp;&amp;)']]],
-  ['quicksort_224',['quickSort',['../namespaceSalih_1_1Algorithms_1_1Sorts.html#a5e70d41dc796c14a560a77489707c584',1,'Salih::Algorithms::Sorts']]]
+  ['queue_153',['Queue',['../classsalih_1_1containers_1_1Queue.html#acab725235cc235f1fc9422077926a97a',1,'salih::containers::Queue::Queue()'],['../classsalih_1_1containers_1_1Queue.html#aba01c3174839105819130a2c6edd7715',1,'salih::containers::Queue::Queue(const std::initializer_list&lt; T &gt; &amp;)'],['../classsalih_1_1containers_1_1Queue.html#aae19631114020bc2f3734e6a0d954d8f',1,'salih::containers::Queue::Queue(const Queue&lt; T &gt; &amp;)'],['../classsalih_1_1containers_1_1Queue.html#aca382c81535c9f59d70e64b007dc4d26',1,'salih::containers::Queue::Queue(Queue&lt; T &gt; &amp;&amp;)']]],
+  ['quicksort_154',['quickSort',['../namespacesalih_1_1algorithms.html#a287004a744bc659675d309e2e786f96f',1,'salih::algorithms']]]
 ];
