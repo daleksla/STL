@@ -463,6 +463,27 @@ _GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::List<T>::append(T data
 }
 
 template <typename T>
+_GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::List<T>::append(const std::initializer_list<T>& data)
+{
+	DNode<T>* node = nullptr ;
+	for(auto it = std::begin(data) ; it != std::end(data) ; ++it)
+	{
+		if(this->size == 0) 
+		{
+			node = new DNode<T>(*it) ;
+			this->tail = node ;
+			this->head = node ;
+		}
+		else {
+			node = new DNode<T>(*it, tail, 0) ;
+			this->tail = node ;
+		}
+	
+		this->setSize(this->size + 1) ;
+	}
+}
+
+template <typename T>
 _GLIBCXX20_CONSTEXPR void Salih::Structures::LinkedLists::List<T>::del(const std::size_t index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
