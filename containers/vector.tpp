@@ -175,6 +175,12 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::~Vector()
 }
 
 template<typename T>		
+_GLIBCXX20_CONSTEXPR T* salih::containers::Vector<T>::get() const
+{
+	return this->pointer ;
+}	
+
+template<typename T>		
 _GLIBCXX20_CONSTEXPR std::size_t salih::containers::Vector<T>::getSize() const
 {
 	return this->size ;

@@ -83,6 +83,10 @@ namespace containers {
 			/** del method, deletes a selected element by position
 			@param value representing position to delete from vector **/
 			_GLIBCXX20_CONSTEXPR void del(const std::size_t) ;
+
+			/** get method, returns pointer to vector data
+			@return returns pointer to start of data of vector **/
+			_GLIBCXX20_CONSTEXPR T* get() const ;
 			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/
