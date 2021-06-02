@@ -51,6 +51,10 @@ namespace containers {
 			@param an r-value array object
 			@return reference to current object **/
 			//Array& operator=(const Array&) = default ;			
+	
+			/** get method, returns underlying array structure
+			@return returns pointer to array **/
+			constexpr T* get() const ;
 			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/

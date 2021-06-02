@@ -8,6 +8,12 @@
  * It is located in the Salih, Structures, Contiguous namespaces */
 
 template<typename T, std::size_t SIZE> 
+constexpr std::size_t salih::containers::Array<T, SIZE>::get() const
+{
+	return this->pointer ;
+}
+
+template<typename T, std::size_t SIZE> 
 constexpr std::size_t salih::containers::Array<T, SIZE>::getSize() const
 {
 	return SIZE ;
