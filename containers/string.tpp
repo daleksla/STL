@@ -2,6 +2,8 @@
 #define STRING_TPP
 #pragma once
 
+#include <stdexcept>
+
 inline _GLIBCXX20_CONSTEXPR salih::containers::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
 
 _GLIBCXX20_CONSTEXPR salih::containers::String::String() : size(0)
