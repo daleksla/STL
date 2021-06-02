@@ -153,14 +153,6 @@ salih::memory::SharedPointer<void>& salih::memory::SharedPointer<void>::operator
 	return *this ;	
 }
 
-salih::memory::SharedPointer<void>& salih::memory::SharedPointer<void>::operator()(void* ptr, std::size_t ct)
-{
-	this->reset() ;
-	salih::memory::Pointer<void>::operator()(ptr,ct) ;
-	this->count = new std::size_t ; *(this->count) = 1 ;
-	return *this ;	
-}
-
 template<typename T>
 salih::memory::SharedPointer<void>& salih::memory::SharedPointer<void>::operator=(T* ptr)
 {

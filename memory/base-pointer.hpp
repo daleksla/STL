@@ -145,12 +145,7 @@ namespace memory {
 			/** Regular assignment operator, assigns null pointer to base-properties for smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
-			Pointer& operator=(std::nullptr_t) ;		
-			
-			/** Regular pseudo-assignment operator, intialises base-properties for smart pointer container to void pointer
-			@param void* (raw void pointer), size_t (size of data-type which pointer is pointing to)
-			@return reference to modified smart pointer **/
-			Pointer& operator()(void*, std::size_t) ;				
+			Pointer& operator=(std::nullptr_t) ;					
 			
 			/** Regular assignment operator, intialises base-properties for smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)

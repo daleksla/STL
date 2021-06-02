@@ -109,11 +109,6 @@ namespace memory {
 			@return <initialised-object> **/
 			SharedPointer(std::nullptr_t) ;
 
-			/** Regular constructor, intialises shared smart pointer container to point at void-type pointer
-			@param void* (raw void pointer), size_t (size of data-type which pointer is pointing to)
-			@return <initialised-object> **/
-			SharedPointer(void*, std::size_t) ;
-			
 			/** Regular constructor, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
 			@return <initialised-object> **/

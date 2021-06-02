@@ -93,11 +93,6 @@ namespace memory {
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
 			UniquePointer(std::nullptr_t) ;
-
-			/** Regular constructor, intialises unique smart pointer container to point at void-type pointer
-			@param void* (raw void pointer), size_t (size of data-type which pointer is pointing to)
-			@return <initialised-object> **/
-			UniquePointer(void*, std::size_t) ;
 			
 			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)

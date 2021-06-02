@@ -157,14 +157,6 @@ salih::memory::Pointer<void>& salih::memory::Pointer<void>::operator=(std::nullp
 	return *this ;
 }
 
-salih::memory::Pointer<void>& salih::memory::Pointer<void>::operator()(void* ptr, std::size_t sz) 
-{
-	if(! ::salih::memory::isHeap(ptr) ) throw std::runtime_error("Cannot allocate stack pointer to smart pointer")  ;
-	this->pointer = ptr ;	
-	this->bytes = sz ;
-	return *this ;	
-}
-
 template<typename T>
 salih::memory::Pointer<void>& salih::memory::Pointer<void>::operator=(T* ptr) 
 {

@@ -70,8 +70,6 @@ salih::memory::UniquePointer<void>::UniquePointer() : salih::memory::Pointer<voi
 
 salih::memory::UniquePointer<void>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<void>(x) {} ;
 
-salih::memory::UniquePointer<void>::UniquePointer(void* ptr, std::size_t ct) : salih::memory::Pointer<void>(ptr,ct) {} ;
-
 template<typename T>
 salih::memory::UniquePointer<void>::UniquePointer(T* ptr) : salih::memory::Pointer<void>(ptr) {} ;
 
