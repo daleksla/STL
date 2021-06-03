@@ -85,6 +85,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a433a04bd16335e8f0dfc4f65ba1950e3"><td class="memItemLeft" align="right" valign="top">constexpr T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1containers_1_1Array.html#a433a04bd16335e8f0dfc4f65ba1950e3">get</a> () const</td></tr>
+<tr class="separator:a433a04bd16335e8f0dfc4f65ba1950e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d9d24dbe780edf1da694ce58b6a26f0"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1containers_1_1Array.html#a3d9d24dbe780edf1da694ce58b6a26f0">getSize</a> () const</td></tr>
 <tr class="separator:a3d9d24dbe780edf1da694ce58b6a26f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee3e6d53012ac68aa38618a17d2b3435"><td class="memItemLeft" align="right" valign="top">_GLIBCXX14_CONSTEXPR T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1containers_1_1Array.html#aee3e6d53012ac68aa38618a17d2b3435">operator[]</a> (const std::size_t)</td></tr>
@@ -356,8 +358,8 @@ template&lt;class T , std::size_t SIZE&gt; </div>
 
 </div>
 </div>
-<a id="a3d9d24dbe780edf1da694ce58b6a26f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d9d24dbe780edf1da694ce58b6a26f0">&#9670;&nbsp;</a></span>getSize()</h2>
+<a id="a433a04bd16335e8f0dfc4f65ba1950e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433a04bd16335e8f0dfc4f65ba1950e3">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +370,7 @@ template&lt;class T , std::size_t SIZE&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; T, SIZE &gt;::getSize </td>
+          <td class="memname">constexpr T* <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; T, SIZE &gt;::get </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -422,9 +424,37 @@ template&lt;class T , std::size_t SIZE&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>reference to current object getSize method, returns size of a structure </dd>
+<dl class="section return"><dt>Returns</dt><dd>reference to current object get method, returns underlying array structure </dd>
 <dd>
-returns size (of data structure) </dd></dl>
+returns pointer to array </dd></dl>
+
+</div>
+</div>
+<a id="a3d9d24dbe780edf1da694ce58b6a26f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9d24dbe780edf1da694ce58b6a26f0">&#9670;&nbsp;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; T, SIZE &gt;::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>getSize method, returns size of a structure </p><dl class="section return"><dt>Returns</dt><dd>returns size (of data structure) </dd></dl>
 
 </div>
 </div>

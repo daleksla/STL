@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['algorithms_99',['algorithms',['../namespacesalih_1_1algorithms.html',1,'salih']]],
-  ['salih_100',['salih',['../namespacesalih.html',1,'']]]
+  ['algorithms_105',['algorithms',['../namespacesalih_1_1algorithms.html',1,'salih']]],
+  ['salih_106',['salih',['../namespacesalih.html',1,'']]]
 ];
