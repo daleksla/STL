@@ -66,6 +66,65 @@ salih::memory::UniquePointer<T>::~UniquePointer()
 	}
 }
 
+template<typename T>
+salih::memory::UniquePointer<T[]>::UniquePointer() : salih::memory::Pointer<T[]>() {} ;
+
+template<typename T>
+salih::memory::UniquePointer<T[]>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T[]>() {} ;
+
+template<typename T>
+salih::memory::UniquePointer<T[]>::UniquePointer(T* data) : salih::memory::Pointer<T[]>(data) {} ;
+
+template<typename T>
+salih::memory::UniquePointer<T[]>::UniquePointer(void* data) : salih::memory::Pointer<T[]>(data) {} ;
+
+template<typename T>
+salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(T* data)
+{
+	this->reset() ;
+	salih::memory::Pointer<T>::operator=(data) ;
+	return *this ;	
+}
+
+template<typename T>
+salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(std::nullptr_t data) 
+{
+	return *this ;
+}
+
+template<typename T>
+salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
+
+template<typename T>
+salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
+
+template<typename T>
+salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
+{
+	salih::memory::Pointer<T[]>::operator=( std::move(ptr) ) ;
+	return *this ;	
+}
+
+template<typename T>
+void salih::memory::UniquePointer<T[]>::reset() 
+{
+	if(this->pointer) 
+	{
+		delete[] this->pointer ; 
+		this->pointer = nullptr ;
+	}
+}
+
+template<typename T>
+salih::memory::UniquePointer<T[]>::~UniquePointer()
+{
+	if(this->pointer) 
+	{
+		delete[] this->pointer ; 
+		this->pointer = nullptr ;
+	}
+}
+
 salih::memory::UniquePointer<void>::UniquePointer() : salih::memory::Pointer<void>() {} ;
 
 salih::memory::UniquePointer<void>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<void>(x) {} ;
@@ -77,13 +136,6 @@ salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator
 {
 	this->reset() ;
 	salih::memory::Pointer<void>::operator=(x) ;
-	return *this ;	
-}
-
-salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator()(void* ptr, std::size_t ct)
-{
-	this->reset() ;
-	salih::memory::Pointer<void>::operator()(ptr, ct) ;
 	return *this ;	
 }
 
@@ -99,6 +151,9 @@ salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<v
 			
 template<typename T>
 salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
+
+template<typename T>
+salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
 			
 salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<void>&& ptr)
 {
@@ -108,6 +163,13 @@ salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator
 			
 template<typename T>
 salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T>&& ptr)
+{
+	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
+	return *this ;
+}
+
+template<typename T>
+salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
 {
 	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
 	return *this ;
