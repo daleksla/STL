@@ -98,7 +98,7 @@ namespace memory {
 
 	template<class T>
 	class SharedPointer<T[]> : public Pointer<T[]> {
-		/** This class is the derived-class shared smart pointer implementation, which allows for the sharing and existence of a piece of memory till no shared pointer at all is making use of the pointed-to resource **/
+		/** This class is the derived-class shared smart pointer implementation, specialised for dynamically allocated arrays, which allows for the sharing and existence of a piece of memory till no shared pointer at all is making use of the pointed-to resource **/
 		private:
 			std::size_t* count ;
 			
@@ -173,7 +173,7 @@ namespace memory {
 	
 	template<>
 	class SharedPointer<void> : public Pointer<void> {
-		/** This class is the derived-class shared smart pointer implementation, which allows for the sharing and existence of a piece of memory till no shared pointer at all is making use of the pointed-to resource **/
+		/** This class is the derived-class shared smart pointer implementation, specialised for void pointer usage, which allows for the sharing and existence of a piece of memory till no shared pointer at all is making use of the pointed-to resource **/
 		private:
 			std::size_t* count ;
 			
