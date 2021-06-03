@@ -87,7 +87,7 @@ namespace memory {
 	
 	template<class T>
 	class UniquePointer<T[]> : public Pointer<T[]> {
-		/** This class is the derived-class unique smart pointer implementation, whereby access to a resource is restricted to only one variable / existing object and upon it's deletion, the memory resource expires **/
+		/** This class is the derived-class unique smart pointer implementation, specialised for dynamically sized arrays, whereby access to a resource is restricted to only one variable / existing object and upon it's deletion, the memory resource expires **/
 		public:
 			/** Empty constructor, intialises unique smart pointer container 
 			@return <initialised-object> **/
@@ -151,7 +151,7 @@ namespace memory {
 	
 	template<>
 	class UniquePointer<void> : public Pointer<void> {
-		/** This class is the derived-class unique smart pointer implementation, whereby access to a resource is restricted to only one variable / existing object and upon it's deletion, the memory resource expires **/
+		/** This class is the derived-class unique smart pointer implementation, specialised for void pointer usage, whereby access to a resource is restricted to only one variable / existing object and upon it's deletion, the memory resource expires **/
 		public:
 			/** Empty constructor, intialises unique smart pointer container 
 			@return <initialised-object> **/
