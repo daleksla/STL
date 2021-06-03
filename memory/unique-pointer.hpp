@@ -27,33 +27,33 @@ namespace memory {
 		public:
 			/** Empty constructor, intialises unique smart pointer container 
 			@return <initialised-object> **/
-			UniquePointer() ;
+			_GLIBCXX20_CONSTEXPR UniquePointer() ;
 			
 			/** Regular constructor, intialises unique smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			UniquePointer(std::nullptr_t) ;
-			
-			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
-			@param T* (raw pointer to object of type T)
-			@return <initialised-object> **/	
-			UniquePointer(T*) ;
-			
-			/** Regular constructor, intialises unique smart pointer container to void pointer
-			@param void* (raw void pointer)
-			@return <initialised-object> **/
-			UniquePointer(void*) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer(std::nullptr_t) ;
 			
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(std::nullptr_t) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(std::nullptr_t) ;
 			
+			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
+			@param T* (raw pointer to object of type T)
+			@return <initialised-object> **/	
+			_GLIBCXX20_CONSTEXPR UniquePointer(T*) ;
+	
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param T* (raw pointer to object of type T)
 			@return reference to modified smart pointer **/	
-			UniquePointer& operator=(T*) ;
-		
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(T*) ;
+			
+			/** Regular constructor, intialises unique smart pointer container to void pointer
+			@param void* (raw void pointer)
+			@return <initialised-object> **/
+			explicit _GLIBCXX20_CONSTEXPR UniquePointer(void*) ;
+	
 			/** Removed copy constructor **/
 			UniquePointer(const UniquePointer&) = delete ;
 			
@@ -63,23 +63,23 @@ namespace memory {
 			/** Move constructor, takes ownership of a given unique smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			UniquePointer(UniquePointer&&) ;
-			
-			/** Pseudo-move constructor, takes ownership of a given specialised void unique smart pointer
-			@param an r-value object reference 
-			@return <initialised-object> **/
-			UniquePointer(UniquePointer<void>&&) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer(UniquePointer&&) ;
 			
 			/** Move assignment operator, takes ownership of a given unique smart pointer
 			@param an r-value object reference 
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(UniquePointer&&) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(UniquePointer&&) ;
+	
+			/** Pseudo-move constructor, takes ownership of a given specialised void unique smart pointer
+			@param an r-value object reference 
+			@return <initialised-object> **/
+			explicit _GLIBCXX20_CONSTEXPR UniquePointer(UniquePointer<void>&&) ;
 			
 			/** reset method, to appropriately disengage from pointing at data **/
-			void reset() ;
+			_GLIBCXX20_CONSTEXPR void reset() ;
 			
 			/** Destructor, frees memory and deletes objects **/					
-			~UniquePointer() ;
+			_GLIBCXX20_CONSTEXPR ~UniquePointer() ;
 			
 			friend class UniquePointer<void> ;
 			
@@ -91,32 +91,32 @@ namespace memory {
 		public:
 			/** Empty constructor, intialises unique smart pointer container 
 			@return <initialised-object> **/
-			UniquePointer() ;
+			_GLIBCXX20_CONSTEXPR UniquePointer() ;
 			
 			/** Regular constructor, intialises unique smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			UniquePointer(std::nullptr_t) ;
-			
-			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
-			@param T* (raw pointer to object of type T)
-			@return <initialised-object> **/	
-			UniquePointer(T*) ;
-			
-			/** Regular constructor, intialises unique smart pointer container to void pointer
-			@param void* (raw void pointer)
-			@return <initialised-object> **/
-			UniquePointer(void*) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer(std::nullptr_t) ;
 			
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(std::nullptr_t) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(std::nullptr_t) ;	
+		
+			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
+			@param T* (raw pointer to object of type T)
+			@return <initialised-object> **/	
+			_GLIBCXX20_CONSTEXPR UniquePointer(T*) ;
 			
-			/** Regular assignment operator, assigns null pointer to unique smart pointer
+			/** Regular assignment operator, assigns T pointer to unique smart pointer
 			@param T* (raw pointer to object of type T)
 			@return reference to modified smart pointer **/	
-			UniquePointer& operator=(T*) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(T*) ;
+			
+			/** Regular constructor, intialises unique smart pointer container to void pointer
+			@param void* (raw void pointer)
+			@return <initialised-object> **/
+			explicit _GLIBCXX20_CONSTEXPR UniquePointer(void*) ;
 		
 			/** Removed copy constructor **/
 			UniquePointer(const UniquePointer&) = delete ;
@@ -127,23 +127,23 @@ namespace memory {
 			/** Move constructor, takes ownership of a given unique smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			UniquePointer(UniquePointer&&) ;
-			
-			/** Pseudo-move constructor, takes ownership of a given specialised void unique smart pointer
-			@param an r-value object reference 
-			@return <initialised-object> **/
-			UniquePointer(UniquePointer<void>&&) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer(UniquePointer&&) ;
 			
 			/** Move assignment operator, takes ownership of a given unique smart pointer
 			@param an r-value object reference 
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(UniquePointer&&) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(UniquePointer&&) ;
+			
+			/** Pseudo-move constructor, takes ownership of a given specialised void unique smart pointer
+			@param an r-value object reference 
+			@return <initialised-object> **/
+			explicit _GLIBCXX20_CONSTEXPR UniquePointer(UniquePointer<void>&&) ;
 			
 			/** reset method, to appropriately disengage from pointing at data **/
-			void reset() ;
+			_GLIBCXX20_CONSTEXPR void reset() ;
 			
 			/** Destructor, frees memory and deletes objects **/					
-			~UniquePointer() ;
+			_GLIBCXX20_CONSTEXPR ~UniquePointer() ;
 			
 			friend class UniquePointer<void> ;
 			
@@ -155,31 +155,31 @@ namespace memory {
 		public:
 			/** Empty constructor, intialises unique smart pointer container 
 			@return <initialised-object> **/
-			UniquePointer() ;
+			_GLIBCXX20_CONSTEXPR UniquePointer() ;
 			
 			/** Regular constructor, intialises unique smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			UniquePointer(std::nullptr_t) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer(std::nullptr_t) ;
+
+			/** Regular assignment operator, assigns null pointer to unique smart pointer
+			@param nullptr_t (special type indicating NULL)
+			@return reference to modified smart pointer **/
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(std::nullptr_t) ;
 			
 			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
 			@return <initialised-object> **/
 			template<typename T>
-			UniquePointer(T*) ;	
-			
-			UniquePointer(void*) = delete ;			
-			
-			/** Regular assignment operator, assigns null pointer to unique smart pointer
-			@param nullptr_t (special type indicating NULL)
-			@return reference to modified smart pointer **/
-			UniquePointer& operator=(std::nullptr_t) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer(T*) ;	
 			
 			/** Regular assignment operator, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
 			@return reference to modified smart pointer **/
 			template<typename T>
-			UniquePointer& operator=(T*) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(T*) ;
+			
+			UniquePointer(void*) = delete ;			
 			
 			UniquePointer& operator=(void*) = delete ;			
 			
@@ -192,42 +192,42 @@ namespace memory {
 			/** Pseudo-move constructor, takes ownership of a given templated unique smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
-			UniquePointer(UniquePointer&&) ;
-			
-			/** Pseudo-move constructor, takes ownership of a given shared unique pointer
-			@param an r-value object reference 
-			@return reference to modified smart pointer **/
-			template<typename T>
-			UniquePointer(UniquePointer<T>&&) ;	
-			
-			/** Pseudo-move constructor, takes ownership of a given shared unique pointer
-			@param an r-value object reference 
-			@return reference to modified smart pointer **/
-			template<typename T>
-			UniquePointer(UniquePointer<T[]>&&) ;	
-			
+			_GLIBCXX20_CONSTEXPR UniquePointer(UniquePointer&&) ;
+	
 			/** Move assignment operator, takes ownership of a given unique smart pointer
 			@param an r-value object reference 
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(UniquePointer&&) ;
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(UniquePointer&&) ;
+			
+			/** Pseudo-move constructor, takes ownership of a given shared unique pointer
+			@param an r-value object reference 
+			@return reference to modified smart pointer **/
+			template<typename T>
+			_GLIBCXX20_CONSTEXPR UniquePointer(UniquePointer<T>&&) ;	
+
+			/** Pseudo-move assignment operator, takes ownership of a given templated unique smart pointer
+			@param an r-value templated-object reference 
+			@return <initialised-object> **/
+			template<typename T>
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(UniquePointer<T>&&) ;
+			
+			/** Pseudo-move constructor, takes ownership of a given shared unique pointer
+			@param an r-value object reference 
+			@return reference to modified smart pointer **/
+			template<typename T>
+			_GLIBCXX20_CONSTEXPR UniquePointer(UniquePointer<T[]>&&) ;	
 			
 			/** Pseudo-move assignment operator, takes ownership of a given templated unique smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
-			UniquePointer& operator=(UniquePointer<T>&&) ;
-			
-			/** Pseudo-move assignment operator, takes ownership of a given templated unique smart pointer
-			@param an r-value templated-object reference 
-			@return <initialised-object> **/
-			template<typename T>
-			UniquePointer& operator=(UniquePointer<T[]>&&) ;	
+			_GLIBCXX20_CONSTEXPR UniquePointer& operator=(UniquePointer<T[]>&&) ;	
 			
 			/** reset method, to appropriately disengage from pointing at data **/
-			void reset() ;
+			_GLIBCXX20_CONSTEXPR void reset() ;
 			
 			/** Destructor, frees memory if appropriate and deletes objects **/					
-			~UniquePointer() ;		
+			_GLIBCXX20_CONSTEXPR ~UniquePointer() ;		
 			
 			template<typename T>
 			friend class UniquePointer ;		

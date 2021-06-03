@@ -8,46 +8,46 @@
 **/
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer() : salih::memory::Pointer<T>() {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer() : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T>() {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer(T* data) : salih::memory::Pointer<T>(data) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(T* data) : salih::memory::Pointer<T>(data) {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer(void* data) : salih::memory::Pointer<T>(data) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(void* data) : salih::memory::Pointer<T>(data) {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(T* data)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(T* data)
 {
-	this->reset() ;
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;	
 }
 
 template<typename T>
-salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(std::nullptr_t data) 
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(std::nullptr_t data) 
 {
+	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;
 }
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(salih::memory::UniquePointer<T>&& ptr)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(salih::memory::UniquePointer<T>&& ptr)
 {
 	salih::memory::Pointer<T>::operator=( std::move(ptr) ) ;
 	return *this ;	
 }
 
 template<typename T>
-void salih::memory::UniquePointer<T>::reset() 
+_GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<T>::reset() 
 {
 	if(this->pointer) 
 	{
@@ -57,56 +57,52 @@ void salih::memory::UniquePointer<T>::reset()
 }
 
 template<typename T>
-salih::memory::UniquePointer<T>::~UniquePointer()
-{
-	if(this->pointer) 
-	{
-		delete this->pointer ; 
-		this->pointer = nullptr ;
-	}
-}
-
-template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer() : salih::memory::Pointer<T[]>() {} ;
-
-template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T[]>() {} ;
-
-template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer(T* data) : salih::memory::Pointer<T[]>(data) {} ;
-
-template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer(void* data) : salih::memory::Pointer<T[]>(data) {} ;
-
-template<typename T>
-salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(T* data)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::~UniquePointer()
 {
 	this->reset() ;
+}
+
+template<typename T>
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer() : salih::memory::Pointer<T[]>() {} ;
+
+template<typename T>
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T[]>() {} ;
+
+template<typename T>
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(T* data) : salih::memory::Pointer<T[]>(data) {} ;
+
+template<typename T>
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(void* data) : salih::memory::Pointer<T[]>(data) {} ;
+
+template<typename T>
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(T* data)
+{
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;	
 }
 
 template<typename T>
-salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(std::nullptr_t data) 
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(std::nullptr_t data) 
 {
+	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;
 }
 
 template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
 {
 	salih::memory::Pointer<T[]>::operator=( std::move(ptr) ) ;
 	return *this ;	
 }
 
 template<typename T>
-void salih::memory::UniquePointer<T[]>::reset() 
+_GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<T[]>::reset() 
 {
 	if(this->pointer) 
 	{
@@ -116,80 +112,72 @@ void salih::memory::UniquePointer<T[]>::reset()
 }
 
 template<typename T>
-salih::memory::UniquePointer<T[]>::~UniquePointer()
-{
-	if(this->pointer) 
-	{
-		delete[] this->pointer ; 
-		this->pointer = nullptr ;
-	}
-}
-
-salih::memory::UniquePointer<void>::UniquePointer() : salih::memory::Pointer<void>() {} ;
-
-salih::memory::UniquePointer<void>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<void>(x) {} ;
-
-template<typename T>
-salih::memory::UniquePointer<void>::UniquePointer(T* ptr) : salih::memory::Pointer<void>(ptr) {} ;
-
-salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(std::nullptr_t x)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::~UniquePointer()
 {
 	this->reset() ;
+}
+
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer() : salih::memory::Pointer<void>() {} ;
+
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<void>(x) {} ;
+
+template<typename T>
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(T* ptr) : salih::memory::Pointer<void>(ptr) {} ;
+
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(std::nullptr_t x)
+{
 	salih::memory::Pointer<void>::operator=(x) ;
 	return *this ;	
 }
 
 template<typename T>
-salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(T* ptr)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(T* ptr)
 {
-	this->reset() ;
 	salih::memory::Pointer<void>::operator=(ptr) ;
 	return *this ;	
 }
 
-salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ; 
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ; 
 			
 template<typename T>
-salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
 
 template<typename T>
-salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
 			
-salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<void>&& ptr)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<void>&& ptr)
 {
 	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
 	return *this ;
 }
 			
 template<typename T>
-salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T>&& ptr)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T>&& ptr)
 {
 	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
 	return *this ;
 }
 
 template<typename T>
-salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
 {
 	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
 	return *this ;
 }
 
-void salih::memory::UniquePointer<void>::reset()
+_GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<void>::reset()
 {
 	if(this->pointer)
 	{
 		operator delete(this->pointer, this->bytes) ; 
-		this->pointer = nullptr ;	
+		this->pointer = nullptr ;
+		this->bytes = 0 ;	
 	}
 }
 
-salih::memory::UniquePointer<void>::~UniquePointer()
+_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::~UniquePointer()
 {
-	if(this->pointer)
-	{
-		operator delete(this->pointer, this->bytes) ; 
-	}
+	this->reset() ;
 }
 
 #endif
