@@ -348,4 +348,22 @@ _GLIBCXX20_CONSTEXPR salih::memory::SharedPointer<void>::~SharedPointer()
 	this->reset() ;
 }
 
+template<class T>
+salih::memory::SharedPointer<T> salih::memory::MakeShared()
+{
+	return salih::memory::SharedPointer<T>(new T) ;
+}
+	
+template<class T, class... Args>
+salih::memory::SharedPointer<T> salih::memory::MakeShared(Args&&... args)
+{
+	return salih::memory::SharedPointer<T>(new T(args...)) ;
+}
+	
+template<class T>
+salih::memory::SharedPointer<T[]> salih::memory::MakeShared(const std::size_t sz)
+{
+	return salih::memory::SharedPointer<T[]>(new T[sz]) ;
+}
+
 #endif
