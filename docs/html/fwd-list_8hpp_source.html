@@ -83,7 +83,7 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1FwdList.html">   18</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1FwdList.html">FwdList</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode&lt;T&gt;</a>* head ;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            SNode&lt;T&gt;* head ;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            std::size_t size ;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            </div>
@@ -144,9 +144,9 @@ $(function() {
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            </div>
 <div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1FwdList_1_1Iterator.html">  147</a></span>&#160;            <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1FwdList_1_1Iterator.html">Iterator</a> {</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode&lt;T&gt;</a>* pointer;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    SNode&lt;T&gt;* pointer;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1FwdList_1_1Iterator.html#a890233559ea9024d85a51d89ee36fc92">Iterator</a>(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode&lt;T&gt;</a>*) ;              </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1FwdList_1_1Iterator.html#a890233559ea9024d85a51d89ee36fc92">Iterator</a>(SNode&lt;T&gt;*) ;              </div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                </div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                    _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1FwdList_1_1Iterator.html#a890233559ea9024d85a51d89ee36fc92">Iterator</a>() ;</div>
@@ -183,9 +183,9 @@ $(function() {
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            </div>
 <div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1FwdList_1_1ConstIterator.html">  225</a></span>&#160;            <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1FwdList_1_1ConstIterator.html">ConstIterator</a> {</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode&lt;T&gt;</a> <span class="keyword">const</span>* pointer;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    SNode&lt;T&gt; <span class="keyword">const</span>* pointer;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                    _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1FwdList_1_1ConstIterator.html#ad360a3b94f583317b2eb6a65a9758577">ConstIterator</a>(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode&lt;T&gt;</a> <span class="keyword">const</span>*) ;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                    _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1FwdList_1_1ConstIterator.html#ad360a3b94f583317b2eb6a65a9758577">ConstIterator</a>(SNode&lt;T&gt; <span class="keyword">const</span>*) ;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                </div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                    _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1FwdList_1_1ConstIterator.html#ad360a3b94f583317b2eb6a65a9758577">ConstIterator</a>() ;</div>
@@ -282,7 +282,6 @@ $(function() {
 <div class="ttc" id="aclasssalih_1_1containers_1_1FwdList_1_1Iterator_html_a1599cc88a8bafa42f956e3024046149c"><div class="ttname"><a href="classsalih_1_1containers_1_1FwdList_1_1Iterator.html#a1599cc88a8bafa42f956e3024046149c">salih::containers::FwdList::Iterator::operator==</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR bool operator==(const Iterator &amp;) const</div></div>
 <div class="ttc" id="aclasssalih_1_1containers_1_1FwdList_html_a119b438898b262c0e0a42b8756940a06"><div class="ttname"><a href="classsalih_1_1containers_1_1FwdList.html#a119b438898b262c0e0a42b8756940a06">salih::containers::FwdList::del</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR void del(const std::size_t)</div></div>
 <div class="ttc" id="aclasssalih_1_1containers_1_1FwdList_html_a226384c9b2c1d766e47ca4f681be46de"><div class="ttname"><a href="classsalih_1_1containers_1_1FwdList.html#a226384c9b2c1d766e47ca4f681be46de">salih::containers::FwdList::getSize</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR std::size_t getSize() const</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html">salih::containers::SNode</a></div><div class="ttdef"><b>Definition:</b> s-node.hpp:9</div></div>
 <div class="ttc" id="aclasssalih_1_1containers_1_1FwdList_html_ae284aaca81de6ea00afec6378344ebd5"><div class="ttname"><a href="classsalih_1_1containers_1_1FwdList.html#ae284aaca81de6ea00afec6378344ebd5">salih::containers::FwdList::cend</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR ConstIterator cend() const</div></div>
 <div class="ttc" id="aclasssalih_1_1containers_1_1FwdList_html_acc19701767755b455b68cba375e71f2b"><div class="ttname"><a href="classsalih_1_1containers_1_1FwdList.html#acc19701767755b455b68cba375e71f2b">salih::containers::FwdList::insert</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR void insert(const std::size_t, T)</div></div>
 <div class="ttc" id="aclasssalih_1_1containers_1_1FwdList_html"><div class="ttname"><a href="classsalih_1_1containers_1_1FwdList.html">salih::containers::FwdList</a></div><div class="ttdef"><b>Definition:</b> fwd-list.hpp:18</div></div>
