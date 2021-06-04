@@ -21,22 +21,22 @@ namespace memory {
 	template<>
 	class SharedPointer<void> ;
 	
-	/** This is the MakeShared function, which creates a SharedPointer object of type T on the heap (using said object's empty / default initialisation)
+	/** This is the makeShared function, which creates a SharedPointer object of type T on the heap (using said object's empty / default initialisation)
 	 * @return SharedPointer of type T **/
 	template<class T>
-	SharedPointer<T> MakeShared() ;
+	SharedPointer<T> makeShared() ;
 	
-	/** This is the MakeShared function, which creates a SharedPointer object of type T on the heap, initialising the object using constructor determined by the parameters given
+	/** This is the makeShared function, which creates a SharedPointer object of type T on the heap, initialising the object using constructor determined by the parameters given
 	 * @param Variadic template (arguments to pass in order to initialise object of type T)
 	 * @return SharedPointer of type T **/
 	template<class T, class... Args>
-	SharedPointer<T> MakeShared(Args&&...) ;
+	SharedPointer<T> makeShared(Args&&...) ;
 	
-	/** This is the MakeShared function, which creates a SharedPointer object of an array of T's (T[]) on the heap, 
+	/** This is the makeShared function, which creates a SharedPointer object of an array of T's (T[]) on the heap, 
 	 * @param number of T's to allocate in contiguous block
 	 * @return SharedPointer of type T[] **/
 	template<class T>
-	SharedPointer<T[]> MakeShared(const std::size_t) ;
+	SharedPointer<T[]> makeShared(const std::size_t) ;
 
 	template<class T>
 	class SharedPointer : public Pointer<T> {

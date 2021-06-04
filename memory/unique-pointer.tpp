@@ -181,19 +181,19 @@ _GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::~UniquePointer()
 }
 
 template<class T>
-salih::memory::UniquePointer<T> salih::memory::MakeUnique()
+salih::memory::UniquePointer<T> salih::memory::makeUnique()
 {
 	return salih::memory::UniquePointer<T>(new T) ;
 }
 	
 template<class T, class... Args>
-salih::memory::UniquePointer<T> salih::memory::MakeUnique(Args&&... args)
+salih::memory::UniquePointer<T> salih::memory::makeUnique(Args&&... args)
 {
 	return salih::memory::UniquePointer<T>(new T(args...)) ;
 }
 	
 template<class T>
-salih::memory::UniquePointer<T[]> salih::memory::MakeUnique(const std::size_t sz)
+salih::memory::UniquePointer<T[]> salih::memory::makeUnique(const std::size_t sz)
 {
 	return salih::memory::UniquePointer<T[]>(new T[sz]) ;
 }

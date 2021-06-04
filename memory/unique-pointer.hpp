@@ -21,22 +21,22 @@ namespace memory {
 	template<>
 	class UniquePointer<void> ;	
 
-	/** This is the MakeUnique function, which creates a UniquePointer object of type T on the heap (using said object's empty / default initialisation)
+	/** This is the makeUnique function, which creates a UniquePointer object of type T on the heap (using said object's empty / default initialisation)
 	 * @return UniquePointer of type T **/
 	template<class T>
-	UniquePointer<T> MakeUnique() ;
+	UniquePointer<T> makeUnique() ;
 	
-	/** This is the MakeUnique function, which creates a UniquePointer object of type T on the heap, initialising the object using constructor determined by the parameters given
+	/** This is the makeUnique function, which creates a UniquePointer object of type T on the heap, initialising the object using constructor determined by the parameters given
 	 * @param Variadic template (arguments to pass in order to initialise object of type T)
 	 * @return UniquePointer of type T **/
 	template<class T, class... Args>
-	UniquePointer<T> MakeUnique(Args&&...) ;
+	UniquePointer<T> makeUnique(Args&&...) ;
 	
-	/** This is the MakeUnique function, which creates a UniquePointer object of an array of T's (T[]) on the heap, 
+	/** This is the makeUnique function, which creates a UniquePointer object of an array of T's (T[]) on the heap, 
 	 * @param number of T's to allocate in contiguous block
 	 * @return UniquePointer of type T[] **/
 	template<class T>
-	UniquePointer<T[]> MakeUnique(const std::size_t) ;
+	UniquePointer<T[]> makeUnique(const std::size_t) ;
 
 	template<class T>
 	class UniquePointer : public Pointer<T> {
