@@ -47,68 +47,68 @@ namespace memory {
 		public:
 			/** Empty constructor, intialises shared smart pointer container 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer() ;
+			SharedPointer() ;
 			
 			/** Regular constructor, intialises shared smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(std::nullptr_t) ;
+			SharedPointer(std::nullptr_t) ;
 			
 			/** Regular constructor, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
 			@return <initialised-object> **/	
-			_GLIBCXX20_CONSTEXPR SharedPointer(T*) ;
+			SharedPointer(T*) ;
 			
 			/** Regular constructor, intialises shared smart pointer container to void pointer
 			@param void* (raw void pointer)
 			@return <initialised-object> **/	
-			explicit _GLIBCXX20_CONSTEXPR SharedPointer(void*) ;
+			explicit SharedPointer(void*) ;
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(std::nullptr_t) ;
+			SharedPointer& operator=(std::nullptr_t) ;
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param T* (raw pointer to object of type T)
 			@return reference to modified smart pointer **/	
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(T*) ;
+			SharedPointer& operator=(T*) ;
 		
 			/** Copy constructor, creates copy of a given shared smart pointer
 			@param a (l-value) base class reference 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(const SharedPointer&) ;
+			SharedPointer(const SharedPointer&) ;
 			
 			/** Pseudo-copy constructor, creates copy of a given specialised void smart pointer
 			@param a (l-value) base class reference 
 			@return <initialised-object> **/	
-			explicit _GLIBCXX20_CONSTEXPR SharedPointer(const SharedPointer<void>&) ;
+			explicit SharedPointer(const SharedPointer<void>&) ;
 			
 			/** Copy assignment operator, creates copy of a given shared smart pointer
 			@param a (l-value) base class reference 
 			@return reference to modified smart pointer **/
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(const SharedPointer&) ;
+			SharedPointer& operator=(const SharedPointer&) ;
 			
 			/** Move constructor, takes ownership of a given shared smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(SharedPointer&&) ;
+			SharedPointer(SharedPointer&&) ;
 			
 			/** Pseudo-move constructor, takes ownership of a given specialised void shared smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			explicit _GLIBCXX20_CONSTEXPR SharedPointer(SharedPointer<void>&&) ;
+			explicit SharedPointer(SharedPointer<void>&&) ;
 			
 			/** Move assignment operator, takes ownership of a given shared smart pointer
 			@param an r-value object reference 
 			@return reference to modified smart pointer **/
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(SharedPointer&&) ;
+			SharedPointer& operator=(SharedPointer&&) ;
 			
 			/** reset method, to appropriately disengage from pointing at data **/
-			void _GLIBCXX20_CONSTEXPR reset() ;
+			void reset() ;
 			
 			/** Destructor, frees memory if appropriate and deletes objects **/					
-			_GLIBCXX20_CONSTEXPR ~SharedPointer() ;
+			~SharedPointer() ;
 			
 			friend class SharedPointer<void> ;
 	} ;
@@ -122,68 +122,68 @@ namespace memory {
 		public:
 			/** Empty constructor, intialises shared smart pointer container 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer() ;
+			SharedPointer() ;
 			
 			/** Regular constructor, intialises shared smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(std::nullptr_t) ;
+			SharedPointer(std::nullptr_t) ;
 			
 			/** Regular constructor, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
 			@return <initialised-object> **/	
-			_GLIBCXX20_CONSTEXPR SharedPointer(T*) ;
+			SharedPointer(T*) ;
 			
 			/** Regular constructor, intialises shared smart pointer container to void pointer
 			@param void* (raw void pointer)
 			@return <initialised-object> **/	
-			explicit _GLIBCXX20_CONSTEXPR SharedPointer(void*) ;
+			explicit SharedPointer(void*) ;
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(std::nullptr_t) ;
+			SharedPointer& operator=(std::nullptr_t) ;
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param T* (raw pointer to object of type T)
 			@return reference to modified smart pointer **/	
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(T*) ;
+			SharedPointer& operator=(T*) ;
 		
 			/** Copy constructor, creates copy of a given shared smart pointer
 			@param a (l-value) base class reference 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(const SharedPointer&) ;
+			SharedPointer(const SharedPointer&) ;
 			
 			/** Pseudo-copy constructor, creates copy of a given specialised void smart pointer
 			@param a (l-value) base class reference 
 			@return <initialised-object> **/	
-			explicit _GLIBCXX20_CONSTEXPR SharedPointer(const SharedPointer<void>&) ;
+			explicit SharedPointer(const SharedPointer<void>&) ;
 			
 			/** Copy assignment operator, creates copy of a given shared smart pointer
 			@param a (l-value) base class reference 
 			@return reference to modified smart pointer **/
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(const SharedPointer&) ;
+			SharedPointer& operator=(const SharedPointer&) ;
 			
 			/** Move constructor, takes ownership of a given shared smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(SharedPointer&&) ;
+			SharedPointer(SharedPointer&&) ;
 			
 			/** Pseudo-move constructor, takes ownership of a given specialised void shared smart pointer
 			@param an r-value object reference 
 			@return <initialised-object> **/
-			explicit _GLIBCXX20_CONSTEXPR SharedPointer(SharedPointer<void>&&) ;
+			explicit SharedPointer(SharedPointer<void>&&) ;
 			
 			/** Move assignment operator, takes ownership of a given shared smart pointer
 			@param an r-value object reference 
 			@return reference to modified smart pointer **/
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(SharedPointer&&) ;
+			SharedPointer& operator=(SharedPointer&&) ;
 			
 			/** reset method, to appropriately disengage from pointing at data **/
-			void _GLIBCXX20_CONSTEXPR reset() ;
+			void reset() ;
 			
 			/** Destructor, frees memory if appropriate and deletes objects **/					
-			_GLIBCXX20_CONSTEXPR ~SharedPointer() ;
+			~SharedPointer() ;
 			
 			friend class SharedPointer<void> ;
 	} ;
@@ -197,107 +197,107 @@ namespace memory {
 		public:
 			/** Empty constructor, intialises shared smart pointer container 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer() ;
+			SharedPointer() ;
 			
 			/** Regular constructor, intialises shared smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(std::nullptr_t) ;
+			SharedPointer(std::nullptr_t) ;
 
 			/** Regular constructor, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
 			@return <initialised-object> **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer(T*) ;	
+			SharedPointer(T*) ;	
 			
-			_GLIBCXX20_CONSTEXPR SharedPointer(void*) = delete ;			
+			SharedPointer(void*) = delete ;			
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(std::nullptr_t) ;
+			SharedPointer& operator=(std::nullptr_t) ;
 			
 			/** Regular assignment operator, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
 			@return reference to modified smart pointer **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(T*) ;
+			SharedPointer& operator=(T*) ;
 			
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(void*) = delete ;			
+			SharedPointer& operator=(void*) = delete ;			
 			
 			/** Copy constructor, creates copy of a given shared smart pointer
 			@param a (l-value) object reference 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(const SharedPointer&) ;
+			SharedPointer(const SharedPointer&) ;
 			
 			/** Pseudo-copy constructor, creates copy of a templated shared smart pointer
 			@param a (l-value) templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer(const SharedPointer<T>&) ;	
+			SharedPointer(const SharedPointer<T>&) ;	
 			
 			/** Pseudo-copy constructor, creates copy of a templated shared smart pointer
 			@param a (l-value) templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer(const SharedPointer<T[]>&) ;
+			SharedPointer(const SharedPointer<T[]>&) ;
 			
 			/** Copy constructor, creates copy (of base-properties) of a given shared smart pointer
 			@param a (l-value) object reference 
 			@return reference to modified smart pointer **/
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(const SharedPointer&) ;
+			SharedPointer& operator=(const SharedPointer&) ;
 			
 			/** Pseudo-copy constructor, creates copy of a given templated shared smart pointer
 			@param a (l-value) templated object reference 
 			@return reference to modified smart pointer **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(const SharedPointer<T>&) ;	
+			SharedPointer& operator=(const SharedPointer<T>&) ;	
 			
 			/** Pseudo-copy constructor, creates copy of a given templated shared smart pointer
 			@param a (l-value) templated object reference 
 			@return reference to modified smart pointer **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(const SharedPointer<T[]>&) ;	
+			SharedPointer& operator=(const SharedPointer<T[]>&) ;	
 			
 			/** Pseudo-move constructor, takes ownership of a given templated shared smart pointer
 			@param an r-value templated base class reference 
 			@return <initialised-object> **/
-			_GLIBCXX20_CONSTEXPR SharedPointer(SharedPointer&&) ;
+			SharedPointer(SharedPointer&&) ;
 			
 			/** Pseudo-move constructor, takes ownership of a given templated shared smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer(SharedPointer<T>&&) ;	
+			SharedPointer(SharedPointer<T>&&) ;	
 			
 			/** Pseudo-move constructor, takes ownership of a given templated shared smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer(SharedPointer<T[]>&&) ;
+			SharedPointer(SharedPointer<T[]>&&) ;
 			
 			/** Move assignment operator, takes ownership of a given shared smart pointer
 			@param an r-value object reference 
 			@return reference to modified smart pointer **/
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(SharedPointer&&) ;
+			SharedPointer& operator=(SharedPointer&&) ;
 			
 			/** Pseudo-move assignment operator, takes ownership of a given templated shared smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(SharedPointer<T>&&) ;	
+			SharedPointer& operator=(SharedPointer<T>&&) ;	
 			
 			/** Pseudo-move assignment operator, takes ownership of a given templated shared smart pointer
 			@param an r-value templated-object reference 
 			@return <initialised-object> **/
 			template<typename T>
-			_GLIBCXX20_CONSTEXPR SharedPointer& operator=(SharedPointer<T[]>&&) ;
+			SharedPointer& operator=(SharedPointer<T[]>&&) ;
 			
 			/** reset method, to appropriately disengage from pointing at data **/
-			_GLIBCXX20_CONSTEXPR void reset() ;
+			void reset() ;
 			
 			/** Destructor, frees memory if appropriate and deletes objects **/					
-			_GLIBCXX20_CONSTEXPR ~SharedPointer() ;		
+			~SharedPointer() ;		
 			
 			template<typename T>
 			friend class SharedPointer ;

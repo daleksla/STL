@@ -8,46 +8,46 @@
 **/
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer() : salih::memory::Pointer<T>() {} ;
+salih::memory::UniquePointer<T>::UniquePointer() : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T>() {} ;
+salih::memory::UniquePointer<T>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(T* data) : salih::memory::Pointer<T>(data) {} ;
+salih::memory::UniquePointer<T>::UniquePointer(T* data) : salih::memory::Pointer<T>(data) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(void* data) : salih::memory::Pointer<T>(data) {} ;
+salih::memory::UniquePointer<T>::UniquePointer(void* data) : salih::memory::Pointer<T>(data) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(T* data)
+salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(T* data)
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;	
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(std::nullptr_t data) 
+salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(std::nullptr_t data) 
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
+salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
+salih::memory::UniquePointer<T>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T>( std::move(ptr) ) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(salih::memory::UniquePointer<T>&& ptr)
+salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(salih::memory::UniquePointer<T>&& ptr)
 {
 	salih::memory::Pointer<T>::operator=( std::move(ptr) ) ;
 	return *this ;	
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<T>::reset() 
+void salih::memory::UniquePointer<T>::reset() 
 {
 	if(this->pointer) 
 	{
@@ -57,52 +57,52 @@ _GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<T>::reset()
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T>::~UniquePointer()
+salih::memory::UniquePointer<T>::~UniquePointer()
 {
 	this->reset() ;
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer() : salih::memory::Pointer<T[]>() {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer() : salih::memory::Pointer<T[]>() {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T[]>() {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T[]>() {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(T* data) : salih::memory::Pointer<T[]>(data) {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer(T* data) : salih::memory::Pointer<T[]>(data) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(void* data) : salih::memory::Pointer<T[]>(data) {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer(void* data) : salih::memory::Pointer<T[]>(data) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(T* data)
+salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(T* data)
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;	
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(std::nullptr_t data) 
+salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(std::nullptr_t data) 
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<T[]>( std::move(ptr) ) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
+salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
 {
 	salih::memory::Pointer<T[]>::operator=( std::move(ptr) ) ;
 	return *this ;	
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<T[]>::reset() 
+void salih::memory::UniquePointer<T[]>::reset() 
 {
 	if(this->pointer) 
 	{
@@ -112,60 +112,60 @@ _GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<T[]>::reset()
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]>::~UniquePointer()
+salih::memory::UniquePointer<T[]>::~UniquePointer()
 {
 	this->reset() ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer() : salih::memory::Pointer<void>() {} ;
+salih::memory::UniquePointer<void>::UniquePointer() : salih::memory::Pointer<void>() {} ;
 
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<void>(x) {} ;
+salih::memory::UniquePointer<void>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<void>(x) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(T* ptr) : salih::memory::Pointer<void>(ptr) {} ;
+salih::memory::UniquePointer<void>::UniquePointer(T* ptr) : salih::memory::Pointer<void>(ptr) {} ;
 
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(std::nullptr_t x)
+salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(std::nullptr_t x)
 {
 	salih::memory::Pointer<void>::operator=(x) ;
 	return *this ;	
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(T* ptr)
+salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(T* ptr)
 {
 	salih::memory::Pointer<void>::operator=(ptr) ;
 	return *this ;	
 }
 
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ; 
+salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<void>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ; 
 			
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
+salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
+salih::memory::UniquePointer<void>::UniquePointer(salih::memory::UniquePointer<T[]>&& ptr) : salih::memory::Pointer<void>( std::move(ptr) ) {} ;
 			
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<void>&& ptr)
+salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<void>&& ptr)
 {
 	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
 	return *this ;
 }
 			
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T>&& ptr)
+salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T>&& ptr)
 {
 	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
 	return *this ;
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
+salih::memory::UniquePointer<void>& salih::memory::UniquePointer<void>::operator=(salih::memory::UniquePointer<T[]>&& ptr)
 {
 	salih::memory::Pointer<void>::operator=( std::move(ptr) ) ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<void>::reset()
+void salih::memory::UniquePointer<void>::reset()
 {
 	if(this->pointer)
 	{
@@ -175,27 +175,27 @@ _GLIBCXX20_CONSTEXPR void salih::memory::UniquePointer<void>::reset()
 	}
 }
 
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<void>::~UniquePointer()
+salih::memory::UniquePointer<void>::~UniquePointer()
 {
 	this->reset() ;
 }
 
 template<class T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make()
+salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make()
 {
 	return salih::memory::UniquePointer<T>(new T) ;
 }
 	
 template<class T>
 template<class... Args>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make(const Args&&... args)
+salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make(const Args&&... args)
 {
 	T* p = new T(args...) ;
 	return salih::memory::UniquePointer<T>(new T(args...)) ;
 }
 	
 template<class T>
-_GLIBCXX20_CONSTEXPR salih::memory::UniquePointer<T[]> salih::memory::UniquePointer<T[]>::make(const std::size_t sz)
+salih::memory::UniquePointer<T[]> salih::memory::UniquePointer<T[]>::make(const std::size_t sz)
 {
 	return salih::memory::UniquePointer<T[]>(new T[sz]) ;
 }

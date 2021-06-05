@@ -13,12 +13,12 @@ namespace memory {
 	/** isHeap function, detects whether function is dynamically allocated 
 	@param void pointer
 	@return Boolean (True if pointer is on free-store, else false) **/
-	_GLIBCXX20_CONSTEXPR bool isHeap(void*) ;
+	bool isHeap(void*) ;
 
 }
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::memory::isHeap(void* data)
+bool salih::memory::isHeap(void* data)
 {
 	int x ;
         asm("movq %1, %%rax;" //move a value into register rax
