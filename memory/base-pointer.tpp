@@ -157,7 +157,6 @@ template<typename T>
 _GLIBCXX20_CONSTEXPR salih::memory::Pointer<T[]>& salih::memory::Pointer<T[]>::operator=(void* data)
 {
 	this->reset() ;
-	if(! ::salih::memory::isHeap(data) ) throw std::invalid_argument("Cannot allocate stack pointer to smart pointer")  ;
 	this->pointer = static_cast<T*>(data) ;
 	return *this ;
 }
@@ -243,7 +242,6 @@ _GLIBCXX20_CONSTEXPR salih::memory::Pointer<void>::Pointer(std::nullptr_t) : poi
 template<typename T>
 _GLIBCXX20_CONSTEXPR salih::memory::Pointer<void>::Pointer(T* ptr) 
 {
-	if(! ::salih::memory::isHeap(ptr) ) throw std::invalid_argument("Cannot allocate stack pointer to smart pointer")  ;
 	this->pointer = ptr ;	
 	this->bytes = sizeof(T) ;	
 }
@@ -258,7 +256,6 @@ template<typename T>
 _GLIBCXX20_CONSTEXPR salih::memory::Pointer<void>& salih::memory::Pointer<void>::operator=(T* ptr) 
 {
 	this->reset() ;
-	if(! ::salih::memory::isHeap(ptr) ) throw std::invalid_argument("Cannot allocate stack pointer to smart pointer")  ;
 	this->pointer = ptr ;	
 	this->bytes = sizeof(T) ;	
 	return *this ;
