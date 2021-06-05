@@ -4,6 +4,7 @@
 
 #include "data-ops.hpp"
 #include "flags.hpp"
+#include "../containers/array.hpp"
 
 /** @brief Sorting algorihtms file
     @author Salih Mahmoud Sayed Ahmed
