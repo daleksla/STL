@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['del_12',['del',['../classSalih_1_1Structures_1_1Contiguous_1_1Vector.html#afeef6d5a8b74c83bbc088c4351e70ca7',1,'Salih::Structures::Contiguous::Vector::del()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1FwdList.html#afff35083bf90981505e1994b6ec7f491',1,'Salih::Structures::LinkedLists::FwdList::del()'],['../classSalih_1_1Structures_1_1LinkedLists_1_1List.html#aa9d6a58b2dead754d346a4e40d0dd9e5',1,'Salih::Structures::LinkedLists::List::del()']]],
-  ['descend_13',['DESCEND',['../namespaceSalih_1_1Algorithms_1_1Sorts.html#af739bdc2d0bb02a7cb1d0b3ce513c73b',1,'Salih::Algorithms::Sorts']]],
-  ['dnode_14',['DNode',['../classSalih_1_1Structures_1_1LinkedLists_1_1DNode.html',1,'Salih::Structures::LinkedLists']]]
+  ['del_12',['del',['../classsalih_1_1containers_1_1FwdList.html#a119b438898b262c0e0a42b8756940a06',1,'salih::containers::FwdList::del()'],['../classsalih_1_1containers_1_1List.html#a5648b10df6f55ae1da73ce340bbf8a56',1,'salih::containers::List::del()'],['../classsalih_1_1containers_1_1Vector.html#af3b953bf792d578cd48ff87d58017b19',1,'salih::containers::Vector::del()']]],
+  ['descend_13',['DESCEND',['../namespacesalih_1_1algorithms.html#aa8d1038265c73db15d7f7b0ead070cc5',1,'salih::algorithms']]]
 ];

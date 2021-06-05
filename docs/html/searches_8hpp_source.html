@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Salih&#39;s Template Library (STL): Algorithms/Searches/searches.hpp Source File</title>
+<title>Salih&#39;s Template Library (STL): algorithms/searches.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_98110dfa9920fc464ea50b090d7e3a05.html">Algorithms</a></li><li class="navelem"><a class="el" href="dir_ddf07e811404d5d73791bfacfed47f75.html">Searches</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_c0ce462e37efe0a8d60c01d75f78f8a0.html">algorithms</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,9 +74,33 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SEARCHES_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;./_linearSearch.hpp&quot;</span> </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih_1_1algorithms.html">salih::algorithms</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    _GLIBCXX20_CONSTEXPR <span class="keyword">inline</span> std::size_t <a class="code" href="namespacesalih_1_1algorithms.html#a30423ae76c2f787e32d01efbb4d16729">getMiddle</a>(<span class="keyword">const</span> std::size_t size) ;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    _GLIBCXX20_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#ad1de90669f1844d16ecf65f1a9507b49">binarySearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    _GLIBCXX20_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a56882abfab6d406d6826711ac3edfd87">interpolationSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> UniDirectionalIterator, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4ad8f696fdcdbeba1793aa531b7f0e0a">linearSearch</a>(<span class="keyword">const</span> UniDirectionalIterator&amp;, <span class="keyword">const</span> UniDirectionalIterator&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4ad8f696fdcdbeba1793aa531b7f0e0a">linearSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;searches.tpp&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a56882abfab6d406d6826711ac3edfd87"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a56882abfab6d406d6826711ac3edfd87">salih::algorithms::interpolationSearch</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR bool interpolationSearch(const T &amp;, const U &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a4ad8f696fdcdbeba1793aa531b7f0e0a"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a4ad8f696fdcdbeba1793aa531b7f0e0a">salih::algorithms::linearSearch</a></div><div class="ttdeci">_GLIBCXX14_CONSTEXPR bool linearSearch(const UniDirectionalIterator &amp;, const UniDirectionalIterator &amp;, const U &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html"><div class="ttname"><a href="namespacesalih_1_1algorithms.html">salih::algorithms</a></div><div class="ttdoc">Searching algorihtms file.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:12</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_ad1de90669f1844d16ecf65f1a9507b49"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#ad1de90669f1844d16ecf65f1a9507b49">salih::algorithms::binarySearch</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR bool binarySearch(const T &amp;, const U &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a30423ae76c2f787e32d01efbb4d16729"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a30423ae76c2f787e32d01efbb4d16729">salih::algorithms::getMiddle</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR std::size_t getMiddle(const std::size_t size)</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

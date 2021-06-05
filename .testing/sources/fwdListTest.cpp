@@ -9,10 +9,10 @@
 #include <stdexcept>
 
 #define private public
-#include "../../Structures/LinkedLists/fwdList.hpp"
+#include "../../containers/fwd-list.hpp"
 
-typedef Salih::Structures::LinkedLists::FwdList<int> intList ;
-typedef Salih::Structures::LinkedLists::FwdList<float> floatList ;
+typedef salih::containers::FwdList<int> intList ;
+typedef salih::containers::FwdList<float> floatList ;
 
 //** Create sub-categories to test with predicted outcomes **//
 

@@ -5,12 +5,12 @@
 #define protected public
 
 /* Include the code that we plan to test */
-#include "../../Types/string.hpp"
+#include "../../containers/string.hpp"
 #include <string>
 #include <iostream>
 #include <cstring>
 #include <stdexcept>
-typedef Salih::Types::String String ;
+typedef salih::containers::String String ;
 
 /* Constructors */
 

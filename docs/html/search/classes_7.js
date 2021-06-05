@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['pointer_151',['Pointer',['../classSalih_1_1Types_1_1SmartPointers_1_1Pointer.html',1,'Salih::Types::SmartPointers']]],
-  ['pointer_3c_20void_20_3e_152',['Pointer&lt; void &gt;',['../classSalih_1_1Types_1_1SmartPointers_1_1Pointer_3_01void_01_4.html',1,'Salih::Types::SmartPointers']]]
+  ['sharedpointer_93',['SharedPointer',['../classsalih_1_1memory_1_1SharedPointer.html',1,'salih::memory']]],
+  ['sharedpointer_3c_20t_5b_5d_3e_94',['SharedPointer&lt; T[]&gt;',['../classsalih_1_1memory_1_1SharedPointer_3_01T_0f_0e_4.html',1,'salih::memory']]],
+  ['sharedpointer_3c_20void_20_3e_95',['SharedPointer&lt; void &gt;',['../classsalih_1_1memory_1_1SharedPointer_3_01void_01_4.html',1,'salih::memory']]],
+  ['stack_96',['Stack',['../classsalih_1_1containers_1_1Stack.html',1,'salih::containers']]],
+  ['string_97',['String',['../classsalih_1_1containers_1_1String.html',1,'salih::containers']]]
 ];

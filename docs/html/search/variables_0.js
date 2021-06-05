@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointer_244',['pointer',['../classSalih_1_1Structures_1_1Contiguous_1_1Array.html#a467410161a3684c52c616bd7dfa2b3ec',1,'Salih::Structures::Contiguous::Array::pointer()'],['../classSalih_1_1Types_1_1SmartPointers_1_1Pointer.html#ae6857b61955a5b623f51ba05bc30dc7c',1,'Salih::Types::SmartPointers::Pointer::pointer()'],['../classSalih_1_1Types_1_1SmartPointers_1_1Pointer_3_01void_01_4.html#a4b2b0dd23b75f45819592a392994e7d8',1,'Salih::Types::SmartPointers::Pointer&lt; void &gt;::pointer()']]]
+  ['pointer_178',['pointer',['../classsalih_1_1containers_1_1Array.html#a8c46d657503a8f8ff82e99c159768e0d',1,'salih::containers::Array::pointer()'],['../classsalih_1_1memory_1_1Pointer.html#ac010406e731dec3ea4463baef8740021',1,'salih::memory::Pointer::pointer()'],['../classsalih_1_1memory_1_1Pointer_3_01T_0f_0e_4.html#abcbb3e8a664713ade8a72521e21816f1',1,'salih::memory::Pointer&lt; T[]&gt;::pointer()'],['../classsalih_1_1memory_1_1Pointer_3_01void_01_4.html#a435439342ba830d5c83fea13d3086638',1,'salih::memory::Pointer&lt; void &gt;::pointer()']]]
 ];

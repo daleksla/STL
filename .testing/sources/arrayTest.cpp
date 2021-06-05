@@ -9,14 +9,14 @@
 #include <stdexcept>
 
 #define private public
-#include "../../Structures/Contiguous/array.hpp"
+#include "../../containers/array.hpp"
 
-typedef Salih::Structures::Contiguous::Array<int,6> bigList ;
-typedef Salih::Structures::Contiguous::Array<int,6> floatList ;
-typedef Salih::Structures::Contiguous::Array<int,3> smallList ;
+typedef salih::containers::Array<int,6> bigList ;
+typedef salih::containers::Array<int,6> floatList ;
+typedef salih::containers::Array<int,3> smallList ;
 
 template<std::size_t SIZE>
-constexpr std::size_t getSize(Salih::Structures::Contiguous::Array<int, SIZE> a)
+constexpr std::size_t getSize(salih::containers::Array<int, SIZE> a)
 {
 	return SIZE ;
 }

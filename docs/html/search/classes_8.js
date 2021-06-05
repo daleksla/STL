@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['queue_153',['Queue',['../classSalih_1_1Types_1_1Buffers_1_1Queue.html',1,'Salih::Types::Buffers']]]
+  ['uniquepointer_98',['UniquePointer',['../classsalih_1_1memory_1_1UniquePointer.html',1,'salih::memory']]],
+  ['uniquepointer_3c_20t_5b_5d_3e_99',['UniquePointer&lt; T[]&gt;',['../classsalih_1_1memory_1_1UniquePointer_3_01T_0f_0e_4.html',1,'salih::memory']]],
+  ['uniquepointer_3c_20void_20_3e_100',['UniquePointer&lt; void &gt;',['../classsalih_1_1memory_1_1UniquePointer_3_01void_01_4.html',1,'salih::memory']]]
 ];

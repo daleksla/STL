@@ -5,13 +5,13 @@
 #define private public
 #define protected public
 /* Include the code that we plan to test */
-#include "../../Types/Buffers/stack.hpp"
+#include "../../containers/stack.hpp"
 #include <string>
 #include <iostream>
 #include <stdexcept>
 
-typedef Salih::Types::Buffers::Stack<int> intStack ;
-typedef Salih::Types::Buffers::Stack<float> floatStack ;
+typedef salih::containers::Stack<int> intStack ;
+typedef salih::containers::Stack<float> floatStack ;
 
 /* Create sub-categories to test with predicted outcomes */
 TEST_CASE("empty constructor - attribute testing")

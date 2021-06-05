@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['truetype_159',['trueType',['../structSalih_1_1Types_1_1Traits_1_1trueType.html',1,'Salih::Types::Traits']]]
+  ['vector_104',['Vector',['../classsalih_1_1containers_1_1Vector.html',1,'salih::containers']]]
 ];

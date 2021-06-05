@@ -5,13 +5,13 @@
 #define private public
 #define protected public
 /* Include the code that we plan to test */
-#include "../../Types/Buffers/queue.hpp"
+#include "../../containers/queue.hpp"
 #include <string>
 #include <iostream>
 #include <stdexcept>
 
-typedef Salih::Types::Buffers::Queue<int> intQueue ;
-typedef Salih::Types::Buffers::Queue<float> floatQueue ;
+typedef salih::containers::Queue<int> intQueue ;
+typedef salih::containers::Queue<float> floatQueue ;
 
 /* Create sub-categories to test with predicted outcomes */
 TEST_CASE("empty constructor - attribute testing")
