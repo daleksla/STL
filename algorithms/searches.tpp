@@ -2,7 +2,7 @@
 #define SEARCHES_TPP
 #pragma once
 
-inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
+_GLIBCXX14_CONSTEXPR inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
 {
 	std::size_t middleN ;
 	if(size == 1) middleN = 0 ;
@@ -15,7 +15,7 @@ inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
 }
 	
 template<typename T, typename U>
-bool salih::algorithms::binarySearch(const T& list, const U& target)
+_GLIBCXX14_CONSTEXPR bool salih::algorithms::binarySearch(const T& list, const U& target)
 {
 	const std::size_t size = list.getSize() ; 
 	if(size == 0) return false ;
@@ -31,7 +31,7 @@ bool salih::algorithms::binarySearch(const T& list, const U& target)
 }
 
 template<typename T, typename U>
-bool salih::algorithms::interpolationSearch(const T& list, const U& target)
+_GLIBCXX14_CONSTEXPR bool salih::algorithms::interpolationSearch(const T& list, const U& target)
 {
 	if(!list.getSize()) return false ;
 
