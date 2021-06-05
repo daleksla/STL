@@ -13,20 +13,12 @@ namespace memory {
 	/** isHeap function, detects whether function is dynamically allocated 
 	@param void pointer
 	@return Boolean (True if pointer is on free-store, else false) **/
-<<<<<<< HEAD
-	bool isHeap(const void*) ;
-=======
-	_GLIBCXX20_CONSTEXPR bool isHeap(void*) ;
->>>>>>> parent of cf496af... Modified files - simplified asm code, which simply compares a 1-byte void pointer and (i guess) start pointer of whole program
+	bool isHeap(void*) ;
 
 }
 }
 
-<<<<<<< HEAD
-bool salih::memory::isHeap(const void* data)
-=======
-_GLIBCXX20_CONSTEXPR bool salih::memory::isHeap(void* data)
->>>>>>> parent of cf496af... Modified files - simplified asm code, which simply compares a 1-byte void pointer and (i guess) start pointer of whole program
+bool salih::memory::isHeap(void* data)
 {
 	int x ;
         asm("movq %1, %%rax;" //move a value into register rax
