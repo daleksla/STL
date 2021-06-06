@@ -18,11 +18,9 @@ namespace containers {
 	class FwdList {
 		/** @brief This class is a singly-linkedlist class implementation, serving as a custom linked-node wrapper / manager **/
 		private:
-			SNode<T>* head ;
+			SNode<T>* head ;	
 			
 			std::size_t size ;
-			
-			_GLIBCXX20_CONSTEXPR inline void setSize(int) ;
 			
 		public:
 			/** Empty constructor, intialises empty list 
