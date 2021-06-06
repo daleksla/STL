@@ -14,6 +14,10 @@
 typedef salih::containers::Vector<int> intList ;
 typedef salih::containers::Vector<float> floatList ;
 
+struct weird {
+	int a = 5 ;
+} ;
+
 //** Create sub-categories to test with predicted outcomes **//
 
 /* Constructors */
@@ -305,4 +309,231 @@ TEST_CASE("'del()' method - does 'out_of_range' error get thrown if list doesn't
 	}
 	
 	REQUIRE(isError == true) ;
+}
+//
+/* iterator utilisation */
+TEST_CASE("'begin()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.begin().pointer == &(list2.pointer[0])) ;
+}
+
+TEST_CASE("'end()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.end().pointer == &(list2.pointer[6])) ;
+}
+
+TEST_CASE("'cbegin()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.cbegin().pointer == &(list2.pointer[0])) ;
+}
+
+TEST_CASE("'cend()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.cend().pointer == &(list2.pointer[6])) ;
+}
+
+/* iterators */
+TEST_CASE("Iterator object - empty initialisation")
+{
+	intList list2(6) ;
+	REQUIRE(intList::Iterator().pointer == nullptr) ;
+}
+
+TEST_CASE("Iterator object - prefix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE(++it == intList::Iterator(&(list2[1]))) ;
+	REQUIRE(it == intList::Iterator(&(list2[1]))) ;
+}
+
+TEST_CASE("Iterator object - postfix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE(it++ == intList::Iterator(&(list2[0]))) ;
+	REQUIRE(it++ == intList::Iterator(&(list2[1]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using + operator (addition)")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE((it+1) == intList::Iterator(&(list2[1]))) ;
+	REQUIRE((it) == intList::Iterator(&(list2[0]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using += operator (compound addition)")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE((it+=1) == intList::Iterator(&(list2[1]))) ;
+	REQUIRE(it == intList::Iterator(&(list2[1]))) ;
+}
+
+TEST_CASE("Iterator object - prefix decrement")
+{
+	intList list2(6) ;
+	auto it = list2.end() ;
+	REQUIRE(--it == intList::Iterator(&(list2[5]))) ;
+}
+
+TEST_CASE("Iterator object - postfix decrement")
+{
+	intList list2(6) ;
+	auto it = list2.end() ;
+	REQUIRE(it-- == intList::Iterator(&(list2[6]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using - operator (subtracting)")
+{
+	intList list2(6) ;
+	auto it = list2.end() ;
+	REQUIRE(it-1 == intList::Iterator(&(list2[5]))) ;
+	REQUIRE(it == intList::Iterator(&(list2[6]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using -= operator (compound subtracting)")
+{
+	intList list2(6) ;
+	auto it = list2.end() ;
+	REQUIRE((it-=1) == intList::Iterator(&(list2[5]))) ;
+	REQUIRE(it == intList::Iterator(&(list2[5]))) ;
+}
+
+TEST_CASE("Iterator object - equality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.end() ;
+	REQUIRE(it == list2.end()) ;
+	it = list2.begin() ;
+	REQUIRE(it == list2.begin()) ;
+}
+
+TEST_CASE("Iterator object - inequality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE(it != list2.end()) ;
+	it = list2.end() ;
+	REQUIRE(it != list2.begin()) ;
+}
+
+TEST_CASE("Iterator object - dereferencing operator")
+{
+	intList list2{1,2,3,4,5,6} ;
+	auto it = list2.begin() ;
+	REQUIRE(*it == 1) ;
+}
+
+TEST_CASE("Iterator object - access operator")
+{
+	salih::containers::Vector<weird> list2(1) ;
+	auto it = list2.begin() ;
+	REQUIRE(it->a == 5) ;
+}
+
+/* const iterators */
+TEST_CASE("ConstIterator object - empty initialisation")
+{
+	intList list2(6) ;
+	REQUIRE(intList::ConstIterator().pointer == nullptr) ;
+}
+
+TEST_CASE("ConstIterator object - prefix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(++it == intList::ConstIterator(&(list2[1]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - postfix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it++ == intList::ConstIterator(&(list2[0]))) ;
+	REQUIRE(it++ == intList::ConstIterator(&(list2[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using + operator (addition)")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it+1 == intList::ConstIterator(&(list2[1]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[0]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using += operator (compound addition)")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE((it+=1) == intList::ConstIterator(&(list2[1]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - prefix decrement")
+{
+	intList list2(6) ;
+	auto it = list2.cend() ;
+	REQUIRE(--it == intList::ConstIterator(&(list2[5]))) ;
+}
+
+TEST_CASE("ConstIterator object - postfix decrement")
+{
+	intList list2(6) ;
+	auto it = list2.cend() ;
+	REQUIRE(it-- == intList::ConstIterator(&(list2[6]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using - operator (subtracting)")
+{
+	intList list2(6) ;
+	auto it = list2.cend() ;
+	REQUIRE((it-1) == intList::ConstIterator(&(list2[5]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[6]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using -= operator (compound subtracting)")
+{
+	intList list2(6) ;
+	auto it = list2.cend() ;
+	REQUIRE((it-=1) == intList::ConstIterator(&(list2[5]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[5]))) ;
+}
+
+TEST_CASE("ConstIterator object - equality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.cend() ;
+	REQUIRE(it == list2.cend()) ;
+	it = list2.cbegin() ;
+	REQUIRE(it == list2.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - inequality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it != list2.cend()) ;
+	it = list2.cend() ;
+	REQUIRE(it != list2.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - dereferencing operator")
+{
+	intList list2{1,2,3,4,5,6} ;
+	auto it = list2.cbegin() ;
+	REQUIRE(*it == 1) ;
+}
+
+TEST_CASE("ConstIterator object - access operator")
+{
+	salih::containers::Vector<weird> list2(1) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it->a == 5) ;
 }
