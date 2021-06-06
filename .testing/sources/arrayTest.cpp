@@ -11,6 +11,10 @@
 #define private public
 #include "../../containers/array.hpp"
 
+struct weird {
+	int a = 5 ;
+} ;
+
 typedef salih::containers::Array<int,6> bigList ;
 typedef salih::containers::Array<int,6> floatList ;
 typedef salih::containers::Array<int,3> smallList ;
@@ -168,4 +172,231 @@ TEST_CASE("'getSize()' method - correct value returned")
 	REQUIRE(list2.getSize() == 6) ;
 	bigList list1 = {1,2,3,4,5,6} ;
 	REQUIRE(list1.getSize() == 6) ;
+}
+
+/* iterator utilisation */
+TEST_CASE("'begin()' method - correct value returned")
+{
+	bigList list2 ;
+	REQUIRE(list2.begin().pointer == &(list2.pointer[0])) ;
+}
+
+TEST_CASE("'end()' method - correct value returned")
+{
+	bigList list2 ;
+	REQUIRE(list2.end().pointer == &(list2.pointer[6])) ;
+}
+
+TEST_CASE("'cbegin()' method - correct value returned")
+{
+	bigList list2 ;
+	REQUIRE(list2.cbegin().pointer == &(list2.pointer[0])) ;
+}
+
+TEST_CASE("'cend()' method - correct value returned")
+{
+	bigList list2 ;
+	REQUIRE(list2.cend().pointer == &(list2.pointer[6])) ;
+}
+
+/* iterators */
+TEST_CASE("Iterator object - empty initialisation")
+{
+	bigList list2 ;
+	REQUIRE(bigList::Iterator().pointer == nullptr) ;
+}
+
+TEST_CASE("Iterator object - prefix incrementation")
+{
+	bigList list2 ;
+	auto it = list2.begin() ;
+	REQUIRE(++it == bigList::Iterator(&(list2[1]))) ;
+	REQUIRE(it == bigList::Iterator(&(list2[1]))) ;
+}
+
+TEST_CASE("Iterator object - postfix incrementation")
+{
+	bigList list2 ;
+	auto it = list2.begin() ;
+	REQUIRE(it++ == bigList::Iterator(&(list2[0]))) ;
+	REQUIRE(it++ == bigList::Iterator(&(list2[1]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using + operator (addition)")
+{
+	bigList list2 ;
+	auto it = list2.begin() ;
+	REQUIRE((it+1) == bigList::Iterator(&(list2[1]))) ;
+	REQUIRE((it) == bigList::Iterator(&(list2[0]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using += operator (compound addition)")
+{
+	bigList list2 ;
+	auto it = list2.begin() ;
+	REQUIRE((it+=1) == bigList::Iterator(&(list2[1]))) ;
+	REQUIRE(it == bigList::Iterator(&(list2[1]))) ;
+}
+
+TEST_CASE("Iterator object - prefix decrement")
+{
+	bigList list2 ;
+	auto it = list2.end() ;
+	REQUIRE(--it == bigList::Iterator(&(list2[5]))) ;
+}
+
+TEST_CASE("Iterator object - postfix decrement")
+{
+	bigList list2 ;
+	auto it = list2.end() ;
+	REQUIRE(it-- == bigList::Iterator(&(list2[6]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using - operator (subtracting)")
+{
+	bigList list2 ;
+	auto it = list2.end() ;
+	REQUIRE(it-1 == bigList::Iterator(&(list2[5]))) ;
+	REQUIRE(it == bigList::Iterator(&(list2[6]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using -= operator (compound subtracting)")
+{
+	bigList list2 ;
+	auto it = list2.end() ;
+	REQUIRE((it-=1) == bigList::Iterator(&(list2[5]))) ;
+	REQUIRE(it == bigList::Iterator(&(list2[5]))) ;
+}
+
+TEST_CASE("Iterator object - equality comparison")
+{
+	bigList list2 ;
+	auto it = list2.end() ;
+	REQUIRE(it == list2.end()) ;
+	it = list2.begin() ;
+	REQUIRE(it == list2.begin()) ;
+}
+
+TEST_CASE("Iterator object - inequality comparison")
+{
+	bigList list2 ;
+	auto it = list2.begin() ;
+	REQUIRE(it != list2.end()) ;
+	it = list2.end() ;
+	REQUIRE(it != list2.begin()) ;
+}
+
+TEST_CASE("Iterator object - dereferencing operator")
+{
+	bigList list2{1,2,3,4,5,6} ;
+	auto it = list2.begin() ;
+	REQUIRE(*it == 1) ;
+}
+
+TEST_CASE("Iterator object - access operator")
+{
+	salih::containers::Array<weird,1> list2 ;
+	auto it = list2.begin() ;
+	REQUIRE(it->a == 5) ;
+}
+
+/* const iterators */
+TEST_CASE("ConstIterator object - empty initialisation")
+{
+	bigList list2 ;
+	REQUIRE(bigList::ConstIterator().pointer == nullptr) ;
+}
+
+TEST_CASE("ConstIterator object - prefix incrementation")
+{
+	bigList list2 ;
+	auto it = list2.cbegin() ;
+	REQUIRE(++it == bigList::ConstIterator(&(list2[1]))) ;
+	REQUIRE(it == bigList::ConstIterator(&(list2[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - postfix incrementation")
+{
+	bigList list2 ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it++ == bigList::ConstIterator(&(list2[0]))) ;
+	REQUIRE(it++ == bigList::ConstIterator(&(list2[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using + operator (addition)")
+{
+	bigList list2 ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it+1 == bigList::ConstIterator(&(list2[1]))) ;
+	REQUIRE(it == bigList::ConstIterator(&(list2[0]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using += operator (compound addition)")
+{
+	bigList list2 ;
+	auto it = list2.cbegin() ;
+	REQUIRE((it+=1) == bigList::ConstIterator(&(list2[1]))) ;
+	REQUIRE(it == bigList::ConstIterator(&(list2[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - prefix decrement")
+{
+	bigList list2 ;
+	auto it = list2.cend() ;
+	REQUIRE(--it == bigList::ConstIterator(&(list2[5]))) ;
+}
+
+TEST_CASE("ConstIterator object - postfix decrement")
+{
+	bigList list2 ;
+	auto it = list2.cend() ;
+	REQUIRE(it-- == bigList::ConstIterator(&(list2[6]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using - operator (subtracting)")
+{
+	bigList list2 ;
+	auto it = list2.cend() ;
+	REQUIRE((it-1) == bigList::ConstIterator(&(list2[5]))) ;
+	REQUIRE(it == bigList::ConstIterator(&(list2[6]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using -= operator (compound subtracting)")
+{
+	bigList list2 ;
+	auto it = list2.cend() ;
+	REQUIRE((it-=1) == bigList::ConstIterator(&(list2[5]))) ;
+	REQUIRE(it == bigList::ConstIterator(&(list2[5]))) ;
+}
+
+TEST_CASE("ConstIterator object - equality comparison")
+{
+	bigList list2 ;
+	auto it = list2.cend() ;
+	REQUIRE(it == list2.cend()) ;
+	it = list2.cbegin() ;
+	REQUIRE(it == list2.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - inequality comparison")
+{
+	bigList list2 ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it != list2.cend()) ;
+	it = list2.cend() ;
+	REQUIRE(it != list2.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - dereferencing operator")
+{
+	bigList list2{1,2,3,4,5,6} ;
+	auto it = list2.cbegin() ;
+	REQUIRE(*it == 1) ;
+}
+
+TEST_CASE("ConstIterator object - access operator")
+{
+	salih::containers::Array<weird,1> list2 ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it->a == 5) ;
 }
