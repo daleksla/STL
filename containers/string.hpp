@@ -19,11 +19,17 @@ namespace containers {
 			
 			std::size_t size ;
 					
-			inline _GLIBCXX20_CONSTEXPR String(char*, const std::size_t) ;	
+			inline _GLIBCXX20_CONSTEXPR String(char*, const std::size_t) ;
+				
 		public:
 			/** Empty constructor, intialises empty string 
 			@return <initialised-object> **/
 			_GLIBCXX20_CONSTEXPR String() ;
+	
+			/** Regular constructor, intialises string to a specific length
+			@param length of string to initialise
+			@return <initialised-object> **/			
+			_GLIBCXX20_CONSTEXPR String(const std::size_t) ;
 			
 			/** Regular constructor, intialises string 
 			@param a c-string to wrap

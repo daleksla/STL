@@ -12,6 +12,12 @@ _GLIBCXX20_CONSTEXPR salih::containers::String::String() : size(0)
 	this->str[0] = '\0' ;
 }
 
+_GLIBCXX20_CONSTEXPR salih::containers::String::String(const std::size_t x) : size(x)
+{
+	this->str = new char[x+1] ;
+	this->str[x] = '\0' ;
+}
+
 _GLIBCXX20_CONSTEXPR salih::containers::String::String(const char* input)
 {
 	for(this->size = 0 ; input[this->size] != '\0'; this->size++) ;
