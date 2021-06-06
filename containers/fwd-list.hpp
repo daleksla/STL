@@ -36,6 +36,11 @@ namespace containers {
 			@param a (l-value) list object
 			@return reference to current object **/
 			_GLIBCXX20_CONSTEXPR FwdList& operator=(const FwdList&) ;
+				
+			/** Regular constructor, intialises list to a specific length
+			@param length of list elements to initialise
+			@return <initialised-object> **/			
+			_GLIBCXX20_CONSTEXPR FwdList(const std::size_t) ;
 					
 			/** Regular constructor, intialises multiple values
 			@param initialisation list (of values for list)

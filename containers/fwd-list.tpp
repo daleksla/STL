@@ -10,6 +10,24 @@ template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList() : head(nullptr), size(0) {} ;
 
 template <typename T>
+_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::size_t x)
+{
+	this->size = x ;
+	if(x)
+	{
+		this->head = new SNode<T>(T()) ;
+		salih::containers::SNode<T>* p = this->head ;
+		for(std::size_t i = 1 ; i < x ; ++i)
+		{
+			p = new SNode<T>(T(), p) ;
+		}
+	}
+	else {
+		this->head = nullptr ;
+	}	
+}
+
+template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::initializer_list<T>& values)
 {
 	this->size = values.size() ;
