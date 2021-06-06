@@ -424,7 +424,7 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator& salih
 template<typename T> 
 _GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator++(const int)
 {
-	return salih::containers::Vector<T>::Iterator(this->pointer++) ;
+	return salih::containers::Vector<T>::ConstIterator(this->pointer++) ;
 }
 
 template<typename T> 
@@ -450,7 +450,7 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator& salih
 template<typename T> 
 _GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator--(const int)
 {
-	return salih::containers::Vector<T>::Iterator(this->pointer--) ;
+	return salih::containers::Vector<T>::ConstIterator(this->pointer--) ;
 }
 
 template<typename T> 
@@ -486,7 +486,7 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih:
 template<typename T> 
 _GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::end() const
 {
-	return salih::containers::Vector<T>::ConstIterator (this->pointer + this->size) ;
+	return salih::containers::Vector<T>::ConstIterator(this->pointer + this->size) ;
 }
 
 template<typename T> 
