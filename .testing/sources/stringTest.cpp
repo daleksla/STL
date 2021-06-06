@@ -24,6 +24,13 @@ TEST_CASE("Empty Constructor - Attribute testing")
 	REQUIRE(v.str != NULL) ;
 }
 
+TEST_CASE("size initialisation Constructor - Attribute testing")
+{
+	String name(2) ;
+	REQUIRE(name.str[2] == '\0') ;
+	REQUIRE(v.str != NULL) ;
+}
+
 TEST_CASE("const char* (c-string) Constructor - Attribute testing")
 {
 	String name("salih") ;
