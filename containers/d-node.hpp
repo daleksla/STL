@@ -15,10 +15,10 @@ namespace containers {
 			DNode* prev ; //pointer to prev element in LL
 
 			DNode* next ; //pointer to next element in LL
-					
+				
 		public:
-			T data ; //template variable for data		
-			
+			T data ; //template variable for data	
+
 			_GLIBCXX20_CONSTEXPR DNode() = default ;
 		
 			_GLIBCXX20_CONSTEXPR DNode(const T) ; //constructor - takes data
