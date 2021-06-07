@@ -339,7 +339,6 @@ TEST_CASE("'cend()' method - correct value returned")
 /* iterators */
 TEST_CASE("Iterator object - empty initialisation")
 {
-	intList list2(6) ;
 	REQUIRE(intList::Iterator().pointer == nullptr) ;
 }
 
@@ -356,7 +355,7 @@ TEST_CASE("Iterator object - postfix incrementation")
 	intList list2(6) ;
 	auto it = list2.begin() ;
 	REQUIRE(it++ == intList::Iterator(&(list2[0]))) ;
-	REQUIRE(it++ == intList::Iterator(&(list2[1]))) ;
+	REQUIRE(it == intList::Iterator(&(list2[1]))) ;
 }
 
 TEST_CASE("Iterator object - moving position using + operator (addition)")
@@ -380,6 +379,7 @@ TEST_CASE("Iterator object - prefix decrement")
 	intList list2(6) ;
 	auto it = list2.end() ;
 	REQUIRE(--it == intList::Iterator(&(list2[5]))) ;
+	REQUIRE(it == intList::Iterator(&(list2[5]))) ;
 }
 
 TEST_CASE("Iterator object - postfix decrement")
@@ -387,6 +387,7 @@ TEST_CASE("Iterator object - postfix decrement")
 	intList list2(6) ;
 	auto it = list2.end() ;
 	REQUIRE(it-- == intList::Iterator(&(list2[6]))) ;
+	REQUIRE(it == intList::Iterator(&(list2[5]))) ;
 }
 
 TEST_CASE("Iterator object - moving position using - operator (subtracting)")
@@ -440,7 +441,6 @@ TEST_CASE("Iterator object - access operator")
 /* const iterators */
 TEST_CASE("ConstIterator object - empty initialisation")
 {
-	intList list2(6) ;
 	REQUIRE(intList::ConstIterator().pointer == nullptr) ;
 }
 
@@ -457,7 +457,7 @@ TEST_CASE("ConstIterator object - postfix incrementation")
 	intList list2(6) ;
 	auto it = list2.cbegin() ;
 	REQUIRE(it++ == intList::ConstIterator(&(list2[0]))) ;
-	REQUIRE(it++ == intList::ConstIterator(&(list2[1]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[1]))) ;
 }
 
 TEST_CASE("ConstIterator object - moving position using + operator (addition)")
@@ -481,6 +481,7 @@ TEST_CASE("ConstIterator object - prefix decrement")
 	intList list2(6) ;
 	auto it = list2.cend() ;
 	REQUIRE(--it == intList::ConstIterator(&(list2[5]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[5]))) ;
 }
 
 TEST_CASE("ConstIterator object - postfix decrement")
@@ -488,6 +489,7 @@ TEST_CASE("ConstIterator object - postfix decrement")
 	intList list2(6) ;
 	auto it = list2.cend() ;
 	REQUIRE(it-- == intList::ConstIterator(&(list2[6]))) ;
+	REQUIRE(it == intList::ConstIterator(&(list2[5]))) ;
 }
 
 TEST_CASE("ConstIterator object - moving position using - operator (subtracting)")
