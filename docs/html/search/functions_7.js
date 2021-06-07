@@ -1,7 +1,7 @@
 var searchData=
 [
   ['insert_122',['insert',['../classsalih_1_1containers_1_1FwdList.html#acc19701767755b455b68cba375e71f2b',1,'salih::containers::FwdList::insert()'],['../classsalih_1_1containers_1_1List.html#a1c995f87d3ab7deb2a74611f3fd4b064',1,'salih::containers::List::insert()'],['../classsalih_1_1containers_1_1Vector.html#a0a40b396724a19076f9eb709e4c8b040',1,'salih::containers::Vector::insert()']]],
-  ['interpolationsearch_123',['interpolationSearch',['../namespacesalih_1_1algorithms.html#a56882abfab6d406d6826711ac3edfd87',1,'salih::algorithms']]],
+  ['interpolationsearch_123',['interpolationSearch',['../namespacesalih_1_1algorithms.html#a254af5c35f0ed36f9b88604b02bef922',1,'salih::algorithms']]],
   ['isalpha_124',['isAlpha',['../classsalih_1_1containers_1_1String.html#aa8090e93b8e13b486baf33652c64467d',1,'salih::containers::String']]],
   ['isalphanum_125',['isAlphaNum',['../classsalih_1_1containers_1_1String.html#a0b1740e3310385a3211a5d9ba2f01abe',1,'salih::containers::String']]],
   ['iscapitalised_126',['isCapitalised',['../classsalih_1_1containers_1_1String.html#a9a6c48dbf06965f912d8effa1854da79',1,'salih::containers::String']]],
