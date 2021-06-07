@@ -28,7 +28,7 @@ TEST_CASE("size initialisation Constructor - Attribute testing")
 {
 	String name(2) ;
 	REQUIRE(name.str[2] == '\0') ;
-	REQUIRE(v.str != NULL) ;
+	REQUIRE(name.str != NULL) ;
 }
 
 TEST_CASE("const char* (c-string) Constructor - Attribute testing")
@@ -373,7 +373,7 @@ TEST_CASE("Iterator object - postfix incrementation")
 	String str(6) ;
 	auto it = str.begin() ;
 	REQUIRE(it++ == String::Iterator(&(str[0]))) ;
-	REQUIRE(it++ == String::Iterator(&(str[1]))) ;
+	REQUIRE(it == String::Iterator(&(str[1]))) ;
 }
 
 TEST_CASE("Iterator object - moving position using + operator (addition)")
@@ -397,6 +397,7 @@ TEST_CASE("Iterator object - prefix decrement")
 	String str(6) ;
 	auto it = str.end() ;
 	REQUIRE(--it == String::Iterator(&(str[5]))) ;
+	REQUIRE(it == String::Iterator(&(str[5]))) ;
 }
 
 TEST_CASE("Iterator object - postfix decrement")
@@ -404,6 +405,7 @@ TEST_CASE("Iterator object - postfix decrement")
 	String str(6) ;
 	auto it = str.end() ;
 	REQUIRE(it-- == String::Iterator(&(str[6]))) ;
+	REQUIRE(it == String::Iterator(&(str[5]))) ;
 }
 
 TEST_CASE("Iterator object - moving position using - operator (subtracting)")
@@ -467,7 +469,7 @@ TEST_CASE("ConstIterator object - postfix incrementation")
 	String str(6) ;
 	auto it = str.cbegin() ;
 	REQUIRE(it++ == String::ConstIterator(&(str[0]))) ;
-	REQUIRE(it++ == String::ConstIterator(&(str[1]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[1]))) ;
 }
 
 TEST_CASE("ConstIterator object - moving position using + operator (addition)")
@@ -491,13 +493,15 @@ TEST_CASE("ConstIterator object - prefix decrement")
 	String str(6) ;
 	auto it = str.cend() ;
 	REQUIRE(--it == String::ConstIterator(&(str[5]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[5]))) ;
 }
 
 TEST_CASE("ConstIterator object - postfix decrement")
 {
 	String str(6) ;
-	auto it = str.cend() ;
+	auto it = str.cend() ;	
 	REQUIRE(it-- == String::ConstIterator(&(str[6]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[5]))) ;
 }
 
 TEST_CASE("ConstIterator object - moving position using - operator (subtracting)")
