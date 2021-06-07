@@ -505,7 +505,7 @@ _GLIBCXX20_CONSTEXPR const T* salih::containers::FwdList<T>::ConstIterator::oper
 template<typename T> 
 _GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::ConstIterator::operator+(const std::size_t x) const
 {
-	salih::containers::SNode<T>* tmp = this->pointer ;
+	salih::containers::SNode<T> const* tmp = this->pointer ;
 	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::FwdList<T>::ConstIterator(tmp) ; 
 }
