@@ -267,7 +267,7 @@ _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator& s
 template<typename T, std::size_t SIZE> 
 _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator salih::containers::Array<T,SIZE>::ConstIterator::operator++(const int)
 {
-	return salih::containers::Array<T,SIZE>::Iterator(this->pointer++) ;
+	return salih::containers::Array<T,SIZE>::ConstIterator(this->pointer++) ;
 }
 
 template<typename T, std::size_t SIZE> 
@@ -293,7 +293,7 @@ _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator& s
 template<typename T, std::size_t SIZE> 
 _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator salih::containers::Array<T,SIZE>::ConstIterator::operator--(const int)
 {
-	return salih::containers::Array<T,SIZE>::Iterator(this->pointer--) ;
+	return salih::containers::Array<T,SIZE>::ConstIterator(this->pointer--) ;
 }
 
 template<typename T, std::size_t SIZE> 
