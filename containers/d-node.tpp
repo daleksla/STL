@@ -2,6 +2,8 @@
 #define D_NODE_TPP
 #pragma once
 
+#include "../types/macros.hpp"
+
 template <typename T>
 CONSTEXPRCXX14 salih::containers::DNode<T>::DNode(const T i_data, salih::containers::DNode<T>* node, const bool flag)
 {

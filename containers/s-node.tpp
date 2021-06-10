@@ -2,6 +2,8 @@
 #define S_NODE_TPP
 #pragma once
 
+#include "../types/macros.hpp"
+
 template <typename T>
 CONSTEXPRCXX14 salih::containers::SNode<T>::SNode(const T i_data, salih::containers::SNode<T>* i_prev) : next(nullptr), data(i_data)
 {

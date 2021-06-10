@@ -2,6 +2,8 @@
 #define S_NODE_HPP
 #pragma once
 
+#include "../types/macros.hpp"
+
 namespace salih {
 namespace containers {
 
