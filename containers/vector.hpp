@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include "../types/macros.hpp"
+#include "../types/iterators.hpp"
 #include <initializer_list>
 
 /** @brief Vector-class implementation file, a wrapper for a C-style dynamic-contiguous data structure
@@ -162,6 +163,8 @@ namespace containers {
 					CONSTEXPRCXX20 Iterator(T*) ;
 				
 				public:
+					using category = salih::types::RandomAccessIterator ;
+				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -258,6 +261,8 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(T const*) ;				
 				
 				public:
+					using category = salih::types::RandomAccessIterator ;
+				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;

@@ -4,6 +4,7 @@
 
 #include "d-node.hpp"
 #include "../types/macros.hpp"
+#include "../types/iterators.hpp"
 #include <initializer_list>
 
 /** @brief Double Linkedlist container-class declaration file
@@ -161,6 +162,8 @@ namespace containers {
 					CONSTEXPRCXX20 Iterator(DNode<T>*) ;
 				
 				public:
+					using category = salih::types::BiDirectionalIterator ;
+				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -257,6 +260,8 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(DNode<T> const*) ;
 				
 				public:
+					using category = salih::types::BiDirectionalIterator ;
+				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;

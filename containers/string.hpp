@@ -3,6 +3,7 @@
 #pragma once
 
 #include "../types/macros.hpp"
+#include "../types/iterators.hpp"
 
 /** @brief String-class implementation file, serving as a wrapper for a c-string (character array)
     @author Salih Mahmoud Sayed Ahmed
@@ -197,6 +198,8 @@ namespace containers {
 					CONSTEXPRCXX20 Iterator(char*) ;
 				
 				public:
+					using category = salih::types::RandomAccessIterator ;
+				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -289,6 +292,8 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(char const*) ;
 				
 				public:
+					using category = salih::types::RandomAccessIterator ;
+				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;

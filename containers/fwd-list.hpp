@@ -4,6 +4,7 @@
 
 #include "s-node.hpp"
 #include "../types/macros.hpp"
+#include "../types/iterators.hpp"
 #include <initializer_list>
 
 /** @brief Singly Linkedlist container-class declaration file
@@ -159,6 +160,8 @@ namespace containers {
 					CONSTEXPRCXX20 Iterator(SNode<T>*) ;				
 				
 				public:
+					using category = salih::types::UniDirectionalIterator ;
+				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -237,6 +240,8 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(SNode<T> const*) ;
 				
 				public:
+					using category = salih::types::UniDirectionalIterator ;
+				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;

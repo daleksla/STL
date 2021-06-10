@@ -3,6 +3,7 @@
 #pragma once
 
 #include "../types/macros.hpp"
+#include "../types/iterators.hpp"
 
 /** @brief Array-class implementation file, representing a C-style array wrapper
     @author Salih Mahmoud Sayed Ahmed
@@ -154,6 +155,8 @@ namespace containers {
 					CONSTEXPRCXX14 Iterator(T*) ;
 				
 				public:
+					using category = salih::types::RandomAccessIterator ;
+				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX14 Iterator() ;
@@ -250,6 +253,8 @@ namespace containers {
 					CONSTEXPRCXX11 ConstIterator(T const*) ;
 				
 				public:
+					using category = salih::types::RandomAccessIterator ;
+				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX11 ConstIterator() ;
