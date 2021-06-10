@@ -10,11 +10,25 @@
 
 /* C++ version */
 
-#ifdef 199711L #define CXX98 #endif
-#ifdef 201103L #define CXX11 #endif
-#ifdef 201402L #define CXX14 #endif
-#ifdef 201703L #define CXX17 #endif
-#ifdef 202002L #define CXX20 #endif
+#if __cplusplus > 199711L 
+	#define CXX98 
+#endif
+
+#if __cplusplus > 201103L 
+	#define CXX11 
+#endif
+
+#if __cplusplus > 201402L 
+	#define CXX14 
+#endif
+
+#if __cplusplus > 201703L 
+	#define CXX17 
+#endif
+
+#if __cplusplus > 202002L 
+	#define CXX20 
+#endif
 
 /* Constexpr labels (depending on C++ version) */
 
