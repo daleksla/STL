@@ -4,7 +4,7 @@
 
 _GLIBCXX14_CONSTEXPR inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
 {
-	std::size_t middleN ;
+	std::size_t middleN = 0;
 	if(size == 1) middleN = 0 ;
 	else {
 		if(size % 2 == 0) middleN = std::size_t(size / 2) ; 
