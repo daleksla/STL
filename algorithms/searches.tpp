@@ -3,6 +3,7 @@
 #pragma once
 
 #include "../types/macros.hpp"
+#include "../types/iterators.hpp"
 
 CONSTEXPRCXX14 inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
 {
@@ -49,8 +50,8 @@ CONSTEXPRCXX14 bool salih::algorithms::interpolationSearch(const T& list, const 
 	else if(list[position] > target) return interpolationSearch(list(0,position), target) ;
 }
 
-template<typename UniDirectionalIterator, typename U>
-CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const UniDirectionalIterator& begin, const UniDirectionalIterator& end, const U& target)
+template<typename T, typename F, typename U>
+CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const T& begin, const T& end, const U& target)
 {
 	for(auto it = begin ; it != end ; ++it) if(*it == target) return true ;
 	return false ;

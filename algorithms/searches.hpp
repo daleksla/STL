@@ -3,7 +3,9 @@
 #pragma once
 
 #include "../types/macros.hpp"
-
+#include "../types/iterators.hpp"
+#include <type_traits>
+		
 /** @brief Searching algorihtms file
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
@@ -36,8 +38,8 @@ namespace salih::algorithms {
 	 * @param const reference to iterator to end of search range
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
-	template<typename UniDirectionalIterator, typename U>
-	CONSTEXPRCXX14 bool linearSearch(const UniDirectionalIterator&, const UniDirectionalIterator&, const U&) ;
+	template<typename T, typename = std::enable_if< T::category::value >= salih::types::UniDirectionalIterator::value>, typename U>
+	CONSTEXPRCXX14 bool linearSearch(const T&, const T&, const U&) ;
 	
 	/** This is a linear search algorithm, which iterates through a list until the end if need be
 	 * @param const reference to list (to be searched through)
