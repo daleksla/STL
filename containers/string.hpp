@@ -16,7 +16,13 @@ namespace containers {
 	
 	class String {
 		/** This class is the String-class implementation, serving as a c-string (character array) wrapper **/
-	
+		public:
+			using inner = char ;                            
+			using pointer = char* ;                               
+			using constPointer = const char* ;                         
+			using reference = char& ;                             
+			using constReference = const char& ;  
+				
 		private:
 			char* str ;
 			
@@ -25,8 +31,6 @@ namespace containers {
 			inline CONSTEXPRCXX20 String(char*, const std::size_t) ;
 				
 		public:
-			using inner = char ;
-		
 			/** Empty constructor, intialises empty string 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 String() ;

@@ -19,6 +19,13 @@ namespace containers {
 	template<class T>
 	class List {
 		/** @brief This class is a doubly-linkedlist class implementation, serving as a custom linked-node wrapper / manager **/
+		public:
+			using inner = T ;                            
+			using pointer = T* ;                               
+			using constPointer = const T* ;                         
+			using reference = T& ;                             
+			using constReference = const T& ;  
+			
 		private:
 			DNode<T>* head ;
 			
@@ -33,8 +40,6 @@ namespace containers {
 			CONSTEXPRCXX20 inline void insert(DNode<T>*, T) ;
 			
 		public:
-			using inner = T ;
-		
 			/** Empty constructor, intialises empty list 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 List() ; //empty linkedlist (ie no nodes)

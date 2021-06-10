@@ -19,14 +19,19 @@ namespace containers {
 	template<class T>
 	class FwdList {
 		/** @brief This class is a singly-linkedlist class implementation, serving as a custom linked-node wrapper / manager **/
+		public:
+			using inner = T ;                            
+			using pointer = T* ;                               
+			using constPointer = const T* ;                         
+			using reference = T& ;                             
+			using constReference = const T& ;  
+			
 		private:
 			SNode<T>* head ;	
 			
 			std::size_t size ;
 			
 		public:
-			using inner = T ;
-		
 			/** Empty constructor, intialises empty list 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 FwdList() ; //empty linkedlist (ie no nodes)

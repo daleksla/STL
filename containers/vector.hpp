@@ -19,14 +19,19 @@ namespace containers {
 	template<class T>
 	class Vector {
 		/** This class is the vector-class implementation, serving as a dynamically resizing c-array wrapper **/
+		public:
+			using inner = T ;                            
+			using pointer = T* ;                               
+			using constPointer = const T* ;                         
+			using reference = T& ;                             
+			using constReference = const T& ;  
+		
 		private:			
 			T* pointer ;
 			
 			std::size_t size ;
 		
-		public:
-			using inner = T ;
-		
+		public:		
 			/** Empty constructor, intialises empty vector 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 Vector() ;

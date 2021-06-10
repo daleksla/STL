@@ -17,12 +17,17 @@ namespace containers {
 	template<class T, std::size_t SIZE>
 	class Array {
 		/** This aggregate class is the Array-class implementation, serving as a c-style array wrapper **/
+		public:
+			using inner = T ;                            
+			using pointer = T* ;                               
+			using constPointer = const T* ;                         
+			using reference = T& ;                             
+			using constReference = const T& ;  
+		
 		public:			
 			T pointer[SIZE] ;
 			
 		public:
-			using inner = T ;
-		
 			/** Empty constructor, intialises empty array 
 			@return <initialised-object> **/
 			//Array() = default ;
