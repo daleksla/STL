@@ -46,7 +46,7 @@ namespace salih::algorithms {
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
 	template<typename T, typename U>
-	CONSTEXPRCXX14 bool linearSearch(const T&, const U&) ;
+	CONSTEXPRCXX14 inline bool linearSearch(const T&, const U&) ;
 
 }
 

@@ -58,11 +58,10 @@ CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const T& begin, const T& end
 }
 
 template<typename T, typename U>
-CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const T& list, const U& target)
+CONSTEXPRCXX14 inline bool salih::algorithms::linearSearch(const T& list, const U& target)
 {
 	if(list.getSize() == 0) return false ;
-	for(auto it = list.cbegin() ; it != list.cend() ; ++it) if(*it == target) return true ;
-	return false ;
+	return salih::algorithms::linearSearch(list.cbegin(), list.cend(), target) ;
 }
 
 #endif
