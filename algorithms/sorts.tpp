@@ -5,7 +5,7 @@
 #include "data-ops.hpp"
 
 template<typename T>
-CONSTEXPRCXX14 T salih::algorithms::bubbleSort(T list, bool(*const order)(int, int))
+CONSTEXPRCXX14 T salih::algorithms::bubbleSort(T list, bool(*const order)(typename T::innerType, typename T::innerType))
 {
 	std::size_t listLength = list.getSize() ;
 	if(listLength <= 1) return list ;
@@ -24,7 +24,7 @@ CONSTEXPRCXX14 T salih::algorithms::bubbleSort(T list, bool(*const order)(int, i
 }
 
 template<typename U, std::size_t SIZE>
-CONSTEXPRCXX14 salih::containers::Array<U, SIZE+SIZE> salih::algorithms::merge(const salih::containers::Array<U, SIZE>& x, const salih::containers::Array<U, SIZE>& y, bool(*const order)(int, int))
+CONSTEXPRCXX14 salih::containers::Array<U, SIZE+SIZE> salih::algorithms::merge(const salih::containers::Array<U, SIZE>& x, const salih::containers::Array<U, SIZE>& y, bool(*const order)(typename U::innerType, typename U::innerType))
 {	
 	salih::containers::Array<U, SIZE+SIZE> out ;
 	std::size_t i = 0, j = 0, k = 0 ;
@@ -59,7 +59,7 @@ CONSTEXPRCXX14 salih::containers::Array<U, SIZE+SIZE> salih::algorithms::merge(c
 }
 	
 template<typename U, std::size_t SIZE, std::size_t DIFF>
-CONSTEXPRCXX14 salih::containers::Array<U, SIZE+DIFF> salih::algorithms::merge(const salih::containers::Array<U, SIZE>& x, const salih::containers::Array<U, DIFF>& y, bool(*const order)(int, int))
+CONSTEXPRCXX14 salih::containers::Array<U, SIZE+DIFF> salih::algorithms::merge(const salih::containers::Array<U, SIZE>& x, const salih::containers::Array<U, DIFF>& y, bool(*const order)(typename U::innerType, typename U::innerType))
 {	
 	salih::containers::Array<U, SIZE+DIFF> out ;
 	std::size_t i = 0, j = 0, k = 0 ;
@@ -94,7 +94,7 @@ CONSTEXPRCXX14 salih::containers::Array<U, SIZE+DIFF> salih::algorithms::merge(c
 }
 
 template<typename T>
-CONSTEXPRCXX14 T salih::algorithms::merge(const T& x, const T& y, bool(*const order)(int, int))
+CONSTEXPRCXX14 T salih::algorithms::merge(const T& x, const T& y, bool(*const order)(typename T::innerType, typename T::innerType))
 {	
 	T out ;
 	std::size_t i = 0, j = 0, k = 0 ;
@@ -129,7 +129,7 @@ CONSTEXPRCXX14 T salih::algorithms::merge(const T& x, const T& y, bool(*const or
 }
 
 template<typename T>
-CONSTEXPRCXX14 T salih::algorithms::mergeSort(const T& data, bool(*const order)(int, int))
+CONSTEXPRCXX14 T salih::algorithms::mergeSort(const T& data, bool(*const order)(typename T::innerType, typename T::innerType))
 {			
 	std::size_t listLength = data.getSize() ;
 	
@@ -147,7 +147,7 @@ CONSTEXPRCXX14 T salih::algorithms::mergeSort(const T& data, bool(*const order)(
 }
 	
 template<typename U, std::size_t SIZE>
-CONSTEXPRCXX14 salih::containers::Array<U, SIZE> salih::algorithms::mergeSort(const salih::containers::Array<U, SIZE>& data, bool(*const order)(int, int))
+CONSTEXPRCXX14 salih::containers::Array<U, SIZE> salih::algorithms::mergeSort(const salih::containers::Array<U, SIZE>& data, bool(*const order)(typename U::innerType, typename U::innerType))
 {				
 	if(SIZE <= 1) return data ;
 	
@@ -163,7 +163,7 @@ CONSTEXPRCXX14 salih::containers::Array<U, SIZE> salih::algorithms::mergeSort(co
 }
 
 template<typename T>
-CONSTEXPRCXX14 T salih::algorithms::quickSort(const T& list, bool(*const order)(int, int))
+CONSTEXPRCXX14 T salih::algorithms::quickSort(const T& list, bool(*const order)(typename T::innerType, typename T::innerType))
 {			
 	if(list.getSize() <= 1) return list ;
 	
@@ -182,7 +182,7 @@ CONSTEXPRCXX14 T salih::algorithms::quickSort(const T& list, bool(*const order)(
 }
 
 template<typename T>
-CONSTEXPRCXX14 T salih::algorithms::selectionSort(T list, bool(*const order)(int, int))
+CONSTEXPRCXX14 T salih::algorithms::selectionSort(T list, bool(*const order)(typename T::innerType, typename T::innerType))
 {
 	if(list.getSize() <= 1) return list ;
 	std::size_t limit = list.getSize() - 1 ; //initialise 2nd section boundary value (for larger values) 
