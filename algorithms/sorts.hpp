@@ -5,6 +5,7 @@
 #include "data-ops.hpp"
 #include "flags.hpp"
 #include "../containers/array.hpp"
+#include "../types/macros.hpp"
 
 /** @brief Sorting algorihtms file
     @author Salih Mahmoud Sayed Ahmed
@@ -20,7 +21,7 @@ namespace algorithms {
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename T>
-	_GLIBCXX14_CONSTEXPR T bubbleSort(T, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 T bubbleSort(T, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 
 	/** This is the merging subroutine - it works by taking two lists and adding the smallest / the largest value from each, such that the resulting list is a combined list in order
 	This subroutine is an overload specifically for two given Array class' whereby they are of the same size, which cannot use the generic list version due to the need of compile-time setup / preallocation, which other containers have no need or capability of
@@ -29,7 +30,7 @@ namespace algorithms {
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename U, std::size_t SIZE>
-	_GLIBCXX14_CONSTEXPR salih::containers::Array<U, SIZE+SIZE> merge(const salih::containers::Array<U, SIZE>&, const salih::containers::Array<U, SIZE>&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 salih::containers::Array<U, SIZE+SIZE> merge(const salih::containers::Array<U, SIZE>&, const salih::containers::Array<U, SIZE>&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 	
 	/** This is the merging subroutine - it works by taking two lists and adding the smallest / the largest value from each, such that the resulting list is a combined list in order
 	This subroutine is an overload specifically for two given Array class' whereby they are of a different size, which cannot use the generic list version due to the need of compile-time setup / preallocation, which other containers have no need or capability of
@@ -38,7 +39,7 @@ namespace algorithms {
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename U, std::size_t SIZE, std::size_t DIFF>
-	_GLIBCXX14_CONSTEXPR salih::containers::Array<U, SIZE+DIFF> merge(const salih::containers::Array<U, SIZE>&, const salih::containers::Array<U, DIFF>&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 salih::containers::Array<U, SIZE+DIFF> merge(const salih::containers::Array<U, SIZE>&, const salih::containers::Array<U, DIFF>&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 	
 	/** This is the merging subroutine - it works by taking two lists and adding the smallest / the largest value from each, such that the resulting list is a combined list in order
 	 * @param const reference to list (one of the lists)
@@ -46,14 +47,14 @@ namespace algorithms {
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename T>
-	_GLIBCXX14_CONSTEXPR T merge(const T&, const T&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 T merge(const T&, const T&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 
 	/** This is the merge sort algorithm. It works splitting a list into minimal sublists and combining two, in order, into a bigger list. It keeps merging the lists together, then the merged lists together, until a fully sorted list is formed
 	 * @param const refernece to list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename T>
-	_GLIBCXX14_CONSTEXPR T mergeSort(const T&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 T mergeSort(const T&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 
 	/** This is the merge sort algorithm. It works splitting a list into minimal sublists and combining two, in order, into a bigger list. It keeps merging the lists together, then the merged lists together, until a fully sorted list is formed
 	This algorithm is an overload specifically for a given Array class', which cannot use the generic list version due to the need of compile-time setup / preallocation, which other containers have no need or capability of
@@ -61,21 +62,21 @@ namespace algorithms {
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename U, std::size_t SIZE>
-	_GLIBCXX14_CONSTEXPR salih::containers::Array<U, SIZE> mergeSort(const salih::containers::Array<U, SIZE>&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 salih::containers::Array<U, SIZE> mergeSort(const salih::containers::Array<U, SIZE>&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 	
 	/** This is the quick sort algorithm. It creates three empty arrays to hold elements less than the pivot value, the same as the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays and adds them together
 	 * @param copy of list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename T>
-	_GLIBCXX14_CONSTEXPR T quickSort(const T&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 T quickSort(const T&, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 	
 	/** This is the double-ended selection sort algorithm. It works by sorting a list of values by finding the smallest value from unsorted section and putting it at the end of the first sorted section & has an additional sorted subsection containing the largest values
 	 * @param copy of list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
 	template<typename T>
-	_GLIBCXX14_CONSTEXPR T selectionSort(T, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
+	CONSTEXPRCXX14 T selectionSort(T, bool(*const order)(int, int) = salih::algorithms::ASCEND) ;
 
 } 
 }

@@ -2,7 +2,9 @@
 #define SEARCHES_TPP
 #pragma once
 
-_GLIBCXX14_CONSTEXPR inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
+#include "../types/macros.hpp"
+
+CONSTEXPRCXX14 inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
 {
 	std::size_t middleN = 0;
 	if(size == 1) middleN = 0 ;
@@ -15,7 +17,7 @@ _GLIBCXX14_CONSTEXPR inline std::size_t salih::algorithms::getMiddle(const std::
 }
 	
 template<typename T, typename U>
-_GLIBCXX14_CONSTEXPR bool salih::algorithms::binarySearch(const T& list, const U& target)
+CONSTEXPRCXX14 bool salih::algorithms::binarySearch(const T& list, const U& target)
 {
 	const std::size_t size = list.getSize() ; 
 	if(size == 0) return false ;
@@ -31,7 +33,7 @@ _GLIBCXX14_CONSTEXPR bool salih::algorithms::binarySearch(const T& list, const U
 }
 
 template<typename T, typename U>
-_GLIBCXX14_CONSTEXPR bool salih::algorithms::interpolationSearch(const T& list, const U& target)
+CONSTEXPRCXX14 bool salih::algorithms::interpolationSearch(const T& list, const U& target)
 {
 	if(!list.getSize()) return false ;
 
@@ -48,14 +50,14 @@ _GLIBCXX14_CONSTEXPR bool salih::algorithms::interpolationSearch(const T& list, 
 }
 
 template<typename UniDirectionalIterator, typename U>
-_GLIBCXX14_CONSTEXPR bool salih::algorithms::linearSearch(const UniDirectionalIterator& begin, const UniDirectionalIterator& end, const U& target)
+CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const UniDirectionalIterator& begin, const UniDirectionalIterator& end, const U& target)
 {
 	for(auto it = begin ; it != end ; ++it) if(*it == target) return true ;
 	return false ;
 }
 
 template<typename T, typename U>
-_GLIBCXX14_CONSTEXPR bool salih::algorithms::linearSearch(const T& list, const U& target)
+CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const T& list, const U& target)
 {
 	if(list.getSize() == 0) return false ;
 	for(auto it = list.cbegin() ; it != list.cend() ; ++it) if(*it == target) return true ;

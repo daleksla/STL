@@ -2,6 +2,8 @@
 #define DATA_OPS_HPP
 #pragma once
 
+#include "../types/macros.hpp"
+
 /** @brief Functionality relating to data manipulation of some sort
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
@@ -15,7 +17,7 @@ namespace algorithms {
          * @param x (reference to element we wish to swap with y
          * @param y (references to elements we wish to swap with x) **/
 	template<typename U>
-	inline void swap(U&, U&) ;
+	CONSTEXPRCXX14 inline void swap(U&, U&) ;
 
 }
 }
