@@ -70,7 +70,7 @@ $(function() {
 <div class="title">searches.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SEARCHES_HPP</span></div>
+<a href="searches_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SEARCHES_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SEARCHES_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
@@ -80,19 +80,19 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih_1_1algorithms.html">salih::algorithms</a> {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    CONSTEXPRCXX14 <span class="keyword">inline</span> std::size_t <a class="code" href="namespacesalih_1_1algorithms.html#af04bd2f06b0ff478ec4fd4b06f745e47">getMiddle</a>(<span class="keyword">const</span> std::size_t size) ;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> std::size_t <a class="code" href="namespacesalih_1_1algorithms.html#af04bd2f06b0ff478ec4fd4b06f745e47">getMiddle</a>(<span class="keyword">const</span> std::size_t size) ;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    CONSTEXPRCXX14 <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4bfffd272420b1232941d0cfe0d0e4ca">binarySearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4bfffd272420b1232941d0cfe0d0e4ca">binarySearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    CONSTEXPRCXX14 <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a52c819028772a1337a670bdab1fc54a7">interpolationSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a52c819028772a1337a670bdab1fc54a7">interpolationSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIterator::value&gt;, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    CONSTEXPRCXX14 <span class="keywordtype">bool</span> linearSearch(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#aa6e66cbf00fc0ebe145abb8543ebb95c">linearSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    CONSTEXPRCXX14 <span class="keyword">inline</span> <span class="keywordtype">bool</span> linearSearch(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#aa6e66cbf00fc0ebe145abb8543ebb95c">linearSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
@@ -104,6 +104,8 @@ $(function() {
 <div class="ttc" id="anamespacesalih_1_1algorithms_html_a52c819028772a1337a670bdab1fc54a7"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a52c819028772a1337a670bdab1fc54a7">salih::algorithms::interpolationSearch</a></div><div class="ttdeci">CONSTEXPRCXX14 bool interpolationSearch(const T &amp;, const U &amp;)</div></div>
 <div class="ttc" id="anamespacesalih_1_1algorithms_html_a4bfffd272420b1232941d0cfe0d0e4ca"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a4bfffd272420b1232941d0cfe0d0e4ca">salih::algorithms::binarySearch</a></div><div class="ttdeci">CONSTEXPRCXX14 bool binarySearch(const T &amp;, const U &amp;)</div></div>
 <div class="ttc" id="anamespacesalih_1_1algorithms_html"><div class="ttname"><a href="namespacesalih_1_1algorithms.html">salih::algorithms</a></div><div class="ttdoc">Searching algorihtms file.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:15</div></div>
+<div class="ttc" id="amacros_8hpp_html_a390b7d4dadc126f4417db58811bde322"><div class="ttname"><a href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a></div><div class="ttdeci">#define CONSTEXPRCXX14</div><div class="ttdef"><b>Definition:</b> macros.hpp:44</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_aa6e66cbf00fc0ebe145abb8543ebb95c"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#aa6e66cbf00fc0ebe145abb8543ebb95c">salih::algorithms::linearSearch</a></div><div class="ttdeci">U CONSTEXPRCXX14 bool linearSearch(const T &amp;, const T &amp;, const U &amp;)</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

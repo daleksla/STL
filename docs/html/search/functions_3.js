@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['del_122',['del',['../classsalih_1_1containers_1_1FwdList.html#a2d565550393a20252e75691e9012a65a',1,'salih::containers::FwdList::del()'],['../classsalih_1_1containers_1_1List.html#a03d44850521d0eddce8ba9586b580974',1,'salih::containers::List::del()'],['../classsalih_1_1containers_1_1Vector.html#a9c7a68519a42457dae63d561b2227ac6',1,'salih::containers::Vector::del()']]],
-  ['descend_123',['DESCEND',['../namespacesalih_1_1algorithms.html#aa8d1038265c73db15d7f7b0ead070cc5',1,'salih::algorithms']]]
+  ['del_192',['del',['../classsalih_1_1containers_1_1FwdList.html#a2d565550393a20252e75691e9012a65a',1,'salih::containers::FwdList::del()'],['../classsalih_1_1containers_1_1List.html#a03d44850521d0eddce8ba9586b580974',1,'salih::containers::List::del()'],['../classsalih_1_1containers_1_1Vector.html#a9c7a68519a42457dae63d561b2227ac6',1,'salih::containers::Vector::del()']]],
+  ['descend_193',['DESCEND',['../namespacesalih_1_1algorithms.html#aa8d1038265c73db15d7f7b0ead070cc5',1,'salih::algorithms']]],
+  ['dnode_194',['DNode',['../classsalih_1_1containers_1_1DNode.html#a589b3a81db29ca10e821fcab6daf99d6',1,'salih::containers::DNode::DNode()=default'],['../classsalih_1_1containers_1_1DNode.html#af6dcf1bb268a714f850476cf4e106cb6',1,'salih::containers::DNode::DNode(const T)'],['../classsalih_1_1containers_1_1DNode.html#a252c7f6fefa9930003602e06e6585794',1,'salih::containers::DNode::DNode(const DNode &amp;)=delete'],['../classsalih_1_1containers_1_1DNode.html#acc15dbd92eff544f4375135b05d383ca',1,'salih::containers::DNode::DNode(DNode &amp;&amp;)=default'],['../classsalih_1_1containers_1_1DNode.html#a99a48a8e819758f7fbfda104328cbaa3',1,'salih::containers::DNode::DNode(const T, DNode *, const bool)']]]
 ];

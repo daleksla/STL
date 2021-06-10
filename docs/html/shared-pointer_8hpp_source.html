@@ -70,10 +70,10 @@ $(function() {
 <div class="title">shared-pointer.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SHARED_POINTER_HPP</span></div>
+<a href="shared-pointer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SHARED_POINTER_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SHARED_POINTER_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;base-pointer.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="base-pointer_8hpp.html">base-pointer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih.html">salih</a> {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>memory {</div>
@@ -88,13 +88,13 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a>&lt;void&gt; ;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer&lt;T&gt;</a> makeShared() ;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer&lt;T&gt;</a> <a class="code" href="namespacesalih_1_1memory.html#a85090c2de4894f9f67d2fd2b0f8c7cc7">makeShared</a>() ;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class </span>T, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer&lt;T&gt;</a> makeShared(Args&amp;&amp;...) ;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer&lt;T&gt;</a> <a class="code" href="namespacesalih_1_1memory.html#a85090c2de4894f9f67d2fd2b0f8c7cc7">makeShared</a>(Args&amp;&amp;...) ;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classsalih_1_1memory_1_1SharedPointer_3_01T_0f_0e_4.html">SharedPointer&lt;T[]&gt;</a> makeShared(<span class="keyword">const</span> std::size_t) ;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classsalih_1_1memory_1_1SharedPointer_3_01T_0f_0e_4.html">SharedPointer&lt;T[]&gt;</a> <a class="code" href="namespacesalih_1_1memory.html#a85090c2de4894f9f67d2fd2b0f8c7cc7">makeShared</a>(<span class="keyword">const</span> std::size_t) ;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a> : <span class="keyword">public</span> <a class="code" href="classsalih_1_1memory_1_1Pointer.html">Pointer</a>&lt;T&gt; {</div>
@@ -130,7 +130,7 @@ $(function() {
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <a class="code" href="classsalih_1_1memory_1_1SharedPointer.html#aa59525b0534a801729b287febbc2eaf7">~SharedPointer</a>() ;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a>&lt;void&gt; ;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classsalih_1_1memory_1_1SharedPointer.html#aa877469c852f4db8a6a2d3b8fd2738ad">  113</a></span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a>&lt;void&gt; ;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    } ;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
@@ -167,7 +167,7 @@ $(function() {
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            </div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <a class="code" href="classsalih_1_1memory_1_1SharedPointer.html#aa59525b0534a801729b287febbc2eaf7">~SharedPointer</a>() ;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a>&lt;void&gt; ;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classsalih_1_1memory_1_1SharedPointer_3_01T_0f_0e_4.html#aa877469c852f4db8a6a2d3b8fd2738ad">  188</a></span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a>&lt;void&gt; ;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    } ;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    </div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
@@ -229,7 +229,7 @@ $(function() {
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <a class="code" href="classsalih_1_1memory_1_1SharedPointer.html#aa59525b0534a801729b287febbc2eaf7">~SharedPointer</a>() ;      </div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            </div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a> ;</div>
+<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="classsalih_1_1memory_1_1SharedPointer_3_01void_01_4.html#a336e8ace279bd51a734673195cef0fbf">  303</a></span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a> ;</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    } ;</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    </div>
@@ -241,6 +241,7 @@ $(function() {
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasssalih_1_1memory_1_1Pointer_html"><div class="ttname"><a href="classsalih_1_1memory_1_1Pointer.html">salih::memory::Pointer</a></div><div class="ttdef"><b>Definition:</b> base-pointer.hpp:14</div></div>
+<div class="ttc" id="abase-pointer_8hpp_html"><div class="ttname"><a href="base-pointer_8hpp.html">base-pointer.hpp</a></div></div>
 <div class="ttc" id="aclasssalih_1_1memory_1_1SharedPointer_3_01void_01_4_html"><div class="ttname"><a href="classsalih_1_1memory_1_1SharedPointer_3_01void_01_4.html">salih::memory::SharedPointer&lt; void &gt;</a></div><div class="ttdef"><b>Definition:</b> shared-pointer.hpp:192</div></div>
 <div class="ttc" id="aclasssalih_1_1memory_1_1SharedPointer_3_01T_0f_0e_4_html"><div class="ttname"><a href="classsalih_1_1memory_1_1SharedPointer_3_01T_0f_0e_4.html">salih::memory::SharedPointer&lt; T[]&gt;</a></div><div class="ttdef"><b>Definition:</b> shared-pointer.hpp:117</div></div>
 <div class="ttc" id="aclasssalih_1_1memory_1_1SharedPointer_html"><div class="ttname"><a href="classsalih_1_1memory_1_1SharedPointer.html">salih::memory::SharedPointer</a></div><div class="ttdef"><b>Definition:</b> shared-pointer.hpp:16</div></div>
@@ -248,6 +249,7 @@ $(function() {
 <div class="ttc" id="aclasssalih_1_1memory_1_1SharedPointer_html_a11b999af67b12d06e09c97c07135478f"><div class="ttname"><a href="classsalih_1_1memory_1_1SharedPointer.html#a11b999af67b12d06e09c97c07135478f">salih::memory::SharedPointer::operator=</a></div><div class="ttdeci">SharedPointer &amp; operator=(std::nullptr_t)</div></div>
 <div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Functionality relating to data manipulation of some sort.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:14</div></div>
 <div class="ttc" id="aclasssalih_1_1memory_1_1SharedPointer_html_aa59525b0534a801729b287febbc2eaf7"><div class="ttname"><a href="classsalih_1_1memory_1_1SharedPointer.html#aa59525b0534a801729b287febbc2eaf7">salih::memory::SharedPointer::~SharedPointer</a></div><div class="ttdeci">~SharedPointer()</div></div>
+<div class="ttc" id="anamespacesalih_1_1memory_html_a85090c2de4894f9f67d2fd2b0f8c7cc7"><div class="ttname"><a href="namespacesalih_1_1memory.html#a85090c2de4894f9f67d2fd2b0f8c7cc7">salih::memory::makeShared</a></div><div class="ttdeci">SharedPointer&lt; T &gt; makeShared()</div></div>
 <div class="ttc" id="aclasssalih_1_1memory_1_1SharedPointer_html_a81a5bc1784848739f1751bcdbc4663cc"><div class="ttname"><a href="classsalih_1_1memory_1_1SharedPointer.html#a81a5bc1784848739f1751bcdbc4663cc">salih::memory::SharedPointer::reset</a></div><div class="ttdeci">void reset()</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
