@@ -20,11 +20,11 @@ namespace containers {
 	class List {
 		/** @brief This class is a doubly-linkedlist class implementation, serving as a custom linked-node wrapper / manager **/
 		public:
-			using inner = T ;                            
-			using pointer = T* ;                               
-			using constPointer = const T* ;                         
-			using reference = T& ;                             
-			using constReference = const T& ;  
+			using innerType = T ;                            
+			using pointerType = T* ;                               
+			using constPointerType = const T* ;                         
+			using referenceType = T& ;                             
+			using constReferenceType = const T& ;  
 			using iteratorType = salih::types::BiDirectionalIterator ;
 			
 		private:
@@ -162,11 +162,11 @@ namespace containers {
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the list's values **/ 
 				public:
-					using inner = T ;                            
-					using pointer = T* ;                               
-					using constPointer = const T* ;                         
-					using reference = T& ;                             
-					using constReference = const T& ;  
+					using innerType = T ;                            
+					using pointerType = T* ;                               
+					using constPointerType = const T* ;                         
+					using referenceType = T& ;                             
+					using constReferenceType = const T& ;  
 					using category = salih::types::BiDirectionalIterator ;
 					
 				private:
@@ -266,11 +266,11 @@ namespace containers {
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the list's values **/ 
 				public:
-					using inner = T ;                            
-					using pointer = T* ;                               
-					using constPointer = const T* ;                         
-					using reference = T& ;                             
-					using constReference = const T& ;  
+					using innerType = T ;                            
+					using pointerType = T* ;                               
+					using constPointerType = const T* ;                         
+					using referenceType = T& ;                             
+					using constReferenceType = const T& ;  
 					using category = salih::types::BiDirectionalIterator ;
 					
 				private:

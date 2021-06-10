@@ -18,11 +18,11 @@ namespace containers {
 	class Array {
 		/** This aggregate class is the Array-class implementation, serving as a c-style array wrapper **/
 		public:
-			using inner = T ;                            
-			using pointer = T* ;                               
-			using constPointer = const T* ;                         
-			using reference = T& ;                             
-			using constReference = const T& ;  
+			using innerType = T ;                            
+			using pointerType = T* ;                               
+			using constPointerType = const T* ;                         
+			using referenceType = T& ;                             
+			using constReferenceType = const T& ;  
 			using iteratorType = salih::types::RandomAccessIterator ;
 			
 		public:			
@@ -155,11 +155,11 @@ namespace containers {
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the Array's values **/ 
 				public:
-					using inner = T ;                            
-					using pointer = T* ;                               
-					using constPointer = const T* ;                         
-					using reference = T& ;                             
-					using constReference = const T& ;  
+					using innerType = T ;                            
+					using pointerType = T* ;                               
+					using constPointerType = const T* ;                         
+					using referenceType = T& ;                             
+					using constReferenceType = const T& ;  
 					using category = salih::types::RandomAccessIterator ;
 			
 				private:
@@ -259,11 +259,11 @@ namespace containers {
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the Array's values **/ 
 				public:
-					using inner = T ;                            
-					using pointer = T* ;                               
-					using constPointer = const T* ;                         
-					using reference = T& ;                             
-					using constReference = const T& ;  
+					using innerType = T ;                            
+					using pointerType = T* ;                               
+					using constPointerType = const T* ;                         
+					using referenceType = T& ;                             
+					using constReferenceType = const T& ;  
 					using category = salih::types::RandomAccessIterator ;
 					
 				private:

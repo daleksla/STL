@@ -17,11 +17,11 @@ namespace containers {
 	class String {
 		/** This class is the String-class implementation, serving as a c-string (character array) wrapper **/
 		public:
-			using inner = char ;                            
-			using pointer = char* ;                               
-			using constPointer = const char* ;                         
-			using reference = char& ;                             
-			using constReference = const char& ;  
+			using innerType = char ;                            
+			using pointerType = char* ;                               
+			using constPointerType = const char* ;                         
+			using referenceType = char& ;                             
+			using constReferenceType = const char& ;  
 			using iteratorType = salih::types::RandomAccessIterator ;
 				
 		private:
@@ -197,11 +197,11 @@ namespace containers {
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the string's values **/ 
 				public:
-					using inner = char ;                            
-					using pointer = char* ;                               
-					using constPointer = const char* ;                         
-					using reference = char& ;                             
-					using constReference = const char& ;  
+					using innerType = char ;                            
+					using pointerType = char* ;                               
+					using constPointerType = const char* ;                         
+					using referenceType = char& ;                             
+					using constReferenceType = const char& ;  
 					using category = salih::types::RandomAccessIterator ;
 					
 				private:
@@ -297,11 +297,11 @@ namespace containers {
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the string's values **/ 
 				public:
-					using inner = char ;                            
-					using pointer = char* ;                               
-					using constPointer = const char* ;                         
-					using reference = char& ;                             
-					using constReference = const char& ;  
+					using innerType = char ;                            
+					using pointerType = char* ;                               
+					using constPointerType = const char* ;                         
+					using referenceType = char& ;                             
+					using constReferenceType = const char& ;  
 					using category = salih::types::RandomAccessIterator ;
 					
 				private:
