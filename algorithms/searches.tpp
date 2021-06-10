@@ -45,9 +45,11 @@ CONSTEXPRCXX14 bool salih::algorithms::interpolationSearch(const T& list, const 
 
 	std::size_t position = std::size_t(start + ( ( (target-list[start]) * (end-start)) / (list[end] - list[start]) )) ;
 
-	if(list[position] == target) return true ;
-	else if(list[position] < target) return interpolationSearch(list(position+1,list.getSize()), target) ;
-	else if(list[position] > target) return interpolationSearch(list(0,position), target) ;
+	bool result = false ;
+	if(list[position] == target) result = true ;
+	else if(list[position] < target) result = interpolationSearch(list(position+1,list.getSize()), target) ;
+	else if(list[position] > target) result = interpolationSearch(list(0,position), target) ;
+	return result ;
 }
 
 template<typename T, typename F, typename U>
