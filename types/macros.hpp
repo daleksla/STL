@@ -10,23 +10,23 @@
 
 /* C++ version */
 
-#if __cplusplus > 199711L 
+#if __cplusplus >= 199711
 	#define CXX98 
 #endif
 
-#if __cplusplus > 201103L 
+#if __cplusplus >= 201103
 	#define CXX11 
 #endif
 
-#if __cplusplus > 201402L 
+#if __cplusplus >= 201402
 	#define CXX14 
 #endif
 
-#if __cplusplus > 201703L 
+#if __cplusplus >= 201703
 	#define CXX17 
 #endif
 
-#if __cplusplus > 202002L 
+#if __cplusplus >= 201709 
 	#define CXX20 
 #endif
 
