@@ -25,6 +25,7 @@ namespace containers {
 			using constPointer = const T* ;                         
 			using reference = T& ;                             
 			using constReference = const T& ;  
+			using iteratorType = salih::types::RandomAccessIterator ;
 		
 		private:			
 			T* pointer ;
@@ -161,6 +162,14 @@ namespace containers {
 			
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the vector's values **/ 
+				public:
+					using inner = T ;                            
+					using pointer = T* ;                               
+					using constPointer = const T* ;                         
+					using reference = T& ;                             
+					using constReference = const T& ;  
+					using category = salih::types::RandomAccessIterator ;
+					
 				private:
 					T* pointer ;
 
@@ -170,8 +179,6 @@ namespace containers {
 					CONSTEXPRCXX20 Iterator(T*) ;
 				
 				public:
-					using category = salih::types::RandomAccessIterator ;
-				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -259,6 +266,14 @@ namespace containers {
 			
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the Vector's values **/ 
+				public:
+					using inner = T ;                            
+					using pointer = T* ;                               
+					using constPointer = const T* ;                         
+					using reference = T& ;                             
+					using constReference = const T& ;  
+					using category = salih::types::RandomAccessIterator ;
+					
 				private:
 					T const* pointer ;
 				
@@ -268,8 +283,6 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(T const*) ;				
 				
 				public:
-					using category = salih::types::RandomAccessIterator ;
-				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;

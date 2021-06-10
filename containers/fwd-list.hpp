@@ -25,6 +25,7 @@ namespace containers {
 			using constPointer = const T* ;                         
 			using reference = T& ;                             
 			using constReference = const T& ;  
+			using iteratorType = salih::types::UniDirectionalIterator ;
 			
 		private:
 			SNode<T>* head ;	
@@ -158,6 +159,14 @@ namespace containers {
 			
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the forward list's values **/ 
+				public:
+					using inner = T ;                            
+					using pointer = T* ;                               
+					using constPointer = const T* ;                         
+					using reference = T& ;                             
+					using constReference = const T& ;  
+					using category = salih::types::UniDirectionalIterator ;
+					
 				private:
 					SNode<T>* pointer;
 				
@@ -166,9 +175,7 @@ namespace containers {
 					@return <initialised-object> **/				
 					CONSTEXPRCXX20 Iterator(SNode<T>*) ;				
 				
-				public:
-					using category = salih::types::UniDirectionalIterator ;
-				
+				public:				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -238,6 +245,14 @@ namespace containers {
 			
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the forward list's values **/ 
+				public:
+					using inner = T ;                            
+					using pointer = T* ;                               
+					using constPointer = const T* ;                         
+					using reference = T& ;                             
+					using constReference = const T& ;  
+					using category = salih::types::UniDirectionalIterator ;
+					
 				private:
 					SNode<T> const* pointer;
 
@@ -247,8 +262,6 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(SNode<T> const*) ;
 				
 				public:
-					using category = salih::types::UniDirectionalIterator ;
-				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;

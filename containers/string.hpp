@@ -22,6 +22,7 @@ namespace containers {
 			using constPointer = const char* ;                         
 			using reference = char& ;                             
 			using constReference = const char& ;  
+			using iteratorType = salih::types::RandomAccessIterator ;
 				
 		private:
 			char* str ;
@@ -195,6 +196,14 @@ namespace containers {
 			
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the string's values **/ 
+				public:
+					using inner = char ;                            
+					using pointer = char* ;                               
+					using constPointer = const char* ;                         
+					using reference = char& ;                             
+					using constReference = const char& ;  
+					using category = salih::types::RandomAccessIterator ;
+					
 				private:
 					char* pointer;
 					
@@ -204,8 +213,6 @@ namespace containers {
 					CONSTEXPRCXX20 Iterator(char*) ;
 				
 				public:
-					using category = salih::types::RandomAccessIterator ;
-				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -289,6 +296,14 @@ namespace containers {
 			
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the string's values **/ 
+				public:
+					using inner = char ;                            
+					using pointer = char* ;                               
+					using constPointer = const char* ;                         
+					using reference = char& ;                             
+					using constReference = const char& ;  
+					using category = salih::types::RandomAccessIterator ;
+					
 				private:
 					char const* pointer;
 				
@@ -298,8 +313,6 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(char const*) ;
 				
 				public:
-					using category = salih::types::RandomAccessIterator ;
-				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;

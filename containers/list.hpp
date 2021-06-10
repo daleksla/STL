@@ -25,6 +25,7 @@ namespace containers {
 			using constPointer = const T* ;                         
 			using reference = T& ;                             
 			using constReference = const T& ;  
+			using iteratorType = salih::types::BiDirectionalIterator ;
 			
 		private:
 			DNode<T>* head ;
@@ -160,6 +161,14 @@ namespace containers {
 			
 			class Iterator {
 				/** This class represents an Iterator object, allowing for controlled, read-write access to the list's values **/ 
+				public:
+					using inner = T ;                            
+					using pointer = T* ;                               
+					using constPointer = const T* ;                         
+					using reference = T& ;                             
+					using constReference = const T& ;  
+					using category = salih::types::BiDirectionalIterator ;
+					
 				private:
 					DNode<T>* pointer ;
 
@@ -169,8 +178,6 @@ namespace containers {
 					CONSTEXPRCXX20 Iterator(DNode<T>*) ;
 				
 				public:
-					using category = salih::types::BiDirectionalIterator ;
-				
 					/** Empty constructor, intialises empty iterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 Iterator() ;
@@ -258,6 +265,14 @@ namespace containers {
 			
 			class ConstIterator {
 				/** This class represents a ConstIterator object, allowing for controlled, read-only access to the list's values **/ 
+				public:
+					using inner = T ;                            
+					using pointer = T* ;                               
+					using constPointer = const T* ;                         
+					using reference = T& ;                             
+					using constReference = const T& ;  
+					using category = salih::types::BiDirectionalIterator ;
+					
 				private:
 					DNode<T> const* pointer;
 
@@ -267,8 +282,6 @@ namespace containers {
 					CONSTEXPRCXX20 ConstIterator(DNode<T> const*) ;
 				
 				public:
-					using category = salih::types::BiDirectionalIterator ;
-				
 					/** Empty constructor, intialises empty ConstIterator 
 					@return <initialised-object> **/
 					CONSTEXPRCXX20 ConstIterator() ;
