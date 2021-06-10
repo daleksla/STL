@@ -30,6 +30,16 @@ namespace types {
 	} ;
 
 	template<typename T>
+	concept Comparable = requires(T a) {
+		a > a ;
+		a >= a ;
+		a < a ;
+		a <= a ;
+		a == a ;
+		a != a ;
+	} ;
+
+	template<typename T>
 	concept ForwardIterator = !(Number<T>) && requires(T a) {
 		++a ;
 		a++ ;
