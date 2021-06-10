@@ -56,7 +56,7 @@ namespace types {
 	} ;
 
 	template<typename T>
-	concept ContiguousIterator = BidirectionalIterator<T> && requires(T a) {
+	concept RandomAccessIterator = BidirectionalIterator<T> && requires(T a) {
 		a > a ;
 		a >= a ;
 		a < a ;
