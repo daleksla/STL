@@ -23,7 +23,7 @@ namespace salih::algorithms {
 	 * @param const reference to list (to be searched)
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/	
-	template<typename T, typename U>
+	template<typename T, typename U, >
 	CONSTEXPRCXX14 bool binarySearch(const T&, const U&) ;
 	
 	/** This is the interpolation search algorithm, I don't exactly know how to explain this one but it works
@@ -45,7 +45,7 @@ namespace salih::algorithms {
 	 * @param const reference to list (to be searched through)
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
-	template<typename T, typename U>
+	template<typename T, typename = std::enable_if< T::iteratorType::value >= salih::types::UniDirectionalIterator::value>, typename U>
 	CONSTEXPRCXX14 inline bool linearSearch(const T&, const U&) ;
 
 }

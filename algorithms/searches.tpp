@@ -59,7 +59,7 @@ CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const T& begin, const T& end
 	return false ;
 }
 
-template<typename T, typename U>
+template<typename T, typename F, typename U>
 CONSTEXPRCXX14 inline bool salih::algorithms::linearSearch(const T& list, const U& target)
 {
 	if(list.getSize() == 0) return false ;
