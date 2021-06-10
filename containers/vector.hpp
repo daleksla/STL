@@ -25,7 +25,7 @@ namespace containers {
 			using constPointerType = const T* ;                         
 			using referenceType = T& ;                             
 			using constReferenceType = const T& ;  
-			using iteratorType = salih::types::RandomAccessIterator ;
+			using iteratorType = salih::types::RandomAccessIteratorTag ;
 		
 		private:			
 			T* pointer ;
@@ -168,7 +168,7 @@ namespace containers {
 					using constPointerType = const T* ;                         
 					using referenceType = T& ;                             
 					using constReferenceType = const T& ;  
-					using category = salih::types::RandomAccessIterator ;
+					using category = salih::types::RandomAccessIteratorTag ;
 					
 				private:
 					T* pointer ;
@@ -272,7 +272,7 @@ namespace containers {
 					using constPointerType = const T* ;                         
 					using referenceType = T& ;                             
 					using constReferenceType = const T& ;  
-					using category = salih::types::RandomAccessIterator ;
+					using category = salih::types::RandomAccessIteratorTag ;
 					
 				private:
 					T const* pointer ;

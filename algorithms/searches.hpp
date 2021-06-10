@@ -42,14 +42,14 @@ namespace salih::algorithms {
 	 * @param const reference to iterator to end of search range
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
-	template<typename T, typename = typename std::enable_if< T::category::value >= salih::types::UniDirectionalIterator::value>, typename U, typename = typename std::enable_if<std::is_same<U, typename T::innerType>::value>::type>
+	template<typename T, typename = typename std::enable_if< T::category::value >= salih::types::UniDirectionalIteratorTag::value>, typename U, typename = typename std::enable_if<std::is_same<U, typename T::innerType>::value>::type>
 	CONSTEXPRCXX14 bool linearSearch(const T&, const T&, const U&) ;
 	
 	/** This is a linear search algorithm, which iterates through a list until the end if need be
 	 * @param const reference to list (to be searched through)
 	 * @param const reference of target (to be identified in list)
 	 * @return boolean (indicates if supplied target was found or not) **/
-	template<typename T, typename = typename std::enable_if< T::iteratorType::value >= salih::types::UniDirectionalIterator::value>, typename U, typename = typename std::enable_if<std::is_same<U, typename T::innerType>::value>::type>
+	template<typename T, typename = typename std::enable_if< T::iteratorType::value >= salih::types::UniDirectionalIteratorTag::value>, typename U, typename = typename std::enable_if<std::is_same<U, typename T::innerType>::value>::type>
 	CONSTEXPRCXX14 inline bool linearSearch(const T&, const U&) ;
 
 	CONSTEXPRCXX14 inline bool linearSearch(...) = delete ;

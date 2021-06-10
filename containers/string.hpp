@@ -22,7 +22,7 @@ namespace containers {
 			using constPointerType = const char* ;                         
 			using referenceType = char& ;                             
 			using constReferenceType = const char& ;  
-			using iteratorType = salih::types::RandomAccessIterator ;
+			using iteratorType = salih::types::RandomAccessIteratorTag ;
 				
 		private:
 			char* str ;
@@ -202,7 +202,7 @@ namespace containers {
 					using constPointerType = const char* ;                         
 					using referenceType = char& ;                             
 					using constReferenceType = const char& ;  
-					using category = salih::types::RandomAccessIterator ;
+					using category = salih::types::RandomAccessIteratorTag ;
 					
 				private:
 					char* pointer;
@@ -302,7 +302,7 @@ namespace containers {
 					using constPointerType = const char* ;                         
 					using referenceType = char& ;                             
 					using constReferenceType = const char& ;  
-					using category = salih::types::RandomAccessIterator ;
+					using category = salih::types::RandomAccessIteratorTag ;
 					
 				private:
 					char const* pointer;

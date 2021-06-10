@@ -25,7 +25,7 @@ namespace containers {
 			using constPointerType = const T* ;                         
 			using referenceType = T& ;                             
 			using constReferenceType = const T& ;  
-			using iteratorType = salih::types::UniDirectionalIterator ;
+			using iteratorType = salih::types::UniDirectionalIteratorTag ;
 			
 		private:
 			SNode<T>* head ;	
@@ -165,7 +165,7 @@ namespace containers {
 					using constPointerType = const T* ;                         
 					using referenceType = T& ;                             
 					using constReferenceType = const T& ;  
-					using category = salih::types::UniDirectionalIterator ;
+					using category = salih::types::UniDirectionalIteratorTag ;
 					
 				private:
 					SNode<T>* pointer;
@@ -251,7 +251,7 @@ namespace containers {
 					using constPointerType = const T* ;                         
 					using referenceType = T& ;                             
 					using constReferenceType = const T& ;  
-					using category = salih::types::UniDirectionalIterator ;
+					using category = salih::types::UniDirectionalIteratorTag ;
 					
 				private:
 					SNode<T> const* pointer;
