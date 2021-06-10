@@ -3,22 +3,23 @@
 #pragma once
 
 #include <stdexcept>
+#include "../types/macros.hpp"
 
-inline _GLIBCXX20_CONSTEXPR salih::containers::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
+inline CONSTEXPRCXX20 salih::containers::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::String() : size(0)
+CONSTEXPRCXX20 salih::containers::String::String() : size(0)
 {
 	this->str = new char[1] ;
 	this->str[0] = '\0' ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::String(const std::size_t x) : size(x)
+CONSTEXPRCXX20 salih::containers::String::String(const std::size_t x) : size(x)
 {
 	this->str = new char[x+1] ;
 	this->str[x] = '\0' ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::String(const char* input)
+CONSTEXPRCXX20 salih::containers::String::String(const char* input)
 {
 	for(this->size = 0 ; input[this->size] != '\0'; this->size++) ;
 	this->str = new char[size + 1] ;
@@ -26,13 +27,13 @@ _GLIBCXX20_CONSTEXPR salih::containers::String::String(const char* input)
 	str[this->size] = '\0' ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::String(const salih::containers::String& tbc) : str(new char[tbc.size+1]), size(tbc.size)
+CONSTEXPRCXX20 salih::containers::String::String(const salih::containers::String& tbc) : str(new char[tbc.size+1]), size(tbc.size)
 {
 	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
 	this->str[this->size] = '\0' ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::operator=(const salih::containers::String& tbc)
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator=(const salih::containers::String& tbc)
 {
 	delete[] this->str ;
 	this->size = tbc.size ;
@@ -42,13 +43,13 @@ _GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::opera
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::String(salih::containers::String&& tbo) : str(tbo.str), size(tbo.size)
+CONSTEXPRCXX20 salih::containers::String::String(salih::containers::String&& tbo) : str(tbo.str), size(tbo.size)
 {
 	tbo.size = 0 ;
 	tbo.str = nullptr ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::operator=(salih::containers::String&& tbo)
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator=(salih::containers::String&& tbo)
 {
 	delete[] this->str ;
 	this->size = tbo.size ;
@@ -58,14 +59,14 @@ _GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::opera
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::~String()
+CONSTEXPRCXX20 salih::containers::String::~String()
 {
 	if(str == nullptr) return;
 	delete[] str ; //else
 	str = nullptr ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::operator=(const char* tbc)
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator=(const char* tbc)
 {
 	delete[] this->str ;
 	for(this->size = 0 ; tbc[this->size] != '\0'; this->size++) ;
@@ -75,7 +76,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::opera
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operator+(char c) const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator+(char c) const
 {
 	salih::containers::String tmp ;
 	delete[] tmp.str ;
@@ -87,7 +88,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operat
 	return tmp ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::operator+=(char c) 
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(char c) 
 {
 	this->size = this->size + 1 ;
 	char* tmp = new char[this->size+1] ;
@@ -100,7 +101,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::opera
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operator+(const salih::containers::String& tbm) const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator+(const salih::containers::String& tbm) const
 {
 	salih::containers::String tmp ; delete[] tmp.str ;
 	tmp.size = this->size + tbm.size ;
@@ -112,7 +113,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operat
 	return tmp ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::operator+=(const salih::containers::String& tbm)
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(const salih::containers::String& tbm)
 {
 	char* tmp = new char[this->size + tbm.size + 1] ;
 	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
@@ -125,7 +126,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::opera
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operator+(const char* tbm) const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator+(const char* tbm) const
 {
 	std::size_t tmpSize = 0 ;
 	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
@@ -139,7 +140,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operat
 	return salih::containers::String(tmpStr, tmpSize) ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::operator+=(const char* tbm)
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(const char* tbm)
 {
 	std::size_t tmpSize ;
 	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
@@ -155,7 +156,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::opera
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operator*(std::size_t x) const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator*(std::size_t x) const
 {
 	char* tmpStr = new char[(this->size * x) + 1] ;
 	for(std::size_t i = 0 ; i < x ; i++)
@@ -169,7 +170,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operat
 	return salih::containers::String(tmpStr, this->size * x) ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::operator*=(std::size_t x)
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator*=(std::size_t x)
 {
 	char* tmpStr = new char[(this->size * x) + 1] ;
 	for(std::size_t i = 0 ; i < x ; i++)
@@ -186,7 +187,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String& salih::containers::String::opera
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::operator==(const char* str) const
+CONSTEXPRCXX20 bool salih::containers::String::operator==(const char* str) const
 {
 	std::size_t i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
@@ -201,7 +202,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::operator==(const char* str)
 	return true ;
 }
 			
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::operator!=(const char* str) const
+CONSTEXPRCXX20 bool salih::containers::String::operator!=(const char* str) const
 {
 	std::size_t i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
@@ -216,7 +217,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::operator!=(const char* str)
 	return false ;
 }
 			
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::operator==(const salih::containers::String& str) const
+CONSTEXPRCXX20 bool salih::containers::String::operator==(const salih::containers::String& str) const
 {
 	if(this->size != str.size) return false ;
 	
@@ -228,7 +229,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::operator==(const salih::con
 	return true ;
 }
 			
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::operator!=(const salih::containers::String& str) const
+CONSTEXPRCXX20 bool salih::containers::String::operator!=(const salih::containers::String& str) const
 {
 	if(this->size != str.size) return true ;
 	
@@ -240,17 +241,17 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::operator!=(const salih::con
 	return false ;
 }
 
-_GLIBCXX20_CONSTEXPR const char* salih::containers::String::get() const
+CONSTEXPRCXX20 const char* salih::containers::String::get() const
 {
 	return this->str ;
 }
 
-_GLIBCXX20_CONSTEXPR std::size_t salih::containers::String::getSize() const
+CONSTEXPRCXX20 std::size_t salih::containers::String::getSize() const
 {
 	return this->size ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operator()(const std::size_t a, const std::size_t b) const 
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator()(const std::size_t a, const std::size_t b) const 
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	salih::containers::String tmp ;
@@ -258,17 +259,17 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::operat
 	return tmp ;
 }
 
-_GLIBCXX20_CONSTEXPR char& salih::containers::String::operator[](const std::size_t index)
+CONSTEXPRCXX20 char& salih::containers::String::operator[](const std::size_t index)
 {
 	return this->str[index] ;
 }
 
-_GLIBCXX20_CONSTEXPR const char& salih::containers::String::operator[](const std::size_t index) const
+CONSTEXPRCXX20 const char& salih::containers::String::operator[](const std::size_t index) const
 {
 	return this->str[index] ;
 }
 			
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::capitalise() const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::capitalise() const
 {
 	salih::containers::String tmp(*this) ;
 	
@@ -287,7 +288,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::capita
 	return tmp ;
 }
 			
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::upper() const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::upper() const
 {
 	salih::containers::String tmp(*this) ;
 		
@@ -302,7 +303,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::upper(
 	return tmp ;
 }
 			
-_GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::lower() const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::lower() const
 {
 	salih::containers::String tmp(*this) ;
 		
@@ -317,7 +318,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::String salih::containers::String::lower(
 	return tmp ;
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::isAlphaNum() const
+CONSTEXPRCXX20 bool salih::containers::String::isAlphaNum() const
 {
 	if(this->size == 0) return false ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -331,7 +332,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::isAlphaNum() const
 	return true ;
 }
 			
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::isAlpha() const
+CONSTEXPRCXX20 bool salih::containers::String::isAlpha() const
 {
 	if(this->size == 0) return false ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -344,7 +345,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::isAlpha() const
 	return true ;
 }
 			
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::isNum() const
+CONSTEXPRCXX20 bool salih::containers::String::isNum() const
 {
 	if(this->size == 0) return false ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -354,7 +355,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::isNum() const
 	return true ;
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::isUpper() const
+CONSTEXPRCXX20 bool salih::containers::String::isUpper() const
 {
 	if(this->size == 0) return false ;
 	
@@ -365,7 +366,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::isUpper() const
 	return true ;
 }
 			
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::isLower() const
+CONSTEXPRCXX20 bool salih::containers::String::isLower() const
 {
 	if(this->size == 0) return false ;
 	
@@ -376,7 +377,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::isLower() const
 	return true ;
 }
 			
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::isCapitalised() const
+CONSTEXPRCXX20 bool salih::containers::String::isCapitalised() const
 {
 	if(this->size == 0) return false ;
 	
@@ -390,158 +391,158 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::String::isCapitalised() const
 	return true ;
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::Iterator::Iterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::String::Iterator::Iterator() : pointer(nullptr) {} ;
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::Iterator::Iterator(char* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::String::Iterator::Iterator(char* input) : pointer(input) {} ;
 
-_GLIBCXX20_CONSTEXPR char& salih::containers::String::Iterator::operator*() const
+CONSTEXPRCXX20 char& salih::containers::String::Iterator::operator*() const
 {
 	return *this->pointer ; 
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::Iterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator+(const std::size_t x) const
 {
 	return salih::containers::String::Iterator(this->pointer + x) ; 
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator+=(const std::size_t x)
 {
 	this->pointer += x ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator++()
 {
 	this->pointer += 1 ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::Iterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator++(const int)
 {
 	return salih::containers::String::Iterator(this->pointer++) ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::Iterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator-(const std::size_t x) const
 {
 	return salih::containers::String::Iterator(this->pointer - x) ; 
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator-=(const std::size_t x)
 {
 	this->pointer -= x ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator--()
+CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator--()
 {
 	this->pointer -= 1 ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::Iterator::operator--(const int)
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator--(const int)
 {
 	return salih::containers::String::Iterator(this->pointer--) ;
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::Iterator::operator==(const salih::containers::String::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::String::Iterator::operator==(const salih::containers::String::Iterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::Iterator::operator!=(const salih::containers::String::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::String::Iterator::operator!=(const salih::containers::String::Iterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::String::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
 
-_GLIBCXX20_CONSTEXPR salih::containers::String::ConstIterator::ConstIterator(char const* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::String::ConstIterator::ConstIterator(char const* input) : pointer(input) {} ;
 
-_GLIBCXX20_CONSTEXPR const char& salih::containers::String::ConstIterator::operator*() const
+CONSTEXPRCXX20 const char& salih::containers::String::ConstIterator::operator*() const
 {
 	return *this->pointer ; 
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator+(const std::size_t x) const
 {
 	return salih::containers::String::ConstIterator(this->pointer + x) ; 
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator+=(const std::size_t x)
 {
 	this->pointer += x ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator++()
 {
 	this->pointer += 1 ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator++(const int)
 {
 	return salih::containers::String::ConstIterator(this->pointer++) ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator-(const std::size_t x) const
 {
 	return salih::containers::String::ConstIterator(this->pointer - x) ; 
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator-=(const std::size_t x)
 {
 	this->pointer -= x ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator--()
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator--()
 {
 	this->pointer -= 1 ;
 	return *this ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator--(const int)
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator--(const int)
 {
 	return salih::containers::String::ConstIterator(this->pointer--) ;
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::ConstIterator::operator==(const salih::containers::String::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::String::ConstIterator::operator==(const salih::containers::String::ConstIterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
-_GLIBCXX20_CONSTEXPR bool salih::containers::String::ConstIterator::operator!=(const salih::containers::String::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::String::ConstIterator::operator!=(const salih::containers::String::ConstIterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::begin()
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::begin()
 {
 	return salih::containers::String::Iterator(this->str) ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::end()
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::end()
 {
 	return salih::containers::String::Iterator(this->str + this->size) ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::begin() const 
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::begin() const 
 {
 	return salih::containers::String::ConstIterator(this->str) ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::end() const
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::end() const
 {
 	return salih::containers::String::ConstIterator (this->str + this->size) ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::cbegin() const 
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::cbegin() const 
 {
 	return salih::containers::String::ConstIterator(this->str) ;
 }
 
-_GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::cend() const
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::cend() const
 {
 	return salih::containers::String::ConstIterator(this->str + this->size) ;
 }

@@ -4,19 +4,20 @@
 
 #include <algorithm>
 #include <stdexcept>
+#include "../types/macros.hpp"
 #include <initializer_list>
 
 /* This file contains the declarations and implementations of a array-based (child) contiguous structure 
  * It is located in the Salih, Structures, Contiguous namespaces */
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Vector() : pointer(new T[0]), size(0) {} ;
+CONSTEXPRCXX20 salih::containers::Vector<T>::Vector() : pointer(new T[0]), size(0) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Vector(const std::size_t SIZE) : pointer(new T[SIZE]), size(SIZE) {} ;
+CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(const std::size_t SIZE) : pointer(new T[SIZE]), size(SIZE) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Vector(const std::initializer_list<T>& values) : pointer(new T[values.size()]), size(values.size())
+CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(const std::initializer_list<T>& values) : pointer(new T[values.size()]), size(values.size())
 {
 	std::size_t i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
@@ -27,7 +28,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Vector(const std::initializer
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>::operator=(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(this->pointer != nullptr) delete[] this->pointer ;
 	this->size = values.size() ;
@@ -42,7 +43,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>:
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Vector(const Vector<T>& list) : pointer(new T[list.size]),  size(list.size)
+CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(const Vector<T>& list) : pointer(new T[list.size]),  size(list.size)
 {
 	for(std::size_t i = 0 ; i < list.size ; i++)
 	{
@@ -51,7 +52,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Vector(const Vector<T>& list)
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>::operator=(const Vector<T>& list)
+CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::operator=(const Vector<T>& list)
 {
 	if(this->pointer != nullptr) delete[] this->pointer ;
 	this->size = list.size ;
@@ -64,14 +65,14 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>:
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Vector(Vector<T>&& list) : pointer(list.pointer), size(list.size)
+CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(Vector<T>&& list) : pointer(list.pointer), size(list.size)
 {
 	list.pointer = nullptr ;
 	list.size = 0 ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>::operator=(Vector<T>&& list)
+CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::operator=(Vector<T>&& list)
 {
 	if(this->pointer != nullptr) delete[] this->pointer ;
 	this->pointer = list.pointer ;
@@ -82,7 +83,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>:
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::append(T data)
+CONSTEXPRCXX20 void salih::containers::Vector<T>::append(T data)
 {
 	T* newPointer = new T[this->size+1] ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -96,7 +97,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::append(T data)
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::append(const std::initializer_list<T>& data)
+CONSTEXPRCXX20 void salih::containers::Vector<T>::append(const std::initializer_list<T>& data)
 {
 	T* newPointer = new T[this->size+data.size()] ;
 	for(std::size_t i = 0 ; i < this->size ; i++)
@@ -115,7 +116,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::append(const std::initia
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::clear()
+CONSTEXPRCXX20 void salih::containers::Vector<T>::clear()
 {
 	delete[] this->pointer ;
 	this->pointer = new T[0] ;
@@ -123,7 +124,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::clear()
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::insert(const std::size_t pos, T data)
+CONSTEXPRCXX20 void salih::containers::Vector<T>::insert(const std::size_t pos, T data)
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
@@ -147,7 +148,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::insert(const std::size_t
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::del(const std::size_t pos)
+CONSTEXPRCXX20 void salih::containers::Vector<T>::del(const std::size_t pos)
 {
 	if(pos == 0 || pos > this->size) throw std::out_of_range("Index does not exist") ;	
 	T* ptr = new T[this->size-1] ;
@@ -169,25 +170,25 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Vector<T>::del(const std::size_t po
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::~Vector()
+CONSTEXPRCXX20 salih::containers::Vector<T>::~Vector()
 {
 	if(this->pointer != nullptr) delete[] this->pointer ;
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR T* salih::containers::Vector<T>::get() const
+CONSTEXPRCXX20 T* salih::containers::Vector<T>::get() const
 {
 	return this->pointer ;
 }	
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR std::size_t salih::containers::Vector<T>::getSize() const
+CONSTEXPRCXX20 std::size_t salih::containers::Vector<T>::getSize() const
 {
 	return this->size ;
 }	
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T> salih::containers::Vector<T>::operator()(const std::size_t a, const std::size_t b) const
+CONSTEXPRCXX20 salih::containers::Vector<T> salih::containers::Vector<T>::operator()(const std::size_t a, const std::size_t b) const
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	salih::containers::Vector<T> tmp(b-a) ;
@@ -196,33 +197,33 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T> salih::containers::Vector<T>::
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR T& salih::containers::Vector<T>::operator[](const std::size_t x)
+CONSTEXPRCXX20 T& salih::containers::Vector<T>::operator[](const std::size_t x)
 {
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR const T& salih::containers::Vector<T>::operator[](const std::size_t x) const
+CONSTEXPRCXX20 const T& salih::containers::Vector<T>::operator[](const std::size_t x) const
 {
 	return this->pointer[x] ;	
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR T& salih::containers::Vector<T>::at(const std::size_t x)
+CONSTEXPRCXX20 T& salih::containers::Vector<T>::at(const std::size_t x)
 {
 	if(x >= this->size) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR const T& salih::containers::Vector<T>::at(const std::size_t x) const
+CONSTEXPRCXX20 const T& salih::containers::Vector<T>::at(const std::size_t x) const
 {
 	if(x >= this->size) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T> salih::containers::Vector<T>::operator+(const salih::containers::Vector<T>& vec) const
+CONSTEXPRCXX20 salih::containers::Vector<T> salih::containers::Vector<T>::operator+(const salih::containers::Vector<T>& vec) const
 {
 	Vector<T> tmp(this->size + vec.size) ;
 	
@@ -233,7 +234,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T> salih::containers::Vector<T>::
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>::operator+=(const salih::containers::Vector<T>& vec)
+CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::operator+=(const salih::containers::Vector<T>& vec)
 {
 	T* tmp = new T[this->size + vec.size] ;
 	
@@ -248,7 +249,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Vector<T>& salih::containers::Vector<T>:
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator==(const salih::containers::Vector<T>& b) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator==(const salih::containers::Vector<T>& b) const
 {
 	if(this->size != b.size) return false ;
 	
@@ -262,7 +263,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator==(const salih::
 
 template<typename T>
 template<typename OTHER>		
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator==(const salih::containers::Vector<OTHER>& b) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator==(const salih::containers::Vector<OTHER>& b) const
 {
 	if(this->size != b.size) return false ;
 	
@@ -275,7 +276,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator==(const salih::
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator!=(const salih::containers::Vector<T>& b) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator!=(const salih::containers::Vector<T>& b) const
 {
 	if(this->size != b.size) return true ;
 	
@@ -289,7 +290,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator!=(const salih::
 
 template<typename T>
 template<typename OTHER>				
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator!=(const salih::containers::Vector<OTHER>& b) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator!=(const salih::containers::Vector<OTHER>& b) const
 {
 	if(this->size == b.size) return true ;
 	
@@ -302,201 +303,201 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::operator!=(const salih::
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Iterator::Iterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::Vector<T>::Iterator::Iterator() : pointer(nullptr) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::Iterator::Iterator(T* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::Vector<T>::Iterator::Iterator(T* input) : pointer(input) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR T& salih::containers::Vector<T>::Iterator::operator*() const
+CONSTEXPRCXX20 T& salih::containers::Vector<T>::Iterator::operator*() const
 {
 	return *this->pointer ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR T* salih::containers::Vector<T>::Iterator::operator->() const
+CONSTEXPRCXX20 T* salih::containers::Vector<T>::Iterator::operator->() const
 {
 	return this->pointer ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator+(const std::size_t x) const
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer + x) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator+=(const std::size_t x)
 {
 	this->pointer += x ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator++()
 {
 	this->pointer += 1 ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator++(const int)
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer++) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator-(const std::size_t x) const
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer - x) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator-=(const std::size_t x)
 {
 	this->pointer -= x ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator--()
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator--()
 {
 	this->pointer -= 1 ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator--(const int)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator--(const int)
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer--) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::Iterator::operator==(const salih::containers::Vector<T>::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::Iterator::operator==(const salih::containers::Vector<T>::Iterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::Iterator::operator!=(const salih::containers::Vector<T>::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::Iterator::operator!=(const salih::containers::Vector<T>::Iterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::Vector<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::Vector<T>::ConstIterator::ConstIterator(T const* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::Vector<T>::ConstIterator::ConstIterator(T const* input) : pointer(input) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR const T& salih::containers::Vector<T>::ConstIterator::operator*() const
+CONSTEXPRCXX20 const T& salih::containers::Vector<T>::ConstIterator::operator*() const
 {
 	return *this->pointer ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR const T* salih::containers::Vector<T>::ConstIterator::operator->() const
+CONSTEXPRCXX20 const T* salih::containers::Vector<T>::ConstIterator::operator->() const
 {
 	return this->pointer ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator+(const std::size_t x) const
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer + x) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator+=(const std::size_t x)
 {
 	this->pointer += x ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator++()
 {
 	this->pointer += 1 ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator++(const int)
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer++) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator-(const std::size_t x) const
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer - x) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator-=(const std::size_t x)
 {
 	this->pointer -= x ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator--()
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator--()
 {
 	this->pointer -= 1 ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator--(const int)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator--(const int)
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer--) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::ConstIterator::operator==(const salih::containers::Vector<T>::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::ConstIterator::operator==(const salih::containers::Vector<T>::ConstIterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::Vector<T>::ConstIterator::operator!=(const salih::containers::Vector<T>::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::Vector<T>::ConstIterator::operator!=(const salih::containers::Vector<T>::ConstIterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::begin()
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::begin()
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::end()
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::end()
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer + this->size) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::begin() const 
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::begin() const 
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::end() const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::end() const
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer + this->size) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::cbegin() const 
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::cbegin() const 
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::cend() const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::cend() const
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer + this->size) ;
 }
