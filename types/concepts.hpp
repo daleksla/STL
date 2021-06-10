@@ -52,6 +52,11 @@ namespace types {
 		a < a ;
 		a <= a ;	
 	} ;
+	
+	template<typename T>
+	concept Indexable = requires(T a) {
+		a[0] ;
+	} ;
 
 }
 }
