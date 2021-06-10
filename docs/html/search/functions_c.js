@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['queue_157',['Queue',['../classsalih_1_1containers_1_1Queue.html#acab725235cc235f1fc9422077926a97a',1,'salih::containers::Queue::Queue()'],['../classsalih_1_1containers_1_1Queue.html#aba01c3174839105819130a2c6edd7715',1,'salih::containers::Queue::Queue(const std::initializer_list&lt; T &gt; &amp;)'],['../classsalih_1_1containers_1_1Queue.html#aae19631114020bc2f3734e6a0d954d8f',1,'salih::containers::Queue::Queue(const Queue&lt; T &gt; &amp;)'],['../classsalih_1_1containers_1_1Queue.html#aca382c81535c9f59d70e64b007dc4d26',1,'salih::containers::Queue::Queue(Queue&lt; T &gt; &amp;&amp;)']]],
-  ['quicksort_158',['quickSort',['../namespacesalih_1_1algorithms.html#a77d6741159cd1f4157b760f27e612b0b',1,'salih::algorithms']]]
+  ['queue_163',['Queue',['../classsalih_1_1containers_1_1Queue.html#a08bd7d1c6605c7cd10ffd3ee5b2c5472',1,'salih::containers::Queue::Queue()'],['../classsalih_1_1containers_1_1Queue.html#aa0c79e505157300ff31e56e736dab20b',1,'salih::containers::Queue::Queue(const std::initializer_list&lt; T &gt; &amp;)'],['../classsalih_1_1containers_1_1Queue.html#aa72e868a6846f49c09749b9d268d34cb',1,'salih::containers::Queue::Queue(const Queue&lt; T &gt; &amp;)'],['../classsalih_1_1containers_1_1Queue.html#a6e18ab14270dc55359a8d5a4e2752407',1,'salih::containers::Queue::Queue(Queue&lt; T &gt; &amp;&amp;)']]],
+  ['quicksort_164',['quickSort',['../namespacesalih_1_1algorithms.html#a15a3d6db9d439f13c191f67a8116b541',1,'salih::algorithms']]]
 ];

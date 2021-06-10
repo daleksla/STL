@@ -75,77 +75,78 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;d-node.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih.html">salih</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>containers {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1Queue.html">   18</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            salih::containers::DNode&lt;T&gt;* head ;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            salih::containers::DNode&lt;T&gt;* tail ;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            std::size_t size ;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>() ;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp;) ;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#aee8689a7c4bfe4c3f08c34f26575c8a4">operator=</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp;) ;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) ;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#aee8689a7c4bfe4c3f08c34f26575c8a4">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) ;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>(<a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;&amp;) ;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#aee8689a7c4bfe4c3f08c34f26575c8a4">operator=</a>(<a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;&amp;) ;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#ad372b977e5e5d0524e7f285090e2bb38">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a39bb2e2c5144fcfc8bba20edfab51f70">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> OTHER&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#ad372b977e5e5d0524e7f285090e2bb38">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;OTHER&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> OTHER&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a39bb2e2c5144fcfc8bba20edfab51f70">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;OTHER&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1Queue.html#ad7190c841bf0fef125fb78a82827af59">~Queue</a>() ;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            _GLIBCXX20_CONSTEXPR T <a class="code" href="classsalih_1_1containers_1_1Queue.html#ab9471ce9de9f59793db967f7436515ca">pop</a>() ;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keyword">const</span> T&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#a8f528990d1a80cac9ab506072a0ff6bc">peek</a>() <span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keywordtype">void</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a4ff448b45e9efd1c3c6f3e7364ee2b9a">push</a>(T) ;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keywordtype">void</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a4ff448b45e9efd1c3c6f3e7364ee2b9a">push</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp;) ;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            _GLIBCXX20_CONSTEXPR std::size_t <a class="code" href="classsalih_1_1containers_1_1Queue.html#a96a03bb5192764c22fd4aa9066ce9168">getSize</a>() ;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> OTHER&gt;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a> ;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    } ;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../types/macros.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih.html">salih</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>containers {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1Queue.html">   19</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            salih::containers::DNode&lt;T&gt;* head ;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            salih::containers::DNode&lt;T&gt;* tail ;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            std::size_t size ;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>() ;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp;) ;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#ae2cfc6e576fb4d308cd8ce261b6555a8">operator=</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp;) ;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) ;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#ae2cfc6e576fb4d308cd8ce261b6555a8">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) ;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>(<a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;&amp;) ;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a>&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#ae2cfc6e576fb4d308cd8ce261b6555a8">operator=</a>(<a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;&amp;) ;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            CONSTEXPRCXX20 <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a425729ed1232ed4825b9314e7697552d">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            CONSTEXPRCXX20 <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a9dcc182eb2a6434b5fa8288c57ba5c3e">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;T&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> OTHER&gt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            CONSTEXPRCXX20 <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a425729ed1232ed4825b9314e7697552d">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;OTHER&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> OTHER&gt;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            CONSTEXPRCXX20 <span class="keywordtype">bool</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a9dcc182eb2a6434b5fa8288c57ba5c3e">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue&lt;OTHER&gt;</a>&amp;) <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            CONSTEXPRCXX20 <a class="code" href="classsalih_1_1containers_1_1Queue.html#ab3b7cf85820717877148e60950dd8866">~Queue</a>() ;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            CONSTEXPRCXX20 T <a class="code" href="classsalih_1_1containers_1_1Queue.html#a983c5681bbfa9d81de523f24511e76a1">pop</a>() ;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            CONSTEXPRCXX20 <span class="keyword">const</span> T&amp; <a class="code" href="classsalih_1_1containers_1_1Queue.html#a660978aad306c7d03cd5d7181aad9c1a">peek</a>() <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            CONSTEXPRCXX20 <span class="keywordtype">void</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a6e7026361d2b4d81c2f9a736205e48a5">push</a>(T) ;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            CONSTEXPRCXX20 <span class="keywordtype">void</span> <a class="code" href="classsalih_1_1containers_1_1Queue.html#a6e7026361d2b4d81c2f9a736205e48a5">push</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp;) ;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            CONSTEXPRCXX20 std::size_t <a class="code" href="classsalih_1_1containers_1_1Queue.html#ab4447936e1b2eb6b933f411e810ec941">getSize</a>() ;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> OTHER&gt;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1Queue.html">Queue</a> ;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    } ;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#include &quot;queue.tpp&quot;</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#include &quot;queue.tpp&quot;</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html">salih::containers::Queue</a></div><div class="ttdef"><b>Definition:</b> queue.hpp:18</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_ad372b977e5e5d0524e7f285090e2bb38"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#ad372b977e5e5d0524e7f285090e2bb38">salih::containers::Queue::operator==</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR bool operator==(const Queue&lt; T &gt; &amp;) const</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a39bb2e2c5144fcfc8bba20edfab51f70"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a39bb2e2c5144fcfc8bba20edfab51f70">salih::containers::Queue::operator!=</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR bool operator!=(const Queue&lt; T &gt; &amp;) const</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a4ff448b45e9efd1c3c6f3e7364ee2b9a"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a4ff448b45e9efd1c3c6f3e7364ee2b9a">salih::containers::Queue::push</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR void push(T)</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_ab9471ce9de9f59793db967f7436515ca"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#ab9471ce9de9f59793db967f7436515ca">salih::containers::Queue::pop</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR T pop()</div></div>
-<div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Functionality relating to data manipulation of some sort.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:11</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_ad7190c841bf0fef125fb78a82827af59"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#ad7190c841bf0fef125fb78a82827af59">salih::containers::Queue::~Queue</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR ~Queue()</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a96a03bb5192764c22fd4aa9066ce9168"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a96a03bb5192764c22fd4aa9066ce9168">salih::containers::Queue::getSize</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR std::size_t getSize()</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a8f528990d1a80cac9ab506072a0ff6bc"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a8f528990d1a80cac9ab506072a0ff6bc">salih::containers::Queue::peek</a></div><div class="ttdeci">const _GLIBCXX20_CONSTEXPR T &amp; peek() const</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_aee8689a7c4bfe4c3f08c34f26575c8a4"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#aee8689a7c4bfe4c3f08c34f26575c8a4">salih::containers::Queue::operator=</a></div><div class="ttdeci">_GLIBCXX20_CONSTEXPR Queue &amp; operator=(const std::initializer_list&lt; T &gt; &amp;)</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_ab4447936e1b2eb6b933f411e810ec941"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#ab4447936e1b2eb6b933f411e810ec941">salih::containers::Queue::getSize</a></div><div class="ttdeci">CONSTEXPRCXX20 std::size_t getSize()</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a9dcc182eb2a6434b5fa8288c57ba5c3e"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a9dcc182eb2a6434b5fa8288c57ba5c3e">salih::containers::Queue::operator!=</a></div><div class="ttdeci">CONSTEXPRCXX20 bool operator!=(const Queue&lt; T &gt; &amp;) const</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a6e7026361d2b4d81c2f9a736205e48a5"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a6e7026361d2b4d81c2f9a736205e48a5">salih::containers::Queue::push</a></div><div class="ttdeci">CONSTEXPRCXX20 void push(T)</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html">salih::containers::Queue</a></div><div class="ttdef"><b>Definition:</b> queue.hpp:19</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_ae2cfc6e576fb4d308cd8ce261b6555a8"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#ae2cfc6e576fb4d308cd8ce261b6555a8">salih::containers::Queue::operator=</a></div><div class="ttdeci">CONSTEXPRCXX20 Queue &amp; operator=(const std::initializer_list&lt; T &gt; &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Functionality relating to data manipulation of some sort.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:13</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_ab3b7cf85820717877148e60950dd8866"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#ab3b7cf85820717877148e60950dd8866">salih::containers::Queue::~Queue</a></div><div class="ttdeci">CONSTEXPRCXX20 ~Queue()</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a983c5681bbfa9d81de523f24511e76a1"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a983c5681bbfa9d81de523f24511e76a1">salih::containers::Queue::pop</a></div><div class="ttdeci">CONSTEXPRCXX20 T pop()</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a660978aad306c7d03cd5d7181aad9c1a"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a660978aad306c7d03cd5d7181aad9c1a">salih::containers::Queue::peek</a></div><div class="ttdeci">const CONSTEXPRCXX20 T &amp; peek() const</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Queue_html_a425729ed1232ed4825b9314e7697552d"><div class="ttname"><a href="classsalih_1_1containers_1_1Queue.html#a425729ed1232ed4825b9314e7697552d">salih::containers::Queue::operator==</a></div><div class="ttdeci">CONSTEXPRCXX20 bool operator==(const Queue&lt; T &gt; &amp;) const</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
