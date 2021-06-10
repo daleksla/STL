@@ -21,6 +21,8 @@ namespace containers {
 			T pointer[SIZE] ;
 			
 		public:
+			using inner = T ;
+		
 			/** Empty constructor, intialises empty array 
 			@return <initialised-object> **/
 			//Array() = default ;

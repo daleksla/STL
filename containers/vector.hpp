@@ -25,6 +25,8 @@ namespace containers {
 			std::size_t size ;
 		
 		public:
+			using inner = T ;
+		
 			/** Empty constructor, intialises empty vector 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 Vector() ;

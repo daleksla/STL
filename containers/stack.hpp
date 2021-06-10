@@ -23,6 +23,8 @@ namespace containers {
 			
 			std::size_t size ;
 		public:
+			using inner = T ;
+		
 			/** Empty constructor, intialises empty stack 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 Stack() ;

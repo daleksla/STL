@@ -33,6 +33,8 @@ namespace containers {
 			CONSTEXPRCXX20 inline void insert(DNode<T>*, T) ;
 			
 		public:
+			using inner = T ;
+		
 			/** Empty constructor, intialises empty list 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 List() ; //empty linkedlist (ie no nodes)

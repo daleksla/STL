@@ -25,6 +25,8 @@ namespace containers {
 			inline CONSTEXPRCXX20 String(char*, const std::size_t) ;
 				
 		public:
+			using inner = char ;
+		
 			/** Empty constructor, intialises empty string 
 			@return <initialised-object> **/
 			CONSTEXPRCXX20 String() ;
