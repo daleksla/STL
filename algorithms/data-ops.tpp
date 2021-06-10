@@ -3,6 +3,7 @@
 #pragma once
 
 #include "../types/macros.hpp"
+#include "../types/iterators.hpp"
 
 template<typename U>
 CONSTEXPRCXX14 inline void salih::algorithms::swap(U& x, U& y)
@@ -10,6 +11,21 @@ CONSTEXPRCXX14 inline void salih::algorithms::swap(U& x, U& y)
 	U buffer = y ; // store the value of the 'x' to be (aka the current 'y')
 	y = x ; // we can just directly assign x to y
 	x = buffer ;
+}
+
+template<typename T, typename F, typename U>
+CONSTEXPRCXX14 std::size_t salih::algorithms::tally(const T& begin, const T& end, const U& target)
+{
+	std::size_t tally = 0 ;
+	for(auto it = begin ; it != end ; ++it) if(*it == target) ++tally ;
+	return tally ;
+}
+
+template<typename T, typename F, typename U>
+CONSTEXPRCXX14 inline std::size_t salih::algorithms::tally(const T& list, const U& target)
+{
+	if(list.getSize() == 0) return 0 ;
+	return salih::algorithms::tally(list.cbegin(), list.cend(), target) ;
 }
 
 #endif
