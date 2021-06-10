@@ -5,9 +5,6 @@
 #include "d-node.hpp"
 #include <stdexcept>
 #include <initializer_list>
-
-/* This file contains the implementations of a linked list
- * It is located in the nested Salih, Structures, LinkedLists namespaces */
  
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::List<T>::List() : head(nullptr), tail(nullptr), size(0) {} ;

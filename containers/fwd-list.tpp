@@ -5,70 +5,59 @@
 #include <stdexcept>
 #include "s-node.hpp"
 #include <initializer_list>
-
-/* This file contains the implementations of a linked list
- * It is located in the nested Salih, Structures, LinkedLists namespaces */
  
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList() : head(nullptr), size(0) {} ;
 
 template <typename T>
+_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::size_t x)
+{
+	this->size = x ;
+	if(x)
+	{
+		this->head = new SNode<T>(T()) ;
+		salih::containers::SNode<T>* p = this->head ;
+		for(std::size_t i = 1 ; i < x ; ++i)
+		{
+			p = new SNode<T>(T(), p) ;
+		}
+	}
+	else {
+		this->head = nullptr ;
+	}	
+}
+
+template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::initializer_list<T>& values)
 {
-	this->setSize(values.size()) ;
-	salih::containers::SNode<T>* p = nullptr ;
-	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
+	this->size = values.size() ;
+	this->head = new SNode<T>(*std::begin(values)) ;
+	salih::containers::SNode<T>* p = this->head ;
+	for(auto it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))
 	{
-		if(it == std::begin(values)) 
-		{
-			this->head = new SNode<T>(*it) ;
-			p = this->head ;	
-		} else {
-			p = new SNode<T>(*it, p) ;
-		}
+		p = new SNode<T>(*it, p) ;
 	}
 }
 
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(const std::initializer_list<T>& values)
 {
-	if(this->head != nullptr)
-	{
-		for(SNode<T>* node = head ; ;)
-		{
-			SNode<T>* mem = node->getNext() ;
-			delete node ;
-			if(mem == nullptr) break ;
-			node = mem ;
-		}
-	}
+	this->clear() ;
 	 
-	this->setSize(values.size()) ;	
-	if(this->size == 0) 
+	this->size = values.size() ;
+	this->head = new SNode<T>(*std::begin(values)) ;
+	salih::containers::SNode<T>* p = this->head ;
+	for(auto it = std::next(std::begin(values)) ; it != std::end(values) ; it = std::next(it))
 	{
-		this->head = nullptr ; 
-		return *this ;
+		p = new SNode<T>(*it, p) ;
 	}
-	
-	SNode<T>* tmp = nullptr ;
-	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
-	{
-		if(it == std::begin(values))
-		{
-			this->head = new SNode<T>(*it) ;
-			tmp = this->head ;
-		}
-		else {
-			tmp = new SNode<T>(*it, tmp) ;
-		}
-	} 
 	return *this ;
 }
 
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const salih::containers::FwdList<T>& list)
 {
-	this->setSize(list.size) ;
+	this->size = list.size ;
 
 	if(this->size == 0) 
 	{
@@ -76,19 +65,14 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const salih::contain
 		return ;
 	}
 
-	SNode<T>* listCounter = list.head ;
-	SNode<T>* thisCounter = nullptr ;
+	SNode<T> const* listCounter = list.head ;
+	SNode<T>* thisCounter = new SNode<T>(listCounter->data) ;
+	this->head = thisCounter ;
+	listCounter = listCounter->getNext() ;
 	
 	while(listCounter)
 	{
-		if(listCounter == list.head) 
-		{
-			this->head = new SNode<T>(listCounter->data) ;
-			thisCounter = this->head ;
-		}
-		else {
-			thisCounter = new SNode<T>(listCounter->data, thisCounter) ;
-		}
+		thisCounter = new SNode<T>(listCounter->data, thisCounter) ;
 		listCounter = listCounter->getNext() ;
 	}
 }
@@ -96,18 +80,9 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const salih::contain
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(const salih::containers::FwdList<T>& list)
 {
-	if(this->head != nullptr)
-	{
-		for(SNode<T>* node = head ; ;)
-		{
-			SNode<T>* mem = node->getNext() ;
-			delete node ;
-			if(mem == nullptr) break ;
-			node = mem ;
-		}
-	} 
+	this->clear() ;
 	
-	this->setSize(list.size) ;
+	this->size = list.size ;
 
 	if(this->size == 0) 
 	{
@@ -115,19 +90,14 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T
 		return *this ;
 	}
 
-	SNode<T>* listCounter = list.head ;
-	SNode<T>* thisCounter = nullptr ;
+	SNode<T> const* listCounter = list.head ;
+	SNode<T>* thisCounter = new SNode<T>(listCounter->data) ;
+	this->head = thisCounter ;
+	listCounter = listCounter->getNext() ;
 	
 	while(listCounter)
 	{
-		if(listCounter == list.head) 
-		{
-			this->head = new SNode<T>(listCounter->data) ;
-			thisCounter = this->head ;
-		}
-		else {
-			thisCounter = new SNode<T>(listCounter->data, thisCounter) ;
-		}
+		thisCounter = new SNode<T>(listCounter->data, thisCounter) ;
 		listCounter = listCounter->getNext() ;
 	}
 	
@@ -138,7 +108,7 @@ template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(salih::containers::FwdList<T>&& list)
 {
 	this->head = list.head ;
-	this->setSize(list.size) ;
+	this->size = list.size ;
 	list.head = nullptr ;
 	list.size = 0 ;
 }
@@ -146,18 +116,10 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(salih::containers::F
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(salih::containers::FwdList<T>&& list)
 {
-	if(head != nullptr)
-	{
-		for(SNode<T>* node = head ; ;)
-		{
-			SNode<T>* mem = node->getNext() ;
-			delete node ;
-			if(mem == nullptr) break ;
-			node = mem ;
-		}
-	} 	
+	this->clear() ;
+
 	this->head = list.head ;
-	this->setSize(list.size) ;
+	this->size = list.size ;
 	list.head = nullptr ;
 	list.size = 0 ;
 	return *this ;
@@ -166,17 +128,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::~FwdList()
 {
-	if(head != nullptr)
-	{
-		for(SNode<T>* node = head ; ;)
-		{
-			SNode<T>* mem = node->getNext() ;
-			delete node ;
-			if(mem == nullptr) break ;
-			node = mem ;
-		}
-	} 
-	this->head = nullptr ;
+	this->clear() ;
 }
 
 template<typename T>		
@@ -233,7 +185,7 @@ _GLIBCXX20_CONSTEXPR T& salih::containers::FwdList<T>::at(const std::size_t inde
 	while(count != index)
 	{
 		node = node->getNext() ;
-		count++ ;
+		++count ;
 	}
 	return node->data ;
 }
@@ -381,13 +333,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::insert(const std::size_
 		newNode->setNext(nextNode) ;
 	}
 	
-	this->setSize(this->size + 1) ;	
-}
-
-template <typename T>
-_GLIBCXX20_CONSTEXPR inline void salih::containers::FwdList<T>::setSize(int newSize)
-{
-	this->size = newSize ;
+	++this->size ;	
 }
 
 template <typename T>
@@ -409,7 +355,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::append(T data)
 		new SNode<T>(data, node) ;
 	}
 	
-	this->setSize(this->size + 1) ;
+	++this->size ;
 }
 
 template <typename T>
@@ -429,7 +375,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::append(const std::initi
 			node = node->getNext() ;
 		}
 	
-		this->setSize(this->size + 1) ;
+		++this->size ;
 	}
 }
 
@@ -458,7 +404,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::del(const std::size_t i
 	}	
 	delete curNode ;
 		
-	this->setSize(this->size - 1) ;
+	--this->size ;
 }
 
 template <typename T>
@@ -475,7 +421,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::clear()
 		}
 	} 
 	this->head = nullptr ;
-	this->setSize(0) ;
+	this->size = 0 ;
 }
 
 template<typename T> 
@@ -559,7 +505,7 @@ _GLIBCXX20_CONSTEXPR const T* salih::containers::FwdList<T>::ConstIterator::oper
 template<typename T> 
 _GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::ConstIterator::operator+(const std::size_t x) const
 {
-	salih::containers::SNode<T>* tmp = this->pointer ;
+	salih::containers::SNode<T> const* tmp = this->pointer ;
 	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::FwdList<T>::ConstIterator(tmp) ; 
 }

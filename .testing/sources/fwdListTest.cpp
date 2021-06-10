@@ -14,6 +14,10 @@
 typedef salih::containers::FwdList<int> intList ;
 typedef salih::containers::FwdList<float> floatList ;
 
+struct weird {
+	int a = 5 ;
+} ;
+
 //** Create sub-categories to test with predicted outcomes **//
 
 /* Constructors */
@@ -34,6 +38,13 @@ TEST_CASE("regular constructor - value testing")
 {
 	intList list1{1,2,3,4} ;
 	REQUIRE(list1.head->data == 1) ;
+}
+
+TEST_CASE("size initialisation constructor - attribute testing")
+{
+	intList list1(4) ;
+	REQUIRE(list1.head != nullptr) ;
+	REQUIRE(list1.size == 4) ;
 }
 
 TEST_CASE("copy constructor - attribute testing")
@@ -295,4 +306,171 @@ TEST_CASE("'clear()' method - attribute test")
 	list1.clear() ;
 	REQUIRE(list1.size == 0) ;
 	REQUIRE(list1.head == nullptr) ;
+}
+
+/* iterator utilisation */
+TEST_CASE("'begin()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.begin().pointer == list2.head) ;
+}
+
+TEST_CASE("'end()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.end().pointer == nullptr) ;
+}
+
+TEST_CASE("'cbegin()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.cbegin().pointer == list2.head) ;
+}
+
+TEST_CASE("'cend()' method - correct value returned")
+{
+	intList list2(6) ;
+	REQUIRE(list2.cend().pointer == nullptr) ;
+}
+
+/* iterators */
+TEST_CASE("Iterator object - empty initialisation")
+{
+	intList list2(6) ;
+	REQUIRE(intList::Iterator().pointer == nullptr) ;
+}
+
+TEST_CASE("Iterator object - prefix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE(++it == intList::Iterator(list2.head->getNext())) ;
+	REQUIRE(it == intList::Iterator(list2.head->getNext())) ;
+}
+
+TEST_CASE("Iterator object - postfix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE(it++ == intList::Iterator(list2.head)) ;
+	REQUIRE(it == intList::Iterator(list2.head->getNext())) ;
+}
+
+TEST_CASE("Iterator object - moving position using + operator (addition)")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE((it+1) == intList::Iterator(list2.head->getNext())) ;
+	REQUIRE((it) == intList::Iterator(list2.head)) ;
+}
+
+TEST_CASE("Iterator object - moving position using += operator (compound addition)")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE((it+=1) == intList::Iterator(list2.head->getNext())) ;
+	REQUIRE((it) == intList::Iterator(list2.head->getNext())) ;
+}
+
+TEST_CASE("Iterator object - equality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.end() ;
+	REQUIRE(it == list2.end()) ;
+	it = list2.begin() ;
+	REQUIRE(it == list2.begin()) ;
+}
+
+TEST_CASE("Iterator object - inequality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.begin() ;
+	REQUIRE(it != list2.end()) ;
+	it = list2.end() ;
+	REQUIRE(it != list2.begin()) ;
+}
+
+TEST_CASE("Iterator object - dereferencing operator")
+{
+	intList list2{1,2,3,4,5,6} ;
+	auto it = list2.begin() ;
+	REQUIRE(*it == 1) ;
+}
+
+TEST_CASE("Iterator object - access operator")
+{
+	salih::containers::FwdList<weird> list2(1) ;
+	auto it = list2.begin() ;
+	REQUIRE(it->a == 5) ;
+}
+
+/* const iterators */
+TEST_CASE("ConstIterator object - empty initialisation")
+{
+	intList list2(6) ;
+	REQUIRE(intList::ConstIterator().pointer == nullptr) ;
+}
+
+TEST_CASE("ConstIterator object - prefix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(++it == intList::ConstIterator(list2.head->getNext())) ;
+	REQUIRE(it == intList::ConstIterator(list2.head->getNext())) ;
+}
+
+TEST_CASE("ConstIterator object - postfix incrementation")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it++ == intList::ConstIterator(list2.head)) ;
+	REQUIRE(it == intList::ConstIterator(list2.head->getNext())) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using + operator (addition)")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE((it+1) == intList::ConstIterator(list2.head->getNext())) ;
+	REQUIRE((it) == intList::ConstIterator(list2.head)) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using += operator (compound addition)")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE((it+=1) == intList::ConstIterator(list2.head->getNext())) ;
+	REQUIRE((it) == intList::ConstIterator(list2.head->getNext())) ;
+}
+
+TEST_CASE("ConstIterator object - equality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.cend() ;
+	REQUIRE(it == list2.cend()) ;
+	it = list2.cbegin() ;
+	REQUIRE(it == list2.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - inequality comparison")
+{
+	intList list2(6) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it != list2.cend()) ;
+	it = list2.cend() ;
+	REQUIRE(it != list2.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - dereferencing operator")
+{
+	intList list2{1,2,3,4,5,6} ;
+	auto it = list2.cbegin() ;
+	REQUIRE(*it == 1) ;
+}
+
+TEST_CASE("ConstIterator object - access operator")
+{
+	salih::containers::FwdList<weird> list2(1) ;
+	auto it = list2.cbegin() ;
+	REQUIRE(it->a == 5) ;
 }

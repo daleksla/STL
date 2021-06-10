@@ -185,9 +185,7 @@ _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::Iterator& salih:
 template<typename T, std::size_t SIZE> 
 _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::Iterator salih::containers::Array<T,SIZE>::Iterator::operator++(const int)
 {
-	salih::containers::Array<T,SIZE>::Iterator tmp(this->pointer) ;
-	this->pointer += 1 ;
-	return tmp ;
+	return salih::containers::Array<T,SIZE>::Iterator(this->pointer++) ;
 }
 
 template<typename T, std::size_t SIZE> 
@@ -213,9 +211,7 @@ _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::Iterator& salih:
 template<typename T, std::size_t SIZE> 
 _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::Iterator salih::containers::Array<T,SIZE>::Iterator::operator--(const int)
 {
-	salih::containers::Array<T,SIZE>::Iterator tmp(this->pointer) ;
-	this->pointer -= 1 ;
-	return tmp ;
+	return salih::containers::Array<T,SIZE>::Iterator(this->pointer--) ;
 }
 
 template<typename T, std::size_t SIZE> 
@@ -271,9 +267,7 @@ _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator& s
 template<typename T, std::size_t SIZE> 
 _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator salih::containers::Array<T,SIZE>::ConstIterator::operator++(const int)
 {
-	salih::containers::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
-	this->pointer += 1 ;
-	return tmp ;
+	return salih::containers::Array<T,SIZE>::ConstIterator(this->pointer++) ;
 }
 
 template<typename T, std::size_t SIZE> 
@@ -299,9 +293,7 @@ _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator& s
 template<typename T, std::size_t SIZE> 
 _GLIBCXX14_CONSTEXPR typename salih::containers::Array<T,SIZE>::ConstIterator salih::containers::Array<T,SIZE>::ConstIterator::operator--(const int)
 {
-	salih::containers::Array<T,SIZE>::ConstIterator tmp(this->pointer) ;
-	this->pointer -= 1 ;
-	return tmp ;
+	return salih::containers::Array<T,SIZE>::ConstIterator(this->pointer--) ;
 }
 
 template<typename T, std::size_t SIZE> 

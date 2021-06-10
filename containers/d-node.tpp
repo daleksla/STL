@@ -2,9 +2,6 @@
 #define D_NODE_TPP
 #pragma once
 
-/* This file contains the implementations of linked list nodes
- * It is located in the nested Salih, Structures, LinkedLists namespaces */
-
 template <typename T>
 _GLIBCXX20_CONSTEXPR salih::containers::DNode<T>::DNode(const T i_data, salih::containers::DNode<T>* node, const bool flag)
 {

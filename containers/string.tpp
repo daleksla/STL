@@ -12,6 +12,12 @@ _GLIBCXX20_CONSTEXPR salih::containers::String::String() : size(0)
 	this->str[0] = '\0' ;
 }
 
+_GLIBCXX20_CONSTEXPR salih::containers::String::String(const std::size_t x) : size(x)
+{
+	this->str = new char[x+1] ;
+	this->str[x] = '\0' ;
+}
+
 _GLIBCXX20_CONSTEXPR salih::containers::String::String(const char* input)
 {
 	for(this->size = 0 ; input[this->size] != '\0'; this->size++) ;
@@ -412,9 +418,7 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator& salih::contai
 
 _GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::Iterator::operator++(const int)
 {
-	salih::containers::String::Iterator tmp(this->pointer) ;
-	this->pointer += 1 ;
-	return tmp ;
+	return salih::containers::String::Iterator(this->pointer++) ;
 }
 
 _GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::Iterator::operator-(const std::size_t x) const
@@ -436,9 +440,7 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator& salih::contai
 
 _GLIBCXX20_CONSTEXPR typename salih::containers::String::Iterator salih::containers::String::Iterator::operator--(const int)
 {
-	salih::containers::String::Iterator tmp(this->pointer) ;
-	this->pointer -= 1 ;
-	return tmp ;
+	return salih::containers::String::Iterator(this->pointer--) ;
 }
 
 _GLIBCXX20_CONSTEXPR bool salih::containers::String::Iterator::operator==(const salih::containers::String::Iterator& other) const
@@ -479,9 +481,7 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator& salih::c
 
 _GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator++(const int)
 {
-	salih::containers::String::ConstIterator tmp(this->pointer) ;
-	this->pointer += 1 ;
-	return tmp ;
+	return salih::containers::String::ConstIterator(this->pointer++) ;
 }
 
 _GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator-(const std::size_t x) const
@@ -503,9 +503,7 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator& salih::c
 
 _GLIBCXX20_CONSTEXPR typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator--(const int)
 {
-	salih::containers::String::ConstIterator tmp(this->pointer) ;
-	this->pointer -= 1 ;
-	return tmp ;
+	return salih::containers::String::ConstIterator(this->pointer--) ;
 }
 
 _GLIBCXX20_CONSTEXPR bool salih::containers::String::ConstIterator::operator==(const salih::containers::String::ConstIterator& other) const

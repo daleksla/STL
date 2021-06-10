@@ -90,6 +90,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a30dd913ec11cbd29457d83e89f81b987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab986834ec882fea43d547a544f3c7d1d"><td class="memItemLeft" align="right" valign="top">_GLIBCXX20_CONSTEXPR <a class="el" href="classsalih_1_1containers_1_1FwdList.html">FwdList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1containers_1_1FwdList.html#ab986834ec882fea43d547a544f3c7d1d">operator=</a> (const <a class="el" href="classsalih_1_1containers_1_1FwdList.html">FwdList</a> &amp;)</td></tr>
 <tr class="separator:ab986834ec882fea43d547a544f3c7d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe8726f21a3ab66dfb8533917cac9dc"><td class="memItemLeft" align="right" valign="top">_GLIBCXX20_CONSTEXPR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1containers_1_1FwdList.html#a4fe8726f21a3ab66dfb8533917cac9dc">FwdList</a> (const std::size_t)</td></tr>
+<tr class="separator:a4fe8726f21a3ab66dfb8533917cac9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6878fde7408ccd04cd85eb49163e87cf"><td class="memItemLeft" align="right" valign="top">_GLIBCXX20_CONSTEXPR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1containers_1_1FwdList.html#a6878fde7408ccd04cd85eb49163e87cf">FwdList</a> (const std::initializer_list&lt; T &gt; &amp;)</td></tr>
 <tr class="separator:a6878fde7408ccd04cd85eb49163e87cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea01c688561304bd1d154f9069db4cbe"><td class="memItemLeft" align="right" valign="top">_GLIBCXX20_CONSTEXPR <a class="el" href="classsalih_1_1containers_1_1FwdList.html">FwdList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1containers_1_1FwdList.html#aea01c688561304bd1d154f9069db4cbe">operator=</a> (const std::initializer_list&lt; T &gt; &amp;)</td></tr>
@@ -151,7 +153,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a66aeb3cdf22aaf60585c22ad94507083"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66aeb3cdf22aaf60585c22ad94507083">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a66aeb3cdf22aaf60585c22ad94507083">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +173,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a30dd913ec11cbd29457d83e89f81b987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30dd913ec11cbd29457d83e89f81b987">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a30dd913ec11cbd29457d83e89f81b987">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,8 +199,35 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a4fe8726f21a3ab66dfb8533917cac9dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fe8726f21a3ab66dfb8533917cac9dc">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">_GLIBCXX20_CONSTEXPR <a class="el" href="classsalih_1_1containers_1_1FwdList.html">salih::containers::FwdList</a>&lt; T &gt;::<a class="el" href="classsalih_1_1containers_1_1FwdList.html">FwdList</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Regular constructor, intialises list to a specific length </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>of list elements to initialise </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>&lt;initialised-object&gt; </dd></dl>
+
+</div>
+</div>
 <a id="a6878fde7408ccd04cd85eb49163e87cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6878fde7408ccd04cd85eb49163e87cf">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6878fde7408ccd04cd85eb49163e87cf">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +254,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a9d912e8b2437c641acfc1452bd87dc9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d912e8b2437c641acfc1452bd87dc9e">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d912e8b2437c641acfc1452bd87dc9e">&#9670;&nbsp;</a></span>FwdList() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

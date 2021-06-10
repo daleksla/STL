@@ -13,10 +13,10 @@ namespace containers {
 		/** This class is the Node (singly linkedlist)-class implementation **/
 		private:
 			SNode* next ; //pointer to prev element in LL
-					
-		public:
-			T data ; //template variable for data		
 			
+		public:			
+			T data ; //template variable for data		
+	
 			SNode() = default ;
 		
 			_GLIBCXX20_CONSTEXPR SNode(const T) ; //constructor - takes data

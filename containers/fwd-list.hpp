@@ -18,11 +18,9 @@ namespace containers {
 	class FwdList {
 		/** @brief This class is a singly-linkedlist class implementation, serving as a custom linked-node wrapper / manager **/
 		private:
-			SNode<T>* head ;
+			SNode<T>* head ;	
 			
 			std::size_t size ;
-			
-			_GLIBCXX20_CONSTEXPR inline void setSize(int) ;
 			
 		public:
 			/** Empty constructor, intialises empty list 
@@ -38,6 +36,11 @@ namespace containers {
 			@param a (l-value) list object
 			@return reference to current object **/
 			_GLIBCXX20_CONSTEXPR FwdList& operator=(const FwdList&) ;
+				
+			/** Regular constructor, intialises list to a specific length
+			@param length of list elements to initialise
+			@return <initialised-object> **/			
+			_GLIBCXX20_CONSTEXPR FwdList(const std::size_t) ;
 					
 			/** Regular constructor, intialises multiple values
 			@param initialisation list (of values for list)

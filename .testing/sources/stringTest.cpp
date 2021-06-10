@@ -24,6 +24,13 @@ TEST_CASE("Empty Constructor - Attribute testing")
 	REQUIRE(v.str != NULL) ;
 }
 
+TEST_CASE("size initialisation Constructor - Attribute testing")
+{
+	String name(2) ;
+	REQUIRE(name.str[2] == '\0') ;
+	REQUIRE(name.str != NULL) ;
+}
+
 TEST_CASE("const char* (c-string) Constructor - Attribute testing")
 {
 	String name("salih") ;
@@ -345,6 +352,197 @@ TEST_CASE("'capitalise()' method - returns correct value")
 	String c("SALIH") ;
 	REQUIRE(strcmp(c.capitalise().str, "Salih") == 0) ;
 }
+//
+/* iterators */
+TEST_CASE("Iterator object - empty initialisation")
+{
+	String str(6) ;
+	REQUIRE(String::Iterator().pointer == nullptr) ;
+}
 
+TEST_CASE("Iterator object - prefix incrementation")
+{
+	String str(6) ;
+	auto it = str.begin() ;
+	REQUIRE(++it == String::Iterator(&(str[1]))) ;
+	REQUIRE(it == String::Iterator(&(str[1]))) ;
+}
+
+TEST_CASE("Iterator object - postfix incrementation")
+{
+	String str(6) ;
+	auto it = str.begin() ;
+	REQUIRE(it++ == String::Iterator(&(str[0]))) ;
+	REQUIRE(it == String::Iterator(&(str[1]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using + operator (addition)")
+{
+	String str(6) ;
+	auto it = str.begin() ;
+	REQUIRE((it+1) == String::Iterator(&(str[1]))) ;
+	REQUIRE((it) == String::Iterator(&(str[0]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using += operator (compound addition)")
+{
+	String str(6) ;
+	auto it = str.begin() ;
+	REQUIRE((it+=1) == String::Iterator(&(str[1]))) ;
+	REQUIRE(it == String::Iterator(&(str[1]))) ;
+}
+
+TEST_CASE("Iterator object - prefix decrement")
+{
+	String str(6) ;
+	auto it = str.end() ;
+	REQUIRE(--it == String::Iterator(&(str[5]))) ;
+	REQUIRE(it == String::Iterator(&(str[5]))) ;
+}
+
+TEST_CASE("Iterator object - postfix decrement")
+{
+	String str(6) ;
+	auto it = str.end() ;
+	REQUIRE(it-- == String::Iterator(&(str[6]))) ;
+	REQUIRE(it == String::Iterator(&(str[5]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using - operator (subtracting)")
+{
+	String str(6) ;
+	auto it = str.end() ;
+	REQUIRE(it-1 == String::Iterator(&(str[5]))) ;
+	REQUIRE(it == String::Iterator(&(str[6]))) ;
+}
+
+TEST_CASE("Iterator object - moving position using -= operator (compound subtracting)")
+{
+	String str(6) ;
+	auto it = str.end() ;
+	REQUIRE((it-=1) == String::Iterator(&(str[5]))) ;
+	REQUIRE(it == String::Iterator(&(str[5]))) ;
+}
+
+TEST_CASE("Iterator object - equality comparison")
+{
+	String str(6) ;
+	auto it = str.end() ;
+	REQUIRE(it == str.end()) ;
+	it = str.begin() ;
+	REQUIRE(it == str.begin()) ;
+}
+
+TEST_CASE("Iterator object - inequality comparison")
+{
+	String str(6) ;
+	auto it = str.begin() ;
+	REQUIRE(it != str.end()) ;
+	it = str.end() ;
+	REQUIRE(it != str.begin()) ;
+}
+
+TEST_CASE("Iterator object - dereferencing operator")
+{
+	String str{"saliha"} ;
+	auto it = str.begin() ;
+	REQUIRE(*it == 's') ;
+}
+
+/* const iterators */
+TEST_CASE("ConstIterator object - empty initialisation")
+{
+	String str(6) ;
+	REQUIRE(String::ConstIterator().pointer == nullptr) ;
+}
+
+TEST_CASE("ConstIterator object - prefix incrementation")
+{
+	String str(6) ;
+	auto it = str.cbegin() ;
+	REQUIRE(++it == String::ConstIterator(&(str[1]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - postfix incrementation")
+{
+	String str(6) ;
+	auto it = str.cbegin() ;
+	REQUIRE(it++ == String::ConstIterator(&(str[0]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using + operator (addition)")
+{
+	String str(6) ;
+	auto it = str.cbegin() ;
+	REQUIRE(it+1 == String::ConstIterator(&(str[1]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[0]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using += operator (compound addition)")
+{
+	String str(6) ;
+	auto it = str.cbegin() ;
+	REQUIRE((it+=1) == String::ConstIterator(&(str[1]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[1]))) ;
+}
+
+TEST_CASE("ConstIterator object - prefix decrement")
+{
+	String str(6) ;
+	auto it = str.cend() ;
+	REQUIRE(--it == String::ConstIterator(&(str[5]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[5]))) ;
+}
+
+TEST_CASE("ConstIterator object - postfix decrement")
+{
+	String str(6) ;
+	auto it = str.cend() ;	
+	REQUIRE(it-- == String::ConstIterator(&(str[6]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[5]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using - operator (subtracting)")
+{
+	String str(6) ;
+	auto it = str.cend() ;
+	REQUIRE((it-1) == String::ConstIterator(&(str[5]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[6]))) ;
+}
+
+TEST_CASE("ConstIterator object - moving position using -= operator (compound subtracting)")
+{
+	String str(6) ;
+	auto it = str.cend() ;
+	REQUIRE((it-=1) == String::ConstIterator(&(str[5]))) ;
+	REQUIRE(it == String::ConstIterator(&(str[5]))) ;
+}
+
+TEST_CASE("ConstIterator object - equality comparison")
+{
+	String str(6) ;
+	auto it = str.cend() ;
+	REQUIRE(it == str.cend()) ;
+	it = str.cbegin() ;
+	REQUIRE(it == str.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - inequality comparison")
+{
+	String str(6) ;
+	auto it = str.cbegin() ;
+	REQUIRE(it != str.cend()) ;
+	it = str.cend() ;
+	REQUIRE(it != str.cbegin()) ;
+}
+
+TEST_CASE("ConstIterator object - dereferencing operator")
+{
+	String str{"saliha"} ;
+	auto it = str.cbegin() ;
+	REQUIRE(*it == 's') ;
+}
 
 #pragma GCC diagnostic pop
