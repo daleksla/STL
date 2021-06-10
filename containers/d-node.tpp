@@ -3,7 +3,7 @@
 #pragma once
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::DNode<T>::DNode(const T i_data, salih::containers::DNode<T>* node, const bool flag)
+CONSTEXPRCXX14 salih::containers::DNode<T>::DNode(const T i_data, salih::containers::DNode<T>* node, const bool flag)
 {
        auto temp = this ;
        if(flag == 0)
@@ -20,40 +20,40 @@ _GLIBCXX20_CONSTEXPR salih::containers::DNode<T>::DNode(const T i_data, salih::c
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::DNode<T>::DNode(const T i_data) : prev(nullptr), next(nullptr), data(i_data) {} ;
+CONSTEXPRCXX14 salih::containers::DNode<T>::DNode(const T i_data) : prev(nullptr), next(nullptr), data(i_data) {} ;
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::DNode<T>* salih::containers::DNode<T>::getPrev()
+CONSTEXPRCXX14 salih::containers::DNode<T>* salih::containers::DNode<T>::getPrev()
 {
 	return prev ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const salih::containers::DNode<T>* salih::containers::DNode<T>::getPrev() const
+CONSTEXPRCXX14 const salih::containers::DNode<T>* salih::containers::DNode<T>::getPrev() const
 {
 	return prev ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::DNode<T>::setPrev(DNode<T>* input) 
+CONSTEXPRCXX14 void salih::containers::DNode<T>::setPrev(DNode<T>* input) 
 {
 	this->prev = input ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::DNode<T>* salih::containers::DNode<T>::getNext() 
+CONSTEXPRCXX14 salih::containers::DNode<T>* salih::containers::DNode<T>::getNext() 
 {
 	return next ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const salih::containers::DNode<T>* salih::containers::DNode<T>::getNext() const 
+CONSTEXPRCXX14 const salih::containers::DNode<T>* salih::containers::DNode<T>::getNext() const 
 {
 	return next ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::DNode<T>::setNext(DNode<T>* input) 
+CONSTEXPRCXX14 void salih::containers::DNode<T>::setNext(DNode<T>* input) 
 {
 	this->next = input ;
 }
