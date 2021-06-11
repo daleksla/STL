@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bidirectionaliterator_132',['BiDirectionalIterator',['../structsalih_1_1types_1_1BiDirectionalIterator.html',1,'salih::types']]]
+  ['bidirectionaliteratortag_133',['BiDirectionalIteratorTag',['../structsalih_1_1types_1_1BiDirectionalIteratorTag.html',1,'salih::types']]]
 ];

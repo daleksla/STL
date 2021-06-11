@@ -1,12 +1,12 @@
 <map id="algorithms/sorts.hpp" name="algorithms/sorts.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="344,5,500,32"/>
-<area shape="rect" id="node2" href="$data-ops_8hpp.html" title=" " alt="" coords="310,80,417,107"/>
-<area shape="rect" id="node3" href="$macros_8hpp.html" title=" " alt="" coords="5,155,156,181"/>
-<area shape="rect" id="node6" href="$flags_8hpp.html" title=" " alt="" coords="441,80,523,107"/>
-<area shape="rect" id="node7" href="$array_8hpp.html" title=" " alt="" coords="119,80,285,107"/>
-<area shape="rect" id="node9" title=" " alt="" coords="548,80,635,107"/>
-<area shape="rect" id="node10" title=" " alt="" coords="659,80,737,107"/>
-<area shape="rect" id="node4" href="$iterators_8hpp.html" title=" " alt="" coords="283,155,441,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="465,155,569,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="180,155,259,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="418,5,574,32"/>
+<area shape="rect" id="node2" href="$data-ops_8hpp.html" title=" " alt="" coords="93,80,200,107"/>
+<area shape="rect" id="node3" href="$macros_8hpp.html" title=" " alt="" coords="245,229,395,256"/>
+<area shape="rect" id="node6" href="$flags_8hpp.html" title=" " alt="" coords="416,80,499,107"/>
+<area shape="rect" id="node7" href="$array_8hpp.html" title=" " alt="" coords="225,80,391,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="574,80,661,107"/>
+<area shape="rect" id="node10" title=" " alt="" coords="685,80,763,107"/>
+<area shape="rect" id="node4" href="$iterators_8hpp.html" title=" " alt="" coords="184,155,341,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,155,109,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="417,155,495,181"/>
 </map>

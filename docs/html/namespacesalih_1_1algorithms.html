@@ -67,7 +67,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">salih::algorithms Namespace Reference</div>  </div>
 </div><!--header-->
@@ -76,58 +77,79 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a107115c85af2697704dc3c5b36fde36d"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a107115c85af2697704dc3c5b36fde36d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">ASCEND</a> (U, U)</td></tr>
+<tr class="memitem:a107115c85af2697704dc3c5b36fde36d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">ASCEND</a> (<a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>)</td></tr>
 <tr class="separator:a107115c85af2697704dc3c5b36fde36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bfffd272420b1232941d0cfe0d0e4ca"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:a4bfffd272420b1232941d0cfe0d0e4ca"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a4bfffd272420b1232941d0cfe0d0e4ca">binarySearch</a> (const T &amp;, const U &amp;)</td></tr>
-<tr class="separator:a4bfffd272420b1232941d0cfe0d0e4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8307d14d473d2023a720b985319e6bb5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a8307d14d473d2023a720b985319e6bb5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a8307d14d473d2023a720b985319e6bb5">bubbleSort</a> (T, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:a8307d14d473d2023a720b985319e6bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a968565c4d55caf013ee0191a36ab4b7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a968565c4d55caf013ee0191a36ab4b7a">binarySearch</a> (...)=delete</td></tr>
+<tr class="separator:a968565c4d55caf013ee0191a36ab4b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256685eb4797ab05ad7d3f7da8c53f86"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , typename  = typename std::enable_if&lt;std::is_same&lt;U, typename T::innerType&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a256685eb4797ab05ad7d3f7da8c53f86"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a256685eb4797ab05ad7d3f7da8c53f86">binarySearch</a> (const T &amp;, const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;)</td></tr>
+<tr class="separator:a256685eb4797ab05ad7d3f7da8c53f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe0995c7beef682a2dee13689369d67b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:afe0995c7beef682a2dee13689369d67b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#afe0995c7beef682a2dee13689369d67b">bubbleSort</a> (...)=delete</td></tr>
+<tr class="separator:afe0995c7beef682a2dee13689369d67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab078973e85e5d8f5e34bd910aa1cee27"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab078973e85e5d8f5e34bd910aa1cee27"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ab078973e85e5d8f5e34bd910aa1cee27">bubbleSort</a> (T, bool(*const order)(typename T::innerType, typename T::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:ab078973e85e5d8f5e34bd910aa1cee27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8d1038265c73db15d7f7b0ead070cc5"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:aa8d1038265c73db15d7f7b0ead070cc5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#aa8d1038265c73db15d7f7b0ead070cc5">DESCEND</a> (U, U)</td></tr>
+<tr class="memitem:aa8d1038265c73db15d7f7b0ead070cc5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#aa8d1038265c73db15d7f7b0ead070cc5">DESCEND</a> (<a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>)</td></tr>
 <tr class="separator:aa8d1038265c73db15d7f7b0ead070cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af04bd2f06b0ff478ec4fd4b06f745e47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#af04bd2f06b0ff478ec4fd4b06f745e47">getMiddle</a> (const std::size_t size)</td></tr>
-<tr class="separator:af04bd2f06b0ff478ec4fd4b06f745e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52c819028772a1337a670bdab1fc54a7"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:a52c819028772a1337a670bdab1fc54a7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a52c819028772a1337a670bdab1fc54a7">interpolationSearch</a> (const T &amp;, const U &amp;)</td></tr>
-<tr class="separator:a52c819028772a1337a670bdab1fc54a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e66cbf00fc0ebe145abb8543ebb95c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIterator::value&gt; </td></tr>
-<tr class="memitem:aa6e66cbf00fc0ebe145abb8543ebb95c"><td class="memTemplItemLeft" align="right" valign="top">U <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#aa6e66cbf00fc0ebe145abb8543ebb95c">linearSearch</a> (const T &amp;, const T &amp;, const U &amp;)</td></tr>
-<tr class="separator:aa6e66cbf00fc0ebe145abb8543ebb95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eee0eb97f629404d776cfc9a769a7f5"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:a4eee0eb97f629404d776cfc9a769a7f5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a4eee0eb97f629404d776cfc9a769a7f5">linearSearch</a> (const T &amp;, const U &amp;)</td></tr>
-<tr class="separator:a4eee0eb97f629404d776cfc9a769a7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d4821e7b3d8678d87c391b0be98b22b"><td class="memTemplParams" colspan="2">template&lt;typename U , std::size_t SIZE, std::size_t DIFF&gt; </td></tr>
-<tr class="memitem:a7d4821e7b3d8678d87c391b0be98b22b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE+DIFF &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a7d4821e7b3d8678d87c391b0be98b22b">merge</a> (const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;, const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, DIFF &gt; &amp;, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:a7d4821e7b3d8678d87c391b0be98b22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaba4b37fcff1026eda4aded5f3f79bfd"><td class="memTemplParams" colspan="2">template&lt;typename U , std::size_t SIZE&gt; </td></tr>
-<tr class="memitem:aaba4b37fcff1026eda4aded5f3f79bfd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE+SIZE &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#aaba4b37fcff1026eda4aded5f3f79bfd">merge</a> (const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;, const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:aaba4b37fcff1026eda4aded5f3f79bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae91138ddb086a0856b211c1dc1973df0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae91138ddb086a0856b211c1dc1973df0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ae91138ddb086a0856b211c1dc1973df0">merge</a> (const T &amp;, const T &amp;, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:ae91138ddb086a0856b211c1dc1973df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0560b922c5ff2b4d99586e429636644e"><td class="memTemplParams" colspan="2">template&lt;typename U , std::size_t SIZE&gt; </td></tr>
-<tr class="memitem:a0560b922c5ff2b4d99586e429636644e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a0560b922c5ff2b4d99586e429636644e">mergeSort</a> (const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:a0560b922c5ff2b4d99586e429636644e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4544626d555ec6d41436fba4d56b37c3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a4544626d555ec6d41436fba4d56b37c3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a4544626d555ec6d41436fba4d56b37c3">mergeSort</a> (const T &amp;, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:a4544626d555ec6d41436fba4d56b37c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a3d6db9d439f13c191f67a8116b541"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a15a3d6db9d439f13c191f67a8116b541"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a15a3d6db9d439f13c191f67a8116b541">quickSort</a> (const T &amp;, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:a15a3d6db9d439f13c191f67a8116b541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16ea0c8ba66fbe9fd207e5416ab2df45"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a16ea0c8ba66fbe9fd207e5416ab2df45"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a16ea0c8ba66fbe9fd207e5416ab2df45">selectionSort</a> (T, bool(*const order)(int, int)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
-<tr class="separator:a16ea0c8ba66fbe9fd207e5416ab2df45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a4ee5c7e22e0596bbabb3062aac331"><td class="memItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a32a4ee5c7e22e0596bbabb3062aac331">getMiddle</a> (const std::size_t totalSize)</td></tr>
+<tr class="separator:a32a4ee5c7e22e0596bbabb3062aac331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932549e918986700824ae202568881f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a932549e918986700824ae202568881f0">interpolationSearch</a> (...)=delete</td></tr>
+<tr class="separator:a932549e918986700824ae202568881f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60bbdfe4d3ee6680266727b0db81f893"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , typename  = typename std::enable_if&lt;std::is_same&lt;U, typename T::innerType&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a60bbdfe4d3ee6680266727b0db81f893"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a60bbdfe4d3ee6680266727b0db81f893">interpolationSearch</a> (const T &amp;, const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;)</td></tr>
+<tr class="separator:a60bbdfe4d3ee6680266727b0db81f893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae82dca55105fbff0eacbbae2c5fa8f68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ae82dca55105fbff0eacbbae2c5fa8f68">linearSearch</a> (...)=delete</td></tr>
+<tr class="separator:ae82dca55105fbff0eacbbae2c5fa8f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae75092f41f2e787ec3007925995a8825"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae75092f41f2e787ec3007925995a8825"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ae75092f41f2e787ec3007925995a8825">merge</a> (...)=delete</td></tr>
+<tr class="separator:ae75092f41f2e787ec3007925995a8825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0147358e09ba841017543aba6beebb"><td class="memTemplParams" colspan="2">template&lt;typename U , std::size_t SIZE, std::size_t DIFF&gt; </td></tr>
+<tr class="memitem:a8e0147358e09ba841017543aba6beebb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE+DIFF &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a8e0147358e09ba841017543aba6beebb">merge</a> (const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;, const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, DIFF &gt; &amp;, bool(*const order)(typename U::innerType, typename U::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:a8e0147358e09ba841017543aba6beebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af659a0774e04526943eb577f14243b4c"><td class="memTemplParams" colspan="2">template&lt;typename U , std::size_t SIZE&gt; </td></tr>
+<tr class="memitem:af659a0774e04526943eb577f14243b4c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE+SIZE &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#af659a0774e04526943eb577f14243b4c">merge</a> (const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;, const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;, bool(*const order)(typename U::innerType, typename U::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:af659a0774e04526943eb577f14243b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa394bdf817c02d8549b0e76c54de3d37"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa394bdf817c02d8549b0e76c54de3d37"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#aa394bdf817c02d8549b0e76c54de3d37">merge</a> (const T &amp;, const T &amp;, bool(*const order)(typename T::innerType, typename T::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:aa394bdf817c02d8549b0e76c54de3d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfeb4c38f31d544ee3ac063bac336fd9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:acfeb4c38f31d544ee3ac063bac336fd9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#acfeb4c38f31d544ee3ac063bac336fd9">mergeSort</a> (...)=delete</td></tr>
+<tr class="separator:acfeb4c38f31d544ee3ac063bac336fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5024a34d11270d86dbaed4b5ffb017e6"><td class="memTemplParams" colspan="2">template&lt;typename U , std::size_t SIZE&gt; </td></tr>
+<tr class="memitem:a5024a34d11270d86dbaed4b5ffb017e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a5024a34d11270d86dbaed4b5ffb017e6">mergeSort</a> (const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;, bool(*const order)(typename U::innerType, typename U::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:a5024a34d11270d86dbaed4b5ffb017e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492b3ce1a757743516ac0920849ef4c2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a492b3ce1a757743516ac0920849ef4c2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a492b3ce1a757743516ac0920849ef4c2">mergeSort</a> (const T &amp;, bool(*const order)(typename T::innerType, typename T::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:a492b3ce1a757743516ac0920849ef4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea073b324734049b61e73598778bc73"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0ea073b324734049b61e73598778bc73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a0ea073b324734049b61e73598778bc73">quickSort</a> (...)=delete</td></tr>
+<tr class="separator:a0ea073b324734049b61e73598778bc73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5718bacb4277e80c80d8544735c34b3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ac5718bacb4277e80c80d8544735c34b3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ac5718bacb4277e80c80d8544735c34b3">quickSort</a> (const T &amp;, bool(*const order)(typename T::innerType, typename T::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:ac5718bacb4277e80c80d8544735c34b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7e73373a8e1c4e88281e4cfb042e5a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abe7e73373a8e1c4e88281e4cfb042e5a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#abe7e73373a8e1c4e88281e4cfb042e5a">selectionSort</a> (...)=delete</td></tr>
+<tr class="separator:abe7e73373a8e1c4e88281e4cfb042e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61504d24d10178354865ee42825dd4a6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a61504d24d10178354865ee42825dd4a6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a61504d24d10178354865ee42825dd4a6">selectionSort</a> (T, bool(*const order)(typename T::innerType, typename T::innerType)=<a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a>)</td></tr>
+<tr class="separator:a61504d24d10178354865ee42825dd4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c0f4e0e1ad1ccafa65f75827f9e3136"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a0c0f4e0e1ad1ccafa65f75827f9e3136"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a0c0f4e0e1ad1ccafa65f75827f9e3136">swap</a> (U &amp;, U &amp;)</td></tr>
+<tr class="memitem:a0c0f4e0e1ad1ccafa65f75827f9e3136"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a0c0f4e0e1ad1ccafa65f75827f9e3136">swap</a> (<a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;, <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;)</td></tr>
 <tr class="separator:a0c0f4e0e1ad1ccafa65f75827f9e3136"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac706ab0f080ac783f6bf34af47a322bc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIterator::value&gt; </td></tr>
-<tr class="memitem:ac706ab0f080ac783f6bf34af47a322bc"><td class="memTemplItemLeft" align="right" valign="top">U <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ac706ab0f080ac783f6bf34af47a322bc">tally</a> (const T &amp;, const T &amp;, const U &amp;)</td></tr>
+<tr class="memitem:ac706ab0f080ac783f6bf34af47a322bc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt; </td></tr>
+<tr class="memitem:ac706ab0f080ac783f6bf34af47a322bc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ac706ab0f080ac783f6bf34af47a322bc">tally</a> (const T &amp;, const T &amp;, const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;)</td></tr>
 <tr class="separator:ac706ab0f080ac783f6bf34af47a322bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4977174c6c3950e1ecb1a766ef575184"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:a4977174c6c3950e1ecb1a766ef575184"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#a4977174c6c3950e1ecb1a766ef575184">tally</a> (const T &amp;, const U &amp;)</td></tr>
-<tr class="separator:a4977174c6c3950e1ecb1a766ef575184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab268fa1d5146c8ab12a6d8256a09fc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = std::enable_if&lt; T::iteratorType::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt; </td></tr>
+<tr class="memitem:abab268fa1d5146c8ab12a6d8256a09fc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#abab268fa1d5146c8ab12a6d8256a09fc">tally</a> (const T &amp;, const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;)</td></tr>
+<tr class="separator:abab268fa1d5146c8ab12a6d8256a09fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac011eb6d27b1d4da6f7dad7dc7aab098"><td class="memTemplParams" colspan="2">template&lt;typename T , typename  = typename std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt; </td></tr>
+<tr class="memitem:ac011eb6d27b1d4da6f7dad7dc7aab098"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a></td></tr>
+<tr class="separator:ac011eb6d27b1d4da6f7dad7dc7aab098"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Searching algorihtms file. </p>
@@ -148,13 +170,13 @@ template&lt;typename U &gt; </div>
         <tr>
           <td class="memname">bool salih::algorithms::ASCEND </td>
           <td>(</td>
-          <td class="paramtype">U&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">U&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -179,13 +201,39 @@ template&lt;typename U &gt; </div>
 
 </div>
 </div>
-<a id="a4bfffd272420b1232941d0cfe0d0e4ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bfffd272420b1232941d0cfe0d0e4ca">&#9670;&nbsp;</a></span>binarySearch()</h2>
+<a id="a968565c4d55caf013ee0191a36ab4b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968565c4d55caf013ee0191a36ab4b7a">&#9670;&nbsp;</a></span>binarySearch() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool salih::algorithms::binarySearch </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a256685eb4797ab05ad7d3f7da8c53f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a256685eb4797ab05ad7d3f7da8c53f86">&#9670;&nbsp;</a></span>binarySearch() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename U &gt; </div>
+template&lt;typename T , typename U , typename  = typename std::enable_if&lt;std::is_same&lt;U, typename T::innerType&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool salih::algorithms::binarySearch </td>
@@ -196,7 +244,7 @@ template&lt;typename T , typename U &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const U &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -217,8 +265,36 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
-<a id="a8307d14d473d2023a720b985319e6bb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8307d14d473d2023a720b985319e6bb5">&#9670;&nbsp;</a></span>bubbleSort()</h2>
+<a id="afe0995c7beef682a2dee13689369d67b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe0995c7beef682a2dee13689369d67b">&#9670;&nbsp;</a></span>bubbleSort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T salih::algorithms::bubbleSort </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab078973e85e5d8f5e34bd910aa1cee27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab078973e85e5d8f5e34bd910aa1cee27">&#9670;&nbsp;</a></span>bubbleSort() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,7 +310,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename T::innerType, typename T::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -269,13 +345,13 @@ template&lt;typename U &gt; </div>
         <tr>
           <td class="memname">bool salih::algorithms::DESCEND </td>
           <td>(</td>
-          <td class="paramtype">U&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">U&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -300,8 +376,8 @@ template&lt;typename U &gt; </div>
 
 </div>
 </div>
-<a id="af04bd2f06b0ff478ec4fd4b06f745e47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af04bd2f06b0ff478ec4fd4b06f745e47">&#9670;&nbsp;</a></span>getMiddle()</h2>
+<a id="a32a4ee5c7e22e0596bbabb3062aac331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32a4ee5c7e22e0596bbabb3062aac331">&#9670;&nbsp;</a></span>getMiddle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +389,7 @@ template&lt;typename U &gt; </div>
           <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t salih::algorithms::getMiddle </td>
           <td>(</td>
           <td class="paramtype">const std::size_t&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
+          <td class="paramname"><em>totalSize</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -333,13 +409,39 @@ template&lt;typename U &gt; </div>
 
 </div>
 </div>
-<a id="a52c819028772a1337a670bdab1fc54a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52c819028772a1337a670bdab1fc54a7">&#9670;&nbsp;</a></span>interpolationSearch()</h2>
+<a id="a932549e918986700824ae202568881f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932549e918986700824ae202568881f0">&#9670;&nbsp;</a></span>interpolationSearch() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool salih::algorithms::interpolationSearch </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60bbdfe4d3ee6680266727b0db81f893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60bbdfe4d3ee6680266727b0db81f893">&#9670;&nbsp;</a></span>interpolationSearch() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename U &gt; </div>
+template&lt;typename T , typename U , typename  = typename std::enable_if&lt;std::is_same&lt;U, typename T::innerType&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool salih::algorithms::interpolationSearch </td>
@@ -350,7 +452,7 @@ template&lt;typename T , typename U &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const U &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -371,49 +473,11 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
-<a id="aa6e66cbf00fc0ebe145abb8543ebb95c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6e66cbf00fc0ebe145abb8543ebb95c">&#9670;&nbsp;</a></span>linearSearch() <span class="overload">[1/2]</span></h2>
+<a id="ae82dca55105fbff0eacbbae2c5fa8f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae82dca55105fbff0eacbbae2c5fa8f68">&#9670;&nbsp;</a></span>linearSearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIterator::value&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">U <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool salih::algorithms::linearSearch </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const U &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4eee0eb97f629404d776cfc9a769a7f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eee0eb97f629404d776cfc9a769a7f5">&#9670;&nbsp;</a></span>linearSearch() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename U &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -421,40 +485,50 @@ template&lt;typename T , typename U &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> bool salih::algorithms::linearSearch </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const U &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This is a linear search algorithm, which iterates through a list until the end if need be </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">const</td><td>reference to list (to be searched through) </td></tr>
-    <tr><td class="paramname">const</td><td>reference of target (to be identified in list) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>boolean (indicates if supplied target was found or not) </dd></dl>
 
 </div>
 </div>
-<a id="a7d4821e7b3d8678d87c391b0be98b22b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d4821e7b3d8678d87c391b0be98b22b">&#9670;&nbsp;</a></span>merge() <span class="overload">[1/3]</span></h2>
+<a id="ae75092f41f2e787ec3007925995a8825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae75092f41f2e787ec3007925995a8825">&#9670;&nbsp;</a></span>merge() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T salih::algorithms::merge </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e0147358e09ba841017543aba6beebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0147358e09ba841017543aba6beebb">&#9670;&nbsp;</a></span>merge() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,21 +536,21 @@ template&lt;typename T , typename U &gt; </div>
 template&lt;typename U , std::size_t SIZE, std::size_t DIFF&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt;U, SIZE+DIFF&gt; salih::algorithms::merge </td>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt;<a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE+DIFF&gt; salih::algorithms::merge </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, DIFF &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, DIFF &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename U::innerType, typename U::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -498,8 +572,8 @@ template&lt;typename U , std::size_t SIZE, std::size_t DIFF&gt; </div>
 
 </div>
 </div>
-<a id="aaba4b37fcff1026eda4aded5f3f79bfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaba4b37fcff1026eda4aded5f3f79bfd">&#9670;&nbsp;</a></span>merge() <span class="overload">[2/3]</span></h2>
+<a id="af659a0774e04526943eb577f14243b4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af659a0774e04526943eb577f14243b4c">&#9670;&nbsp;</a></span>merge() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -507,21 +581,21 @@ template&lt;typename U , std::size_t SIZE, std::size_t DIFF&gt; </div>
 template&lt;typename U , std::size_t SIZE&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt;U, SIZE+SIZE&gt; salih::algorithms::merge </td>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt;<a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE+SIZE&gt; salih::algorithms::merge </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename U::innerType, typename U::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -543,8 +617,8 @@ template&lt;typename U , std::size_t SIZE&gt; </div>
 
 </div>
 </div>
-<a id="ae91138ddb086a0856b211c1dc1973df0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae91138ddb086a0856b211c1dc1973df0">&#9670;&nbsp;</a></span>merge() <span class="overload">[3/3]</span></h2>
+<a id="aa394bdf817c02d8549b0e76c54de3d37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa394bdf817c02d8549b0e76c54de3d37">&#9670;&nbsp;</a></span>merge() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,7 +640,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename T::innerType, typename T::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -588,8 +662,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a0560b922c5ff2b4d99586e429636644e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0560b922c5ff2b4d99586e429636644e">&#9670;&nbsp;</a></span>mergeSort() <span class="overload">[1/2]</span></h2>
+<a id="acfeb4c38f31d544ee3ac063bac336fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfeb4c38f31d544ee3ac063bac336fd9">&#9670;&nbsp;</a></span>mergeSort() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T salih::algorithms::mergeSort </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5024a34d11270d86dbaed4b5ffb017e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5024a34d11270d86dbaed4b5ffb017e6">&#9670;&nbsp;</a></span>mergeSort() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -597,15 +699,15 @@ template&lt;typename T &gt; </div>
 template&lt;typename U , std::size_t SIZE&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt;U, SIZE&gt; salih::algorithms::mergeSort </td>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt;<a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE&gt; salih::algorithms::mergeSort </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; U, SIZE &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsalih_1_1containers_1_1Array.html">salih::containers::Array</a>&lt; <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a>, SIZE &gt; &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename U::innerType, typename U::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -626,8 +728,8 @@ template&lt;typename U , std::size_t SIZE&gt; </div>
 
 </div>
 </div>
-<a id="a4544626d555ec6d41436fba4d56b37c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4544626d555ec6d41436fba4d56b37c3">&#9670;&nbsp;</a></span>mergeSort() <span class="overload">[2/2]</span></h2>
+<a id="a492b3ce1a757743516ac0920849ef4c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492b3ce1a757743516ac0920849ef4c2">&#9670;&nbsp;</a></span>mergeSort() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -643,7 +745,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename T::innerType, typename T::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -664,8 +766,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a15a3d6db9d439f13c191f67a8116b541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a3d6db9d439f13c191f67a8116b541">&#9670;&nbsp;</a></span>quickSort()</h2>
+<a id="a0ea073b324734049b61e73598778bc73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea073b324734049b61e73598778bc73">&#9670;&nbsp;</a></span>quickSort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T salih::algorithms::quickSort </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5718bacb4277e80c80d8544735c34b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5718bacb4277e80c80d8544735c34b3">&#9670;&nbsp;</a></span>quickSort() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -681,7 +811,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename T::innerType, typename T::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -702,8 +832,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a16ea0c8ba66fbe9fd207e5416ab2df45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16ea0c8ba66fbe9fd207e5416ab2df45">&#9670;&nbsp;</a></span>selectionSort()</h2>
+<a id="abe7e73373a8e1c4e88281e4cfb042e5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe7e73373a8e1c4e88281e4cfb042e5a">&#9670;&nbsp;</a></span>selectionSort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> T salih::algorithms::selectionSort </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61504d24d10178354865ee42825dd4a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61504d24d10178354865ee42825dd4a6">&#9670;&nbsp;</a></span>selectionSort() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -719,7 +877,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool(*)(int, int)&#160;</td>
+          <td class="paramtype">bool(*)(typename T::innerType, typename T::innerType)&#160;</td>
           <td class="paramname"><em>order</em> = <code><a class="el" href="namespacesalih_1_1algorithms.html#a107115c85af2697704dc3c5b36fde36d">salih::algorithms::ASCEND</a></code>&#160;</td>
         </tr>
         <tr>
@@ -754,13 +912,13 @@ template&lt;typename U &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> void salih::algorithms::swap </td>
           <td>(</td>
-          <td class="paramtype">U &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">U &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -791,10 +949,10 @@ template&lt;typename U &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIterator::value&gt; </div>
+template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">U <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t salih::algorithms::tally </td>
+          <td class="memname"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t salih::algorithms::tally </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname">, </td>
@@ -808,7 +966,7 @@ template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;=
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const U &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -821,19 +979,19 @@ template&lt;typename T , typename  = std::enable_if&lt; T::category::value &gt;=
 
 </div>
 </div>
-<a id="a4977174c6c3950e1ecb1a766ef575184"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4977174c6c3950e1ecb1a766ef575184">&#9670;&nbsp;</a></span>tally() <span class="overload">[2/2]</span></h2>
+<a id="abab268fa1d5146c8ab12a6d8256a09fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab268fa1d5146c8ab12a6d8256a09fc">&#9670;&nbsp;</a></span>tally() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename U &gt; </div>
+template&lt;typename T , typename  = std::enable_if&lt; T::iteratorType::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t salih::algorithms::tally </td>
+          <td class="memname"><a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> <a class="el" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> std::size_t salih::algorithms::tally </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname">, </td>
@@ -841,7 +999,7 @@ template&lt;typename T , typename U &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const U &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098">U</a> &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -856,14 +1014,23 @@ template&lt;typename T , typename U &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This function tallies the prescence of a value in a given container </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">const</td><td>reference to list (to be searched through) </td></tr>
-    <tr><td class="paramname">value</td><td>to compare against </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>value relating to prescence of said value </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ac011eb6d27b1d4da6f7dad7dc7aab098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac011eb6d27b1d4da6f7dad7dc7aab098">&#9670;&nbsp;</a></span>U</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename  = typename std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">salih::algorithms::U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
