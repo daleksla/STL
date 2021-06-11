@@ -34,6 +34,13 @@ namespace algorithms {
          * @return value relating to prescence of said value **/
 	template<typename T, typename = std::enable_if< T::iteratorType::value >= salih::types::UniDirectionalIteratorTag::value>, typename U>
 	CONSTEXPRCXX14 inline std::size_t tally(const T&, const U&) ;
+	
+	/** This function tallies the prescence of a value in a given container 
+	 * @param const reference to list (to be searched through)
+         * @param value to compare against
+         * @return value relating to prescence of said value **/
+	template<typename T, typename = std::enable_if< T::iteratorType::value >= salih::types::UniDirectionalIteratorTag::value>, typename U>
+	CONSTEXPRCXX14 inline std::size_t tally(const T&, const U&) ;
 
 }
 }
