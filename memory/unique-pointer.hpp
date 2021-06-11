@@ -20,6 +20,23 @@ namespace memory {
 	
 	template<>
 	class UniquePointer<void> ;	
+	
+	/** This is the makeUnique function, which creates a UniquePointer object of type T on the heap (using said object's empty / default initialisation)
+	 * @return UniquePointer of type T **/
+	template<class T>
+	UniquePointer<T> makeUnique() ;
+	
+	/** This is the makeUnique function, which creates a UniquePointer object of type T on the heap, initialising the object using constructor determined by the parameters given
+	 * @param Variadic template (arguments to pass in order to initialise object of type T)
+	 * @return UniquePointer of type T **/
+	template<class T, class... Args>
+	UniquePointer<T> makeUnique(Args&&...) ;
+	
+	/** This is the makeUnique function, which creates a UniquePointer object of an array of T's (T[]) on the heap, 
+	 * @param number of T's to allocate in contiguous block
+	 * @return UniquePointer of type T[] **/
+	template<class T>
+	UniquePointer<T[]> makeUnique(const std::size_t) ;
 
 	template<class T>
 	class UniquePointer : public Pointer<T> {
@@ -80,16 +97,6 @@ namespace memory {
 			
 			/** Destructor, frees memory and deletes objects **/					
 			~UniquePointer() ;
-			
-			/** This is the make function, which creates a UniquePointer object of type T on the heap (using said object's empty / default initialisation)
-	 		* @return UniquePointer of type T **/
-			static UniquePointer<T> make() ;
-			
-			/** This is the make function, which creates a UniquePointer object of type T on the heap, initialising the object using constructor determined by the parameters given
-	 		* @param Variadic template (arguments to pass in order to initialise object of type T)
-	 		* @return UniquePointer of type T **/
-			template<class... Args>
-			static UniquePointer<T> make(const Args&&...) ;
 			
 			friend class UniquePointer<void> ;
 			
@@ -154,11 +161,6 @@ namespace memory {
 			
 			/** Destructor, frees memory and deletes objects **/					
 			~UniquePointer() ;
-
-			/** This is the make function, which creates a UniquePointer object of an array of T's (T[]) on the heap, 
-			 * @param number of T's to allocate in contiguous block
-			 * @return UniquePointer of type T[] **/
-			UniquePointer<T[]> make(const std::size_t) ;
 			
 			friend class UniquePointer<void> ;
 			

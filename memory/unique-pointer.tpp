@@ -181,21 +181,21 @@ salih::memory::UniquePointer<void>::~UniquePointer()
 }
 
 template<class T>
-salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make()
+salih::memory::UniquePointer<T> salih::memory::makeUnique()
 {
 	return salih::memory::UniquePointer<T>(new T) ;
 }
 	
 template<class T>
 template<class... Args>
-salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make(const Args&&... args)
+salih::memory::UniquePointer<T> salih::memory::makeUnique(const Args&&... args)
 {
 	T* p = new T(args...) ;
 	return salih::memory::UniquePointer<T>(new T(args...)) ;
 }
 	
 template<class T>
-salih::memory::UniquePointer<T[]> salih::memory::UniquePointer<T[]>::make(const std::size_t sz)
+salih::memory::UniquePointer<T[]> salih::memory::makeUnique(const std::size_t sz)
 {
 	return salih::memory::UniquePointer<T[]>(new T[sz]) ;
 }
