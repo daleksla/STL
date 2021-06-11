@@ -4,7 +4,7 @@
 
 #include "macros.hpp"
 
-/** @brief Tags, concepts and other features for iterator types. Note: C++20 onwards allows for usage of concepts instead
+/** @brief Tags, concepts and other features for iterator types
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date Jun 2021

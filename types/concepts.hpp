@@ -4,7 +4,7 @@
 
 #include "macros.hpp"
 
-/** @brief Useful concepts for general and library-specific data-types
+/** @brief File containing concepts (constraints of as given parameter type based on permissible operation / conditions) 
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date Jun 2021
@@ -45,6 +45,7 @@ namespace types {
 		a++ ;
 		a += 2 ;
 		a + 1 ;	
+		*a ;
 	} ;
 
 	template<typename T>
