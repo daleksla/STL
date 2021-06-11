@@ -68,7 +68,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classsalih_1_1memory_1_1UniquePointer-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -104,14 +103,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2f323ab57e4e2e26671bdf509564b279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b0443173fd21a24962156dee90b9d75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html#a6b0443173fd21a24962156dee90b9d75">reset</a> ()</td></tr>
 <tr class="separator:a6b0443173fd21a24962156dee90b9d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af8253b4302412066ad67e72db3b4c5a4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html#af8253b4302412066ad67e72db3b4c5a4">make</a> ()</td></tr>
-<tr class="separator:af8253b4302412066ad67e72db3b4c5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fc053f815b54f399a07cc6fb6cd241e"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
-<tr class="memitem:a4fc053f815b54f399a07cc6fb6cd241e"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html#a4fc053f815b54f399a07cc6fb6cd241e">make</a> (const Args &amp;&amp;...)</td></tr>
-<tr class="separator:a4fc053f815b54f399a07cc6fb6cd241e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -340,71 +331,6 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af8253b4302412066ad67e72db3b4c5a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8253b4302412066ad67e72db3b4c5a4">&#9670;&nbsp;</a></span>make() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt;T&gt; <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">salih::memory::UniquePointer</a>&lt; T &gt;::make </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This is the make function, which creates a <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> object of type T on the heap (using said object's empty / default initialisation) </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> of type T </dd></dl>
-
-</div>
-</div>
-<a id="a4fc053f815b54f399a07cc6fb6cd241e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fc053f815b54f399a07cc6fb6cd241e">&#9670;&nbsp;</a></span>make() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<div class="memtemplate">
-template&lt;class... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt;T&gt; <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">salih::memory::UniquePointer</a>&lt; T &gt;::make </td>
-          <td>(</td>
-          <td class="paramtype">const Args &amp;&amp;&#160;</td>
-          <td class="paramname"><em>...</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This is the make function, which creates a <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> object of type T on the heap, initialising the object using constructor determined by the parameters given </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Variadic</td><td>template (arguments to pass in order to initialise object of type T) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> of type T </dd></dl>
-
-</div>
-</div>
 <a id="a59b89171fd78b0375c64005995f422c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59b89171fd78b0375c64005995f422c7">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/4]</span></h2>
 

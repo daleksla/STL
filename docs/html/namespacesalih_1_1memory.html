@@ -108,6 +108,15 @@ Functions</h2></td></tr>
 <tr class="memitem:aefd26257d1efaa242618ef31745c1091"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:aefd26257d1efaa242618ef31745c1091"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a>&lt; T[]&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1memory.html#aefd26257d1efaa242618ef31745c1091">makeShared</a> (const std::size_t)</td></tr>
 <tr class="separator:aefd26257d1efaa242618ef31745c1091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb6010a8ba51b366d52a7d836e01e7f"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a2fb6010a8ba51b366d52a7d836e01e7f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1memory.html#a2fb6010a8ba51b366d52a7d836e01e7f">makeUnique</a> ()</td></tr>
+<tr class="separator:a2fb6010a8ba51b366d52a7d836e01e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d464ec4beb4d4773c28e2cc3617bc83"><td class="memTemplParams" colspan="2">template&lt;class T , class... Args&gt; </td></tr>
+<tr class="memitem:a4d464ec4beb4d4773c28e2cc3617bc83"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1memory.html#a4d464ec4beb4d4773c28e2cc3617bc83">makeUnique</a> (Args &amp;&amp;...)</td></tr>
+<tr class="separator:a4d464ec4beb4d4773c28e2cc3617bc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e92cf0586bd2487cc4f6746be9f554a"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a9e92cf0586bd2487cc4f6746be9f554a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt; T[]&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesalih_1_1memory.html#a9e92cf0586bd2487cc4f6746be9f554a">makeUnique</a> (const std::size_t)</td></tr>
+<tr class="separator:a9e92cf0586bd2487cc4f6746be9f554a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aca08644f299b2bdfe28ba2f3292e89be"></a>
@@ -206,6 +215,80 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classsalih_1_1memory_1_1SharedPointer.html">SharedPointer</a> of type T[] </dd></dl>
+
+</div>
+</div>
+<a id="a2fb6010a8ba51b366d52a7d836e01e7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb6010a8ba51b366d52a7d836e01e7f">&#9670;&nbsp;</a></span>makeUnique() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt;T&gt; salih::memory::makeUnique </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the makeUnique function, which creates a <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> object of type T on the heap (using said object's empty / default initialisation) </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> of type T </dd></dl>
+
+</div>
+</div>
+<a id="a4d464ec4beb4d4773c28e2cc3617bc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d464ec4beb4d4773c28e2cc3617bc83">&#9670;&nbsp;</a></span>makeUnique() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt;T&gt; salih::memory::makeUnique </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the makeUnique function, which creates a <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> object of type T on the heap, initialising the object using constructor determined by the parameters given </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Variadic</td><td>template (arguments to pass in order to initialise object of type T) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> of type T </dd></dl>
+
+</div>
+</div>
+<a id="a9e92cf0586bd2487cc4f6746be9f554a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e92cf0586bd2487cc4f6746be9f554a">&#9670;&nbsp;</a></span>makeUnique() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a>&lt;T[]&gt; salih::memory::makeUnique </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the makeUnique function, which creates a <a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> object of an array of T's (T[]) on the heap, </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>of T's to allocate in contiguous block </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classsalih_1_1memory_1_1UniquePointer.html">UniquePointer</a> of type T[] </dd></dl>
 
 </div>
 </div>
