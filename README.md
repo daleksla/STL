@@ -15,7 +15,9 @@ This project was based with 4 things in mind:
 
 Note: this project serves as a hobby to explore into themes such as (dynamic) memory allocation, memory management, copy / move semantics, operator overloads, polymorphism etc.. It is not officially concerned with replacing any tried-and-tested features of C++ STL (though whether some features are better or not is up to personal discretion - I do have list slicing and some nicer string handling features, which people tend to always want to use so...). 
 
-Regardless, my code a) is a lot more legible and I encourage you to read it and understand how it works b) basically runs exactly the same as the STL versions (with regards to memory, heap allocations and the like) - no downside to usage or experimentation!
+Regardless, my code a) is a lot more legible and I encourage you to read it and understand how it works b) basically runs exactly the same as the STL versions (with regards to memory, heap allocations and the like) - no downside to usage or experimentation! 
+
+See each sub-folder's README files for further details.
 
 (c) Salih Mahmoud Sayed Ahmed, 2021. All rights reserved. See LICENSE for terms on code usage
 
