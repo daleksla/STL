@@ -4,7 +4,7 @@
 
 #include "macros.hpp"
 
-/** @brief File containing concepts (constraints of as given parameter type based on permissible operation / conditions) 
+/** @brief Collection of general-use Concepts (constraints of as given parameter type based on permissible operation / conditions) 
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date Jun 2021
