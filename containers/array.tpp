@@ -5,6 +5,12 @@
 #include "../types/macros.hpp"
 #include <stdexcept>
 
+/** @brief Implementations of Array (C-style) wrapper. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 template<typename T, std::size_t SIZE> 
 CONSTEXPRCXX11 T* salih::containers::Array<T, SIZE>::get() const
 {

@@ -5,6 +5,12 @@
 #include "../types/macros.hpp"
 #include "../types/iterators.hpp"
 
+/** @brief Implementations of searching algorihtms. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date May 2021
+**/
+
 CONSTEXPRCXX14 inline std::size_t salih::algorithms::getMiddle(const std::size_t size)
 {
 	std::size_t middleN = 0;

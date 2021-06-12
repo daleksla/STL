@@ -1,7 +1,9 @@
 #ifndef UNIQUE_POINTER_TPP
 #define UNIQUE_POINTER_TPP
 
-/** @brief File containing unique pointer class definitions
+#include "base-pointer.hpp"
+
+/** @brief Implementations of Unique pointer class. FOR INTERNAL USAGE ONLY
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021

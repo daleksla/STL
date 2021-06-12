@@ -2,7 +2,7 @@
 #define FLAGS_HPP
 #pragma once
 
-/** @brief Flags for sorting algorithms
+/** @brief Flags for sorting algorithms. FOR INTERNAL USAGE ONLY
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021

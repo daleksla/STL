@@ -6,7 +6,7 @@
 #include "../types/iterators.hpp"
 #include <type_traits>
 		
-/** @brief Searching algorihtms file
+/** @brief Searching algorihtms
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021

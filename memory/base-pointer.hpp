@@ -1,7 +1,7 @@
 #ifndef BASE_POINTER_HPP
 #define BASE_POINTER_HPP
 
-/** @brief File containing base class declarations for all smart pointers
+/** @brief Base class for all smart pointers
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021

@@ -5,6 +5,12 @@
 #include "../types/macros.hpp"
 #include "../types/iterators.hpp"
 
+/** @brief Implementations of data manipulation functionalities. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date May 2021
+**/
+
 template<typename U>
 CONSTEXPRCXX14 inline void salih::algorithms::swap(U& x, U& y)
 {

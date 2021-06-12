@@ -7,6 +7,12 @@
 #include <initializer_list>
 #include "../types/macros.hpp"
 
+/** @brief Implementations of Stack LIFO structure. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 template <typename T>
 CONSTEXPRCXX20 salih::containers::Stack<T>::Stack()
 {

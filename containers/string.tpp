@@ -5,6 +5,12 @@
 #include <stdexcept>
 #include "../types/macros.hpp"
 
+/** @brief Implementations of String (c-style) wrapper. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 inline CONSTEXPRCXX20 salih::containers::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
 
 CONSTEXPRCXX20 salih::containers::String::String() : size(0)

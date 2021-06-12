@@ -7,7 +7,7 @@
 #include "../types/iterators.hpp"
 #include <initializer_list>
 
-/** @brief Vector-class implementation file, a wrapper for a C-style dynamic-contiguous data structure
+/** @brief Vector (dynamic, contiguous array) container
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021

@@ -6,7 +6,7 @@
 #include "../types/macros.hpp"
 #include <initializer_list>
 
-/** @brief Queue-class implementation file, representing the FIFO abstract data type
+/** @brief Queue FIFO structure
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021

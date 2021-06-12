@@ -4,6 +4,12 @@
 
 #include "../types/macros.hpp"
 
+/** @brief Singly Linkedlist nodes
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 namespace salih {
 namespace containers {
 

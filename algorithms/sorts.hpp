@@ -7,7 +7,7 @@
 #include "../containers/array.hpp"
 #include "../types/macros.hpp"
 
-/** @brief Sorting algorihtms file
+/** @brief Sorting algorihtms
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021

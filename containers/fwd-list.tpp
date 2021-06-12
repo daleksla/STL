@@ -4,8 +4,14 @@
 
 #include <stdexcept>
 #include "s-node.hpp"
-#include "s-node.hpp"
+#include "../types/macros.hpp"
 #include <initializer_list>
+
+/** @brief Implementations of singly Linkedlist container. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
  
 template <typename T>
 CONSTEXPRCXX20 salih::containers::FwdList<T>::FwdList() : head(nullptr), size(0) {} ;

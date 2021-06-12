@@ -1,12 +1,13 @@
 #ifndef SHARED_POINTER_TPP
 #define SHARED_POINTER_TPP
 
-/** @brief File containing shared pointer class definitions
+#include "base-pointer.hpp"
+
+/** @brief Implementations of Shared pointer class. FOR INTERNAL USAGE ONLY
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021
 **/
-
 template<typename T>
 salih::memory::SharedPointer<T>::SharedPointer() : salih::memory::Pointer<T>(), count(nullptr) {} ;
 

@@ -6,7 +6,7 @@
 #include <initializer_list>
 #include "../types/macros.hpp"
 
-/** @brief Stack-class implementation file, representing the LIFO abstract data type
+/** @brief Stack LIFO structure
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021

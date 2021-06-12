@@ -4,6 +4,12 @@
 
 #include "../types/macros.hpp"
 
+/** @brief Implementations of Doubly Linkedlist nodes. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 template <typename T>
 CONSTEXPRCXX14 salih::containers::DNode<T>::DNode(const T i_data, salih::containers::DNode<T>* node, const bool flag)
 {

@@ -7,8 +7,12 @@
 #include "../types/macros.hpp"
 #include <initializer_list>
 
-/* This file contains the declarations and implementations of a array-based (child) contiguous structure 
- * It is located in the Salih, Structures, Contiguous namespaces */
+/** @brief Implementations of Vector (dynamic, contiguous array) container. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 
 template<typename T> 
 CONSTEXPRCXX20 salih::containers::Vector<T>::Vector() : pointer(new T[0]), size(0) {} ;

@@ -1,7 +1,7 @@
 #ifndef BASE_POINTER_TPP
 #define BASE_POINTER_TPP
 
-/** @brief File containing base class definitions for all smart pointers
+/** @brief Implementations of the Base class for all smart pointers. FOR INTERNAL USAGE ONLY
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021

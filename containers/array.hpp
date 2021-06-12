@@ -5,7 +5,7 @@
 #include "../types/macros.hpp"
 #include "../types/iterators.hpp"
 
-/** @brief Array-class implementation file, representing a C-style array wrapper
+/** @brief Array (C-style) wrapper
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021

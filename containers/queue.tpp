@@ -7,6 +7,12 @@
 #include <algorithm>
 #include <initializer_list>
 
+/** @brief Implementations of Queue FIFO structure. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 template <typename T>
 CONSTEXPRCXX20 salih::containers::Queue<T>::Queue()
 {

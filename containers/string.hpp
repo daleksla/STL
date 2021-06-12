@@ -5,7 +5,7 @@
 #include "../types/macros.hpp"
 #include "../types/iterators.hpp"
 
-/** @brief String-class implementation file, serving as a wrapper for a c-string (character array)
+/** @brief String (c-style) wrapper
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021

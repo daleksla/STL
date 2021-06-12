@@ -4,6 +4,12 @@
 
 #include "data-ops.hpp"
 
+/** @brief Implementations of sorting algorihtms. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date May 2021
+**/
+
 template<typename T>
 CONSTEXPRCXX14 T salih::algorithms::bubbleSort(T list, bool(*const order)(typename T::innerType, typename T::innerType))
 {

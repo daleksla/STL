@@ -1,7 +1,7 @@
 #ifndef MEMORY_UTILITIES_HPP
 #define MEMORY_UTILITIES_HPP
 
-/** @brief File containing base class declarations for all smart pointers
+/** @brief Functionality relating to memory management
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021

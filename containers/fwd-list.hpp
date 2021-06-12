@@ -7,7 +7,7 @@
 #include "../types/iterators.hpp"
 #include <initializer_list>
 
-/** @brief Singly Linkedlist container-class declaration file
+/** @brief Singly Linkedlist container
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date April 2021

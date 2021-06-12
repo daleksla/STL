@@ -6,6 +6,12 @@
 #include "../types/macros.hpp"
 #include <stdexcept>
 #include <initializer_list>
+
+/** @brief Implementations of Doubly Linkedlist container. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
  
 template <typename T>
 CONSTEXPRCXX20 salih::containers::List<T>::List() : head(nullptr), tail(nullptr), size(0) {} ;
