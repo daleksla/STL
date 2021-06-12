@@ -4,7 +4,7 @@
 
 #include "macros.hpp"
 
-/** @brief Tags, concepts and other features for iterator types
+/** @brief Collection of concepts, traits & tags for iterator types
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date Jun 2021
