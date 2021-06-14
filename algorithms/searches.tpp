@@ -23,7 +23,7 @@ CONSTEXPRCXX14 inline std::size_t salih::algorithms::getMiddle(const std::size_t
 	return middleN ;
 }
 	
-template<typename T, typename U, typename Z>
+template<typename T, typename U>
 CONSTEXPRCXX14 bool salih::algorithms::binarySearch(const T& list, const U& target)
 {
 	const std::size_t size = list.getSize() ; 
@@ -39,7 +39,7 @@ CONSTEXPRCXX14 bool salih::algorithms::binarySearch(const T& list, const U& targ
 	return false ; // if there aren't more elements we can look at
 }
 
-template<typename T, typename U, typename Z>
+template<typename T, typename U>
 CONSTEXPRCXX14 bool salih::algorithms::interpolationSearch(const T& list, const U& target)
 {
 	if(!list.getSize()) return false ;
@@ -58,14 +58,14 @@ CONSTEXPRCXX14 bool salih::algorithms::interpolationSearch(const T& list, const 
 	return result ;
 }
 
-template<typename T, typename F, typename U, typename Z>
+template<typename T, typename U>
 CONSTEXPRCXX14 bool salih::algorithms::linearSearch(const T& begin, const T& end, const U& target)
 {
 	for(auto it = begin ; it != end ; ++it) if(*it == target) return true ;
 	return false ;
 }
 
-template<typename T, typename F, typename U, typename Z>
+template<typename T, typename U>
 CONSTEXPRCXX14 inline bool salih::algorithms::linearSearch(const T& list, const U& target)
 {
 	if(list.getSize() == 0) return false ;
