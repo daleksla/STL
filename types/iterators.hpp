@@ -14,15 +14,39 @@ namespace salih {
 namespace types {
 
 	struct UniDirectionalIteratorTag {
-		static constexpr int value = 1 ;
+		public:
+			static CONSTEXPRCXX11 int value = 1 ;
+		
+		public:
+			static CONSTEXPRCXX11 int operator()
+			{
+				return value ;
+			}
+
 	} ;
 
 	struct BiDirectionalIteratorTag {
-		static constexpr int value = 2 ;
+		public:
+			static CONSTEXPRCXX11 int value = 2 ;
+		
+		public:
+			static CONSTEXPRCXX11 int operator()
+			{
+				return value ;
+			}
+			
 	} ;
 
 	struct RandomAccessIteratorTag {
-		static constexpr int value = 3 ;
+		public:
+			static CONSTEXPRCXX11 int value = 3 ;
+		
+		public:
+			static CONSTEXPRCXX11 int operator()
+			{
+				return value ;
+			}
+			
 	} ;
 
 	#ifdef CXX20
