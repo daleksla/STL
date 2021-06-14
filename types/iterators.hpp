@@ -50,6 +50,7 @@ namespace types {
 		a <= a ;	
 	} ;
 	#endif
+	
 }
 }
 
