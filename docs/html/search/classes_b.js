@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['unidirectionaliteratortag_156',['UniDirectionalIteratorTag',['../structsalih_1_1types_1_1UniDirectionalIteratorTag.html',1,'salih::types']]],
-  ['uniquepointer_157',['UniquePointer',['../classsalih_1_1memory_1_1UniquePointer.html',1,'salih::memory']]],
-  ['uniquepointer_3c_20t_5b_5d_3e_158',['UniquePointer&lt; T[]&gt;',['../classsalih_1_1memory_1_1UniquePointer_3_01T_0f_0e_4.html',1,'salih::memory']]],
-  ['uniquepointer_3c_20void_20_3e_159',['UniquePointer&lt; void &gt;',['../classsalih_1_1memory_1_1UniquePointer_3_01void_01_4.html',1,'salih::memory']]]
+  ['unidirectionaliteratortag_196',['UniDirectionalIteratorTag',['../structsalih_1_1types_1_1UniDirectionalIteratorTag.html',1,'salih::types']]],
+  ['uniquepointer_197',['UniquePointer',['../classsalih_1_1memory_1_1UniquePointer.html',1,'salih::memory']]],
+  ['uniquepointer_3c_20t_5b_5d_3e_198',['UniquePointer&lt; T[]&gt;',['../classsalih_1_1memory_1_1UniquePointer_3_01T_0f_0e_4.html',1,'salih::memory']]],
+  ['uniquepointer_3c_20void_20_3e_199',['UniquePointer&lt; void &gt;',['../classsalih_1_1memory_1_1UniquePointer_3_01void_01_4.html',1,'salih::memory']]]
 ];

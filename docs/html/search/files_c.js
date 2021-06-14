@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['traits_2ehpp_184',['traits.hpp',['../traits_8hpp.html',1,'']]]
+  ['unique_2dpointer_2ehpp_226',['unique-pointer.hpp',['../unique-pointer_8hpp.html',1,'']]],
+  ['utilities_2ehpp_227',['utilities.hpp',['../utilities_8hpp.html',1,'']]]
 ];
