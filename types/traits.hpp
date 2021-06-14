@@ -13,7 +13,23 @@
 namespace salih {
 namespace types {
 
-	template<typename T, typename U>
+	struct falseType {		
+		private:
+			static CONSTEXPRCXX11 bool value = false ;
+			
+		public:
+			inline CONSTEXPRCXX11 operator bool()
+			{
+				return value ;
+			}
+			
+			inline CONSTEXPRCXX11 bool operator!()
+			{
+				return !value ;
+			}
+			
+	} ;
+	
 	struct trueType {		
 		private:
 			static CONSTEXPRCXX11 bool value = true ;
@@ -30,32 +46,11 @@ namespace types {
 			}
 			
 	} ;
-	
-	template<typename T, typename U>
-	struct falseType {		
-		private:
-			static CONSTEXPRCXX11 bool value = false ;
-			
-		public:
-			inline CONSTEXPRCXX11 bool operator()
-			{
-				return value ;
-			}
-			
-			inline CONSTEXPRCXX11 bool operator!()
-			{
-				return !value ;
-			}
-			
-	} ;
-	
-	template<typename T, typename U>
-	struct isSame : public falseType ;
-	
-	template<typename T>
-	struct isSame : public trueType ;
 
 }
 }
+
+#include "is-same.hpp"
+#include "is-number.hpp"
 	
 #endif
