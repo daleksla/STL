@@ -13,8 +13,7 @@
 namespace salih {
 namespace types {
 
-
-	template <class T> struct isNumber : public falseType {} ;
+	template<typename T> struct isNumber : public falseType {} ;
 
 	template<> struct isNumber<unsigned char> : public trueType {} ;
 	
@@ -42,11 +41,27 @@ namespace types {
 	
 	template<> struct isNumber<unsigned long> : public trueType {} ;
 	
+	template<> struct isNumber<unsigned long long> : public trueType {} ;
+	
 	template<> struct isNumber<const unsigned long> : public trueType {} ;
+
+	template<> struct isNumber<const unsigned long long> : public trueType {} ;
 	
 	template<> struct isNumber<signed long> : public trueType {} ;
 	
+	template<> struct isNumber<signed long long> : public trueType {} ;
+	
 	template<> struct isNumber<const signed long> : public trueType {} ;
+	
+	template<> struct isNumber<const signed long long> : public trueType {} ;
+	
+	template<> struct isNumber<float> : public trueType {} ;
+	
+	template<> struct isNumber<const float> : public trueType {} ;
+	
+	template<> struct isNumber<double> : public trueType {} ;
+	
+	template<> struct isNumber<const double> : public trueType {} ;
 	
 	template<> struct isNumber<bool> : public trueType {} ;
 	
