@@ -3,4 +3,4 @@ This section of the library does not contain any other types *per se*, rather it
 
 Note: explicitly follow the accompanying documentation regarding which files to include, as MOST of the files in this sub-section are for internal use ONLY.
 
-All code in this library is located in namespace `salih::types`.
+All code in this sublibrary is located in main namespace `salih::types`.
