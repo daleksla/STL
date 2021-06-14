@@ -10,47 +10,9 @@
     @date Jun 2021
 **/
 
-namespace salih {
-namespace types {
-
-	struct falseType {		
-		private:
-			static CONSTEXPRCXX11 bool value = false ;
-			
-		public:
-			inline CONSTEXPRCXX11 operator bool()
-			{
-				return value ;
-			}
-			
-			inline CONSTEXPRCXX11 bool operator!()
-			{
-				return !value ;
-			}
-			
-	} ;
-	
-	struct trueType {		
-		private:
-			static CONSTEXPRCXX11 bool value = true ;
-			
-		public:
-			inline CONSTEXPRCXX11 operator bool()
-			{
-				return value ;
-			}
-			
-			inline CONSTEXPRCXX11 bool operator!()
-			{
-				return !value ;
-			}
-			
-	} ;
-
-}
-}
-
+#include "bool-type.hpp"
 #include "is-same.hpp"
 #include "is-number.hpp"
-	
+#include "is-floating.hpp"
+
 #endif
