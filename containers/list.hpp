@@ -167,7 +167,7 @@ namespace containers {
 					using constPointerType = const T* ;                         
 					using referenceType = T& ;                             
 					using constReferenceType = const T& ;  
-					using category = salih::types::BiDirectionalIterator ;
+					using category = salih::types::BiDirectionalIteratorTag ;
 					
 				private:
 					DNode<T>* pointer ;
