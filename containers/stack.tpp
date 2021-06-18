@@ -251,7 +251,7 @@ CONSTEXPRCXX20 void salih::containers::Stack<T>::push(const std::initializer_lis
 }
 
 template <typename T>
-CONSTEXPRCXX20 std::size_t salih::containers::Stack<T>::getSize()
+CONSTEXPRCXX20 unsigned long salih::containers::Stack<T>::getSize()
 {
 	return this->size ;
 }

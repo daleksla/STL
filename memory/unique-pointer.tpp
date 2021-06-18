@@ -13,7 +13,7 @@ template<typename T>
 salih::memory::UniquePointer<T>::UniquePointer() : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T>() {} ;
+salih::memory::UniquePointer<T>::UniquePointer(const decltype(nullptr) x) : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
 salih::memory::UniquePointer<T>::UniquePointer(T* data) : salih::memory::Pointer<T>(data) {} ;
@@ -29,7 +29,7 @@ salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(T* d
 }
 
 template<typename T>
-salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(std::nullptr_t data) 
+salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(const decltype(nullptr) data) 
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;
@@ -68,7 +68,7 @@ template<typename T>
 salih::memory::UniquePointer<T[]>::UniquePointer() : salih::memory::Pointer<T[]>() {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T[]>() {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer(const decltype(nullptr) x) : salih::memory::Pointer<T[]>() {} ;
 
 template<typename T>
 salih::memory::UniquePointer<T[]>::UniquePointer(T* data) : salih::memory::Pointer<T[]>(data) {} ;
@@ -79,7 +79,7 @@ salih::memory::UniquePointer<T[]>::UniquePointer(void* data) : salih::memory::Po
 template<typename T>
 salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(T* data)
 {
-	salih::memory::Pointer<T>::operator=(data) ;
+	static_cast<Pointer<T[]>*>(&*this)->operator=(data) ;
 	return *this ;	
 }
 
@@ -188,8 +188,7 @@ salih::memory::UniquePointer<T> salih::memory::makeUnique()
 	return salih::memory::UniquePointer<T>(new T) ;
 }
 	
-template<class T>
-template<class... Args>
+template<class T, class... Args>
 salih::memory::UniquePointer<T> salih::memory::makeUnique(const Args&&... args)
 {
 	T* p = new T(args...) ;
@@ -197,7 +196,7 @@ salih::memory::UniquePointer<T> salih::memory::makeUnique(const Args&&... args)
 }
 	
 template<class T>
-salih::memory::UniquePointer<T[]> salih::memory::makeUnique(const std::size_t sz)
+salih::memory::UniquePointer<T[]> salih::memory::makeUnique(const unsigned long sz)
 {
 	return salih::memory::UniquePointer<T[]>(new T[sz]) ;
 }

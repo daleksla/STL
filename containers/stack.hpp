@@ -21,7 +21,7 @@ namespace containers {
 		private:
 			salih::containers::DNode<T>* tail ;
 			
-			std::size_t size ;
+			unsigned long size ;
 		public:
 			using inner = T ;
 		
@@ -101,7 +101,7 @@ namespace containers {
 			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/	
-			CONSTEXPRCXX20 std::size_t getSize() ;
+			CONSTEXPRCXX20 unsigned long getSize() ;
 			
 			template<typename OTHER>
 			friend class Stack ;

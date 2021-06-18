@@ -11,7 +11,7 @@
     @date April 2021
 **/
 
-inline CONSTEXPRCXX20 salih::containers::String::String(char* temp, const std::size_t SIZE) : str(temp), size(SIZE) {} ;
+inline CONSTEXPRCXX20 salih::containers::String::String(char* temp, const unsigned long SIZE) : str(temp), size(SIZE) {} ;
 
 CONSTEXPRCXX20 salih::containers::String::String() : size(0)
 {
@@ -19,7 +19,7 @@ CONSTEXPRCXX20 salih::containers::String::String() : size(0)
 	this->str[0] = '\0' ;
 }
 
-CONSTEXPRCXX20 salih::containers::String::String(const std::size_t x) : size(x)
+CONSTEXPRCXX20 salih::containers::String::String(const unsigned long x) : size(x)
 {
 	this->str = new char[x+1] ;
 	this->str[x] = '\0' ;
@@ -29,13 +29,13 @@ CONSTEXPRCXX20 salih::containers::String::String(const char* input)
 {
 	for(this->size = 0 ; input[this->size] != '\0'; this->size++) ;
 	this->str = new char[size + 1] ;
-	for(std::size_t i = 0 ; i < size ; i++) str[i] = input[i] ;
+	for(unsigned long i = 0 ; i < size ; i++) str[i] = input[i] ;
 	str[this->size] = '\0' ;
 }
 
 CONSTEXPRCXX20 salih::containers::String::String(const salih::containers::String& tbc) : str(new char[tbc.size+1]), size(tbc.size)
 {
-	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
 	this->str[this->size] = '\0' ;
 }
 
@@ -44,7 +44,7 @@ CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator=(c
 	delete[] this->str ;
 	this->size = tbc.size ;
 	this->str = new char[this->size+1] ;
-	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) this->str[i] = tbc.str[i] ;
 	this->str[this->size] = '\0' ;
 	return *this ;
 }
@@ -77,7 +77,7 @@ CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator=(c
 	delete[] this->str ;
 	for(this->size = 0 ; tbc[this->size] != '\0'; this->size++) ;
 	this->str = new char[this->size + 1] ;
-	for(std::size_t i = 0 ; i < this->size ; i++) this->str[i] = tbc[i] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) this->str[i] = tbc[i] ;
 	this->str[this->size] = '\0' ;
 	return *this ;
 }
@@ -88,7 +88,7 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator+(ch
 	delete[] tmp.str ;
 	tmp.size = this->size + 1 ;
 	tmp.str = new char[tmp.size+1] ;
-	for(std::size_t i = 0 ; i < tmp.size - 1 ; i++) tmp.str[i] = this->str[i] ;
+	for(unsigned long i = 0 ; i < tmp.size - 1 ; i++) tmp.str[i] = this->str[i] ;
 	tmp.str[tmp.size-1] = c ;
 	tmp.str[tmp.size] = '\0' ;
 	return tmp ;
@@ -98,7 +98,7 @@ CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(
 {
 	this->size = this->size + 1 ;
 	char* tmp = new char[this->size+1] ;
-	for(std::size_t i = 0 ; i < this->size - 1 ; i++) tmp[i] = this->str[i] ;
+	for(unsigned long i = 0 ; i < this->size - 1 ; i++) tmp[i] = this->str[i] ;
 	tmp[this->size-1] = c ;
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
@@ -113,8 +113,8 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator+(co
 	tmp.size = this->size + tbm.size ;
 	tmp.str = new char[tmp.size+1] ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp.str[i] = this->str[i] ;
-	for(std::size_t i = this->size ; i < tmp.size ; i++) tmp.str[i] = tbm.str[i-this->size] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) tmp.str[i] = this->str[i] ;
+	for(unsigned long i = this->size ; i < tmp.size ; i++) tmp.str[i] = tbm.str[i-this->size] ;
 	tmp.str[tmp.size] = '\0' ;
 	return tmp ;
 }
@@ -122,8 +122,8 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator+(co
 CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(const salih::containers::String& tbm)
 {
 	char* tmp = new char[this->size + tbm.size + 1] ;
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
-	for(std::size_t i = this->size ; i < tbm.size + this->size ; i++) tmp[i] = tbm.str[i-this->size] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
+	for(unsigned long i = this->size ; i < tbm.size + this->size ; i++) tmp[i] = tbm.str[i-this->size] ;
 	this->size = this->size + tbm.size ;
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
@@ -134,26 +134,26 @@ CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(
 
 CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator+(const char* tbm) const
 {
-	std::size_t tmpSize = 0 ;
+	unsigned long tmpSize = 0 ;
 	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
 	tmpSize += this->size ;
 	
 	char* tmpStr = new char[tmpSize+1] ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++) tmpStr[i] = this->str[i] ;
-	for(std::size_t i = this->size ; i < tmpSize ; i++) tmpStr[i] = tbm[i-this->size] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) tmpStr[i] = this->str[i] ;
+	for(unsigned long i = this->size ; i < tmpSize ; i++) tmpStr[i] = tbm[i-this->size] ;
 	tmpStr[tmpSize] = '\0' ;
 	return salih::containers::String(tmpStr, tmpSize) ;
 }
 
 CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(const char* tbm)
 {
-	std::size_t tmpSize ;
+	unsigned long tmpSize ;
 	for(tmpSize = 0 ; tbm[tmpSize] != '\0' ; tmpSize++) ;
 	char* tmp = new char[this->size + tmpSize + 1] ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
-	for(std::size_t i = this->size ; i < tmpSize + this->size ; i++) tmp[i] = tbm[i-this->size] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) tmp[i] = this->str[i] ;
+	for(unsigned long i = this->size ; i < tmpSize + this->size ; i++) tmp[i] = tbm[i-this->size] ;
 	this->size = this->size + tmpSize ;
 	tmp[this->size] = '\0' ;
 	delete[] this->str ;
@@ -162,12 +162,12 @@ CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator+=(
 	return *this ;
 }
 
-CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator*(std::size_t x) const
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator*(unsigned long x) const
 {
 	char* tmpStr = new char[(this->size * x) + 1] ;
-	for(std::size_t i = 0 ; i < x ; i++)
+	for(unsigned long i = 0 ; i < x ; i++)
 	{
-		for(std::size_t j = 0 ; j < this->size ; j++)
+		for(unsigned long j = 0 ; j < this->size ; j++)
 		{
 			tmpStr[j+(i*this->size)] = this->str[j] ;
 		}
@@ -176,12 +176,12 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator*(st
 	return salih::containers::String(tmpStr, this->size * x) ;
 }
 
-CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator*=(std::size_t x)
+CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator*=(unsigned long x)
 {
 	char* tmpStr = new char[(this->size * x) + 1] ;
-	for(std::size_t i = 0 ; i < x ; i++)
+	for(unsigned long i = 0 ; i < x ; i++)
 	{
-		for(std::size_t j = 0 ; j < this->size ; j++)
+		for(unsigned long j = 0 ; j < this->size ; j++)
 		{
 			tmpStr[j+(i*this->size)] = this->str[j] ;
 		}
@@ -195,7 +195,7 @@ CONSTEXPRCXX20 salih::containers::String& salih::containers::String::operator*=(
 
 CONSTEXPRCXX20 bool salih::containers::String::operator==(const char* str) const
 {
-	std::size_t i ;
+	unsigned long i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
 	
 	if(this->size != i) return false ;
@@ -210,7 +210,7 @@ CONSTEXPRCXX20 bool salih::containers::String::operator==(const char* str) const
 			
 CONSTEXPRCXX20 bool salih::containers::String::operator!=(const char* str) const
 {
-	std::size_t i ;
+	unsigned long i ;
 	for(i = 0 ; str[i] != '\0' ; i++) ;
 	
 	if(this->size != i) return true ;
@@ -227,7 +227,7 @@ CONSTEXPRCXX20 bool salih::containers::String::operator==(const salih::container
 {
 	if(this->size != str.size) return false ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(this->str[i] != str.str[i]) return false ;
 	}
@@ -239,7 +239,7 @@ CONSTEXPRCXX20 bool salih::containers::String::operator!=(const salih::container
 {
 	if(this->size != str.size) return true ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(this->str[i] != str.str[i]) return true ;
 	}
@@ -252,25 +252,25 @@ CONSTEXPRCXX20 const char* salih::containers::String::get() const
 	return this->str ;
 }
 
-CONSTEXPRCXX20 std::size_t salih::containers::String::getSize() const
+CONSTEXPRCXX20 unsigned long salih::containers::String::getSize() const
 {
 	return this->size ;
 }
 
-CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator()(const std::size_t a, const std::size_t b) const 
+CONSTEXPRCXX20 salih::containers::String salih::containers::String::operator()(const unsigned long a, const unsigned long b) const 
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	salih::containers::String tmp ;
-	for(std::size_t idx = a ; idx < b ; idx++) tmp[idx-a] += this->str[idx] ;
+	for(unsigned long idx = a ; idx < b ; idx++) tmp[idx-a] += this->str[idx] ;
 	return tmp ;
 }
 
-CONSTEXPRCXX20 char& salih::containers::String::operator[](const std::size_t index)
+CONSTEXPRCXX20 char& salih::containers::String::operator[](const unsigned long index)
 {
 	return this->str[index] ;
 }
 
-CONSTEXPRCXX20 const char& salih::containers::String::operator[](const std::size_t index) const
+CONSTEXPRCXX20 const char& salih::containers::String::operator[](const unsigned long index) const
 {
 	return this->str[index] ;
 }
@@ -284,7 +284,7 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::capitalise()
 		tmp[0] = tmp[0] - 32 ;
 	}
 	
-	for(std::size_t i = 1 ; i < tmp.size ; i++)
+	for(unsigned long i = 1 ; i < tmp.size ; i++)
 	{
 		if(tmp[i] >= 65 && tmp[i] <= 90)
 		{
@@ -298,7 +298,7 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::upper() cons
 {
 	salih::containers::String tmp(*this) ;
 		
-	for(std::size_t i = 0 ; i < tmp.size ; i++)
+	for(unsigned long i = 0 ; i < tmp.size ; i++)
 	{
 		if(tmp[i] >= 97 && tmp[i] <= 122)
 		{
@@ -313,7 +313,7 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::lower() cons
 {
 	salih::containers::String tmp(*this) ;
 		
-	for(std::size_t i = 0 ; i < tmp.size ; i++)
+	for(unsigned long i = 0 ; i < tmp.size ; i++)
 	{
 		if(tmp[i] >= 65 && tmp[i] <= 90)
 		{
@@ -327,7 +327,7 @@ CONSTEXPRCXX20 salih::containers::String salih::containers::String::lower() cons
 CONSTEXPRCXX20 bool salih::containers::String::isAlphaNum() const
 {
 	if(this->size == 0) return false ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(	((this->str[i] >= 48 && this->str[i] <= 57) || 
 			(this->str[i] >= 65 && this->str[i] <= 90) || 
@@ -341,7 +341,7 @@ CONSTEXPRCXX20 bool salih::containers::String::isAlphaNum() const
 CONSTEXPRCXX20 bool salih::containers::String::isAlpha() const
 {
 	if(this->size == 0) return false ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(	((this->str[i] >= 65 && this->str[i] <= 90) || 
 			(this->str[i] >= 97 && this->str[i] <= 122)) == 0
@@ -354,7 +354,7 @@ CONSTEXPRCXX20 bool salih::containers::String::isAlpha() const
 CONSTEXPRCXX20 bool salih::containers::String::isNum() const
 {
 	if(this->size == 0) return false ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if( (this->str[i] >= 48 && this->str[i] <= 57) == 0) return false ;	
 	}
@@ -365,7 +365,7 @@ CONSTEXPRCXX20 bool salih::containers::String::isUpper() const
 {
 	if(this->size == 0) return false ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(!(this->str[i] >= 60 && this->str[i] <= 90)) return false ;
 	}
@@ -376,7 +376,7 @@ CONSTEXPRCXX20 bool salih::containers::String::isLower() const
 {
 	if(this->size == 0) return false ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
 	}
@@ -389,7 +389,7 @@ CONSTEXPRCXX20 bool salih::containers::String::isCapitalised() const
 	
 	if(!(this->str[0] >= 60 && this->str[0] <= 90)) return false ;
 	
-	for(std::size_t i = 1 ; i < this->size ; i++)
+	for(unsigned long i = 1 ; i < this->size ; i++)
 	{
 		if(!(this->str[i] >= 97 && this->str[i] <= 122)) return false ;
 	}
@@ -406,12 +406,12 @@ CONSTEXPRCXX20 char& salih::containers::String::Iterator::operator*() const
 	return *this->pointer ; 
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator+(const unsigned long x) const
 {
 	return salih::containers::String::Iterator(this->pointer + x) ; 
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator+=(const unsigned long x)
 {
 	this->pointer += x ;
 	return *this ;
@@ -428,12 +428,12 @@ CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::S
 	return salih::containers::String::Iterator(this->pointer++) ;
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::Iterator salih::containers::String::Iterator::operator-(const unsigned long x) const
 {
 	return salih::containers::String::Iterator(this->pointer - x) ; 
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::Iterator& salih::containers::String::Iterator::operator-=(const unsigned long x)
 {
 	this->pointer -= x ;
 	return *this ;
@@ -469,12 +469,12 @@ CONSTEXPRCXX20 const char& salih::containers::String::ConstIterator::operator*()
 	return *this->pointer ; 
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator+(const unsigned long x) const
 {
 	return salih::containers::String::ConstIterator(this->pointer + x) ; 
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator+=(const unsigned long x)
 {
 	this->pointer += x ;
 	return *this ;
@@ -491,12 +491,12 @@ CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containe
 	return salih::containers::String::ConstIterator(this->pointer++) ;
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator salih::containers::String::ConstIterator::operator-(const unsigned long x) const
 {
 	return salih::containers::String::ConstIterator(this->pointer - x) ; 
 }
 
-CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::String::ConstIterator& salih::containers::String::ConstIterator::operator-=(const unsigned long x)
 {
 	this->pointer -= x ;
 	return *this ;

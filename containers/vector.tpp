@@ -18,12 +18,12 @@ template<typename T>
 CONSTEXPRCXX20 salih::containers::Vector<T>::Vector() : pointer(new T[0]), size(0) {} ;
 
 template<typename T> 
-CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(const std::size_t SIZE) : pointer(new T[SIZE]), size(SIZE) {} ;
+CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(const unsigned long SIZE) : pointer(new T[SIZE]), size(SIZE) {} ;
 
 template<typename T> 
 CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(const std::initializer_list<T>& values) : pointer(new T[values.size()]), size(values.size())
 {
-	std::size_t i = 0 ;
+	unsigned long i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		this->pointer[i] = *it ;
@@ -37,7 +37,7 @@ CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::opera
 	if(this->pointer != nullptr) delete[] this->pointer ;
 	this->size = values.size() ;
 	this->pointer = new T[this->size] ;
-	std::size_t i = 0 ;
+	unsigned long i = 0 ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
 	{
 		this->pointer[i] = *it ;
@@ -49,7 +49,7 @@ CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::opera
 template<typename T> 
 CONSTEXPRCXX20 salih::containers::Vector<T>::Vector(const Vector<T>& list) : pointer(new T[list.size]),  size(list.size)
 {
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
 	}
@@ -61,7 +61,7 @@ CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::opera
 	if(this->pointer != nullptr) delete[] this->pointer ;
 	this->size = list.size ;
 	this->pointer = new T[this->size] ;
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		this->pointer[i] = list.pointer[i] ;
 	}
@@ -90,7 +90,7 @@ template<typename T>
 CONSTEXPRCXX20 void salih::containers::Vector<T>::append(T data)
 {
 	T* newPointer = new T[this->size+1] ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		newPointer[i] = this->pointer[i] ;
 	}
@@ -104,11 +104,11 @@ template<typename T>
 CONSTEXPRCXX20 void salih::containers::Vector<T>::append(const std::initializer_list<T>& data)
 {
 	T* newPointer = new T[this->size+data.size()] ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		newPointer[i] = this->pointer[i] ;
 	}
-	std::size_t i = this->size ;
+	unsigned long i = this->size ;
 	for(auto it = std::begin(data) ; it != std::end(data) ; ++it) 
 	{
 		this->newPointer[i] = *it ;
@@ -128,13 +128,13 @@ CONSTEXPRCXX20 void salih::containers::Vector<T>::clear()
 }
 
 template<typename T>
-CONSTEXPRCXX20 void salih::containers::Vector<T>::insert(const std::size_t pos, T data)
+CONSTEXPRCXX20 void salih::containers::Vector<T>::insert(const unsigned long pos, T data)
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
 	T* ptr = new T[this->size+1] ;
 	bool check = false ;
-	for(std::size_t i = 0 ; i < this->size ; i++) 
+	for(unsigned long i = 0 ; i < this->size ; i++) 
 	{
 		if(i == (pos - 1))
 		{
@@ -152,12 +152,12 @@ CONSTEXPRCXX20 void salih::containers::Vector<T>::insert(const std::size_t pos, 
 }
 
 template<typename T>
-CONSTEXPRCXX20 void salih::containers::Vector<T>::del(const std::size_t pos)
+CONSTEXPRCXX20 void salih::containers::Vector<T>::del(const unsigned long pos)
 {
 	if(pos == 0 || pos > this->size) throw std::out_of_range("Index does not exist") ;	
 	T* ptr = new T[this->size-1] ;
 	bool check = false ;
-	for(std::size_t i = 0 ; i < this->size ; i++) 
+	for(unsigned long i = 0 ; i < this->size ; i++) 
 	{
 		if(i == (pos - 1))
 		{
@@ -186,41 +186,41 @@ CONSTEXPRCXX20 T* salih::containers::Vector<T>::get() const
 }	
 
 template<typename T>		
-CONSTEXPRCXX20 std::size_t salih::containers::Vector<T>::getSize() const
+CONSTEXPRCXX20 unsigned long salih::containers::Vector<T>::getSize() const
 {
 	return this->size ;
 }	
 
 template<typename T>		
-CONSTEXPRCXX20 salih::containers::Vector<T> salih::containers::Vector<T>::operator()(const std::size_t a, const std::size_t b) const
+CONSTEXPRCXX20 salih::containers::Vector<T> salih::containers::Vector<T>::operator()(const unsigned long a, const unsigned long b) const
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	salih::containers::Vector<T> tmp(b-a) ;
-	for(std::size_t idx = a ; idx < b ; idx++) tmp[idx-a] = this->pointer[idx] ;
+	for(unsigned long idx = a ; idx < b ; idx++) tmp[idx-a] = this->pointer[idx] ;
 	return tmp ;
 }
 
 template<typename T>		
-CONSTEXPRCXX20 T& salih::containers::Vector<T>::operator[](const std::size_t x)
+CONSTEXPRCXX20 T& salih::containers::Vector<T>::operator[](const unsigned long x)
 {
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-CONSTEXPRCXX20 const T& salih::containers::Vector<T>::operator[](const std::size_t x) const
+CONSTEXPRCXX20 const T& salih::containers::Vector<T>::operator[](const unsigned long x) const
 {
 	return this->pointer[x] ;	
 }
 
 template<typename T>		
-CONSTEXPRCXX20 T& salih::containers::Vector<T>::at(const std::size_t x)
+CONSTEXPRCXX20 T& salih::containers::Vector<T>::at(const unsigned long x)
 {
 	if(x >= this->size) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;
 } 
 
 template<typename T>		
-CONSTEXPRCXX20 const T& salih::containers::Vector<T>::at(const std::size_t x) const
+CONSTEXPRCXX20 const T& salih::containers::Vector<T>::at(const unsigned long x) const
 {
 	if(x >= this->size) throw std::out_of_range("Element does not exist") ;
 	return this->pointer[x] ;	
@@ -231,8 +231,8 @@ CONSTEXPRCXX20 salih::containers::Vector<T> salih::containers::Vector<T>::operat
 {
 	Vector<T> tmp(this->size + vec.size) ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp.pointer[i] = this->pointer[i] ;
-	for(std::size_t i = 0 ; i < vec.size ; i++) tmp.pointer[i+this->size] = vec.pointer[i] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) tmp.pointer[i] = this->pointer[i] ;
+	for(unsigned long i = 0 ; i < vec.size ; i++) tmp.pointer[i+this->size] = vec.pointer[i] ;
 	
 	return tmp ;
 }
@@ -242,8 +242,8 @@ CONSTEXPRCXX20 salih::containers::Vector<T>& salih::containers::Vector<T>::opera
 {
 	T* tmp = new T[this->size + vec.size] ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++) tmp[i] = this->pointer[i] ;
-	for(std::size_t i = 0 ; i < vec.size ; i++) tmp[i+this->size] = vec.pointer[i] ;
+	for(unsigned long i = 0 ; i < this->size ; i++) tmp[i] = this->pointer[i] ;
+	for(unsigned long i = 0 ; i < vec.size ; i++) tmp[i+this->size] = vec.pointer[i] ;
 	
 	this->size = this->size + vec.size ;
 	delete[] this->pointer ;
@@ -257,7 +257,7 @@ CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator==(const salih::contai
 {
 	if(this->size != b.size) return false ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(this->pointer[i] != b.pointer[i]) return false ;
 	}
@@ -271,7 +271,7 @@ CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator==(const salih::contai
 {
 	if(this->size != b.size) return false ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(this->pointer[i] != b.pointer[i]) return false ;
 	}
@@ -284,7 +284,7 @@ CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator!=(const salih::contai
 {
 	if(this->size != b.size) return true ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(this->pointer[i] != b.pointer[i]) return true ;
 	}
@@ -298,7 +298,7 @@ CONSTEXPRCXX20 bool salih::containers::Vector<T>::operator!=(const salih::contai
 {
 	if(this->size == b.size) return true ;
 	
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		if(this->pointer[i] != b.pointer[i]) return true ;
 	}
@@ -325,13 +325,13 @@ CONSTEXPRCXX20 T* salih::containers::Vector<T>::Iterator::operator->() const
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator+(const unsigned long x) const
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer + x) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator+=(const unsigned long x)
 {
 	this->pointer += x ;
 	return *this ;
@@ -351,13 +351,13 @@ CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator salih::containers::Vector<T>::Iterator::operator-(const unsigned long x) const
 {
 	return salih::containers::Vector<T>::Iterator(this->pointer - x) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::Iterator& salih::containers::Vector<T>::Iterator::operator-=(const unsigned long x)
 {
 	this->pointer -= x ;
 	return *this ;
@@ -407,13 +407,13 @@ CONSTEXPRCXX20 const T* salih::containers::Vector<T>::ConstIterator::operator->(
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator+(const unsigned long x) const
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer + x) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator+=(const unsigned long x)
 {
 	this->pointer += x ;
 	return *this ;
@@ -433,13 +433,13 @@ CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::conta
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator salih::containers::Vector<T>::ConstIterator::operator-(const unsigned long x) const
 {
 	return salih::containers::Vector<T>::ConstIterator(this->pointer - x) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::Vector<T>::ConstIterator& salih::containers::Vector<T>::ConstIterator::operator-=(const unsigned long x)
 {
 	this->pointer -= x ;
 	return *this ;

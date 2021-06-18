@@ -178,11 +178,11 @@ CONSTEXPRCXX20 salih::containers::List<T>::~List()
 }
 
 template<typename T>		
-CONSTEXPRCXX20 salih::containers::List<T> salih::containers::List<T>::operator()(const std::size_t a, const std::size_t b) const
+CONSTEXPRCXX20 salih::containers::List<T> salih::containers::List<T>::operator()(const unsigned long a, const unsigned long b) const
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	salih::containers::List<T> tmp ;
-	DNode<T>* node = head ; std::size_t count = 0 ;
+	DNode<T>* node = head ; unsigned long count = 0 ;
 	while(count != a)
 	{
 		node = node->getNext() ;
@@ -197,9 +197,9 @@ CONSTEXPRCXX20 salih::containers::List<T> salih::containers::List<T>::operator()
 }
 
 template <typename T>
-CONSTEXPRCXX20 T& salih::containers::List<T>::operator[](const std::size_t index)
+CONSTEXPRCXX20 T& salih::containers::List<T>::operator[](const unsigned long index)
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -222,9 +222,9 @@ CONSTEXPRCXX20 T& salih::containers::List<T>::operator[](const std::size_t index
 }
 
 template <typename T>
-CONSTEXPRCXX20 const T& salih::containers::List<T>::operator[](const std::size_t index) const
+CONSTEXPRCXX20 const T& salih::containers::List<T>::operator[](const unsigned long index) const
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -247,10 +247,10 @@ CONSTEXPRCXX20 const T& salih::containers::List<T>::operator[](const std::size_t
 }
 
 template <typename T>
-CONSTEXPRCXX20 T& salih::containers::List<T>::at(const std::size_t index)
+CONSTEXPRCXX20 T& salih::containers::List<T>::at(const unsigned long index)
 {
 	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -273,10 +273,10 @@ CONSTEXPRCXX20 T& salih::containers::List<T>::at(const std::size_t index)
 }
 
 template <typename T>
-CONSTEXPRCXX20 const T& salih::containers::List<T>::at(const std::size_t index) const
+CONSTEXPRCXX20 const T& salih::containers::List<T>::at(const unsigned long index) const
 {
 	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -303,13 +303,13 @@ CONSTEXPRCXX20 salih::containers::List<T> salih::containers::List<T>::operator+(
 {
 	salih::containers::List<T> tmp ;
 	salih::containers::DNode<T>* node = this->head ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		tmp.append(node->data) ;
 		node = node->getNext() ;
 	}
 	node = list.head ;	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		tmp.append(node->data) ;
 		node = node->getNext() ;
@@ -321,7 +321,7 @@ template<typename T>
 CONSTEXPRCXX20 salih::containers::List<T>& salih::containers::List<T>::operator+=(const salih::containers::List<T>& list)
 {
 	salih::containers::DNode<T>* node = list.head ;
-	for(std::size_t i = 0 ; i < list.size ; i++) this->append(node->data) ;
+	for(unsigned long i = 0 ; i < list.size ; i++) this->append(node->data) ;
 	return *this ;
 }
 
@@ -334,7 +334,7 @@ CONSTEXPRCXX20 bool salih::containers::List<T>::operator==(const salih::containe
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -352,7 +352,7 @@ CONSTEXPRCXX20 bool salih::containers::List<T>::operator!=(const salih::containe
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -371,7 +371,7 @@ CONSTEXPRCXX20 bool salih::containers::List<T>::operator==(const salih::containe
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -390,7 +390,7 @@ CONSTEXPRCXX20 bool salih::containers::List<T>::operator!=(const salih::containe
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -401,14 +401,14 @@ CONSTEXPRCXX20 bool salih::containers::List<T>::operator!=(const salih::containe
 }
 
 template <typename T>
-CONSTEXPRCXX20 void salih::containers::List<T>::insert(const std::size_t pos, T data) 
+CONSTEXPRCXX20 void salih::containers::List<T>::insert(const unsigned long pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
 	
 	//loop through LL, find correct 'node'
 	DNode<T>* curNode = head ;
-	for(std::size_t count = 1 ; count < pos ; count++) 
+	for(unsigned long count = 1 ; count < pos ; count++) 
 	{
 		curNode = curNode->getNext() ;
 	}
@@ -438,13 +438,13 @@ CONSTEXPRCXX20 inline void salih::containers::List<T>::insert(salih::containers:
 }
 
 template <typename T>
-CONSTEXPRCXX20 inline void salih::containers::List<T>::setSize(std::size_t newSize)
+CONSTEXPRCXX20 inline void salih::containers::List<T>::setSize(unsigned long newSize)
 {
 	this->size = newSize ;
 }
 
 template <typename T>
-CONSTEXPRCXX20 std::size_t salih::containers::List<T>::getSize() const
+CONSTEXPRCXX20 unsigned long salih::containers::List<T>::getSize() const
 {
 	return this->size ;
 }
@@ -489,13 +489,13 @@ CONSTEXPRCXX20 void salih::containers::List<T>::append(const std::initializer_li
 }
 
 template <typename T>
-CONSTEXPRCXX20 void salih::containers::List<T>::del(const std::size_t index)
+CONSTEXPRCXX20 void salih::containers::List<T>::del(const unsigned long index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
 	
 	//loop through LL, find correct 'node'
 	DNode<T>* curNode = head ;
-	for(std::size_t count = 1 ; count < index ; count++) 
+	for(unsigned long count = 1 ; count < index ; count++) 
 	{
 		curNode = curNode->getNext() ;
 	}
@@ -554,17 +554,17 @@ CONSTEXPRCXX20 T* salih::containers::List<T>::Iterator::operator->() const
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator+(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::List<T>::Iterator(tmp) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator+=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
 	return *this ;
 }
 
@@ -584,17 +584,17 @@ CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator-(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
 	return salih::containers::List<T>::Iterator(tmp) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator-=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
 	return *this ;
 }
 
@@ -644,17 +644,17 @@ CONSTEXPRCXX20 const T* salih::containers::List<T>::ConstIterator::operator->() 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator+(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::List<T>::ConstIterator(tmp) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator+=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
 	return *this ;
 }
 
@@ -674,17 +674,17 @@ CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::contain
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator-(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
 	return salih::containers::List<T>::ConstIterator(tmp) ; 
 }
 
 template<typename T> 
-CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator-=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
 	return *this ;
 }
 

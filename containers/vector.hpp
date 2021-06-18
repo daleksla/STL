@@ -30,7 +30,7 @@ namespace containers {
 		private:			
 			T* pointer ;
 			
-			std::size_t size ;
+			unsigned long size ;
 		
 		public:		
 			/** Empty constructor, intialises empty vector 
@@ -40,7 +40,7 @@ namespace containers {
 			/** Size-creating constructor, intialises a vector of a specified size
 			@param size_t (size of vector to pre-initialise)
 			@return <initialised-object> **/	
-			CONSTEXPRCXX20 Vector(const std::size_t) ;
+			CONSTEXPRCXX20 Vector(const unsigned long) ;
 
 			/** Regular constructor, intialises multiple values
 			@param initialisation list (of values for vector)
@@ -88,11 +88,11 @@ namespace containers {
 			
 			/** insert method, adds an element into a specified position
 			@param position in vector to insert to **/
-			CONSTEXPRCXX20 void insert(const std::size_t, T) ;
+			CONSTEXPRCXX20 void insert(const unsigned long, T) ;
 			
 			/** del method, deletes a selected element by position
 			@param value representing position to delete from vector **/
-			CONSTEXPRCXX20 void del(const std::size_t) ;
+			CONSTEXPRCXX20 void del(const unsigned long) ;
 
 			/** get method, returns pointer to vector data
 			@return returns pointer to start of data of vector **/
@@ -100,33 +100,33 @@ namespace containers {
 			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/
-			CONSTEXPRCXX20 std::size_t getSize() const ;
+			CONSTEXPRCXX20 unsigned long getSize() const ;
 
 			/** Slicing operator, extract part of structure directly
 			@param integer to start slicing from	
 			@param integer to slice until			
 			@return sliced vector (ie values from index a->b) **/ 
-			CONSTEXPRCXX20 Vector operator()(const std::size_t, const std::size_t) const ;
+			CONSTEXPRCXX20 Vector operator()(const unsigned long, const unsigned long) const ;
 			
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return reference to a given element in the structure **/ 
-			CONSTEXPRCXX20 T& operator[](const std::size_t) ; 
+			CONSTEXPRCXX20 T& operator[](const unsigned long) ; 
 	
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return constant reference to a given element in the structure **/ 		
-			CONSTEXPRCXX20 const T& operator[](const std::size_t) const ; 
+			CONSTEXPRCXX20 const T& operator[](const unsigned long) const ; 
 			
 			/** at method, another method to modify the structure but with boundary checks
 			@param integer to index structure with
 			@return reference to a given element in the structure **/ 				
-			CONSTEXPRCXX20 T& at(const std::size_t) ; 
+			CONSTEXPRCXX20 T& at(const unsigned long) ; 
 			
 			/** at method, another method to modify the structure
 			@param integer to index structure with, 
 			@return constant reference to a given element in the structure **/ 	
-			CONSTEXPRCXX20 const T& at(const std::size_t) const ; 
+			CONSTEXPRCXX20 const T& at(const unsigned long) const ; 
 			
 			/** Concatenation operator, adds two vectors together
 			@param vector structure to add
@@ -214,12 +214,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return Iterator object (pointing to the further element in sequence) **/					
-					CONSTEXPRCXX20 Iterator operator+(const std::size_t) const ;
+					CONSTEXPRCXX20 Iterator operator+(const unsigned long) const ;
 
 					/** Subtraction operator - modifies iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return reference to calling Iterator (now pointing to further element in sequence) **/					
-					CONSTEXPRCXX20 Iterator& operator+=(const std::size_t) ;
+					CONSTEXPRCXX20 Iterator& operator+=(const unsigned long) ;
 
 					/** Prefix increment operator - modifies iterator to point to the next element in sequence
 					@return reference to calling Iterator (now pointing to the next element in sequence) **/										
@@ -232,12 +232,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return Iterator object (pointing to the earlier element in sequence) **/						
-					CONSTEXPRCXX20 Iterator operator-(const std::size_t) const ;
+					CONSTEXPRCXX20 Iterator operator-(const unsigned long) const ;
 
 					/** Subtraction operator - modifies iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return reference to calling Iterator (now pointing to the earlier element in sequence) **/											
-					CONSTEXPRCXX20 Iterator& operator-=(const std::size_t) ;
+					CONSTEXPRCXX20 Iterator& operator-=(const unsigned long) ;
 
 					/** Prefix decrement operator - modifies iterator to point to the previous element in sequence
 					@return reference to calling Iterator (now pointing to the previous element in sequence) **/						
@@ -318,12 +318,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return ConstIterator object (pointing to the further element in sequence) **/					
-					CONSTEXPRCXX20 ConstIterator operator+(const std::size_t) const ;
+					CONSTEXPRCXX20 ConstIterator operator+(const unsigned long) const ;
 
 					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the ConstIterator should point to
 					@return reference to calling ConstIterator (now pointing to further element in sequence) **/					
-					CONSTEXPRCXX20 ConstIterator& operator+=(const std::size_t) ;
+					CONSTEXPRCXX20 ConstIterator& operator+=(const unsigned long) ;
 
 					/** Prefix increment operator - modifies iterator to point to the next element in sequence
 					@return reference to calling ConstIterator (now pointing to the next element in sequence) **/										
@@ -336,12 +336,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the ConstIterator should point to
 					@return ConstIterator object (pointing to the earlier element in sequence) **/						
-					CONSTEXPRCXX20 ConstIterator operator-(const std::size_t) const ;
+					CONSTEXPRCXX20 ConstIterator operator-(const unsigned long) const ;
 
 					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return reference to calling ConstIterator (now pointing to the earlier element in sequence) **/											
-					CONSTEXPRCXX20 ConstIterator& operator-=(const std::size_t) ;
+					CONSTEXPRCXX20 ConstIterator& operator-=(const unsigned long) ;
 
 					/** Prefix decrement operator - modifies ConstIterator to point to the previous element in sequence
 					@return reference to calling ConstIterator (now pointing to the previous element in sequence) **/						

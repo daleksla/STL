@@ -7,11 +7,13 @@
     @date May 2021
 **/
 
+#include <stdexcept>
+
 template<typename T>
 salih::memory::Pointer<T>::Pointer() : pointer(nullptr) {} ;
 
 template<typename T>
-salih::memory::Pointer<T>::Pointer(std::nullptr_t) : pointer(nullptr) {} ;
+salih::memory::Pointer<T>::Pointer(const decltype(nullptr)) : pointer(nullptr) {} ;
 
 template<typename T>
 salih::memory::Pointer<T>::Pointer(T* data)
@@ -26,7 +28,7 @@ salih::memory::Pointer<T>::Pointer(void* data)
 }
 
 template<typename T>
-salih::memory::Pointer<T>& salih::memory::Pointer<T>::operator=(std::nullptr_t)
+salih::memory::Pointer<T>& salih::memory::Pointer<T>::operator=(const decltype(nullptr))
 {
 	this->reset() ;
 	return *this ;
@@ -121,7 +123,7 @@ salih::memory::Pointer<T[]>::Pointer()
 }
 
 template<typename T>
-salih::memory::Pointer<T[]>::Pointer(std::nullptr_t)
+salih::memory::Pointer<T[]>::Pointer(const decltype(nullptr))
 {
 	this->pointer = nullptr ;
 }
@@ -139,7 +141,7 @@ salih::memory::Pointer<T[]>::Pointer(void* data)
 }
 
 template<typename T>
-salih::memory::Pointer<T[]>& salih::memory::Pointer<T[]>::operator=(std::nullptr_t)
+salih::memory::Pointer<T[]>& salih::memory::Pointer<T[]>::operator=(const decltype(nullptr))
 {
 	this->reset() ;
 	return *this ;
@@ -203,13 +205,13 @@ salih::memory::Pointer<T[]>& salih::memory::Pointer<T[]>::operator=(salih::memor
 }
 
 template<typename T>
-T& salih::memory::Pointer<T[]>::operator[](std::size_t x)
+T& salih::memory::Pointer<T[]>::operator[](const unsigned long x)
 {
 	return this->pointer[x] ;
 }
 
 template<typename T>
-const T& salih::memory::Pointer<T[]>::operator[](std::size_t x) const
+const T& salih::memory::Pointer<T[]>::operator[](const unsigned long x) const
 {
 	return this->pointer[x] ;
 }
@@ -237,7 +239,7 @@ salih::memory::Pointer<T[]>::~Pointer() {} ;
 
 salih::memory::Pointer<void>::Pointer() : pointer(nullptr), bytes(0) {} ;
 
-salih::memory::Pointer<void>::Pointer(std::nullptr_t) : pointer(nullptr), bytes(0) {} ;
+salih::memory::Pointer<void>::Pointer(const decltype(nullptr)) : pointer(nullptr), bytes(0) {} ;
 
 template<typename T>
 salih::memory::Pointer<void>::Pointer(T* ptr) 
@@ -246,7 +248,7 @@ salih::memory::Pointer<void>::Pointer(T* ptr)
 	this->bytes = sizeof(T) ;	
 }
 
-salih::memory::Pointer<void>& salih::memory::Pointer<void>::operator=(std::nullptr_t) 
+salih::memory::Pointer<void>& salih::memory::Pointer<void>::operator=(const decltype(nullptr)) 
 {
 	this->reset() ;
 	return *this ;

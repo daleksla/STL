@@ -17,7 +17,7 @@ namespace salih::algorithms {
 	/** This is a useful inline function to obtain the 'middle index' value, based on a given size
 	 * @param const integer (size of list to determine middle of)
 	 * @return integer ('middle' index) **/
-	CONSTEXPRCXX14 inline std::size_t getMiddle(const std::size_t totalSize) ;
+	CONSTEXPRCXX14 inline unsigned long getMiddle(const unsigned long totalSize) ;
 	
 	/** This is a binary search algorithm, which splits a list into sub-segments to look upon and repeats until the element is found
 	 * @param const reference to list (to be searched)

@@ -12,19 +12,19 @@ template<typename T>
 salih::memory::SharedPointer<T>::SharedPointer() : salih::memory::Pointer<T>(), count(nullptr) {} ;
 
 template<typename T>
-salih::memory::SharedPointer<T>::SharedPointer(std::nullptr_t x) : salih::memory::Pointer<T>(x), count(nullptr) {} ;
+salih::memory::SharedPointer<T>::SharedPointer(const decltype(nullptr) x) : salih::memory::Pointer<T>(x), count(nullptr) {} ;
 
 template<typename T>
 salih::memory::SharedPointer<T>::SharedPointer(T* data) : salih::memory::Pointer<T>(data)
 {
-	this->count = new std::size_t ;
+	this->count = new unsigned long ;
 	*(this->count) = 1 ;
 }
 
 template<typename T>
 salih::memory::SharedPointer<T>::SharedPointer(void* data) : salih::memory::Pointer<T>(data)
 {
-	this->count = new std::size_t ;
+	this->count = new unsigned long ;
 	*(this->count) = 1 ;
 }
 
@@ -32,12 +32,12 @@ template<typename T>
 salih::memory::SharedPointer<T>& salih::memory::SharedPointer<T>::operator=(T* data)
 {
 	salih::memory::Pointer<T>::operator=(data) ;
-	this->count = new std::size_t ; *(this->count) = 1 ;
+	this->count = new unsigned long ; *(this->count) = 1 ;
 	return *this ;	
 }
 
 template<typename T>
-salih::memory::SharedPointer<T>& salih::memory::SharedPointer<T>::operator=(std::nullptr_t data) 
+salih::memory::SharedPointer<T>& salih::memory::SharedPointer<T>::operator=(const decltype(nullptr) data) 
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;	
@@ -113,19 +113,19 @@ template<typename T>
 salih::memory::SharedPointer<T[]>::SharedPointer() : salih::memory::Pointer<T[]>(), count(nullptr) {} ;
 
 template<typename T>
-salih::memory::SharedPointer<T[]>::SharedPointer(std::nullptr_t x) : salih::memory::Pointer<T>(x), count(nullptr) {} ;
+salih::memory::SharedPointer<T[]>::SharedPointer(const decltype(nullptr) x) : salih::memory::Pointer<T>(x), count(nullptr) {} ;
 
 template<typename T>
 salih::memory::SharedPointer<T[]>::SharedPointer(T* data) : salih::memory::Pointer<T[]>(data)
 {
-	this->count = new std::size_t ;
+	this->count = new unsigned long ;
 	*(this->count) = 1 ;
 }
 
 template<typename T>
 salih::memory::SharedPointer<T[]>::SharedPointer(void* data) : salih::memory::Pointer<T[]>(data)
 {
-	this->count = new std::size_t ;
+	this->count = new unsigned long ;
 	*(this->count) = 1 ;
 }
 
@@ -133,12 +133,12 @@ template<typename T>
 salih::memory::SharedPointer<T[]>& salih::memory::SharedPointer<T[]>::operator=(T* data)
 {
 	salih::memory::Pointer<T[]>::operator=(data) ;
-	this->count = new std::size_t ; *(this->count) = 1 ;
+	this->count = new unsigned long ; *(this->count) = 1 ;
 	return *this ;	
 }
 
 template<typename T>
-salih::memory::SharedPointer<T[]>& salih::memory::SharedPointer<T[]>::operator=(std::nullptr_t data) 
+salih::memory::SharedPointer<T[]>& salih::memory::SharedPointer<T[]>::operator=(const decltype(nullptr) data) 
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;	
@@ -214,19 +214,19 @@ salih::memory::SharedPointer<T[]>::~SharedPointer()
 
 salih::memory::SharedPointer<void>::SharedPointer() : salih::memory::Pointer<void>(), count(nullptr) {} ;
 
-salih::memory::SharedPointer<void>::SharedPointer(std::nullptr_t x) : salih::memory::Pointer<void>(x), count(nullptr) {} ;
+salih::memory::SharedPointer<void>::SharedPointer(const decltype(nullptr) x) : salih::memory::Pointer<void>(x), count(nullptr) {} ;
 
 template<typename T>
 salih::memory::SharedPointer<void>::SharedPointer(T* ptr) : salih::memory::Pointer<void>(ptr) 
 {
-	this->count = new std::size_t ;
+	this->count = new unsigned long ;
 	*(this->count) = 1 ;
 }
 
-salih::memory::SharedPointer<void>& salih::memory::SharedPointer<void>::operator=(std::nullptr_t x)
+salih::memory::SharedPointer<void>& salih::memory::SharedPointer<void>::operator=(const decltype(nullptr) x)
 {
 	salih::memory::Pointer<void>::operator=(x) ;
-	this->count = new std::size_t ; *(this->count) = 1 ;
+	this->count = new unsigned long ; *(this->count) = 1 ;
 	return *this ;	
 }
 
@@ -234,7 +234,7 @@ template<typename T>
 salih::memory::SharedPointer<void>& salih::memory::SharedPointer<void>::operator=(T* ptr)
 {
 	salih::memory::Pointer<void>::operator=(ptr) ;
-	this->count = new std::size_t ; *(this->count) = 1 ;
+	this->count = new unsigned long ; *(this->count) = 1 ;
 	return *this ;	
 }
 
@@ -362,7 +362,7 @@ salih::memory::SharedPointer<T> salih::memory::makeShared(Args&&... args)
 }
 	
 template<class T>
-salih::memory::SharedPointer<T[]> salih::memory::makeShared(const std::size_t sz)
+salih::memory::SharedPointer<T[]> salih::memory::makeShared(const unsigned long sz)
 {
 	return salih::memory::SharedPointer<T[]>(new T[sz]) ;
 }

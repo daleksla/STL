@@ -69,28 +69,28 @@ namespace containers {
 			
 			/** getSize method, returns size of a structure
 			@return returns size (of data structure) **/
-			CONSTEXPRCXX11 std::size_t getSize() const ;
+			CONSTEXPRCXX11 unsigned long getSize() const ;
 			
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return reference to a given element in the structure **/ 
-			CONSTEXPRCXX14 T& operator[](const std::size_t) ; 
+			CONSTEXPRCXX14 T& operator[](const unsigned long) ; 
 	
 			/** Index operator, modifying structure directly
 			@param integer to index structure with		
 			@return constant reference to a given element in the structure **/ 		
-			CONSTEXPRCXX11 const T& operator[](const std::size_t) const ; 
+			CONSTEXPRCXX11 const T& operator[](const unsigned long) const ; 
 			
 			/** at method, another method to modify the structure
 			@param integer to index structure with
 			@param bool (assumingly true flag as to check whether an index is valid)
 			@return reference to a given element in the structure **/ 				
-			CONSTEXPRCXX14 T& at(const std::size_t) ; 
+			CONSTEXPRCXX14 T& at(const unsigned long) ; 
 			
 			/** at method, another method to modify the structure but with range checks
 			@param integer to index structure with
 			@return constant reference to a given element in the structure **/ 	
-			CONSTEXPRCXX11 const T& at(const std::size_t) const ; 
+			CONSTEXPRCXX11 const T& at(const unsigned long) const ; 
 			
 			/** Concatenation operator, adds two arrays together
 			@param array structure to add 
@@ -100,7 +100,7 @@ namespace containers {
 			/** Concatenation operator, adds two arrays together
 			@param array structure (of a different size) to add
 			@return array containing combined values **/ 	
-			template<std::size_t DIFF>
+			template<unsigned long DIFF>
 			CONSTEXPRCXX14 Array<T,(SIZE+DIFF)> operator+(const Array<T, DIFF>&) const ;	
 			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
@@ -117,13 +117,13 @@ namespace containers {
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param array structure to compare with (of same type, different size)
 			@return a boolean (will always return false, since the arrays can't have the same values) **/ 	
-			template<std::size_t DIFF>
+			template<unsigned long DIFF>
 			CONSTEXPRCXX11 bool operator==(const Array<T, DIFF>&) const ;
 			
 			/** Comparison operator, determines if a calling objects values matches another structure's values
 			@param array structure to compare with (of different type and size)
 			@return a boolean (will always return false, since the arrays can't have the same values) **/ 	
-			template<typename OTHER, std::size_t DIFF>
+			template<typename OTHER, unsigned long DIFF>
 			CONSTEXPRCXX11 bool operator==(const Array<OTHER, DIFF>&) const ;
 			
 			/** Inequality operator, determines if a calling objects values doesn't match another structure's values
@@ -140,13 +140,13 @@ namespace containers {
 			/** Inequality operator, determines if a calling objects values doesn't match another structure's
 			@param array structure to compare with (of same type, different size)
 			@return a boolean representing whether inequality is met (will always return true) **/ 	
-			template<std::size_t DIFF>
+			template<unsigned long DIFF>
 			CONSTEXPRCXX11 bool operator!=(const Array<T, DIFF>&) const ;
 			
 			/** Inequality operator, determines if a calling objects values doesn't match another structure's
 			@param array structure to compare with (of different type and size)
 			@return a boolean representing whether inequality is met (will always return true) **/ 	
-			template<typename OTHER, std::size_t DIFF>
+			template<typename OTHER, unsigned long DIFF>
 			CONSTEXPRCXX11 bool operator!=(const Array<OTHER, DIFF>&) const ;
 			
 			/** (Trivial) Destructor **/					
@@ -206,12 +206,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return Iterator object (pointing to the further element in sequence) **/					
-					CONSTEXPRCXX14 Iterator operator+(const std::size_t) const ;
+					CONSTEXPRCXX14 Iterator operator+(const unsigned long) const ;
 
 					/** Subtraction operator - modifies iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return reference to calling Iterator (now pointing to further element in sequence) **/					
-					CONSTEXPRCXX14 Iterator& operator+=(const std::size_t) ;
+					CONSTEXPRCXX14 Iterator& operator+=(const unsigned long) ;
 
 					/** Prefix increment operator - modifies iterator to point to the next element in sequence
 					@return reference to calling Iterator (now pointing to the next element in sequence) **/										
@@ -224,12 +224,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return Iterator object (pointing to the earlier element in sequence) **/						
-					CONSTEXPRCXX14 Iterator operator-(const std::size_t) const ;
+					CONSTEXPRCXX14 Iterator operator-(const unsigned long) const ;
 
 					/** Subtraction operator - modifies iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return reference to calling Iterator (now pointing to the earlier element in sequence) **/											
-					CONSTEXPRCXX14 Iterator& operator-=(const std::size_t) ;
+					CONSTEXPRCXX14 Iterator& operator-=(const unsigned long) ;
 
 					/** Prefix decrement operator - modifies iterator to point to the previous element in sequence
 					@return reference to calling Iterator (now pointing to the previous element in sequence) **/						
@@ -310,12 +310,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the iterator should point to
 					@return ConstIterator object (pointing to the further element in sequence) **/					
-					CONSTEXPRCXX11 ConstIterator operator+(const std::size_t) const ;
+					CONSTEXPRCXX11 ConstIterator operator+(const unsigned long) const ;
 
 					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps later
 					@param Number of positions further in sequence that the ConstIterator should point to
 					@return reference to calling ConstIterator (now pointing to further element in sequence) **/					
-					CONSTEXPRCXX14 ConstIterator& operator+=(const std::size_t) ;
+					CONSTEXPRCXX14 ConstIterator& operator+=(const unsigned long) ;
 
 					/** Prefix increment operator - modifies iterator to point to the next element in sequence
 					@return reference to calling ConstIterator (now pointing to the next element in sequence) **/										
@@ -328,12 +328,12 @@ namespace containers {
 					/** Subtraction operator - gets iterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the ConstIterator should point to
 					@return ConstIterator object (pointing to the earlier element in sequence) **/						
-					CONSTEXPRCXX11 ConstIterator operator-(const std::size_t) const ;
+					CONSTEXPRCXX11 ConstIterator operator-(const unsigned long) const ;
 
 					/** Subtraction operator - modifies ConstIterator to an element in sequence x steps prior
 					@param Number of positions previous in sequence that the iterator should point to
 					@return reference to calling ConstIterator (now pointing to the earlier element in sequence) **/											
-					CONSTEXPRCXX14 ConstIterator& operator-=(const std::size_t) ;
+					CONSTEXPRCXX14 ConstIterator& operator-=(const unsigned long) ;
 
 					/** Prefix decrement operator - modifies ConstIterator to point to the previous element in sequence
 					@return reference to calling ConstIterator (now pointing to the previous element in sequence) **/						
@@ -384,7 +384,7 @@ namespace containers {
 			@return ConstIterator pointing to beyond the final element in sequence **/ 			
 			CONSTEXPRCXX11 ConstIterator cend() const ;
 			
-			template<class, std::size_t>
+			template<class, unsigned long>
 			friend class Array ;
 	} ;
 	

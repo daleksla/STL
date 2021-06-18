@@ -13,12 +13,12 @@
 template<typename T>
 CONSTEXPRCXX14 T salih::algorithms::bubbleSort(T list, bool(*const order)(typename T::innerType, typename T::innerType))
 {
-	std::size_t listLength = list.getSize() ;
+	unsigned long listLength = list.getSize() ;
 	if(listLength <= 1) return list ;
 	
-	for(std::size_t main = 0 ; main < (listLength - 1) ; main++)
+	for(unsigned long main = 0 ; main < (listLength - 1) ; main++)
 	{
-		for(std::size_t inner = 0 ; inner < (listLength - main - 1) ; inner++)
+		for(unsigned long inner = 0 ; inner < (listLength - main - 1) ; inner++)
 		{
 			if((*order)(list[inner+1], list[inner]))
 			{
@@ -29,11 +29,11 @@ CONSTEXPRCXX14 T salih::algorithms::bubbleSort(T list, bool(*const order)(typena
 	return list ;
 }
 
-template<typename U, std::size_t SIZE>
+template<typename U, unsigned long SIZE>
 CONSTEXPRCXX14 salih::containers::Array<U, SIZE+SIZE> salih::algorithms::merge(const salih::containers::Array<U, SIZE>& x, const salih::containers::Array<U, SIZE>& y, bool(*const order)(typename U::innerType, typename U::innerType))
 {	
 	salih::containers::Array<U, SIZE+SIZE> out ;
-	std::size_t i = 0, j = 0, k = 0 ;
+	unsigned long i = 0, j = 0, k = 0 ;
 	
 	while(i < x.getSize() && j < y.getSize())
 	{
@@ -64,11 +64,11 @@ CONSTEXPRCXX14 salih::containers::Array<U, SIZE+SIZE> salih::algorithms::merge(c
 	return out ;
 }
 	
-template<typename U, std::size_t SIZE, std::size_t DIFF>
+template<typename U, unsigned long SIZE, unsigned long DIFF>
 CONSTEXPRCXX14 salih::containers::Array<U, SIZE+DIFF> salih::algorithms::merge(const salih::containers::Array<U, SIZE>& x, const salih::containers::Array<U, DIFF>& y, bool(*const order)(typename U::innerType, typename U::innerType))
 {	
 	salih::containers::Array<U, SIZE+DIFF> out ;
-	std::size_t i = 0, j = 0, k = 0 ;
+	unsigned long i = 0, j = 0, k = 0 ;
 	
 	while(i < x.getSize() && j < y.getSize())
 	{
@@ -103,7 +103,7 @@ template<typename T>
 CONSTEXPRCXX14 T salih::algorithms::merge(const T& x, const T& y, bool(*const order)(typename T::innerType, typename T::innerType))
 {	
 	T out ;
-	std::size_t i = 0, j = 0, k = 0 ;
+	unsigned long i = 0, j = 0, k = 0 ;
 	
 	while(i < x.getSize() && j < y.getSize())
 	{
@@ -137,14 +137,20 @@ CONSTEXPRCXX14 T salih::algorithms::merge(const T& x, const T& y, bool(*const or
 template<typename T>
 CONSTEXPRCXX14 T salih::algorithms::mergeSort(const T& data, bool(*const order)(typename T::innerType, typename T::innerType))
 {			
-	std::size_t listLength = data.getSize() ;
+	unsigned long listLength = data.getSize() ;
 	
 	if(listLength <= 1) return data ;
 	
 	T a, b ;
 	
-	for(std::size_t i = 0 ; i < std::size_t(listLength / 2) ; i++) a.append(data[i]) ;
-	for(std::size_t i = std::size_t(listLength / 2) ; i < listLength ; i++) b.append(data[i]) ;
+	for(unsigned long i = 0 ; i < static_cast<unsigned long>(listLength / 2) ; i++) 
+	{
+		a.append(data[i]) ;
+	}
+	for(unsigned long i = static_cast<unsigned long>(listLength / 2) ; i < listLength ; i++) 
+	{
+		b.append(data[i]) ;
+	}
 		
 	a = salih::algorithms::mergeSort(a, order) ;
 	b = salih::algorithms::mergeSort(b, order) ;
@@ -152,15 +158,21 @@ CONSTEXPRCXX14 T salih::algorithms::mergeSort(const T& data, bool(*const order)(
 	return salih::algorithms::merge(a, b, order) ;
 }
 	
-template<typename U, std::size_t SIZE>
+template<typename U, unsigned long SIZE>
 CONSTEXPRCXX14 salih::containers::Array<U, SIZE> salih::algorithms::mergeSort(const salih::containers::Array<U, SIZE>& data, bool(*const order)(typename U::innerType, typename U::innerType))
 {				
 	if(SIZE <= 1) return data ;
 	
 	salih::containers::Array<U,SIZE/2> a, b ;
 	
-	for(std::size_t i = 0 ; i < std::size_t(SIZE / 2) ; i++) a[i] = data[i] ;
-	for(std::size_t i = std::size_t(SIZE / 2) ; i < SIZE ; i++) b[i-std::size_t(SIZE/2)] = data[i] ;
+	for(unsigned long i = 0 ; i < static_cast<unsigned long>(SIZE / 2) ; i++) 
+	{
+		a[i] = data[i] ;
+	}
+	for(unsigned long i = static_cast<unsigned long>(SIZE / 2) ; i < SIZE ; i++)
+	{
+		b[i-static_cast<unsigned long>(SIZE/2)] = data[i] ;
+	}
 		
 	a = salih::algorithms::mergeSort(a, order) ;
 	b = salih::algorithms::mergeSort(b, order) ;
@@ -176,7 +188,7 @@ CONSTEXPRCXX14 T salih::algorithms::quickSort(const T& list, bool(*const order)(
 	T left, right, equal ;		
 	auto pivot = list[0] ;
 	
-	for(std::size_t i = 0 ; i < list.getSize() ; i++)
+	for(unsigned long i = 0 ; i < list.getSize() ; i++)
 	{
 		auto iterR = list[i] ;
 		if((*order)(iterR, pivot)) left.append(iterR) ;
@@ -191,12 +203,12 @@ template<typename T>
 CONSTEXPRCXX14 T salih::algorithms::selectionSort(T list, bool(*const order)(typename T::innerType, typename T::innerType))
 {
 	if(list.getSize() <= 1) return list ;
-	std::size_t limit = list.getSize() - 1 ; //initialise 2nd section boundary value (for larger values) 
-	for(std::size_t i = 0 ; i < limit ; i++) // only iterate until the 2nd section boundary (since values past this are sorted)  
+	unsigned long limit = list.getSize() - 1 ; //initialise 2nd section boundary value (for larger values) 
+	for(unsigned long i = 0 ; i < limit ; i++) // only iterate until the 2nd section boundary (since values past this are sorted)  
 	{               
 		int min = i ; //set minimum index as current index 
 		int max = i ; //set maximum index as current index 
-		for(std::size_t j = i ; j < limit + 1 ; j++)
+		for(unsigned long j = i ; j < limit + 1 ; j++)
 		{           
 			if((*order)(list[j], list[min])) //set the index for minimum element in list
 			{                  

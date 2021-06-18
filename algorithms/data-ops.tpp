@@ -20,15 +20,15 @@ CONSTEXPRCXX14 inline void salih::algorithms::swap(U& x, U& y)
 }
 
 template<typename T, typename F, typename U>
-CONSTEXPRCXX14 std::size_t salih::algorithms::tally(const T& begin, const T& end, const U& target)
+CONSTEXPRCXX14 unsigned long salih::algorithms::tally(const T& begin, const T& end, const U& target)
 {
-	std::size_t tally = 0 ;
+	unsigned long tally = 0 ;
 	for(auto it = begin ; it != end ; ++it) if(*it == target) ++tally ;
 	return tally ;
 }
 
 template<typename T, typename F, typename U>
-CONSTEXPRCXX14 inline std::size_t salih::algorithms::tally(const T& list, const U& target)
+CONSTEXPRCXX14 inline unsigned long salih::algorithms::tally(const T& list, const U& target)
 {
 	if(list.getSize() == 0) return 0 ;
 	return salih::algorithms::tally(list.cbegin(), list.cend(), target) ;

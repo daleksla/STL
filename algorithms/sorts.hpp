@@ -32,7 +32,7 @@ namespace algorithms {
 	 * @param const reference to list (another list)
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
-	template<typename U, std::size_t SIZE>
+	template<typename U, unsigned long SIZE>
 	CONSTEXPRCXX14 salih::containers::Array<U, SIZE+SIZE> merge(const salih::containers::Array<U, SIZE>&, const salih::containers::Array<U, SIZE>&, bool(*const order)(typename U::innerType, typename U::innerType) = salih::algorithms::ASCEND) ;
 	
 	/** This is the merging subroutine - it works by taking two lists and adding the smallest / the largest value from each, such that the resulting list is a combined list in order
@@ -41,7 +41,7 @@ namespace algorithms {
 	 * @param const reference to list (another list)
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
-	template<typename U, std::size_t SIZE, std::size_t DIFF>
+	template<typename U, unsigned long SIZE, unsigned long DIFF>
 	CONSTEXPRCXX14 salih::containers::Array<U, SIZE+DIFF> merge(const salih::containers::Array<U, SIZE>&, const salih::containers::Array<U, DIFF>&, bool(*const order)(typename U::innerType, typename U::innerType) = salih::algorithms::ASCEND) ;
 	
 	/** This is the merging subroutine - it works by taking two lists and adding the smallest / the largest value from each, such that the resulting list is a combined list in order
@@ -67,7 +67,7 @@ namespace algorithms {
 	 * @param const refernece to list (to be sorted)
 	 * @param const function pointer, will facilitate ordering of list. Set as either salih::algorithms::ASCEND (1,...,n) or salih::algorithms::DESCEND (n,...,1)
 	 * @return list (sorted version) **/	
-	template<typename U, std::size_t SIZE>
+	template<typename U, unsigned long SIZE>
 	CONSTEXPRCXX14 salih::containers::Array<U, SIZE> mergeSort(const salih::containers::Array<U, SIZE>&, bool(*const order)(typename U::innerType, typename U::innerType) = salih::algorithms::ASCEND) ;
 	
 	template<typename T>

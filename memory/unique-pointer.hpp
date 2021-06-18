@@ -23,12 +23,12 @@ namespace memory {
 			/** Regular constructor, intialises unique smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			UniquePointer(std::nullptr_t) ;
+			UniquePointer(const decltype(nullptr)) ;
 			
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(std::nullptr_t) ;
+			UniquePointer& operator=(const decltype(nullptr)) ;
 			
 			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -87,12 +87,12 @@ namespace memory {
 			/** Regular constructor, intialises unique smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			UniquePointer(std::nullptr_t) ;
+			UniquePointer(const decltype(nullptr)) ;
 			
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(std::nullptr_t) ;	
+			UniquePointer& operator=(const decltype(nullptr)) ;	
 		
 			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -151,12 +151,12 @@ namespace memory {
 			/** Regular constructor, intialises unique smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			UniquePointer(std::nullptr_t) ;
+			UniquePointer(const decltype(nullptr)) ;
 
 			/** Regular assignment operator, assigns null pointer to unique smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
-			UniquePointer& operator=(std::nullptr_t) ;
+			UniquePointer& operator=(const decltype(nullptr)) ;
 			
 			/** Regular constructor, intialises unique smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -234,13 +234,13 @@ namespace memory {
 	 * @param Variadic template (arguments to pass in order to initialise object of type T)
 	 * @return UniquePointer of type T **/
 	template<class T, class... Args>
-	UniquePointer<T> makeUnique(Args&&...) ;
+	UniquePointer<T> makeUnique(const Args&&...) ;
 	
 	/** This is the makeUnique function, which creates a UniquePointer object of an array of T's (T[]) on the heap, 
 	 * @param number of T's to allocate in contiguous block
 	 * @return UniquePointer of type T[] **/
 	template<class T>
-	UniquePointer<T[]> makeUnique(const std::size_t) ;
+	UniquePointer<T[]> makeUnique(const unsigned long) ;
 
 }
 }
