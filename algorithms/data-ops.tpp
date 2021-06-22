@@ -34,4 +34,19 @@ CONSTEXPRCXX14 inline unsigned long salih::algorithms::tally(const T& list, cons
 	return salih::algorithms::tally(list.cbegin(), list.cend(), target) ;
 }
 
+template<typename T, typename U, typename F>
+CONSTEXPRCXX14 void salih::algorithms::forEach(const T& begin, const T& end, const F function)
+{
+	for(auto it = begin ; it != end ; ++it)
+	{
+		(*function)(*it) ;
+	}
+}
+
+template<typename T, typename U, typename F>
+CONSTEXPRCXX14 inline void salih::algorithms::forEach(T& list, const F function)
+{
+	salih::algorithms::forEach(list.begin(), list.end(), function) ;
+}
+
 #endif

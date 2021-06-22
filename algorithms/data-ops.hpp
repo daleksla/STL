@@ -35,6 +35,20 @@ namespace algorithms {
 	template<typename T, typename = std::enable_if< T::iteratorType::value >= salih::types::UniDirectionalIteratorTag::value>, typename U>
 	CONSTEXPRCXX14 inline unsigned long tally(const T&, const U&) ;
 
+	/** This function applies a provided functionality to each element between two iterators
+         * @param Iterator to start of sequence
+         * @param Iterator to end of sequence
+         * @param Function pointer to be executed on each element **/
+	template<typename T, typename = std::enable_if< T::category::value >= salih::types::UniDirectionalIteratorTag::value>, typename F>
+	CONSTEXPRCXX14 void forEach(const T&, const T&, const F) ;
+	
+	/** This function applies a provided functionality to each element in a given container
+	 * @param const reference to list (to be searched through)
+         * @param value to compare against
+         * @param Function pointer to be executed on each element **/
+	template<typename T, typename = std::enable_if< T::iteratorType::value >= salih::types::UniDirectionalIteratorTag::value>, typename F>
+	CONSTEXPRCXX14 inline void forEach(T&, const F) ;
+
 }
 }
 
