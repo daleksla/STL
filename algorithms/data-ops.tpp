@@ -19,6 +19,12 @@ CONSTEXPRCXX14 inline void salih::algorithms::swap(U& x, U& y)
 	x = buffer ;
 }
 
+template<typename U>
+CONSTEXPRCXX11 inline U&& salih::algorithms::move(U& x)
+{
+	return static_cast<U&&>(x) ; // store the value of x in r-value object
+}
+
 template<typename T, typename F, typename U>
 CONSTEXPRCXX14 unsigned long salih::algorithms::tally(const T& begin, const T& end, const U& target)
 {

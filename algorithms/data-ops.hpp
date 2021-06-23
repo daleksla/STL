@@ -20,6 +20,12 @@ namespace algorithms {
 	template<typename U>
 	CONSTEXPRCXX14 inline void swap(U&, U&) ;
 
+	/** This function converts an l-value into an r-value object
+         * @param l-value object (reference to element we wish to take ownership of)
+         * @return r-value object (l-value object converted) **/
+	template<typename U>
+	CONSTEXPRCXX11 inline U&& move(U&) ;
+
 	/** This function tallies the prescence of a value in a given container 
          * @param Iterator to start of sequence
          * @param Iterator to end of sequence
