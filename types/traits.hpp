@@ -14,5 +14,6 @@
 #include "is-same.hpp"
 #include "is-number.hpp"
 #include "is-floating.hpp"
+#include "is-primitive.hpp"
 
 #endif
