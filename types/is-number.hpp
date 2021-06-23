@@ -15,6 +15,10 @@ namespace types {
 
 	template<typename T> struct isNumber : public falseType {} ;
 
+	template<> struct isNumber<char> : public trueType {} ;
+	
+	template<> struct isNumber<const char> : public trueType {} ;
+	
 	template<> struct isNumber<unsigned char> : public trueType {} ;
 	
 	template<> struct isNumber<const unsigned char> : public trueType {} ;
