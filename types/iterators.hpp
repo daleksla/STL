@@ -18,7 +18,7 @@ namespace types {
 			static CONSTEXPRCXX11 int value = 1 ;
 		
 		public:
-			CONSTEXPRCXX11 int operator()()
+			inline CONSTEXPRCXX11 int operator()()
 			{
 				return value ;
 			}
@@ -30,7 +30,7 @@ namespace types {
 			static CONSTEXPRCXX11 int value = 2 ;
 		
 		public:
-			CONSTEXPRCXX11 int operator()()
+			inline CONSTEXPRCXX11 int operator()()
 			{
 				return value ;
 			}
@@ -42,7 +42,7 @@ namespace types {
 			static CONSTEXPRCXX11 int value = 3 ;
 		
 		public:
-			CONSTEXPRCXX11 int operator()()
+			inline CONSTEXPRCXX11 int operator()()
 			{
 				return value ;
 			}
