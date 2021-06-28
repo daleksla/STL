@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classsalih_1_1memory_1_1UniquePointer.html" title=" " alt="" coords="5,5,259,32"/>
+<area shape="rect" id="node1" href="$structsalih_1_1types_1_1falseType.html" title=" " alt="" coords="5,81,172,108"/>
+<area shape="rect" id="node2" href="$structsalih_1_1types_1_1isFloating.html" title=" " alt="" coords="223,5,430,32"/>
+<area shape="rect" id="node3" href="$structsalih_1_1types_1_1isNumber.html" title=" " alt="" coords="223,56,430,83"/>
+<area shape="rect" id="node4" href="$structsalih_1_1types_1_1isPrimitive.html" title=" " alt="" coords="220,107,433,133"/>
+<area shape="rect" id="node5" href="$structsalih_1_1types_1_1isSame.html" title=" " alt="" coords="250,158,403,199"/>
 </map>

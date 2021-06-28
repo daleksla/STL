@@ -3,7 +3,7 @@
 
 #include "base-pointer.hpp"
 
-/** @brief File containing shared pointer class declarations
+/** @brief Shared pointer class, which persists a dynamic resource until the last Shared pointer object is destroyed or reset
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021
@@ -13,36 +13,10 @@ namespace salih {
 namespace memory {
 
 	template<class T>
-	class SharedPointer ;
-	
-	template<class T>
-	class SharedPointer<T[]> ;
-	
-	template<>
-	class SharedPointer<void> ;
-	
-	/** This is the makeShared function, which creates a SharedPointer object of type T on the heap (using said object's empty / default initialisation)
-	 * @return SharedPointer of type T **/
-	template<class T>
-	SharedPointer<T> makeShared() ;
-	
-	/** This is the makeShared function, which creates a SharedPointer object of type T on the heap, initialising the object using constructor determined by the parameters given
-	 * @param Variadic template (arguments to pass in order to initialise object of type T)
-	 * @return SharedPointer of type T **/
-	template<class T, class... Args>
-	SharedPointer<T> makeShared(Args&&...) ;
-	
-	/** This is the makeShared function, which creates a SharedPointer object of an array of T's (T[]) on the heap, 
-	 * @param number of T's to allocate in contiguous block
-	 * @return SharedPointer of type T[] **/
-	template<class T>
-	SharedPointer<T[]> makeShared(const std::size_t) ;
-
-	template<class T>
 	class SharedPointer : public Pointer<T> {
 		/** This class is the derived-class shared smart pointer implementation, which allows for the sharing and existence of a piece of memory till no shared pointer at all is making use of the pointed-to resource **/
 		private:
-			std::size_t* count ;
+			unsigned long* count ;
 			
 		public:
 			/** Empty constructor, intialises shared smart pointer container 
@@ -52,7 +26,7 @@ namespace memory {
 			/** Regular constructor, intialises shared smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			SharedPointer(std::nullptr_t) ;
+			SharedPointer(const decltype(nullptr)) ;
 			
 			/** Regular constructor, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -67,7 +41,7 @@ namespace memory {
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			SharedPointer& operator=(std::nullptr_t) ;
+			SharedPointer& operator=(const decltype(nullptr)) ;
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param T* (raw pointer to object of type T)
@@ -117,7 +91,7 @@ namespace memory {
 	class SharedPointer<T[]> : public Pointer<T[]> {
 		/** This class is the derived-class shared smart pointer implementation, specialised for dynamically allocated arrays, which allows for the sharing and existence of a piece of memory till no shared pointer at all is making use of the pointed-to resource **/
 		private:
-			std::size_t* count ;
+			unsigned long* count ;
 			
 		public:
 			/** Empty constructor, intialises shared smart pointer container 
@@ -127,7 +101,7 @@ namespace memory {
 			/** Regular constructor, intialises shared smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			SharedPointer(std::nullptr_t) ;
+			SharedPointer(const decltype(nullptr)) ;
 			
 			/** Regular constructor, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -142,7 +116,7 @@ namespace memory {
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			SharedPointer& operator=(std::nullptr_t) ;
+			SharedPointer& operator=(const decltype(nullptr)) ;
 			
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param T* (raw pointer to object of type T)
@@ -192,7 +166,7 @@ namespace memory {
 	class SharedPointer<void> : public Pointer<void> {
 		/** This class is the derived-class shared smart pointer implementation, specialised for void pointer usage, which allows for the sharing and existence of a piece of memory till no shared pointer at all is making use of the pointed-to resource **/
 		private:
-			std::size_t* count ;
+			unsigned long* count ;
 			
 		public:
 			/** Empty constructor, intialises shared smart pointer container 
@@ -202,7 +176,7 @@ namespace memory {
 			/** Regular constructor, intialises shared smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			SharedPointer(std::nullptr_t) ;
+			SharedPointer(const decltype(nullptr)) ;
 
 			/** Regular constructor, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -215,7 +189,7 @@ namespace memory {
 			/** Regular assignment operator, assigns null pointer to shared smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			SharedPointer& operator=(std::nullptr_t) ;
+			SharedPointer& operator=(const decltype(nullptr)) ;
 			
 			/** Regular assignment operator, intialises shared smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -303,6 +277,23 @@ namespace memory {
 			friend class SharedPointer ;
 
 	} ;
+	
+	/** This is the makeShared function, which creates a SharedPointer object of type T on the heap (using said object's empty / default initialisation)
+	 * @return SharedPointer of type T **/
+	template<class T>
+	SharedPointer<T> makeShared() ;
+	
+	/** This is the makeShared function, which creates a SharedPointer object of type T on the heap, initialising the object using constructor determined by the parameters given
+	 * @param Variadic template (arguments to pass in order to initialise object of type T)
+	 * @return SharedPointer of type T **/
+	template<class T, class... Args>
+	SharedPointer<T> makeShared(Args&&...) ;
+	
+	/** This is the makeShared function, which creates a SharedPointer object of an array of T's (T[]) on the heap, 
+	 * @param number of T's to allocate in contiguous block
+	 * @return SharedPointer of type T[] **/
+	template<class T>
+	SharedPointer<T[]> makeShared(const unsigned long) ;
 	
 }
 }

@@ -70,55 +70,63 @@ $(function() {
 <div class="title">s-node.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef S_NODE_HPP</span></div>
+<a href="s-node_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef S_NODE_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define S_NODE_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih.html">salih</a> {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>containers {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1SNode.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a> ;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>* next ; <span class="comment">//pointer to prev element in LL</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                    </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            T data ; <span class="comment">//template variable for data       </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>() = default ;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>(<span class="keyword">const</span> T) ; <span class="comment">//constructor - takes data</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>(<span class="keyword">const</span> T, <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>*) ;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../types/macros.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih.html">salih</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>containers {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1SNode.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a> ;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>* next ; <span class="comment">//pointer to prev element in LL</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">public</span>:         </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1SNode.html#ab0abee331a565cf78fa09a2b51bff927">   20</a></span>&#160;            T <a class="code" href="classsalih_1_1containers_1_1SNode.html#ab0abee331a565cf78fa09a2b51bff927">data</a> ; <span class="comment">//template variable for data       </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <a class="code" href="classsalih_1_1containers_1_1SNode.html#a7211bf63e7c705369f2f7db6babcba63">SNode</a>() = default ;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="code" href="classsalih_1_1containers_1_1SNode.html#a7211bf63e7c705369f2f7db6babcba63">SNode</a>(<span class="keyword">const</span> T) ; <span class="comment">//constructor - takes data</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;) = delete ;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="code" href="classsalih_1_1containers_1_1SNode.html#a7211bf63e7c705369f2f7db6babcba63">SNode</a>(<span class="keyword">const</span> T, <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>*) ;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;) = delete ;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;&amp;) = default ;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp; operator=(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;&amp;) = default ;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            _GLIBCXX20_CONSTEXPR <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>* getNext() ; <span class="comment">//returns next node in LL</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="code" href="classsalih_1_1containers_1_1SNode.html#a7211bf63e7c705369f2f7db6babcba63">SNode</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;) = delete ;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp; <a class="code" href="classsalih_1_1containers_1_1SNode.html#a04111234f598842e4e1169c812906fc0">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;) = delete ;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="code" href="classsalih_1_1containers_1_1SNode.html#a7211bf63e7c705369f2f7db6babcba63">SNode</a>(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;&amp;) = default ;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp; <a class="code" href="classsalih_1_1containers_1_1SNode.html#a04111234f598842e4e1169c812906fc0">operator=</a>(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>&amp;&amp;) = default ;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>* getNext() <span class="keyword">const</span> ; <span class="comment">//returns next node in LL</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            _GLIBCXX20_CONSTEXPR <span class="keywordtype">void</span> setNext(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>*) ; <span class="comment">//sets next node in LL</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>* <a class="code" href="classsalih_1_1containers_1_1SNode.html#ab5ff8f4a22f591fb183d335a46ecaf1d">getNext</a>() ; <span class="comment">//returns next node in LL</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">const</span> <a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>* <a class="code" href="classsalih_1_1containers_1_1SNode.html#ab5ff8f4a22f591fb183d335a46ecaf1d">getNext</a>() <span class="keyword">const</span> ; <span class="comment">//returns next node in LL</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    } ;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;s-node.tpp&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">void</span> <a class="code" href="classsalih_1_1containers_1_1SNode.html#a922f3cd5cdd6d67d9473a5ddb6d1f983">setNext</a>(<a class="code" href="classsalih_1_1containers_1_1SNode.html">SNode</a>*) ; <span class="comment">//sets next node in LL</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    } ;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;s-node.tpp&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Functionality relating to data manipulation of some sort.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:11</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html">salih::containers::SNode</a></div><div class="ttdef"><b>Definition:</b> s-node.hpp:9</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html_a922f3cd5cdd6d67d9473a5ddb6d1f983"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html#a922f3cd5cdd6d67d9473a5ddb6d1f983">salih::containers::SNode::setNext</a></div><div class="ttdeci">CONSTEXPRCXX14 void setNext(SNode *)</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html_a7211bf63e7c705369f2f7db6babcba63"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html#a7211bf63e7c705369f2f7db6babcba63">salih::containers::SNode::SNode</a></div><div class="ttdeci">SNode()=default</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html_ab5ff8f4a22f591fb183d335a46ecaf1d"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html#ab5ff8f4a22f591fb183d335a46ecaf1d">salih::containers::SNode::getNext</a></div><div class="ttdeci">CONSTEXPRCXX14 SNode * getNext()</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html_a04111234f598842e4e1169c812906fc0"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html#a04111234f598842e4e1169c812906fc0">salih::containers::SNode::operator=</a></div><div class="ttdeci">CONSTEXPRCXX14 SNode &amp; operator=(const SNode &amp;)=delete</div></div>
+<div class="ttc" id="amacros_8hpp_html_a390b7d4dadc126f4417db58811bde322"><div class="ttname"><a href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a></div><div class="ttdeci">#define CONSTEXPRCXX14</div><div class="ttdef"><b>Definition:</b> macros.hpp:44</div></div>
+<div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Functionality relating to data manipulation of some sort.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:14</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html_ab0abee331a565cf78fa09a2b51bff927"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html#ab0abee331a565cf78fa09a2b51bff927">salih::containers::SNode::data</a></div><div class="ttdeci">T data</div><div class="ttdef"><b>Definition:</b> s-node.hpp:20</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1SNode_html"><div class="ttname"><a href="classsalih_1_1containers_1_1SNode.html">salih::containers::SNode</a></div><div class="ttdef"><b>Definition:</b> s-node.hpp:11</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,7 +1,7 @@
 #ifndef MEMORY_UTILITIES_HPP
 #define MEMORY_UTILITIES_HPP
 
-/** @brief File containing base class declarations for all smart pointers
+/** @brief Functionality relating to memory management
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021
@@ -14,6 +14,12 @@ namespace memory {
 	@param void pointer
 	@return Boolean (True if pointer is on free-store, else false) **/
 	bool isHeap(void*) ;
+	
+	/** isAligned function, detects whether function is aligned on a specific boundary
+	@param void pointer
+	@param unsigned integer, which should be a whole divisible of the address of the given pointer
+	@return Boolean (True if pointer is on a given boundary) **/
+	bool isAligned(void*, unsigned int) ;
 
 }
 }
@@ -34,6 +40,12 @@ bool salih::memory::isHeap(void* data)
             ) ;
        if(x) return false ;
        else return true ;
+}
+
+bool salih::memory::isAligned(void* data, unsigned int boundary)
+{
+	if(data % boundary) return false ;
+	return true ;
 }
 
 #endif

@@ -2,6 +2,14 @@
 #define D_NODE_HPP
 #pragma once
 
+#include "../types/macros.hpp"
+
+/** @brief Doubly Linkedlist nodes
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 namespace salih {
 namespace containers {
 
@@ -19,31 +27,31 @@ namespace containers {
 		public:
 			T data ; //template variable for data	
 
-			_GLIBCXX20_CONSTEXPR DNode() = default ;
+			CONSTEXPRCXX14 DNode() = default ;
 		
-			_GLIBCXX20_CONSTEXPR DNode(const T) ; //constructor - takes data
+			CONSTEXPRCXX14 DNode(const T) ; //constructor - takes data
 			
-			_GLIBCXX20_CONSTEXPR DNode(const DNode&) = delete ;
+			CONSTEXPRCXX14 DNode(const DNode&) = delete ;
 			
-			_GLIBCXX20_CONSTEXPR DNode& operator=(const DNode&) = delete ;
+			CONSTEXPRCXX14 DNode& operator=(const DNode&) = delete ;
 			
-			_GLIBCXX20_CONSTEXPR DNode(DNode&&) = default ;
+			CONSTEXPRCXX14 DNode(DNode&&) = default ;
 			
-			_GLIBCXX20_CONSTEXPR DNode& operator=(DNode&&) = default ;
+			CONSTEXPRCXX14 DNode& operator=(DNode&&) = default ;
 			
-			_GLIBCXX20_CONSTEXPR DNode(const T, DNode*, const bool) ; //constructor - takes data, connects to specified node
+			CONSTEXPRCXX14 DNode(const T, DNode*, const bool) ; //constructor - takes data, connects to specified node
 
-			_GLIBCXX20_CONSTEXPR DNode* getPrev() ; //gets prev node in LL
+			CONSTEXPRCXX14 DNode* getPrev() ; //gets prev node in LL
 
-			_GLIBCXX20_CONSTEXPR const DNode* getPrev() const ; //gets prev node in LL
+			CONSTEXPRCXX14 const DNode* getPrev() const ; //gets prev node in LL
 		
-			_GLIBCXX20_CONSTEXPR void setPrev(DNode*) ; //sets prev node in LL
+			CONSTEXPRCXX14 void setPrev(DNode*) ; //sets prev node in LL
 
-			_GLIBCXX20_CONSTEXPR DNode* getNext() ; //returns next node in LL
+			CONSTEXPRCXX14 DNode* getNext() ; //returns next node in LL
 			
-			_GLIBCXX20_CONSTEXPR const DNode* getNext() const ; //returns next node in LL
+			CONSTEXPRCXX14 const DNode* getNext() const ; //returns next node in LL
 
-			_GLIBCXX20_CONSTEXPR void setNext(DNode*) ; //sets next node in LL
+			CONSTEXPRCXX14 void setNext(DNode*) ; //sets next node in LL
 
 	} ;	
 	

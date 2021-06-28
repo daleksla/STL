@@ -5,16 +5,23 @@
 #include "d-node.hpp"
 #include <algorithm>
 #include <initializer_list>
+#include "../types/macros.hpp"
+
+/** @brief Implementations of Stack LIFO structure. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::Stack()
+CONSTEXPRCXX20 salih::containers::Stack<T>::Stack()
 {
 	this->size = 0 ;
 	this->tail = nullptr ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::Stack(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::Stack<T>::Stack(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	salih::containers::DNode<T>* p = new salih::containers::DNode<T>(*std::begin(values)) ;
@@ -31,7 +38,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::Stack(const std::initializer_l
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>& salih::containers::Stack<T>::operator=(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::Stack<T>& salih::containers::Stack<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(this->size != 0)
 	{
@@ -59,7 +66,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Stack<T>& salih::containers::Stack<T>::o
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::Stack(const salih::containers::Stack<T>& stck)
+CONSTEXPRCXX20 salih::containers::Stack<T>::Stack(const salih::containers::Stack<T>& stck)
 {
 	this->size = 0 ;
 	salih::containers::DNode<T>* node = stck.tail ;
@@ -77,7 +84,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::Stack(const salih::containers:
 }
 			
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>& salih::containers::Stack<T>::operator=(const salih::containers::Stack<T>& stck) 
+CONSTEXPRCXX20 salih::containers::Stack<T>& salih::containers::Stack<T>::operator=(const salih::containers::Stack<T>& stck) 
 {
 	this->size = 0 ;
 	salih::containers::DNode<T>* node = stck.tail ;
@@ -96,7 +103,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Stack<T>& salih::containers::Stack<T>::o
 }
 			
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::Stack(salih::containers::Stack<T>&& stck)
+CONSTEXPRCXX20 salih::containers::Stack<T>::Stack(salih::containers::Stack<T>&& stck)
 {
 	this->size = stck.size ;
 	this->tail = stck.tail ;
@@ -105,7 +112,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::Stack(salih::containers::Stack
 }
 			
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>& salih::containers::Stack<T>::operator=(salih::containers::Stack<T>&& stck)
+CONSTEXPRCXX20 salih::containers::Stack<T>& salih::containers::Stack<T>::operator=(salih::containers::Stack<T>&& stck)
 {
 	this->size = stck.size ;
 	this->tail = stck.tail ;
@@ -115,7 +122,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Stack<T>& salih::containers::Stack<T>::o
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator==(const salih::containers::Stack<T>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Stack<T>::operator==(const salih::containers::Stack<T>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -132,7 +139,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator==(const salih::c
 }
 
 template <typename T>			
-_GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator!=(const salih::containers::Stack<T>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Stack<T>::operator!=(const salih::containers::Stack<T>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -150,7 +157,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator!=(const salih::c
 
 template <typename T>	
 template<typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator==(const salih::containers::Stack<OTHER>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Stack<T>::operator==(const salih::containers::Stack<OTHER>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -168,7 +175,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator==(const salih::c
 		
 template <typename T>	
 template <typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator!=(const salih::containers::Stack<OTHER>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Stack<T>::operator!=(const salih::containers::Stack<OTHER>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -185,7 +192,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Stack<T>::operator!=(const salih::c
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::~Stack()
+CONSTEXPRCXX20 salih::containers::Stack<T>::~Stack()
 {
 	if(size == 0) return;
 	
@@ -199,7 +206,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Stack<T>::~Stack()
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T salih::containers::Stack<T>::pop()
+CONSTEXPRCXX20 T salih::containers::Stack<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Stack is empty") ;
 	auto newTail = tail->getPrev() ;
@@ -211,14 +218,14 @@ _GLIBCXX20_CONSTEXPR T salih::containers::Stack<T>::pop()
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& salih::containers::Stack<T>::peek() const
+CONSTEXPRCXX20 const T& salih::containers::Stack<T>::peek() const
 {
 	if(size != 0) return tail->data ;
 	else throw std::out_of_range("Stack is empty") ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Stack<T>::push(T val)
+CONSTEXPRCXX20 void salih::containers::Stack<T>::push(T val)
 {
 	salih::containers::DNode<T>* p ;
 	if(size == 0) p = new salih::containers::DNode<T>(val) ;
@@ -228,7 +235,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Stack<T>::push(T val)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Stack<T>::push(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 void salih::containers::Stack<T>::push(const std::initializer_list<T>& values)
 {
 	salih::containers::DNode<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
@@ -244,7 +251,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Stack<T>::push(const std::initializ
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR std::size_t salih::containers::Stack<T>::getSize()
+CONSTEXPRCXX20 unsigned long salih::containers::Stack<T>::getSize()
 {
 	return this->size ;
 }

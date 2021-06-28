@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue_92',['Queue',['../classsalih_1_1containers_1_1Queue.html',1,'salih::containers']]]
+  ['ostream_303',['OStream',['../classsalih_1_1iostreams_1_1OStream.html',1,'salih::iostreams']]]
 ];

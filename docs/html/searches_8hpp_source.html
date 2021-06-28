@@ -70,37 +70,48 @@ $(function() {
 <div class="title">searches.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SEARCHES_HPP</span></div>
+<a href="searches_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SEARCHES_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SEARCHES_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih_1_1algorithms.html">salih::algorithms</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keyword">inline</span> std::size_t <a class="code" href="namespacesalih_1_1algorithms.html#ad87212c48c863cbcbe0e87b895a6d177">getMiddle</a>(<span class="keyword">const</span> std::size_t size) ;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#ad5df489a200157f7732da85b283d7bda">binarySearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a254af5c35f0ed36f9b88604b02bef922">interpolationSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> UniDirectionalIterator, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4ad8f696fdcdbeba1793aa531b7f0e0a">linearSearch</a>(<span class="keyword">const</span> UniDirectionalIterator&amp;, <span class="keyword">const</span> UniDirectionalIterator&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../types/macros.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../types/iterators.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih_1_1algorithms.html">salih::algorithms</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="namespacesalih_1_1algorithms.html#a8840948350032a03569ff3b37f40b76f">getMiddle</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> totalSize) ;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4bfffd272420b1232941d0cfe0d0e4ca">binarySearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4bfffd272420b1232941d0cfe0d0e4ca">binarySearch</a>(...) = delete ;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a52c819028772a1337a670bdab1fc54a7">interpolationSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a52c819028772a1337a670bdab1fc54a7">interpolationSearch</a>(...) = delete ;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    _GLIBCXX14_CONSTEXPR <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#a4ad8f696fdcdbeba1793aa531b7f0e0a">linearSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;searches.tpp&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#aff358c9615c20c1c64221bac1ad619fe">linearSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#aff358c9615c20c1c64221bac1ad619fe">linearSearch</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespacesalih_1_1algorithms.html#aff358c9615c20c1c64221bac1ad619fe">linearSearch</a>(...) = delete ;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &quot;searches.tpp&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacesalih_1_1algorithms_html_ad87212c48c863cbcbe0e87b895a6d177"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#ad87212c48c863cbcbe0e87b895a6d177">salih::algorithms::getMiddle</a></div><div class="ttdeci">_GLIBCXX14_CONSTEXPR std::size_t getMiddle(const std::size_t size)</div></div>
-<div class="ttc" id="anamespacesalih_1_1algorithms_html_ad5df489a200157f7732da85b283d7bda"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#ad5df489a200157f7732da85b283d7bda">salih::algorithms::binarySearch</a></div><div class="ttdeci">_GLIBCXX14_CONSTEXPR bool binarySearch(const T &amp;, const U &amp;)</div></div>
-<div class="ttc" id="anamespacesalih_1_1algorithms_html_a4ad8f696fdcdbeba1793aa531b7f0e0a"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a4ad8f696fdcdbeba1793aa531b7f0e0a">salih::algorithms::linearSearch</a></div><div class="ttdeci">_GLIBCXX14_CONSTEXPR bool linearSearch(const UniDirectionalIterator &amp;, const UniDirectionalIterator &amp;, const U &amp;)</div></div>
-<div class="ttc" id="anamespacesalih_1_1algorithms_html_a254af5c35f0ed36f9b88604b02bef922"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a254af5c35f0ed36f9b88604b02bef922">salih::algorithms::interpolationSearch</a></div><div class="ttdeci">_GLIBCXX14_CONSTEXPR bool interpolationSearch(const T &amp;, const U &amp;)</div></div>
-<div class="ttc" id="anamespacesalih_1_1algorithms_html"><div class="ttname"><a href="namespacesalih_1_1algorithms.html">salih::algorithms</a></div><div class="ttdoc">Searching algorihtms file.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:12</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_aff358c9615c20c1c64221bac1ad619fe"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#aff358c9615c20c1c64221bac1ad619fe">salih::algorithms::linearSearch</a></div><div class="ttdeci">CONSTEXPRCXX14 bool linearSearch(const T &amp;, const T &amp;, const U &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a52c819028772a1337a670bdab1fc54a7"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a52c819028772a1337a670bdab1fc54a7">salih::algorithms::interpolationSearch</a></div><div class="ttdeci">CONSTEXPRCXX14 bool interpolationSearch(const T &amp;, const U &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a4bfffd272420b1232941d0cfe0d0e4ca"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a4bfffd272420b1232941d0cfe0d0e4ca">salih::algorithms::binarySearch</a></div><div class="ttdeci">CONSTEXPRCXX14 bool binarySearch(const T &amp;, const U &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html"><div class="ttname"><a href="namespacesalih_1_1algorithms.html">salih::algorithms</a></div><div class="ttdoc">Searching algorihtms.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:15</div></div>
+<div class="ttc" id="amacros_8hpp_html_a390b7d4dadc126f4417db58811bde322"><div class="ttname"><a href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a></div><div class="ttdeci">#define CONSTEXPRCXX14</div><div class="ttdef"><b>Definition:</b> macros.hpp:44</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a8840948350032a03569ff3b37f40b76f"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a8840948350032a03569ff3b37f40b76f">salih::algorithms::getMiddle</a></div><div class="ttdeci">CONSTEXPRCXX14 unsigned long getMiddle(const unsigned long totalSize)</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

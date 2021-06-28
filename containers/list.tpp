@@ -3,14 +3,21 @@
 #pragma once
 
 #include "d-node.hpp"
+#include "../types/macros.hpp"
 #include <stdexcept>
 #include <initializer_list>
+
+/** @brief Implementations of Doubly Linkedlist container. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
  
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::List() : head(nullptr), tail(nullptr), size(0) {} ;
+CONSTEXPRCXX20 salih::containers::List<T>::List() : head(nullptr), tail(nullptr), size(0) {} ;
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::List(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::List<T>::List(const std::initializer_list<T>& values)
 {
 	this->setSize(values.size()) ;
 	salih::containers::DNode<T>* p = nullptr ;
@@ -29,7 +36,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T>::List(const std::initializer_lis
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>& salih::containers::List<T>::operator=(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::List<T>& salih::containers::List<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(head != nullptr)
 	{
@@ -59,7 +66,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T>& salih::containers::List<T>::ope
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::List(const salih::containers::List<T>& list)
+CONSTEXPRCXX20 salih::containers::List<T>::List(const salih::containers::List<T>& list)
 {
 	this->setSize(0) ;
 	salih::containers::DNode<T>* h = list.head ;
@@ -85,7 +92,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T>::List(const salih::containers::L
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>& salih::containers::List<T>::operator=(const salih::containers::List<T>& list)
+CONSTEXPRCXX20 salih::containers::List<T>& salih::containers::List<T>::operator=(const salih::containers::List<T>& list)
 {
 	if(head != nullptr)
 	{
@@ -124,7 +131,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T>& salih::containers::List<T>::ope
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::List(salih::containers::List<T>&& list)
+CONSTEXPRCXX20 salih::containers::List<T>::List(salih::containers::List<T>&& list)
 {
 	this->head = list.head ;
 	this->tail = list.tail ;
@@ -135,7 +142,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T>::List(salih::containers::List<T>
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>& salih::containers::List<T>::operator=(salih::containers::List<T>&& list)
+CONSTEXPRCXX20 salih::containers::List<T>& salih::containers::List<T>::operator=(salih::containers::List<T>&& list)
 {
 	if(head != nullptr)
 	{
@@ -157,7 +164,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T>& salih::containers::List<T>::ope
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::~List()
+CONSTEXPRCXX20 salih::containers::List<T>::~List()
 {
 	if(head == nullptr) return;
 	
@@ -171,11 +178,11 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T>::~List()
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR salih::containers::List<T> salih::containers::List<T>::operator()(const std::size_t a, const std::size_t b) const
+CONSTEXPRCXX20 salih::containers::List<T> salih::containers::List<T>::operator()(const unsigned long a, const unsigned long b) const
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	salih::containers::List<T> tmp ;
-	DNode<T>* node = head ; std::size_t count = 0 ;
+	DNode<T>* node = head ; unsigned long count = 0 ;
 	while(count != a)
 	{
 		node = node->getNext() ;
@@ -190,9 +197,9 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T> salih::containers::List<T>::oper
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T& salih::containers::List<T>::operator[](const std::size_t index)
+CONSTEXPRCXX20 T& salih::containers::List<T>::operator[](const unsigned long index)
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -215,9 +222,9 @@ _GLIBCXX20_CONSTEXPR T& salih::containers::List<T>::operator[](const std::size_t
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& salih::containers::List<T>::operator[](const std::size_t index) const
+CONSTEXPRCXX20 const T& salih::containers::List<T>::operator[](const unsigned long index) const
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -240,10 +247,10 @@ _GLIBCXX20_CONSTEXPR const T& salih::containers::List<T>::operator[](const std::
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T& salih::containers::List<T>::at(const std::size_t index)
+CONSTEXPRCXX20 T& salih::containers::List<T>::at(const unsigned long index)
 {
 	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -266,10 +273,10 @@ _GLIBCXX20_CONSTEXPR T& salih::containers::List<T>::at(const std::size_t index)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& salih::containers::List<T>::at(const std::size_t index) const
+CONSTEXPRCXX20 const T& salih::containers::List<T>::at(const unsigned long index) const
 {
 	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	DNode<T>* node = nullptr ;
 	if(this->size - index > (this->size / 2))
 	{
@@ -292,17 +299,17 @@ _GLIBCXX20_CONSTEXPR const T& salih::containers::List<T>::at(const std::size_t i
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T> salih::containers::List<T>::operator+(const salih::containers::List<T>& list) const
+CONSTEXPRCXX20 salih::containers::List<T> salih::containers::List<T>::operator+(const salih::containers::List<T>& list) const
 {
 	salih::containers::List<T> tmp ;
 	salih::containers::DNode<T>* node = this->head ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		tmp.append(node->data) ;
 		node = node->getNext() ;
 	}
 	node = list.head ;	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		tmp.append(node->data) ;
 		node = node->getNext() ;
@@ -311,23 +318,23 @@ _GLIBCXX20_CONSTEXPR salih::containers::List<T> salih::containers::List<T>::oper
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>& salih::containers::List<T>::operator+=(const salih::containers::List<T>& list)
+CONSTEXPRCXX20 salih::containers::List<T>& salih::containers::List<T>::operator+=(const salih::containers::List<T>& list)
 {
 	salih::containers::DNode<T>* node = list.head ;
-	for(std::size_t i = 0 ; i < list.size ; i++) this->append(node->data) ;
+	for(unsigned long i = 0 ; i < list.size ; i++) this->append(node->data) ;
 	return *this ;
 }
 
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator==(const salih::containers::List<T>& list) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::operator==(const salih::containers::List<T>& list) const
 {
 	if(list.size != this->size) return false ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -338,14 +345,14 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator==(const salih::co
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator!=(const salih::containers::List<T>& list) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::operator!=(const salih::containers::List<T>& list) const
 {
 	if(list.size != this->size) return true ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -357,14 +364,14 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator!=(const salih::co
 
 template <typename T>
 template <typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator==(const salih::containers::List<OTHER>& list) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::operator==(const salih::containers::List<OTHER>& list) const
 {
 	if(list.size != this->size) return false ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -376,14 +383,14 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator==(const salih::co
 
 template <typename T>
 template <typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator!=(const salih::containers::List<OTHER>& list) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::operator!=(const salih::containers::List<OTHER>& list) const
 {
 	if(list.getSize() != this->size) return true ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -394,14 +401,14 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::operator!=(const salih::co
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::List<T>::insert(const std::size_t pos, T data) 
+CONSTEXPRCXX20 void salih::containers::List<T>::insert(const unsigned long pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
 	
 	//loop through LL, find correct 'node'
 	DNode<T>* curNode = head ;
-	for(std::size_t count = 1 ; count < pos ; count++) 
+	for(unsigned long count = 1 ; count < pos ; count++) 
 	{
 		curNode = curNode->getNext() ;
 	}
@@ -411,7 +418,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::List<T>::insert(const std::size_t p
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR inline void salih::containers::List<T>::insert(salih::containers::DNode<T>* node, T data)
+CONSTEXPRCXX20 inline void salih::containers::List<T>::insert(salih::containers::DNode<T>* node, T data)
 { //correct function
 	auto newNode = new DNode<T>(data) ;
 	DNode<T>* prev = node->getPrev() ;
@@ -431,19 +438,19 @@ _GLIBCXX20_CONSTEXPR inline void salih::containers::List<T>::insert(salih::conta
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR inline void salih::containers::List<T>::setSize(std::size_t newSize)
+CONSTEXPRCXX20 inline void salih::containers::List<T>::setSize(unsigned long newSize)
 {
 	this->size = newSize ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR std::size_t salih::containers::List<T>::getSize() const
+CONSTEXPRCXX20 unsigned long salih::containers::List<T>::getSize() const
 {
 	return this->size ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::List<T>::append(T data)
+CONSTEXPRCXX20 void salih::containers::List<T>::append(T data)
 {
 	DNode<T>* node = nullptr ;
 	if(this->size == 0) 
@@ -461,7 +468,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::List<T>::append(T data)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::List<T>::append(const std::initializer_list<T>& data)
+CONSTEXPRCXX20 void salih::containers::List<T>::append(const std::initializer_list<T>& data)
 {
 	DNode<T>* node = nullptr ;
 	for(auto it = std::begin(data) ; it != std::end(data) ; ++it)
@@ -482,13 +489,13 @@ _GLIBCXX20_CONSTEXPR void salih::containers::List<T>::append(const std::initiali
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::List<T>::del(const std::size_t index)
+CONSTEXPRCXX20 void salih::containers::List<T>::del(const unsigned long index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
 	
 	//loop through LL, find correct 'node'
 	DNode<T>* curNode = head ;
-	for(std::size_t count = 1 ; count < index ; count++) 
+	for(unsigned long count = 1 ; count < index ; count++) 
 	{
 		curNode = curNode->getNext() ;
 	}
@@ -498,7 +505,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::List<T>::del(const std::size_t inde
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR inline void salih::containers::List<T>::del(salih::containers::DNode<T>* node)
+CONSTEXPRCXX20 inline void salih::containers::List<T>::del(salih::containers::DNode<T>* node)
 { //correct function
 	DNode<T>* prev = node->getPrev() ;
 	DNode<T>* next = node->getNext() ;
@@ -511,7 +518,7 @@ _GLIBCXX20_CONSTEXPR inline void salih::containers::List<T>::del(salih::containe
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::List<T>::clear()
+CONSTEXPRCXX20 void salih::containers::List<T>::clear()
 {
 	if(head != nullptr)
 	{
@@ -529,47 +536,47 @@ _GLIBCXX20_CONSTEXPR void salih::containers::List<T>::clear()
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::Iterator::Iterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::List<T>::Iterator::Iterator() : pointer(nullptr) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::Iterator::Iterator(salih::containers::DNode<T>* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::List<T>::Iterator::Iterator(salih::containers::DNode<T>* input) : pointer(input) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR T& salih::containers::List<T>::Iterator::operator*() const
+CONSTEXPRCXX20 T& salih::containers::List<T>::Iterator::operator*() const
 {
 	return this->pointer->data ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR T* salih::containers::List<T>::Iterator::operator->() const
+CONSTEXPRCXX20 T* salih::containers::List<T>::Iterator::operator->() const
 {
 	return &(this->pointer->data) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator+(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::List<T>::Iterator(tmp) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator+=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator++()
 {
 	this->pointer = this->pointer->getNext() ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator++(const int)
 {
 	salih::containers::List<T>::Iterator tmp(this->pointer) ;
 	this->pointer = this->pointer->getNext() ;
@@ -577,29 +584,29 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::contai
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator-(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
 	return salih::containers::List<T>::Iterator(tmp) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator-=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator--()
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator& salih::containers::List<T>::Iterator::operator--()
 {
 	this->pointer = this->pointer->getPrev() ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator--(const int)
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::Iterator::operator--(const int)
 {
 	salih::containers::List<T>::Iterator tmp(this->pointer) ;
 	this->pointer = this->pointer->getPrev() ;
@@ -607,59 +614,59 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::contai
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::Iterator::operator==(const salih::containers::List<T>::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::Iterator::operator==(const salih::containers::List<T>::Iterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::Iterator::operator!=(const salih::containers::List<T>::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::Iterator::operator!=(const salih::containers::List<T>::Iterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::List<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::List<T>::ConstIterator::ConstIterator(salih::containers::DNode<T> const* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::List<T>::ConstIterator::ConstIterator(salih::containers::DNode<T> const* input) : pointer(input) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR const T& salih::containers::List<T>::ConstIterator::operator*() const
+CONSTEXPRCXX20 const T& salih::containers::List<T>::ConstIterator::operator*() const
 {
 	return this->pointer->data ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR const T* salih::containers::List<T>::ConstIterator::operator->() const
+CONSTEXPRCXX20 const T* salih::containers::List<T>::ConstIterator::operator->() const
 {
 	return &(this->pointer->data) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator+(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::List<T>::ConstIterator(tmp) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator+=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator++()
 {
 	this->pointer = this->pointer->getNext() ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator++(const int)
 {
 	salih::containers::List<T>::ConstIterator tmp(this->pointer) ;
 	this->pointer = this->pointer->getNext() ;
@@ -667,29 +674,29 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::c
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator-(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator-(const unsigned long x) const
 {
 	salih::containers::DNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getPrev() ; 
 	return salih::containers::List<T>::ConstIterator(tmp) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator-=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator-=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getPrev() ; 
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator--()
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator& salih::containers::List<T>::ConstIterator::operator--()
 {
 	this->pointer = this->pointer->getPrev() ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator--(const int)
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::ConstIterator::operator--(const int)
 {
 	salih::containers::List<T>::ConstIterator tmp(this->pointer) ;
 	this->pointer = this->pointer->getPrev() ;
@@ -697,49 +704,49 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::c
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::ConstIterator::operator==(const salih::containers::List<T>::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::ConstIterator::operator==(const salih::containers::List<T>::ConstIterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::List<T>::ConstIterator::operator!=(const salih::containers::List<T>::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::List<T>::ConstIterator::operator!=(const salih::containers::List<T>::ConstIterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::containers::List<T>::begin()
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::begin()
 {
 	return salih::containers::List<T>::Iterator(this->head) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::Iterator salih::containers::List<T>::end()
+CONSTEXPRCXX20 typename salih::containers::List<T>::Iterator salih::containers::List<T>::end()
 {
 	return salih::containers::List<T>::Iterator(nullptr) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::begin() const 
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::begin() const 
 {
 	return salih::containers::List<T>::ConstIterator(this->head) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::end() const
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::end() const
 {
 	return salih::containers::List<T>::ConstIterator(nullptr) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::cbegin() const 
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::cbegin() const 
 {
 	return salih::containers::List<T>::ConstIterator(this->head) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::cend() const
+CONSTEXPRCXX20 typename salih::containers::List<T>::ConstIterator salih::containers::List<T>::cend() const
 {
 	return salih::containers::List<T>::ConstIterator(nullptr) ;
 }

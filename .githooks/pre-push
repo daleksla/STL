@@ -11,6 +11,8 @@ then
     then
     	exit 1 # push will not execute 
     fi
+else
+    echo "Pushing $current_branch branch to repository"
 fi  
 
 git diff --exit-code &> /dev/NULL
@@ -27,17 +29,49 @@ then
 fi
     
 echo "Compiling test files..." 
-cd ./.testing && make
+cd ./.testing && make &> /dev/null
+
+code=$?
 
 if [ $code != 0 ] 
 then 
-    read -p "Tests failed, proceed regardless? [y|n] " -n 1 -r < /dev/tty
+    read -p "Tests failed to compile, proceed regardless? [y|n] " -n 1 -r < /dev/tty
     echo
     if !  (echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
     then
     	exit 1 # push will not execute 
     fi
+else
+    echo "All availible unit tests compiled sucessfully!"
 fi
 
+cd ..
+
+echo "Running test files..." 
+
+touch ./.testing/exes/gfilestest.log
+find ./.testing/exes -maxdepth 1 -perm -111 -type f >> ./.testing/exes/gfilestest.log
+input="./.testing/exes/gfilestest.log"
+while read line
+do
+	code=$?
+	if [ $code != 0 ] 
+	then
+  		read -p "Test $line has failed, continue? [y|n] " -n 1 -r < /dev/tty
+		echo
+		if !  (echo $REPLY | grep -E '^[Yy]$' &> /dev/null)
+		then
+			exit 1 # push will not execute 
+		fi
+	else
+		echo "Unit test $line ran sucessfully!"
+fi
+done < "$input"
+rm ./.testing/exes/gfilestest.log
+
+git add .testing/exes &> /dev/NULL
+git commit -m 'AUTOMATED COMMIT - updated directory of compiled unit tests' --no-verify &> /dev/NULL
+
+echo "Push commencing!"
 exit 0
 

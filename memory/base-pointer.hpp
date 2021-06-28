@@ -1,7 +1,7 @@
 #ifndef BASE_POINTER_HPP
 #define BASE_POINTER_HPP
 
-/** @brief File containing base class declarations for all smart pointers
+/** @brief Base class for all smart pointers
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021
@@ -33,7 +33,7 @@ namespace memory {
 			/** Regular constructor, intialises base-properties for smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			Pointer(std::nullptr_t) ;
+			Pointer(const decltype(nullptr)) ;
 
 			/** Regular constructor, intialises base-properties for smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -48,7 +48,7 @@ namespace memory {
 			/** Regular assignment operator, assigns null pointer to base-properties for smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			Pointer& operator=(std::nullptr_t) ;
+			Pointer& operator=(const decltype(nullptr)) ;
 
 			/** Regular assignment operator, assigns type-T pointer to base-properties for smart pointer
 			@param T* (raw pointer to object of type T)
@@ -128,7 +128,7 @@ namespace memory {
 			/** Regular constructor, intialises base-properties for smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			Pointer(std::nullptr_t) ;
+			Pointer(const decltype(nullptr)) ;
 
 			/** Regular constructor, intialises base-properties for smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -143,7 +143,7 @@ namespace memory {
 			/** Regular assignment operator, assigns null pointer to base-properties for smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/	
-			Pointer& operator=(std::nullptr_t) ;
+			Pointer& operator=(const decltype(nullptr)) ;
 
 			/** Regular assignment operator, assigns type-T pointer to base-properties for smart pointer
 			@param T* (raw pointer to object of type T)
@@ -188,12 +188,12 @@ namespace memory {
 			/** Index operator, allows for accessing of internal elements
 			@param integer storing position to index structure with 
 			@return underlying value at specified index **/
-			T& operator[](std::size_t) ;
+			T& operator[](const unsigned long) ;
 			
 			/** Index operator, allows for accessing of internal elements
 			@param integer storing position to index structure with 
 			@return underlying value at specified index **/
-			const T& operator[](std::size_t) const ;
+			const T& operator[](const unsigned long) const ;
 			
 			/** bool operator (tests 'truth' of object)
 			@return boolean (True if pointer actually points to something valid (ie not NULL address), False otherwise) **/
@@ -222,7 +222,7 @@ namespace memory {
 		protected:
 			void* pointer ;
 			
-			std::size_t bytes ;
+			unsigned long bytes ;
 			
 		public:
 			/** Empty constructor, intialises base-properties for smart pointer container 
@@ -232,7 +232,7 @@ namespace memory {
 			/** Regular constructor, intialises base-properties for smart pointer container
 			@param nullptr_t (special type indicating NULL)
 			@return <initialised-object> **/
-			Pointer(std::nullptr_t) ;			
+			Pointer(const decltype(nullptr)) ;			
 			
 			/** Regular constructor, intialises base-properties for smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)
@@ -245,7 +245,7 @@ namespace memory {
 			/** Regular assignment operator, assigns null pointer to base-properties for smart pointer
 			@param nullptr_t (special type indicating NULL)
 			@return reference to modified smart pointer **/
-			Pointer& operator=(std::nullptr_t) ;					
+			Pointer& operator=(const decltype(nullptr)) ;					
 			
 			/** Regular assignment operator, intialises base-properties for smart pointer container to point at T-type pointer
 			@param T* (raw pointer to object of type T)

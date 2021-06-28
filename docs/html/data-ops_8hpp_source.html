@@ -70,25 +70,48 @@ $(function() {
 <div class="title">data-ops.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATA_OPS_HPP</span></div>
+<a href="data-ops_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATA_OPS_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DATA_OPS_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacesalih.html">   11</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih.html">salih</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacesalih_1_1algorithms.html">   12</a></span>&#160;<span class="keyword">namespace </span>algorithms {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacesalih_1_1algorithms.html#ad9465eebd27e97b93e21aba605740844">swap</a>(U&amp;, U&amp;) ;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../types/macros.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../types/iterators.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacesalih.html">   14</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacesalih.html">salih</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacesalih_1_1algorithms.html">   15</a></span>&#160;<span class="keyword">namespace </span>algorithms {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacesalih_1_1algorithms.html#a0c0f4e0e1ad1ccafa65f75827f9e3136">swap</a>(U&amp;, U&amp;) ;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;data-ops.tpp&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a> <span class="keyword">inline</span> U&amp;&amp; <a class="code" href="namespacesalih_1_1algorithms.html#a3851f7dd820fd9dccec0048cc5355cf4">move</a>(U&amp;) ;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt;, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="namespacesalih_1_1algorithms.html#aba7b378561c4ee7f12554108ff3979b7">tally</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> = std::enable_if&lt; T::iteratorType::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt;, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="namespacesalih_1_1algorithms.html#aba7b378561c4ee7f12554108ff3979b7">tally</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> U&amp;) ;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> = std::enable_if&lt; T::category::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt;, <span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keywordtype">void</span> <a class="code" href="namespacesalih_1_1algorithms.html#ad1a92fb04b69f4970712dfec6f2dee19">forEach</a>(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;, <span class="keyword">const</span> F) ;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> = std::enable_if&lt; T::iteratorType::value &gt;= salih::types::UniDirectionalIteratorTag::value&gt;, <span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacesalih_1_1algorithms.html#ad1a92fb04b69f4970712dfec6f2dee19">forEach</a>(T&amp;, <span class="keyword">const</span> F) ;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;data-ops.tpp&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacesalih_1_1algorithms_html_ad9465eebd27e97b93e21aba605740844"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#ad9465eebd27e97b93e21aba605740844">salih::algorithms::swap</a></div><div class="ttdeci">void swap(U &amp;, U &amp;)</div></div>
-<div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Functionality relating to data manipulation of some sort.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:11</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a0c0f4e0e1ad1ccafa65f75827f9e3136"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a0c0f4e0e1ad1ccafa65f75827f9e3136">salih::algorithms::swap</a></div><div class="ttdeci">CONSTEXPRCXX14 void swap(U &amp;, U &amp;)</div></div>
+<div class="ttc" id="amacros_8hpp_html_a390b7d4dadc126f4417db58811bde322"><div class="ttname"><a href="macros_8hpp.html#a390b7d4dadc126f4417db58811bde322">CONSTEXPRCXX14</a></div><div class="ttdeci">#define CONSTEXPRCXX14</div><div class="ttdef"><b>Definition:</b> macros.hpp:44</div></div>
+<div class="ttc" id="amacros_8hpp_html_a78ba4d103ca867a161ab23417aaf388c"><div class="ttname"><a href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a></div><div class="ttdeci">#define CONSTEXPRCXX11</div><div class="ttdoc">Useful, library &amp; compiler independant macros.</div><div class="ttdef"><b>Definition:</b> macros.hpp:38</div></div>
+<div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Data manipulation functionalities.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:14</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_ad1a92fb04b69f4970712dfec6f2dee19"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#ad1a92fb04b69f4970712dfec6f2dee19">salih::algorithms::forEach</a></div><div class="ttdeci">F CONSTEXPRCXX14 void forEach(const T &amp;, const T &amp;, const F)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_aba7b378561c4ee7f12554108ff3979b7"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#aba7b378561c4ee7f12554108ff3979b7">salih::algorithms::tally</a></div><div class="ttdeci">U CONSTEXPRCXX14 unsigned long tally(const T &amp;, const T &amp;, const U &amp;)</div></div>
+<div class="ttc" id="anamespacesalih_1_1algorithms_html_a3851f7dd820fd9dccec0048cc5355cf4"><div class="ttname"><a href="namespacesalih_1_1algorithms.html#a3851f7dd820fd9dccec0048cc5355cf4">salih::algorithms::move</a></div><div class="ttdeci">CONSTEXPRCXX11 U &amp;&amp; move(U &amp;)</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

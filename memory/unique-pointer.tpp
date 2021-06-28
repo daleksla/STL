@@ -1,7 +1,9 @@
 #ifndef UNIQUE_POINTER_TPP
 #define UNIQUE_POINTER_TPP
 
-/** @brief File containing unique pointer class definitions
+#include "base-pointer.hpp"
+
+/** @brief Implementations of Unique pointer class. FOR INTERNAL USAGE ONLY
     @author Salih Mahmoud Sayed Ahmed
     @email ahmed233@uni.coventry.ac.uk
     @date May 2021
@@ -11,7 +13,7 @@ template<typename T>
 salih::memory::UniquePointer<T>::UniquePointer() : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T>() {} ;
+salih::memory::UniquePointer<T>::UniquePointer(const decltype(nullptr) x) : salih::memory::Pointer<T>() {} ;
 
 template<typename T>
 salih::memory::UniquePointer<T>::UniquePointer(T* data) : salih::memory::Pointer<T>(data) {} ;
@@ -27,7 +29,7 @@ salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(T* d
 }
 
 template<typename T>
-salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(std::nullptr_t data) 
+salih::memory::UniquePointer<T>& salih::memory::UniquePointer<T>::operator=(const decltype(nullptr) data) 
 {
 	salih::memory::Pointer<T>::operator=(data) ;
 	return *this ;
@@ -66,7 +68,7 @@ template<typename T>
 salih::memory::UniquePointer<T[]>::UniquePointer() : salih::memory::Pointer<T[]>() {} ;
 
 template<typename T>
-salih::memory::UniquePointer<T[]>::UniquePointer(std::nullptr_t x) : salih::memory::Pointer<T[]>() {} ;
+salih::memory::UniquePointer<T[]>::UniquePointer(const decltype(nullptr) x) : salih::memory::Pointer<T[]>() {} ;
 
 template<typename T>
 salih::memory::UniquePointer<T[]>::UniquePointer(T* data) : salih::memory::Pointer<T[]>(data) {} ;
@@ -77,7 +79,7 @@ salih::memory::UniquePointer<T[]>::UniquePointer(void* data) : salih::memory::Po
 template<typename T>
 salih::memory::UniquePointer<T[]>& salih::memory::UniquePointer<T[]>::operator=(T* data)
 {
-	salih::memory::Pointer<T>::operator=(data) ;
+	static_cast<Pointer<T[]>*>(&*this)->operator=(data) ;
 	return *this ;	
 }
 
@@ -181,21 +183,20 @@ salih::memory::UniquePointer<void>::~UniquePointer()
 }
 
 template<class T>
-salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make()
+salih::memory::UniquePointer<T> salih::memory::makeUnique()
 {
 	return salih::memory::UniquePointer<T>(new T) ;
 }
 	
-template<class T>
-template<class... Args>
-salih::memory::UniquePointer<T> salih::memory::UniquePointer<T>::make(const Args&&... args)
+template<class T, class... Args>
+salih::memory::UniquePointer<T> salih::memory::makeUnique(const Args&&... args)
 {
 	T* p = new T(args...) ;
 	return salih::memory::UniquePointer<T>(new T(args...)) ;
 }
 	
 template<class T>
-salih::memory::UniquePointer<T[]> salih::memory::UniquePointer<T[]>::make(const std::size_t sz)
+salih::memory::UniquePointer<T[]> salih::memory::makeUnique(const unsigned long sz)
 {
 	return salih::memory::UniquePointer<T[]>(new T[sz]) ;
 }

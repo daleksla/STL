@@ -3,11 +3,18 @@
 #pragma once
 
 #include "d-node.hpp"
+#include "../types/macros.hpp"
 #include <algorithm>
 #include <initializer_list>
 
+/** @brief Implementations of Queue FIFO structure. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
+
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue()
+CONSTEXPRCXX20 salih::containers::Queue<T>::Queue()
 {
 	this->size = 0 ;
 	this->head = nullptr ;
@@ -15,7 +22,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue()
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::Queue<T>::Queue(const std::initializer_list<T>& values)
 {
 	this->size = 0 ;
 	this->head = new salih::containers::DNode<T>(*std::begin(values)) ;
@@ -33,7 +40,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue(const std::initializer_l
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>& salih::containers::Queue<T>::operator=(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::Queue<T>& salih::containers::Queue<T>::operator=(const std::initializer_list<T>& values)
 {
 	if(head != nullptr)
 	{
@@ -63,7 +70,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>& salih::containers::Queue<T>::o
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue(const Queue& q)
+CONSTEXPRCXX20 salih::containers::Queue<T>::Queue(const Queue& q)
 {
 	this->size = 0 ;
 	salih::containers::DNode<T>* h = q.head ;
@@ -88,7 +95,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue(const Queue& q)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>& salih::containers::Queue<T>::operator=(const Queue& q)
+CONSTEXPRCXX20 salih::containers::Queue<T>& salih::containers::Queue<T>::operator=(const Queue& q)
 {
 	//if(this->head != nullptr)
 	//{
@@ -124,7 +131,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>& salih::containers::Queue<T>::o
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue(Queue&& q)
+CONSTEXPRCXX20 salih::containers::Queue<T>::Queue(Queue&& q)
 {
 	this->head = q.head ;
 	this->tail = q.tail ;
@@ -135,7 +142,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::Queue(Queue&& q)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>& salih::containers::Queue<T>::operator=( Queue&& q ) 
+CONSTEXPRCXX20 salih::containers::Queue<T>& salih::containers::Queue<T>::operator=( Queue&& q ) 
 {
 	this->head = q.head ;
 	this->tail = q.tail ;
@@ -147,7 +154,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>& salih::containers::Queue<T>::o
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator==(const salih::containers::Queue<T>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Queue<T>::operator==(const salih::containers::Queue<T>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -164,7 +171,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator==(const salih::c
 }
 
 template <typename T>			
-_GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator!=(const salih::containers::Queue<T>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Queue<T>::operator!=(const salih::containers::Queue<T>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -182,7 +189,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator!=(const salih::c
 
 template <typename T>			
 template<typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator==(const salih::containers::Queue<OTHER>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Queue<T>::operator==(const salih::containers::Queue<OTHER>& qq) const
 {
 	if(this->size != qq.size) return false ;
 	
@@ -200,7 +207,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator==(const salih::c
 		
 template <typename T>	
 template<typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator!=(const salih::containers::Queue<OTHER>& qq) const
+CONSTEXPRCXX20 bool salih::containers::Queue<T>::operator!=(const salih::containers::Queue<OTHER>& qq) const
 {
 	if(this->size != qq.size) return true ;
 	
@@ -217,7 +224,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::Queue<T>::operator!=(const salih::c
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::~Queue()
+CONSTEXPRCXX20 salih::containers::Queue<T>::~Queue()
 {
 	if(head == nullptr) return;
 	
@@ -231,7 +238,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::Queue<T>::~Queue()
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T salih::containers::Queue<T>::pop()
+CONSTEXPRCXX20 T salih::containers::Queue<T>::pop()
 {
 	if(size == 0) throw std::out_of_range("Queue is empty") ;
 	auto newHead = head->getNext() ;
@@ -243,14 +250,14 @@ _GLIBCXX20_CONSTEXPR T salih::containers::Queue<T>::pop()
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& salih::containers::Queue<T>::peek() const
+CONSTEXPRCXX20 const T& salih::containers::Queue<T>::peek() const
 {
 	if(size != 0) return head->data ;
 	else throw std::out_of_range("Queue is empty") ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Queue<T>::push(T val)
+CONSTEXPRCXX20 void salih::containers::Queue<T>::push(T val)
 {
 	salih::containers::DNode<T>* p ;
 	if(size == 0)
@@ -266,7 +273,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Queue<T>::push(T val)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::Queue<T>::push(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 void salih::containers::Queue<T>::push(const std::initializer_list<T>& values)
 {
 	salih::containers::DNode<T>* p = tail ;
 	for(auto it = std::begin(values) ; it != std::end(values) ; it = std::next(it))
@@ -282,7 +289,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::Queue<T>::push(const std::initializ
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR std::size_t salih::containers::Queue<T>::getSize()
+CONSTEXPRCXX20 unsigned long salih::containers::Queue<T>::getSize()
 {
 	return this->size ;
 }

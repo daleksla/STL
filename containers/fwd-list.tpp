@@ -4,20 +4,27 @@
 
 #include <stdexcept>
 #include "s-node.hpp"
+#include "../types/macros.hpp"
 #include <initializer_list>
+
+/** @brief Implementations of singly Linkedlist container. FOR INTERNAL USAGE ONLY
+    @author Salih Mahmoud Sayed Ahmed
+    @email ahmed233@uni.coventry.ac.uk
+    @date April 2021
+**/
  
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList() : head(nullptr), size(0) {} ;
+CONSTEXPRCXX20 salih::containers::FwdList<T>::FwdList() : head(nullptr), size(0) {} ;
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::size_t x)
+CONSTEXPRCXX20 salih::containers::FwdList<T>::FwdList(const unsigned long x)
 {
 	this->size = x ;
 	if(x)
 	{
 		this->head = new SNode<T>(T()) ;
 		salih::containers::SNode<T>* p = this->head ;
-		for(std::size_t i = 1 ; i < x ; ++i)
+		for(unsigned long i = 1 ; i < x ; ++i)
 		{
 			p = new SNode<T>(T(), p) ;
 		}
@@ -28,7 +35,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::size_t x)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::FwdList<T>::FwdList(const std::initializer_list<T>& values)
 {
 	this->size = values.size() ;
 	this->head = new SNode<T>(*std::begin(values)) ;
@@ -40,7 +47,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const std::initializ
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(const std::initializer_list<T>& values)
+CONSTEXPRCXX20 salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(const std::initializer_list<T>& values)
 {
 	this->clear() ;
 	 
@@ -55,7 +62,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const salih::containers::FwdList<T>& list)
+CONSTEXPRCXX20 salih::containers::FwdList<T>::FwdList(const salih::containers::FwdList<T>& list)
 {
 	this->size = list.size ;
 
@@ -78,7 +85,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(const salih::contain
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(const salih::containers::FwdList<T>& list)
+CONSTEXPRCXX20 salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(const salih::containers::FwdList<T>& list)
 {
 	this->clear() ;
 	
@@ -105,7 +112,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(salih::containers::FwdList<T>&& list)
+CONSTEXPRCXX20 salih::containers::FwdList<T>::FwdList(salih::containers::FwdList<T>&& list)
 {
 	this->head = list.head ;
 	this->size = list.size ;
@@ -114,7 +121,7 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::FwdList(salih::containers::F
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(salih::containers::FwdList<T>&& list)
+CONSTEXPRCXX20 salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator=(salih::containers::FwdList<T>&& list)
 {
 	this->clear() ;
 
@@ -126,17 +133,17 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::~FwdList()
+CONSTEXPRCXX20 salih::containers::FwdList<T>::~FwdList()
 {
 	this->clear() ;
 }
 
 template<typename T>		
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T> salih::containers::FwdList<T>::operator()(const std::size_t a, const std::size_t b) const
+CONSTEXPRCXX20 salih::containers::FwdList<T> salih::containers::FwdList<T>::operator()(const unsigned long a, const unsigned long b) const
 {
 	if(a > b || a < 0 || b > this->size) throw std::out_of_range("Element range requested does not exist") ;
 	salih::containers::FwdList<T> tmp ;
-	SNode<T>* node = head ; std::size_t count = 0 ;
+	SNode<T>* node = head ; unsigned long count = 0 ;
 	while(count != a)
 	{
 		node = node->getNext() ;
@@ -151,9 +158,9 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T> salih::containers::FwdList<T>
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T& salih::containers::FwdList<T>::operator[](const std::size_t index)
+CONSTEXPRCXX20 T& salih::containers::FwdList<T>::operator[](const unsigned long index)
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	SNode<T>* node = head ;
 	while(count != index)
 	{
@@ -164,9 +171,9 @@ _GLIBCXX20_CONSTEXPR T& salih::containers::FwdList<T>::operator[](const std::siz
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& salih::containers::FwdList<T>::operator[](const std::size_t index) const
+CONSTEXPRCXX20 const T& salih::containers::FwdList<T>::operator[](const unsigned long index) const
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	SNode<T>* node = head ;
 	while(count != index)
 	{
@@ -177,9 +184,9 @@ _GLIBCXX20_CONSTEXPR const T& salih::containers::FwdList<T>::operator[](const st
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR T& salih::containers::FwdList<T>::at(const std::size_t index)
+CONSTEXPRCXX20 T& salih::containers::FwdList<T>::at(const unsigned long index)
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	SNode<T>* node = head ;
 	while(count != index)
@@ -191,9 +198,9 @@ _GLIBCXX20_CONSTEXPR T& salih::containers::FwdList<T>::at(const std::size_t inde
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR const T& salih::containers::FwdList<T>::at(const std::size_t index) const
+CONSTEXPRCXX20 const T& salih::containers::FwdList<T>::at(const unsigned long index) const
 {
-	std::size_t count = 0 ;
+	unsigned long count = 0 ;
 	if(index >= this->size) throw std::out_of_range("Element does not exist") ;
 	SNode<T>* node = head ;
 	while(count != index)
@@ -205,17 +212,17 @@ _GLIBCXX20_CONSTEXPR const T& salih::containers::FwdList<T>::at(const std::size_
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T> salih::containers::FwdList<T>::operator+(const salih::containers::FwdList<T>& list) const
+CONSTEXPRCXX20 salih::containers::FwdList<T> salih::containers::FwdList<T>::operator+(const salih::containers::FwdList<T>& list) const
 {
 	salih::containers::FwdList<T> tmp ;
 	salih::containers::SNode<T>* node = this->head ;
-	for(std::size_t i = 0 ; i < this->size ; i++)
+	for(unsigned long i = 0 ; i < this->size ; i++)
 	{
 		tmp.append(node->data) ;
 		node = node->getNext() ;
 	}
 	node = list.head ;	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		tmp.append(node->data) ;
 		node = node->getNext() ;
@@ -224,10 +231,10 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T> salih::containers::FwdList<T>
 }
 
 template<typename T>
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator+=(const salih::containers::FwdList<T>& list)
+CONSTEXPRCXX20 salih::containers::FwdList<T>& salih::containers::FwdList<T>::operator+=(const salih::containers::FwdList<T>& list)
 {
 	salih::containers::SNode<T>* node = list.head ;
-	for(std::size_t i = 0 ; i < list.size ; i++) 
+	for(unsigned long i = 0 ; i < list.size ; i++) 
 	{
 		this->append(node->data) ;
 		node = node->getNext() ;
@@ -236,14 +243,14 @@ _GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>& salih::containers::FwdList<T
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator==(const salih::containers::FwdList<T>& list) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::operator==(const salih::containers::FwdList<T>& list) const
 {
 	if(list.size != this->size) return false ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -254,14 +261,14 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator==(const salih:
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator!=(const salih::containers::FwdList<T>& list) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::operator!=(const salih::containers::FwdList<T>& list) const
 {
 	if(list.size != this->size) return true ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -273,14 +280,14 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator!=(const salih:
 
 template <typename T>
 template <typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator==(const salih::containers::FwdList<OTHER>& list) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::operator==(const salih::containers::FwdList<OTHER>& list) const
 {
 	if(list.size != this->size) return false ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return false ;
 		head1 = head1->getNext() ;
@@ -292,14 +299,14 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator==(const salih:
 
 template <typename T>
 template <typename OTHER>
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator!=(const salih::containers::FwdList<OTHER>& list) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::operator!=(const salih::containers::FwdList<OTHER>& list) const
 {
 	if(list.getSize() != this->size) return true ;
 	
 	auto head1 = this->head ;
 	auto head2 = list.head ;
 	
-	for(std::size_t i = 0 ; i < list.size ; i++)
+	for(unsigned long i = 0 ; i < list.size ; i++)
 	{
 		if(head1->data != head2->data) return true ;
 		head1 = head1->getNext() ;
@@ -310,7 +317,7 @@ _GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::operator!=(const salih:
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::insert(const std::size_t pos, T data) 
+CONSTEXPRCXX20 void salih::containers::FwdList<T>::insert(const unsigned long pos, T data) 
 {
 	if(pos == 0 || pos > this->size + 1) throw std::out_of_range("Invalid insert position") ;	
 	else if(pos == this->size + 1) return this->append(data) ;
@@ -323,7 +330,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::insert(const std::size_
 	else {
 		//loop through LL, find correct 'node'
 		SNode<T>* curNode = this->head ;
-		for(std::size_t count = 1 ; count < pos - 1 ; count++) 
+		for(unsigned long count = 1 ; count < pos - 1 ; count++) 
 		{
 			curNode = curNode->getNext() ;
 		}
@@ -337,13 +344,13 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::insert(const std::size_
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR std::size_t salih::containers::FwdList<T>::getSize() const
+CONSTEXPRCXX20 unsigned long salih::containers::FwdList<T>::getSize() const
 {
 	return this->size ;
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::append(T data)
+CONSTEXPRCXX20 void salih::containers::FwdList<T>::append(T data)
 {
 	if(this->size == 0) 
 	{
@@ -359,7 +366,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::append(T data)
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::append(const std::initializer_list<T>& data)
+CONSTEXPRCXX20 void salih::containers::FwdList<T>::append(const std::initializer_list<T>& data)
 {
 	SNode<T>* node = nullptr ;
 	for(node = this->head ; node->getNext() != nullptr ; node = node->getNext()) ;
@@ -380,14 +387,14 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::append(const std::initi
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::del(const std::size_t index)
+CONSTEXPRCXX20 void salih::containers::FwdList<T>::del(const unsigned long index)
 {
 	if(index == 0 || index > this->size) throw std::out_of_range("Index does not exist") ;	
 	
 	//loop through LL, find correct 'node'
 	SNode<T>* prevNode = nullptr ;
 	SNode<T>* curNode = this->head ;
-	std::size_t count ;
+	unsigned long count ;
 	for(count = 1 ; count < index ; count++)
 	{
 		prevNode = curNode ;
@@ -408,7 +415,7 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::del(const std::size_t i
 }
 
 template <typename T>
-_GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::clear()
+CONSTEXPRCXX20 void salih::containers::FwdList<T>::clear()
 {
 	if(head != nullptr)
 	{
@@ -425,47 +432,47 @@ _GLIBCXX20_CONSTEXPR void salih::containers::FwdList<T>::clear()
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::Iterator::Iterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::FwdList<T>::Iterator::Iterator() : pointer(nullptr) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::Iterator::Iterator(salih::containers::SNode<T>* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::FwdList<T>::Iterator::Iterator(salih::containers::SNode<T>* input) : pointer(input) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR T& salih::containers::FwdList<T>::Iterator::operator*() const
+CONSTEXPRCXX20 T& salih::containers::FwdList<T>::Iterator::operator*() const
 {
 	return this->pointer->data ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR T* salih::containers::FwdList<T>::Iterator::operator->() const
+CONSTEXPRCXX20 T* salih::containers::FwdList<T>::Iterator::operator->() const
 {
 	return &(this->pointer->data) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::Iterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::Iterator::operator+(const unsigned long x) const
 {
 	salih::containers::SNode<T>* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::FwdList<T>::Iterator(tmp) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::Iterator& salih::containers::FwdList<T>::Iterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::Iterator& salih::containers::FwdList<T>::Iterator::operator+=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::Iterator& salih::containers::FwdList<T>::Iterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::Iterator& salih::containers::FwdList<T>::Iterator::operator++()
 {
 	this->pointer = this->pointer->getNext() ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::Iterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::Iterator::operator++(const int)
 {
 	salih::containers::FwdList<T>::Iterator tmp(this->pointer) ;
 	this->pointer = this->pointer->getNext() ;
@@ -473,59 +480,59 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::Iterator salih::con
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::Iterator::operator==(const salih::containers::FwdList<T>::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::Iterator::operator==(const salih::containers::FwdList<T>::Iterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::Iterator::operator!=(const salih::containers::FwdList<T>::Iterator& other) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::Iterator::operator!=(const salih::containers::FwdList<T>::Iterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
+CONSTEXPRCXX20 salih::containers::FwdList<T>::ConstIterator::ConstIterator() : pointer(nullptr) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR salih::containers::FwdList<T>::ConstIterator::ConstIterator(salih::containers::SNode<T> const* input) : pointer(input) {} ;
+CONSTEXPRCXX20 salih::containers::FwdList<T>::ConstIterator::ConstIterator(salih::containers::SNode<T> const* input) : pointer(input) {} ;
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR const T& salih::containers::FwdList<T>::ConstIterator::operator*() const
+CONSTEXPRCXX20 const T& salih::containers::FwdList<T>::ConstIterator::operator*() const
 {
 	return this->pointer->data ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR const T* salih::containers::FwdList<T>::ConstIterator::operator->() const
+CONSTEXPRCXX20 const T* salih::containers::FwdList<T>::ConstIterator::operator->() const
 {
 	return &(this->pointer->data) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::ConstIterator::operator+(const std::size_t x) const
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::ConstIterator::operator+(const unsigned long x) const
 {
 	salih::containers::SNode<T> const* tmp = this->pointer ;
-	for(std::size_t i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) tmp = tmp->getNext() ; 
 	return salih::containers::FwdList<T>::ConstIterator(tmp) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator& salih::containers::FwdList<T>::ConstIterator::operator+=(const std::size_t x)
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator& salih::containers::FwdList<T>::ConstIterator::operator+=(const unsigned long x)
 {
-	for(std::size_t i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
+	for(unsigned long i = 1 ; i <= x ; i++) this->pointer = this->pointer->getNext() ; 
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator& salih::containers::FwdList<T>::ConstIterator::operator++()
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator& salih::containers::FwdList<T>::ConstIterator::operator++()
 {
 	this->pointer = this->pointer->getNext() ;
 	return *this ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::ConstIterator::operator++(const int)
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::ConstIterator::operator++(const int)
 {
 	salih::containers::FwdList<T>::ConstIterator tmp(this->pointer) ;
 	this->pointer = this->pointer->getNext() ;
@@ -533,49 +540,49 @@ _GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::ConstIterator::operator==(const salih::containers::FwdList<T>::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::ConstIterator::operator==(const salih::containers::FwdList<T>::ConstIterator& other) const
 {
 	return (this->pointer == other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR bool salih::containers::FwdList<T>::ConstIterator::operator!=(const salih::containers::FwdList<T>::ConstIterator& other) const
+CONSTEXPRCXX20 bool salih::containers::FwdList<T>::ConstIterator::operator!=(const salih::containers::FwdList<T>::ConstIterator& other) const
 {
 	return (this->pointer != other.pointer) ; 
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::begin()
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::begin()
 {
 	return salih::containers::FwdList<T>::Iterator(this->head) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::end()
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::Iterator salih::containers::FwdList<T>::end()
 {
 	return salih::containers::FwdList<T>::Iterator(nullptr) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::begin() const 
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::begin() const 
 {
 	return salih::containers::FwdList<T>::ConstIterator(this->head) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::end() const
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::end() const
 {
 	return salih::containers::FwdList<T>::ConstIterator(nullptr) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::cbegin() const 
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::cbegin() const 
 {
 	return salih::containers::FwdList<T>::ConstIterator(this->head) ;
 }
 
 template<typename T> 
-_GLIBCXX20_CONSTEXPR typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::cend() const
+CONSTEXPRCXX20 typename salih::containers::FwdList<T>::ConstIterator salih::containers::FwdList<T>::cend() const
 {
 	return salih::containers::FwdList<T>::ConstIterator(nullptr) ;
 }

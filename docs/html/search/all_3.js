@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['del_12',['del',['../classsalih_1_1containers_1_1FwdList.html#a119b438898b262c0e0a42b8756940a06',1,'salih::containers::FwdList::del()'],['../classsalih_1_1containers_1_1List.html#a5648b10df6f55ae1da73ce340bbf8a56',1,'salih::containers::List::del()'],['../classsalih_1_1containers_1_1Vector.html#af3b953bf792d578cd48ff87d58017b19',1,'salih::containers::Vector::del()']]],
-  ['descend_13',['DESCEND',['../namespacesalih_1_1algorithms.html#aa8d1038265c73db15d7f7b0ead070cc5',1,'salih::algorithms']]]
+  ['data_2dops_2ehpp_28',['data-ops.hpp',['../data-ops_8hpp.html',1,'']]],
+  ['del_29',['del',['../classsalih_1_1containers_1_1FwdList.html#a9b43723ac215969e9f7e01f55aa90e1b',1,'salih::containers::FwdList::del()'],['../classsalih_1_1containers_1_1List.html#a0a041b0f33e59dad2bd331ba4d72638a',1,'salih::containers::List::del()'],['../classsalih_1_1containers_1_1Vector.html#a0b988dffe45f1aab233af0be9b8a786e',1,'salih::containers::Vector::del()']]],
+  ['descend_30',['DESCEND',['../namespacesalih_1_1algorithms.html#aa8d1038265c73db15d7f7b0ead070cc5',1,'salih::algorithms']]]
 ];
