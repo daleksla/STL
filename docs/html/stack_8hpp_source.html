@@ -86,7 +86,7 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            salih::containers::DNode&lt;T&gt;* tail ;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            std::size_t size ;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> size ;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1Stack.html#af83a7df51131b8ac2aab3ae155514f27">   26</a></span>&#160;            <span class="keyword">using</span> <a class="code" href="classsalih_1_1containers_1_1Stack.html#af83a7df51131b8ac2aab3ae155514f27">inner</a> = T ;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        </div>
@@ -124,7 +124,7 @@ $(function() {
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <a class="code" href="macros_8hpp.html#a7372a6605caf6d14983e93cc3e6783a3">CONSTEXPRCXX20</a> <span class="keywordtype">void</span> <a class="code" href="classsalih_1_1containers_1_1Stack.html#afe3a7cc35667f8107ce6b618c49d0ba4">push</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp;) ;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="macros_8hpp.html#a7372a6605caf6d14983e93cc3e6783a3">CONSTEXPRCXX20</a> std::size_t <a class="code" href="classsalih_1_1containers_1_1Stack.html#a2aeb9d9338321f3f31468c8989e004c6">getSize</a>() ;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="macros_8hpp.html#a7372a6605caf6d14983e93cc3e6783a3">CONSTEXPRCXX20</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="classsalih_1_1containers_1_1Stack.html#a7b1e161526886a6a862cc050961c0fcd">getSize</a>() ;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keyword">template</span>&lt;<span class="keyword">typename</span> OTHER&gt;</div>
 <div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classsalih_1_1containers_1_1Stack.html#a2132310955c0d3dd3d8aa1e665553003">  107</a></span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsalih_1_1containers_1_1Stack.html">Stack</a> ;</div>
@@ -148,7 +148,7 @@ $(function() {
 <div class="ttc" id="aclasssalih_1_1containers_1_1Stack_html_aa5d65eaa87f578bea87a400398ccdb3a"><div class="ttname"><a href="classsalih_1_1containers_1_1Stack.html#aa5d65eaa87f578bea87a400398ccdb3a">salih::containers::Stack::~Stack</a></div><div class="ttdeci">CONSTEXPRCXX20 ~Stack()</div></div>
 <div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Data manipulation functionalities.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:14</div></div>
 <div class="ttc" id="aclasssalih_1_1containers_1_1Stack_html_a46708caa398aecd20ac4ebf6e34dcf12"><div class="ttname"><a href="classsalih_1_1containers_1_1Stack.html#a46708caa398aecd20ac4ebf6e34dcf12">salih::containers::Stack::peek</a></div><div class="ttdeci">const CONSTEXPRCXX20 T &amp; peek() const</div></div>
-<div class="ttc" id="aclasssalih_1_1containers_1_1Stack_html_a2aeb9d9338321f3f31468c8989e004c6"><div class="ttname"><a href="classsalih_1_1containers_1_1Stack.html#a2aeb9d9338321f3f31468c8989e004c6">salih::containers::Stack::getSize</a></div><div class="ttdeci">CONSTEXPRCXX20 std::size_t getSize()</div></div>
+<div class="ttc" id="aclasssalih_1_1containers_1_1Stack_html_a7b1e161526886a6a862cc050961c0fcd"><div class="ttname"><a href="classsalih_1_1containers_1_1Stack.html#a7b1e161526886a6a862cc050961c0fcd">salih::containers::Stack::getSize</a></div><div class="ttdeci">CONSTEXPRCXX20 unsigned long getSize()</div></div>
 <div class="ttc" id="aclasssalih_1_1containers_1_1Stack_html_af83a7df51131b8ac2aab3ae155514f27"><div class="ttname"><a href="classsalih_1_1containers_1_1Stack.html#af83a7df51131b8ac2aab3ae155514f27">salih::containers::Stack::inner</a></div><div class="ttdeci">T inner</div><div class="ttdef"><b>Definition:</b> stack.hpp:26</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

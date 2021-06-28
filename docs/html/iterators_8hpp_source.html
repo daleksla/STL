@@ -80,54 +80,83 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>types {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html">   16</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html">UniDirectionalIteratorTag</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#ad68b872f1439335b35bd730a6c7aa4cc">   17</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#ad68b872f1439335b35bd730a6c7aa4cc">value</a> = 1 ;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    } ;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html">   20</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html">BiDirectionalIteratorTag</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a32c91736f6590d1b458d58fc8a3db74a">   21</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a32c91736f6590d1b458d58fc8a3db74a">value</a> = 2 ;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    } ;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html">   24</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html">RandomAccessIteratorTag</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#a97a05907e8829e776a8c7d052d39de1b">   25</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#a97a05907e8829e776a8c7d052d39de1b">value</a> = 3 ;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#aa0b35a4424bbaad079347607d4c5b079">   18</a></span>&#160;            <span class="keyword">static</span> <a class="code" href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a> <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#aa0b35a4424bbaad079347607d4c5b079">value</a> = 1 ;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#aca38b52210b18d44c649604aa39142f7">   21</a></span>&#160;            <span class="keyword">inline</span> <a class="code" href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a> <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#aca38b52210b18d44c649604aa39142f7">operator()</a>()</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#aa0b35a4424bbaad079347607d4c5b079">value</a> ;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    } ;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">    #ifdef CXX20</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    concept ForwardIterator = requires(T a) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        ++a ;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        a++ ;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        a += 2 ;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        a + 1 ; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    } ;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    concept BidirectionalIterator = ForwardIterator&lt;T&gt; &amp;&amp; requires(T a) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        --a ;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        a-- ;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        a -= 2 ;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        a - 1 ; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    } ;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    concept RandomAccessIterator = BidirectionalIterator&lt;T&gt; &amp;&amp; requires(T a) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        a &gt; a ;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        a &gt;= a ;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        a &lt; a ;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        a &lt;= a ;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    } ;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html">   28</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html">BiDirectionalIteratorTag</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a6a6b4c4208796e5d911db05ae7aafaf4">   30</a></span>&#160;            <span class="keyword">static</span> <a class="code" href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a> <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a6a6b4c4208796e5d911db05ae7aafaf4">value</a> = 2 ;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a8901c4920204c17d71cb25e8e6df1ff3">   33</a></span>&#160;            <span class="keyword">inline</span> <a class="code" href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a> <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a8901c4920204c17d71cb25e8e6df1ff3">operator()</a>()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a6a6b4c4208796e5d911db05ae7aafaf4">value</a> ;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    } ;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html">   40</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html">RandomAccessIteratorTag</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#aa748fae231aa43a6777641ec8a165d60">   42</a></span>&#160;            <span class="keyword">static</span> <a class="code" href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a> <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#aa748fae231aa43a6777641ec8a165d60">value</a> = 3 ;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#aaf6aaba6bb5a97e4c94f76f0308afef1">   45</a></span>&#160;            <span class="keyword">inline</span> <a class="code" href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a> <span class="keywordtype">int</span> <a class="code" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#aaf6aaba6bb5a97e4c94f76f0308afef1">operator()</a>()</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#aa748fae231aa43a6777641ec8a165d60">value</a> ;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    } ;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    #ifdef CXX20</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    concept ForwardIterator = requires(T a) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        ++a ;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        a++ ;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        a += 2 ;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        a + 1 ; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    } ;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    concept BidirectionalIterator = ForwardIterator&lt;T&gt; &amp;&amp; requires(T a) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        --a ;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        a-- ;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        a -= 2 ;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        a - 1 ; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    } ;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    concept RandomAccessIterator = BidirectionalIterator&lt;T&gt; &amp;&amp; requires(T a) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        a &gt; a ;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        a &gt;= a ;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        a &lt; a ;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        a &lt;= a ;    </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    } ;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructsalih_1_1types_1_1RandomAccessIteratorTag_html_a97a05907e8829e776a8c7d052d39de1b"><div class="ttname"><a href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#a97a05907e8829e776a8c7d052d39de1b">salih::types::RandomAccessIteratorTag::value</a></div><div class="ttdeci">static constexpr int value</div><div class="ttdef"><b>Definition:</b> iterators.hpp:25</div></div>
-<div class="ttc" id="astructsalih_1_1types_1_1BiDirectionalIteratorTag_html"><div class="ttname"><a href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html">salih::types::BiDirectionalIteratorTag</a></div><div class="ttdef"><b>Definition:</b> iterators.hpp:20</div></div>
-<div class="ttc" id="astructsalih_1_1types_1_1RandomAccessIteratorTag_html"><div class="ttname"><a href="structsalih_1_1types_1_1RandomAccessIteratorTag.html">salih::types::RandomAccessIteratorTag</a></div><div class="ttdef"><b>Definition:</b> iterators.hpp:24</div></div>
-<div class="ttc" id="astructsalih_1_1types_1_1BiDirectionalIteratorTag_html_a32c91736f6590d1b458d58fc8a3db74a"><div class="ttname"><a href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a32c91736f6590d1b458d58fc8a3db74a">salih::types::BiDirectionalIteratorTag::value</a></div><div class="ttdeci">static constexpr int value</div><div class="ttdef"><b>Definition:</b> iterators.hpp:21</div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1UniDirectionalIteratorTag_html_aca38b52210b18d44c649604aa39142f7"><div class="ttname"><a href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#aca38b52210b18d44c649604aa39142f7">salih::types::UniDirectionalIteratorTag::operator()</a></div><div class="ttdeci">CONSTEXPRCXX11 int operator()()</div><div class="ttdef"><b>Definition:</b> iterators.hpp:21</div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1BiDirectionalIteratorTag_html"><div class="ttname"><a href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html">salih::types::BiDirectionalIteratorTag</a></div><div class="ttdef"><b>Definition:</b> iterators.hpp:28</div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1RandomAccessIteratorTag_html"><div class="ttname"><a href="structsalih_1_1types_1_1RandomAccessIteratorTag.html">salih::types::RandomAccessIteratorTag</a></div><div class="ttdef"><b>Definition:</b> iterators.hpp:40</div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1UniDirectionalIteratorTag_html_aa0b35a4424bbaad079347607d4c5b079"><div class="ttname"><a href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#aa0b35a4424bbaad079347607d4c5b079">salih::types::UniDirectionalIteratorTag::value</a></div><div class="ttdeci">static CONSTEXPRCXX11 int value</div><div class="ttdef"><b>Definition:</b> iterators.hpp:18</div></div>
 <div class="ttc" id="amacros_8hpp_html"><div class="ttname"><a href="macros_8hpp.html">macros.hpp</a></div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1RandomAccessIteratorTag_html_aa748fae231aa43a6777641ec8a165d60"><div class="ttname"><a href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#aa748fae231aa43a6777641ec8a165d60">salih::types::RandomAccessIteratorTag::value</a></div><div class="ttdeci">static CONSTEXPRCXX11 int value</div><div class="ttdef"><b>Definition:</b> iterators.hpp:42</div></div>
+<div class="ttc" id="amacros_8hpp_html_a78ba4d103ca867a161ab23417aaf388c"><div class="ttname"><a href="macros_8hpp.html#a78ba4d103ca867a161ab23417aaf388c">CONSTEXPRCXX11</a></div><div class="ttdeci">#define CONSTEXPRCXX11</div><div class="ttdoc">Useful, library &amp; compiler independant macros.</div><div class="ttdef"><b>Definition:</b> macros.hpp:38</div></div>
 <div class="ttc" id="anamespacesalih_html"><div class="ttname"><a href="namespacesalih.html">salih</a></div><div class="ttdoc">Data manipulation functionalities.</div><div class="ttdef"><b>Definition:</b> data-ops.hpp:14</div></div>
-<div class="ttc" id="astructsalih_1_1types_1_1UniDirectionalIteratorTag_html_ad68b872f1439335b35bd730a6c7aa4cc"><div class="ttname"><a href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html#ad68b872f1439335b35bd730a6c7aa4cc">salih::types::UniDirectionalIteratorTag::value</a></div><div class="ttdeci">static constexpr int value</div><div class="ttdef"><b>Definition:</b> iterators.hpp:17</div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1BiDirectionalIteratorTag_html_a6a6b4c4208796e5d911db05ae7aafaf4"><div class="ttname"><a href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a6a6b4c4208796e5d911db05ae7aafaf4">salih::types::BiDirectionalIteratorTag::value</a></div><div class="ttdeci">static CONSTEXPRCXX11 int value</div><div class="ttdef"><b>Definition:</b> iterators.hpp:30</div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1BiDirectionalIteratorTag_html_a8901c4920204c17d71cb25e8e6df1ff3"><div class="ttname"><a href="structsalih_1_1types_1_1BiDirectionalIteratorTag.html#a8901c4920204c17d71cb25e8e6df1ff3">salih::types::BiDirectionalIteratorTag::operator()</a></div><div class="ttdeci">CONSTEXPRCXX11 int operator()()</div><div class="ttdef"><b>Definition:</b> iterators.hpp:33</div></div>
+<div class="ttc" id="astructsalih_1_1types_1_1RandomAccessIteratorTag_html_aaf6aaba6bb5a97e4c94f76f0308afef1"><div class="ttname"><a href="structsalih_1_1types_1_1RandomAccessIteratorTag.html#aaf6aaba6bb5a97e4c94f76f0308afef1">salih::types::RandomAccessIteratorTag::operator()</a></div><div class="ttdeci">CONSTEXPRCXX11 int operator()()</div><div class="ttdef"><b>Definition:</b> iterators.hpp:45</div></div>
 <div class="ttc" id="astructsalih_1_1types_1_1UniDirectionalIteratorTag_html"><div class="ttname"><a href="structsalih_1_1types_1_1UniDirectionalIteratorTag.html">salih::types::UniDirectionalIteratorTag</a></div><div class="ttdef"><b>Definition:</b> iterators.hpp:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

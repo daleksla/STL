@@ -1,5 +1,8 @@
 <map id="memory/base&#45;pointer.hpp" name="memory/base&#45;pointer.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="125,5,316,32"/>
-<area shape="rect" id="node2" href="$shared-pointer_8hpp.html" title=" " alt="" coords="5,80,209,107"/>
-<area shape="rect" id="node3" href="$unique-pointer_8hpp.html" title=" " alt="" coords="233,80,437,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="211,5,401,32"/>
+<area shape="rect" id="node2" href="$unique-pointer_8hpp.html" title=" " alt="" coords="91,80,295,107"/>
+<area shape="rect" id="node6" href="$shared-pointer_8hpp.html" title=" " alt="" coords="319,80,523,107"/>
+<area shape="rect" id="node3" href="$io-base_8hpp.html" title=" " alt="" coords="109,155,276,181"/>
+<area shape="rect" id="node4" href="$i-stream_8hpp.html" title=" " alt="" coords="5,229,180,256"/>
+<area shape="rect" id="node5" href="$o-stream_8hpp.html" title=" " alt="" coords="205,229,383,256"/>
 </map>

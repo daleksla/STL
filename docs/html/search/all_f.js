@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['tally_133',['tally',['../namespacesalih_1_1algorithms.html#ac706ab0f080ac783f6bf34af47a322bc',1,'salih::algorithms::tally(const T &amp;, const T &amp;, const U &amp;)'],['../namespacesalih_1_1algorithms.html#abab268fa1d5146c8ab12a6d8256a09fc',1,'salih::algorithms::tally(const T &amp;, const U &amp;)']]],
-  ['traits_2ehpp_134',['traits.hpp',['../traits_8hpp.html',1,'']]],
-  ['truetype_135',['trueType',['../structsalih_1_1types_1_1trueType.html',1,'salih::types']]]
+  ['tally_202',['tally',['../namespacesalih_1_1algorithms.html#aba7b378561c4ee7f12554108ff3979b7',1,'salih::algorithms::tally(const T &amp;, const T &amp;, const U &amp;)'],['../namespacesalih_1_1algorithms.html#a5bfdfb091b0ad1762153ab6ce4f5bdbd',1,'salih::algorithms::tally(const T &amp;, const U &amp;)']]],
+  ['tonumber_203',['toNumber',['../namespacesalih_1_1types.html#a870a99c73b6ce49c6a727b2ed3f33624',1,'salih::types::toNumber(const char *str)'],['../namespacesalih_1_1types.html#accc433786097968ffa61920753c09a48',1,'salih::types::toNumber(...)=delete']]],
+  ['traits_2ehpp_204',['traits.hpp',['../traits_8hpp.html',1,'']]],
+  ['truetype_205',['trueType',['../structsalih_1_1types_1_1trueType.html',1,'salih::types']]]
 ];

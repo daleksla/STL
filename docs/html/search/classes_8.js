@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randomaccessiteratortag_189',['RandomAccessIteratorTag',['../structsalih_1_1types_1_1RandomAccessIteratorTag.html',1,'salih::types']]]
+  ['queue_308',['Queue',['../classsalih_1_1containers_1_1Queue.html',1,'salih::containers']]]
 ];

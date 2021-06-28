@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queue_2ehpp_218',['queue.hpp',['../queue_8hpp.html',1,'']]]
+  ['o_2dstream_2ehpp_345',['o-stream.hpp',['../o-stream_8hpp.html',1,'']]]
 ];

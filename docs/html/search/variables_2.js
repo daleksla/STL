@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['u_309',['U',['../namespacesalih_1_1algorithms.html#ac011eb6d27b1d4da6f7dad7dc7aab098',1,'salih::algorithms']]]
+  ['maxcapacity_454',['maxCapacity',['../classsalih_1_1iostreams_1_1IOBase.html#a3605222c34ff49207ced8bcad066dd53',1,'salih::iostreams::IOBase']]]
 ];
