@@ -27,11 +27,11 @@ You will need to include the relevant headers as you would for C++'s STL alterna
 
 For example:
 
-#include <vector>
+`#include <vector>`
 
 ...is now...
 
-#include <vector.hpp>
+`#include <vector.hpp>`
 
 Refer to documentation for usage of each function / class.
 
