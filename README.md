@@ -13,7 +13,7 @@ Notes:
 - The threading / concurrency library is **not** included due to the scoping issues it would present to this project (e,g. aspects such as atomics are hardware dependant)
 - This is **not** focussed on reimplementing the C standard libraries which C++ happens to wrap (e.g. malloc -> ~~stl::malloc~~)
 - This library also will **not** deal with exception handling
-  - Note: I use exception handling in my other works and I prefer much more to error-codes (in fact [this wrapper around POSIX standard functions](https://github.com/daleksla/posicxx) creates wrappers around all the system calls which utilise C++ exceptions. But that library was written for convinient error-checking with minimal overhead, a different purpose to this library's.
+  - Note: I use exception handling in my other works and I prefer much more to error-codes (in fact [this wrapper around POSIX standard functions](https://github.com/daleksla/posicxx) creates wrappers around all the system calls which utilise C++ exceptions. But that library was written for convinient error-checking with minimal overhead, a different purpose to this library's).
 
 ## Building
 
