@@ -6,7 +6,7 @@ Common algorithms & structural implementations of the C++'s standard library, re
 This library is a reimplementation of C++'s more common algorithms & structural implementations (e.g. std::vector -> stl::vector, etc.), with a key focus on:
 1. Rewriting code to take up little space in memory
 2. Writing *all* code to be compiled & ran for a C++11 compiler (even if the features were inspired from a later standard)
-3. Fast
+3. Speed
 
 Notes:
 - This project is **not** concerned with replacing the general-use, feature-rich tried-and-tested C++ STL. If you want something fast & small, have very specific compiler requirements, and don't require lucrative features of C++ (e.g. filesystem libraries) then this is for you
